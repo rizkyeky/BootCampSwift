@@ -29,7 +29,7 @@ var list: [String?] = ["Float", "Android", "--", nil, nil]
 
 let num4: String = "-0"
 
-print("\(Int(num4))")
+print("cek: \(Int(num4))")
 
 if let possibleNumber = Int("0101") {
     print(" \(possibleNumber)")
@@ -78,6 +78,13 @@ for day in Days.allCases {
     print(day.description())
 }
 
+if (namaHari == .Friday) {
+    print("Friday")
+} else {
+    print("Not Friday")
+}
+
+
 switch (namaHari) {
 case .Monday:
     print("Hari Senin")
@@ -95,13 +102,14 @@ case .Sunday:
     print("Hari Minggu")
 }
 
-//func doLoop() -> String {
-//    var temp = ""
-//    for (var i in 1..10) {
-//        temp += "-"
-//    }
-//    return "+++"
-//}
+func doLoop(num: Int) -> String {
+    var temp = ""
+    for  i in 1...10 {
+        temp += "-"
+        print(i)
+    }
+    return "+++"
+}
 
 
 
