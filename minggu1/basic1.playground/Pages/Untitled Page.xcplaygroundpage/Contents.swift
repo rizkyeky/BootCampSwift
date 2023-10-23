@@ -114,7 +114,7 @@ func doLoop(num: Int) -> String {
         temp += "-"
         print(i)
     }
-    return "+++"
+    return temp
 }
 
 
