@@ -1,11 +1,11 @@
-import UIKit
+//import UIKit
 import Foundation
-import CoreML
-import ARKit
-import Vision
-import CoreData
-import CoreNFC
-import CoreBluetooth
+//import CoreML
+//import ARKit
+//import Vision
+//import CoreData
+//import CoreNFC
+//import CoreBluetooth
 
 var greeting = "Hello, playground"
 
@@ -110,11 +110,44 @@ case .Sunday:
 
 func doLoop(num: Int) -> String {
     var temp = ""
-    for  i in 1...10 {
+    for  i in 0...10 {
         temp += "-"
         print(i)
     }
     return temp
+}
+
+for  i in 0..10 {
+    print(i)
+}
+
+for  i in 0...10 {
+    print(i)
+}
+
+for  i in 0..<10 {
+    print(i)
+}
+
+for  i in 0...<10 {
+    print(i)
+}
+
+let names: [String] = ["ss", "aa", "bb", "cc", "dd", "ee"]
+for  i in 0..<names.count {
+    print(i)
+}
+
+for name in names {
+    print(name)
+}
+
+for name in names[...2] {
+    print(name)
+}
+
+for name in names[2...] {
+    print(name)
 }
 
 
