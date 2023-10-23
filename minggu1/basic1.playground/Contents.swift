@@ -1,4 +1,11 @@
 import UIKit
+import Foundation
+import CoreML
+import ARKit
+import Vision
+import CoreData
+import CoreNFC
+import CoreBluetooth
 
 var greeting = "Hello, playground"
 
@@ -83,7 +90,6 @@ if (namaHari == .Friday) {
 } else {
     print("Not Friday")
 }
-
 
 switch (namaHari) {
 case .Monday:
