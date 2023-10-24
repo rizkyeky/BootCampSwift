@@ -3,5 +3,6 @@
     <pages>
         <page name='Basic1'/>
         <page name='Basic2'/>
+        <page name='ATM'/>
     </pages>
 </playground>

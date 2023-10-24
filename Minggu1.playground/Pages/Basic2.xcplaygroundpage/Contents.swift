@@ -9,14 +9,14 @@ func doLoop(_ num: Int) {
     }
 }
 
-//func doLoop(_ num: Int) -> String {
-//    print("func2")
-//    var temp: String = ""
-//    for i in 0...num {
-//        temp += "+"
-//    }
-//    return temp
-//}
+func doLoop_(_ num: Int) -> String {
+    print("func2")
+    var temp: String = ""
+    for i in 0...num {
+        temp += "+\(i)"
+    }
+    return temp
+}
 
 func doLoop(number num: Int) -> String {
     print("func3")
@@ -46,10 +46,12 @@ func doLoop(numbers: Int...) -> (Int, Float, Double) {
 }
 
 doLoop(2) // func1
-//var str: String = doLoop(2) // func2
+var str: String = doLoop_(2) // func2
 var str1: String = doLoop(number: 10) // func3
 var str2: String = doLoop(num: 4) // func4
 var tuple1: (Int, Float, Double) = doLoop(numbers: 1,1,1,1,1,1) // func5
+
+let range2 = 5...
 
 enum Days: String, CaseIterable {
     case Sunday = "Minggu"
@@ -93,7 +95,7 @@ print(hari1 ?? "-")
 print(hari2 ?? "-")
 
 // closure 1
-func doLoop(number num: Int, onLoop: (Int) -> Void) {
+func doLoop(number_ num: Int, onLoop: (Int) -> Void) {
     print("closure1")
     for i in 0..<num {
         onLoop(i)
@@ -117,32 +119,242 @@ func doLoop(number num: Int, onLoop: (Int) -> Int, outLoop: () -> Void) {
     outLoop()
 }
 
-doLoop(number: 1, onLoop: { i in
-    print("++ \(i)")
+// closure 4
+func doLoop(_ num: inout Int, doMyNum: (inout Int) -> Void) -> Void {
+    print("closure4")
+    doMyNum(&num)
+}
+
+doLoop(number_: 1, onLoop: { i in
+    var temp = 0
+    temp += i
 })
 
 doLoop(number: 2, onLoop: { i in
-    print("++ \(i)")
     return 10+i
 })
 
 doLoop(number: 3, onLoop: { i in
-    print("++ \(i)")
     return 10+i
 }, outLoop: {
     print("Done")
 })
 
 doLoop(number: 4, onLoop: { i in
-    print("++ \(i)")
     return 10+i
 }) {
     print("Done1")
 }
 
 doLoop(number: 5) { i in
-    print("++ \(i)")
     return 10+i
 } outLoop: {
     print("Done2")
+}
+
+var number = 100
+
+doLoop(&number) {
+    num in
+    num += 50
+}
+
+print(number)
+
+// Struct
+struct MyStruct {
+    var num: Int
+    var numFloat: Float
+    let numConst: Double
+    var numsFloat: Array<Float>
+    var numsDouble: Array<Double>
+    var days: Array<Days>
+    var doAllMyDay: (Days) -> String
+    
+    init(num: Int, numFloat: Float, numConst: Double, doAllMyDay: @escaping (Days) -> String) {
+        self.num = num
+        self.numFloat = numFloat
+        self.numConst = numConst
+        self.doAllMyDay = doAllMyDay
+        
+        self.numsFloat = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
+        self.numsDouble = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
+        self.days = [.Monday, .Tuesday, .Wednesday]
+    }
+    
+    mutating func doPopArray() -> Float {
+        return numsFloat.removeFirst()
+    }
+    
+    mutating func doPushArray(val: Float) -> Void {
+        numsFloat.append(val)
+    }
+    
+    mutating func doSortArrayFloat() -> Void {
+        numsFloat.sort() { a, b in
+            return a > b
+        }
+    }
+    
+    mutating func doLoopArray(inLoop: (Float) -> Float) -> Void {
+        for num in numsFloat {
+            inLoop(num)
+        }
+    }
+    
+    mutating func doSortArrayDay() -> Void {
+        days.sort() { a, b in
+            return a.rawValue.startIndex > b.rawValue.startIndex
+        }
+    }
+    
+    func doLoopMyDays() -> Void {
+        for day in days {
+            var cek = doAllMyDay(day)
+        }
+    }
+}
+
+protocol Mother {
+    func loveTheirChildren() -> Void
+    func kind() -> String
+}
+
+// Class
+class MyMotherClass: Mother {
+    
+    func loveTheirChildren() {}
+    
+    func kind() -> String {
+        return "100"
+    }
+    
+    var num1: Int
+    var num2: Int
+    
+    init(num1: Int, num2: Int) {
+        self.num1 = num1
+        self.num2 = num2
+    }
+}
+
+class MyClass: MyMotherClass {
+    var num: Int
+    var numFloat: Float
+    let numConst: Double = 19.9
+    var numsFloat: Array<Float>
+    var numsDouble: Array<Double>
+    var days: Array<Days>
+    var doAllMyDay: (Days) -> String
+    
+    init(num: Int, numFloat: Float, numConst: Double, doAllMyDay: @escaping (Days) -> String) {
+        
+        self.num = num
+        self.numFloat = numFloat
+        self.doAllMyDay = doAllMyDay
+        
+        self.numsFloat = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
+        self.numsDouble = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
+        self.days = [.Monday, .Tuesday, .Wednesday]
+        
+        super.init(num1: 100, num2: 1200)
+    }
+    
+    init(num: Int, numFloat: Float) {
+        self.num = num
+        self.numFloat = numFloat
+        self.doAllMyDay = {
+            day in
+            return day.rawValue
+        }
+        
+        self.numsFloat = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
+        self.numsDouble = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
+        self.days = [.Monday, .Tuesday, .Wednesday]
+        
+        super.init(num1: 100, num2: 1200)
+    }
+    
+    convenience init(num: Int) {
+        self.init(num: num, numFloat: 1.1, numConst: 1.1) {
+            day in
+            return day.rawValue
+        }
+        self.numFloat = 1.1
+        self.num = num
+        
+        self.numsFloat = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
+        self.numsDouble = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
+        self.days = [.Monday, .Tuesday, .Wednesday]
+    }
+    
+    override func kind() -> String {
+        return "I love you mom"
+    }
+    
+    func doPopArray() -> Float {
+        return numsFloat.removeFirst()
+    }
+    
+    func doPushArray(val: Float) -> Void {
+        numsFloat.append(val)
+    }
+    
+    func doSortArrayFloat() -> Void {
+        numsFloat.sort() { a, b in
+            return a > b
+        }
+    }
+    func doLoopArray(inLoop: (Float) -> Float) -> Void {
+        for num in numsFloat {
+            inLoop(num)
+        }
+        for myMotherNum in 0..<self.num1 {
+            inLoop(Float(myMotherNum))
+        }
+    }
+    
+    func doSortArrayDay() -> Void {
+        days.sort() { a, b in
+            return a.rawValue.startIndex > b.rawValue.startIndex
+        }
+    }
+    
+    func doLoopMyDays() -> Void {
+        for day in days {
+            var cek = doAllMyDay(day)
+        }
+    }
+    
+}
+
+extension MyClass {
+    func getDays() -> Days {
+        return Days.Friday
+    }
+}
+
+var struct1 = MyStruct(num: 10, numFloat: 1.1, numConst: 0.11) {
+    day in
+    return "100"
+}
+
+var struct2 = struct1
+struct2.num = 50
+
+print(struct1.num)
+
+var class1 = MyClass(num: 10, numFloat: 1.1, numConst: 0.11) {
+    day in
+    return "100"
+}
+
+var class2 = class1
+class2.num = 50
+
+print(class1.num)
+
+class2.doLoopArray() {
+    fl in
+    return fl + 1.5
 }
