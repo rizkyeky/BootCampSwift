@@ -108,18 +108,17 @@ case .Sunday:
     print("Hari Minggu")
 }
 
-func doLoop(num: Int) -> String {
-    var temp = ""
-    for  i in 0...10 {
-        temp += "-"
-        print(i)
-    }
-    return temp
+enum Laptop {
+  case name(String)
+  case price(Int)
 }
 
-for  i in 0..10 {
-    print(i)
-}
+var laptopName: Laptop = Laptop.name("Razer")
+var laptopPrice: Laptop = Laptop.price(9999)
+
+//for  i in 0..10 {
+//    print(i)
+//}
 
 for  i in 0...10 {
     print(i)
@@ -129,9 +128,9 @@ for  i in 0..<10 {
     print(i)
 }
 
-for  i in 0...<10 {
-    print(i)
-}
+//for  i in 0...<10 {
+//    print(i)
+//}
 
 let names: [String] = ["ss", "aa", "bb", "cc", "dd", "ee"]
 for  i in 0..<names.count {
