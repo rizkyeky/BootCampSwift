@@ -18,7 +18,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        backgroundProfile.backgroundColor = .white
         backgroundProfile.layer.cornerRadius = 24
+        backgroundProfile.layer.shadowColor = UIColor.systemGray.cgColor
+        backgroundProfile.layer.shadowOpacity = 0.2
+        backgroundProfile.layer.shadowOffset = CGSize(width: 2, height: 2)
+        backgroundProfile.layer.shadowRadius = 4
         
         avaProfile.clipsToBounds = true
         avaProfile.layer.cornerRadius = avaProfile.frame.size.width / 2
