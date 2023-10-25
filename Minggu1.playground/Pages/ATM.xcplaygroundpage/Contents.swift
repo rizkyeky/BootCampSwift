@@ -1,23 +1,23 @@
 
 class ATMMachine {
-    let deposit = Deposit()
-    let withdraw = Withdraw()
+//    let deposit = Deposit()
+//    let withdraw = Withdraw()
 }
 
 extension ATMMachine {
     func checkBalance() {
-        print("Your current balance is \(deposit.nilai)")
+        print("Your current balance is \(Deposit.nilai)")
     }
     func withdrawMoney(input inputString: String) {
         if let _input = Int(inputString) {
-            withdraw.nilai = Double(_input)
+            Withdraw.nilai = Double(_input)
         }
         else {
             print("Input Error, Input Should be Interger")
             return
         }
         
-        if (deposit.nilai == 0) {
+        if (Deposit.nilai == 0) {
             print("Your current balance is zero.")
             print("You cannot withdraw!")
             print("You need to deposit money first.")
@@ -54,7 +54,8 @@ extension ATMMachine {
         switch (select) {
             case 1:
                 print("Enter the amount of money to deposit: ")
-                depositMoney(input: "10")
+                var _input = readLine() ?? "0"
+                depositMoney(input: _input)
                 break
             case 2:
                 print("To withdraw, make sure that you have sufficient balance in your account.")
@@ -72,6 +73,10 @@ extension ATMMachine {
 
 class Deposit {
     
+    static let shared = Deposit()
+        
+    private init() {}
+    
     private var _nilai: Double = 0
     
     var nilai: Double {
@@ -86,6 +91,10 @@ class Deposit {
 }
 
 class Withdraw {
+    
+    static let shared = Withdraw()
+        
+    private init() {}
     
     private var _nilai: Double = 0
     

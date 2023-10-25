@@ -45,6 +45,11 @@ func doLoop(numbers: Int...) -> (Int, Float, Double) {
     return (temp, Float(temp)/2, Double(temp)/2.2)
 }
 
+func doLoop(num: Int, doNum: @escaping (Int) -> Int) -> (Int) -> Int {
+    print("func6")
+    return doNum
+}
+
 doLoop(2) // func1
 var str: String = doLoop_(2) // func2
 var str1: String = doLoop(number: 10) // func3
@@ -52,6 +57,7 @@ var str2: String = doLoop(num: 4) // func4
 var tuple1: (Int, Float, Double) = doLoop(numbers: 1,1,1,1,1,1) // func5
 
 let range2 = 5...
+print(type(of:range2))
 
 enum Days: String, CaseIterable {
     case Sunday = "Minggu"
@@ -246,6 +252,9 @@ class MyClass: MyMotherClass {
     var numsDouble: Array<Double>
     var days: Array<Days>
     var doAllMyDay: (Days) -> String
+    var str: String {
+        return ""
+    }
     
     init(num: Int, numFloat: Float, numConst: Double, doAllMyDay: @escaping (Days) -> String) {
         

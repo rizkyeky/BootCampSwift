@@ -28,15 +28,16 @@ print("\(num3 ?? 0)")
 
 typealias Kata = String
 
-let tupl: (Kata, Int, Bool) = ("asda", 1010, true)
+var tupl: (Kata, Int, Bool) = ("asda", 1010, true)
 
 print("\(tupl.0)-\(tupl.1)-\(tupl.2)")
 
-var list: [String?] = ["Float", "Android", "--", nil, nil]
+var list: [String?] = ["Float", "Int", "--", nil, nil]
+var list2: [Any?] = ["Float", 3.0, ("Int", 2.0), nil, nil]
 
 let num4: String = "-0"
 
-print("cek: \(Int(num4))")
+//print("cek: \(Int(num4))")
 
 if let possibleNumber = Int("0101") {
     print(" \(possibleNumber)")
@@ -45,7 +46,7 @@ if let possibleNumber = Int("0101") {
 }
 
 if let possibleNumber1 = Int("0101"), false == true, 123 == tupl.1, var sar = list[0] {
-    print(" \(possibleNumber1)")
+    print(" \(possibleNumber1) - \(sar)")
 } else {
     print("Error")
 }
@@ -148,8 +149,6 @@ for name in names[...2] {
 for name in names[2...] {
     print(name)
 }
-
-
 
 
 
