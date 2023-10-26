@@ -9,6 +9,8 @@ import UIKit
 
 class ShareCell: UITableViewCell {
 
+    @IBOutlet weak var cellButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

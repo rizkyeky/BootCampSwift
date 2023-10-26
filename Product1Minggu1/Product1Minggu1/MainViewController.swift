@@ -68,8 +68,24 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onChangedSwitchDarkMode(_ sender: Any) {
-        
+        if (isDarkMode) {
+            if #available(iOS 13.0, *) {
+                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+            }
+        } else {
+            if #available(iOS 13.0, *) {
+                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+            }
+        }
     }
+
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        if #available(iOS 13.0, *) {
+//            overrideUserInterfaceStyle = .dark
+//        }
+//    }
+
     
     
     @IBAction func onTapLogout(_ sender: Any) {
