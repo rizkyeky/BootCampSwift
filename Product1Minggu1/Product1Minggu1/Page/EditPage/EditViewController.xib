@@ -19,20 +19,39 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZg-eL-KfF" customClass="FormInputField" customModule="Product1Minggu1" customModuleProvider="target">
-                    <rect key="frame" x="16" y="59" width="361" height="64"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cap-Fi-YoR">
+                    <rect key="frame" x="16" y="75" width="122" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZg-eL-KfF" userLabel="FormInputField" customClass="FormInputField" customModule="Product1Minggu1" customModuleProvider="target">
+                    <rect key="frame" x="16" y="120" width="361" height="64"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="0ri-0R-0IC"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="42p-qn-yom"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypy-Fh-OlF" userLabel="FormInputField" customClass="FormInputField" customModule="Product1Minggu1" customModuleProvider="target">
+                    <rect key="frame" x="16" y="200" width="361" height="64"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="4Ad-8D-qdy"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JZg-eL-KfF" secondAttribute="trailing" constant="16" id="4WE-8a-cfF"/>
-                <constraint firstItem="JZg-eL-KfF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="5YD-HZ-aa1"/>
-                <constraint firstItem="JZg-eL-KfF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="au4-ik-gks"/>
+                <constraint firstItem="Cap-Fi-YoR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="7Y6-F9-Kgz"/>
+                <constraint firstItem="Cap-Fi-YoR" firstAttribute="leading" secondItem="JZg-eL-KfF" secondAttribute="leading" id="OFj-xz-qUA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JZg-eL-KfF" secondAttribute="trailing" constant="16" id="S64-mn-cUF"/>
+                <constraint firstItem="JZg-eL-KfF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="VqE-Xf-wNR"/>
+                <constraint firstItem="ypy-Fh-OlF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="XSU-Lz-Uru"/>
+                <constraint firstItem="ypy-Fh-OlF" firstAttribute="trailing" secondItem="JZg-eL-KfF" secondAttribute="trailing" id="dZJ-fL-hYg"/>
+                <constraint firstItem="JZg-eL-KfF" firstAttribute="top" secondItem="Cap-Fi-YoR" secondAttribute="bottom" constant="16" id="gGb-D8-O8d"/>
+                <constraint firstItem="ypy-Fh-OlF" firstAttribute="top" secondItem="JZg-eL-KfF" secondAttribute="bottom" constant="16" id="qkB-iQ-bhp"/>
             </constraints>
             <point key="canvasLocation" x="-121.37404580152672" y="19.718309859154932"/>
         </view>
