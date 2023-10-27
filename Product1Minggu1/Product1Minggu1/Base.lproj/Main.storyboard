@@ -32,6 +32,9 @@
                                                             <imageReference key="image" image="pencil.line" catalog="system" symbolScale="large"/>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="onTapEditProfile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cei-WF-EE1"/>
+                                                        </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5cR-vH-1sz">
                                                         <rect key="frame" x="65" y="0.0" width="268.66666666666669" height="216"/>
@@ -106,7 +109,7 @@
                                                         </constraints>
                                                         <buttonConfiguration key="configuration" style="plain" title="Setting" buttonSize="large" titleAlignment="leading"/>
                                                         <connections>
-                                                            <action selector="onTapSettingButtton:" destination="BYZ-38-t0r" eventType="touchDown" id="R4r-qO-Woz"/>
+                                                            <action selector="onTapSettingButtton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mxm-nI-xA1"/>
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QBS-wl-QEp">
@@ -137,6 +140,9 @@
                                                             <constraint firstAttribute="height" constant="60" id="h3g-Nn-g9N"/>
                                                         </constraints>
                                                         <buttonConfiguration key="configuration" style="plain" title="Log Out" buttonSize="large" titleAlignment="leading"/>
+                                                        <connections>
+                                                            <action selector="onTapLogout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xrM-hX-0RZ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -167,7 +173,6 @@
                         <outlet property="avaProfile" destination="8Tp-Qx-K7i" id="Ed6-dg-Gb0"/>
                         <outlet property="backgroundProfile" destination="oxy-tz-zfu" id="X17-gd-pea"/>
                         <outlet property="cardList" destination="iLt-AI-nTb" id="QHW-87-gC8"/>
-                        <outlet property="settingButton" destination="QXK-OE-C20" id="Sqh-l9-D0B"/>
                         <outlet property="switchDarkMode" destination="LKK-Su-IHu" id="uV0-HM-ee6"/>
                     </connections>
                 </viewController>

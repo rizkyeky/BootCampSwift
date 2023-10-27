@@ -13,24 +13,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var avaProfile: UIImageView!
     @IBOutlet weak var cardList: UIView!
     
-    @IBOutlet weak var settingButton: UIButton!
+    var isDarkMode = false
+    @IBOutlet weak var switchDarkMode: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundProfile.layer.cornerRadius = 8
+        setupBackgroundProfile()
+        setupAvaProfile()
+        setupCardList()
+        
+        switchDarkMode.setOn(isDarkMode, animated: false)
+    }
+    
+    func setupBackgroundProfile() {
+        
 //        backgroundProfile.layer.shadowColor = UIColor.systemGray.cgColor
 //        backgroundProfile.layer.shadowOpacity = 0.2
 //        backgroundProfile.layer.shadowOffset = CGSize(width: 2, height: 2)
 //        backgroundProfile.layer.shadowRadius = 4
+        
+        backgroundProfile.clipsToBounds = true
+        backgroundProfile.layer.cornerRadius = 8
         backgroundProfile.layer.borderWidth = 0.5
         backgroundProfile.layer.borderColor = UIColor.separator.cgColor
-        
+    }
+    
+    func setupAvaProfile() {
         avaProfile.clipsToBounds = true
         avaProfile.layer.cornerRadius = avaProfile.frame.size.width / 2
         avaProfile.layer.borderWidth = 6.0
         avaProfile.layer.borderColor = UIColor.systemBlue.cgColor
-        
+    }
+    
+    func setupCardList() {
+        cardList.clipsToBounds = true
         cardList.layer.cornerRadius = 8
         cardList.layer.borderWidth = 0.5
         cardList.layer.borderColor = UIColor.separator.cgColor
@@ -38,8 +55,6 @@ class ViewController: UIViewController {
 //        cardList.layer.shadowOpacity = 0.2
 //        cardList.layer.shadowOffset = CGSize(width: 2, height: 2)
 //        cardList.layer.shadowRadius = 4
-        switchDarkMode.setOn(isDarkMode, animated: false)
-        
     }
     
     @IBAction func onTapSettingButtton(_ sender: Any) {
@@ -58,47 +73,48 @@ class ViewController: UIViewController {
         }
         present(nav, animated: true, completion: nil)
     }
-    
-    var isDarkMode = false
-    @IBOutlet weak var switchDarkMode: UISwitch!
+    @IBAction func onTapEditProfile(_ sender: Any) {
+        self.navigationController?.pushViewController(EditViewController(), animated: true)
+    }
     
     @IBAction func onTapDarkMode(_ sender: Any) {
+        turnOnOffDarkMode()
         isDarkMode.toggle()
         switchDarkMode.setOn(isDarkMode, animated: true)
     }
     
     @IBAction func onChangedSwitchDarkMode(_ sender: Any) {
-        if (isDarkMode) {
+        turnOnOffDarkMode()
+        isDarkMode.toggle()
+    }
+
+    @IBAction func onTapLogout(_ sender: Any) {
+        let alertController = UIAlertController(title: "Log Out", message: "Are you sure want to log out", preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "OK", style: .default) { action in
+            let loginViewController = LoginViewController()
+            self.navigationController?.pushViewController(loginViewController, animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+
+        // Present the alert
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension ViewController {
+    func turnOnOffDarkMode() {
+        if (!isDarkMode) {
             if #available(iOS 13.0, *) {
                 UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
             }
         } else {
             if #available(iOS 13.0, *) {
-                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
             }
         }
     }
-
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        if #available(iOS 13.0, *) {
-//            overrideUserInterfaceStyle = .dark
-//        }
-//    }
-
-    
-    
-    @IBAction func onTapLogout(_ sender: Any) {
-        let alertController = UIAlertController(title: "Alert Title", message: "This is a simple alert", preferredStyle: .alert)
-
-        // Add an action to the alert (a button)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-
-        // Present the alert
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    
 }
-

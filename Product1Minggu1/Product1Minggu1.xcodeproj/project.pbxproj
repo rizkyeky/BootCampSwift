@@ -23,6 +23,20 @@
 		2595FECF2AEA49EB006C3EA9 /* ShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FECD2AEA49EB006C3EA9 /* ShareCell.swift */; };
 		2595FED02AEA49EB006C3EA9 /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2595FECE2AEA49EB006C3EA9 /* ShareCell.xib */; };
 		2595FED32AEA4E39006C3EA9 /* ExtTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FED22AEA4E39006C3EA9 /* ExtTableView.swift */; };
+		2595FED72AEB47C1006C3EA9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FED52AEB47C0006C3EA9 /* LoginViewController.swift */; };
+		2595FED82AEB47C1006C3EA9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2595FED62AEB47C1006C3EA9 /* LoginViewController.xib */; };
+		2595FEDB2AEB4E4F006C3EA9 /* SosialMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEDA2AEB4E4F006C3EA9 /* SosialMediaItem.swift */; };
+		2595FEDD2AEB5629006C3EA9 /* SectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEDC2AEB5629006C3EA9 /* SectionData.swift */; };
+		2595FEE02AEB9589006C3EA9 /* ExtCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEDF2AEB9589006C3EA9 /* ExtCollectionView.swift */; };
+		2595FEE42AEB96E9006C3EA9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEE22AEB96E9006C3EA9 /* HomeViewController.swift */; };
+		2595FEE52AEB96E9006C3EA9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2595FEE32AEB96E9006C3EA9 /* HomeViewController.xib */; };
+		2595FEE92AEB987C006C3EA9 /* HomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEE72AEB987C006C3EA9 /* HomeCollectionCell.swift */; };
+		2595FEEA2AEB987C006C3EA9 /* HomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2595FEE82AEB987C006C3EA9 /* HomeCollectionCell.xib */; };
+		2595FEEC2AEBA1A0006C3EA9 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEEB2AEBA1A0006C3EA9 /* ExtUIView.swift */; };
+		2595FEEF2AEBA310006C3EA9 /* FormInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEEE2AEBA310006C3EA9 /* FormInputField.swift */; };
+		2595FEF12AEBA37B006C3EA9 /* FormInputField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2595FEF02AEBA37B006C3EA9 /* FormInputField.xib */; };
+		2595FEF62AEBA6AE006C3EA9 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEF42AEBA6AE006C3EA9 /* EditViewController.swift */; };
+		2595FEF72AEBA6AE006C3EA9 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2595FEF52AEBA6AE006C3EA9 /* EditViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +77,20 @@
 		2595FECD2AEA49EB006C3EA9 /* ShareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCell.swift; sourceTree = "<group>"; };
 		2595FECE2AEA49EB006C3EA9 /* ShareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareCell.xib; sourceTree = "<group>"; };
 		2595FED22AEA4E39006C3EA9 /* ExtTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtTableView.swift; sourceTree = "<group>"; };
+		2595FED52AEB47C0006C3EA9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2595FED62AEB47C1006C3EA9 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		2595FEDA2AEB4E4F006C3EA9 /* SosialMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SosialMediaItem.swift; sourceTree = "<group>"; };
+		2595FEDC2AEB5629006C3EA9 /* SectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionData.swift; sourceTree = "<group>"; };
+		2595FEDF2AEB9589006C3EA9 /* ExtCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtCollectionView.swift; sourceTree = "<group>"; };
+		2595FEE22AEB96E9006C3EA9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2595FEE32AEB96E9006C3EA9 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		2595FEE72AEB987C006C3EA9 /* HomeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCell.swift; sourceTree = "<group>"; };
+		2595FEE82AEB987C006C3EA9 /* HomeCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionCell.xib; sourceTree = "<group>"; };
+		2595FEEB2AEBA1A0006C3EA9 /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
+		2595FEEE2AEBA310006C3EA9 /* FormInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInputField.swift; sourceTree = "<group>"; };
+		2595FEF02AEBA37B006C3EA9 /* FormInputField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormInputField.xib; sourceTree = "<group>"; };
+		2595FEF42AEBA6AE006C3EA9 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		2595FEF52AEBA6AE006C3EA9 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,10 +141,10 @@
 		2595FE842AE8EF34006C3EA9 /* Product1Minggu1 */ = {
 			isa = PBXGroup;
 			children = (
+				2595FEED2AEBA2C1006C3EA9 /* Component */,
+				2595FEDE2AEB929F006C3EA9 /* Page */,
+				2595FED92AEB4E30006C3EA9 /* Model */,
 				2595FED12AEA4E1D006C3EA9 /* Extension */,
-				2595FECC2AEA496B006C3EA9 /* ShareTableCellPage */,
-				2595FEC02AEA2672006C3EA9 /* SharePage */,
-				2595FEB72AEA0A7D006C3EA9 /* SettingPage */,
 				2595FE852AE8EF34006C3EA9 /* AppDelegate.swift */,
 				2595FE872AE8EF34006C3EA9 /* SceneDelegate.swift */,
 				2595FE892AE8EF34006C3EA9 /* MainViewController.swift */,
@@ -157,27 +185,97 @@
 		2595FEC02AEA2672006C3EA9 /* SharePage */ = {
 			isa = PBXGroup;
 			children = (
+				2595FECC2AEA496B006C3EA9 /* ShareCell */,
 				2595FEC12AEA268D006C3EA9 /* ShareViewController.swift */,
 				2595FEC22AEA268D006C3EA9 /* ShareViewController.xib */,
 			);
 			path = SharePage;
 			sourceTree = "<group>";
 		};
-		2595FECC2AEA496B006C3EA9 /* ShareTableCellPage */ = {
+		2595FECC2AEA496B006C3EA9 /* ShareCell */ = {
 			isa = PBXGroup;
 			children = (
 				2595FECD2AEA49EB006C3EA9 /* ShareCell.swift */,
 				2595FECE2AEA49EB006C3EA9 /* ShareCell.xib */,
 			);
-			path = ShareTableCellPage;
+			path = ShareCell;
 			sourceTree = "<group>";
 		};
 		2595FED12AEA4E1D006C3EA9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				2595FED22AEA4E39006C3EA9 /* ExtTableView.swift */,
+				2595FEDF2AEB9589006C3EA9 /* ExtCollectionView.swift */,
+				2595FEEB2AEBA1A0006C3EA9 /* ExtUIView.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		2595FED42AEB4795006C3EA9 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				2595FED52AEB47C0006C3EA9 /* LoginViewController.swift */,
+				2595FED62AEB47C1006C3EA9 /* LoginViewController.xib */,
+			);
+			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		2595FED92AEB4E30006C3EA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2595FEDA2AEB4E4F006C3EA9 /* SosialMediaItem.swift */,
+				2595FEDC2AEB5629006C3EA9 /* SectionData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2595FEDE2AEB929F006C3EA9 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				2595FEF32AEBA636006C3EA9 /* EditPage */,
+				2595FEE12AEB96D0006C3EA9 /* HomePage */,
+				2595FED42AEB4795006C3EA9 /* LoginPage */,
+				2595FEC02AEA2672006C3EA9 /* SharePage */,
+				2595FEB72AEA0A7D006C3EA9 /* SettingPage */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		2595FEE12AEB96D0006C3EA9 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				2595FEE62AEB9851006C3EA9 /* HomeCollectionCell */,
+				2595FEE22AEB96E9006C3EA9 /* HomeViewController.swift */,
+				2595FEE32AEB96E9006C3EA9 /* HomeViewController.xib */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		2595FEE62AEB9851006C3EA9 /* HomeCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				2595FEE72AEB987C006C3EA9 /* HomeCollectionCell.swift */,
+				2595FEE82AEB987C006C3EA9 /* HomeCollectionCell.xib */,
+			);
+			path = HomeCollectionCell;
+			sourceTree = "<group>";
+		};
+		2595FEED2AEBA2C1006C3EA9 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				2595FEEE2AEBA310006C3EA9 /* FormInputField.swift */,
+				2595FEF02AEBA37B006C3EA9 /* FormInputField.xib */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		2595FEF32AEBA636006C3EA9 /* EditPage */ = {
+			isa = PBXGroup;
+			children = (
+				2595FEF42AEBA6AE006C3EA9 /* EditViewController.swift */,
+				2595FEF52AEBA6AE006C3EA9 /* EditViewController.xib */,
+			);
+			path = EditPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,8 +386,13 @@
 				2595FE922AE8EF37006C3EA9 /* LaunchScreen.storyboard in Resources */,
 				2595FE8F2AE8EF37006C3EA9 /* Assets.xcassets in Resources */,
 				2595FED02AEA49EB006C3EA9 /* ShareCell.xib in Resources */,
+				2595FEF12AEBA37B006C3EA9 /* FormInputField.xib in Resources */,
 				2595FE8D2AE8EF34006C3EA9 /* Main.storyboard in Resources */,
+				2595FED82AEB47C1006C3EA9 /* LoginViewController.xib in Resources */,
 				2595FEBF2AEA0DDC006C3EA9 /* SettingViewController.xib in Resources */,
+				2595FEE52AEB96E9006C3EA9 /* HomeViewController.xib in Resources */,
+				2595FEEA2AEB987C006C3EA9 /* HomeCollectionCell.xib in Resources */,
+				2595FEF72AEBA6AE006C3EA9 /* EditViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,13 +417,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2595FEE02AEB9589006C3EA9 /* ExtCollectionView.swift in Sources */,
+				2595FEDB2AEB4E4F006C3EA9 /* SosialMediaItem.swift in Sources */,
 				2595FE8A2AE8EF34006C3EA9 /* MainViewController.swift in Sources */,
 				2595FE862AE8EF34006C3EA9 /* AppDelegate.swift in Sources */,
 				2595FEC32AEA268D006C3EA9 /* ShareViewController.swift in Sources */,
 				2595FE882AE8EF34006C3EA9 /* SceneDelegate.swift in Sources */,
+				2595FEEC2AEBA1A0006C3EA9 /* ExtUIView.swift in Sources */,
+				2595FED72AEB47C1006C3EA9 /* LoginViewController.swift in Sources */,
+				2595FEF62AEBA6AE006C3EA9 /* EditViewController.swift in Sources */,
 				2595FED32AEA4E39006C3EA9 /* ExtTableView.swift in Sources */,
+				2595FEE92AEB987C006C3EA9 /* HomeCollectionCell.swift in Sources */,
+				2595FEEF2AEBA310006C3EA9 /* FormInputField.swift in Sources */,
+				2595FEDD2AEB5629006C3EA9 /* SectionData.swift in Sources */,
 				2595FEBE2AEA0DDC006C3EA9 /* SettingViewController.swift in Sources */,
 				2595FECF2AEA49EB006C3EA9 /* ShareCell.swift in Sources */,
+				2595FEE42AEB96E9006C3EA9 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
