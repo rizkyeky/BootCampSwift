@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeTableCell: UITableViewCell {
+class HomeTableCell2: UITableViewCell {
 
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var mainColl: UICollectionView!
@@ -31,16 +31,18 @@ class HomeTableCell: UITableViewCell {
     }
 }
 
-extension HomeTableCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeTableCell2: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath ) as HomeCollCell1
-        cell.mainLabel.text = "CollCell1 \(indexPath.row)"
-        
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath ) as HomeColCell2
+        cell.mainButton.setTitle("CollCell2 \(indexPath.row)", for: .normal)
+        cell.onTap = {
+            print("CollCell2 \(indexPath.row)")
+        }
         return cell
     }
     

@@ -39,6 +39,14 @@
 		25E68EB12AEF4DD3007CF003 /* HomeCollCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E68EAF2AEF4DD3007CF003 /* HomeCollCell1.xib */; };
 		25E68EB82AEF5391007CF003 /* HomeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EB62AEF5391007CF003 /* HomeTableCell.swift */; };
 		25E68EB92AEF5391007CF003 /* HomeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E68EB72AEF5391007CF003 /* HomeTableCell.xib */; };
+		25E68EC12AEF5C81007CF003 /* HomeColCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EBF2AEF5C81007CF003 /* HomeColCell2.swift */; };
+		25E68EC22AEF5C81007CF003 /* HomeColCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E68EC02AEF5C81007CF003 /* HomeColCell2.xib */; };
+		25E68EC62AEF5E36007CF003 /* HomeTableCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EC42AEF5E36007CF003 /* HomeTableCell2.swift */; };
+		25E68EC72AEF5E36007CF003 /* HomeTableCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E68EC52AEF5E36007CF003 /* HomeTableCell2.xib */; };
+		25E68ECA2AEF8107007CF003 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EC92AEF8107007CF003 /* TabBarViewController.swift */; };
+		25E68ECD2AEF82DD007CF003 /* SFIconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68ECC2AEF82DD007CF003 /* SFIconImage.swift */; };
+		25E68ED12AEF8716007CF003 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68ECF2AEF8716007CF003 /* ProfileViewController.swift */; };
+		25E68ED22AEF8716007CF003 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E68ED02AEF8716007CF003 /* ProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +103,14 @@
 		25E68EAF2AEF4DD3007CF003 /* HomeCollCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollCell1.xib; sourceTree = "<group>"; };
 		25E68EB62AEF5391007CF003 /* HomeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableCell.swift; sourceTree = "<group>"; };
 		25E68EB72AEF5391007CF003 /* HomeTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableCell.xib; sourceTree = "<group>"; };
+		25E68EBF2AEF5C81007CF003 /* HomeColCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeColCell2.swift; sourceTree = "<group>"; };
+		25E68EC02AEF5C81007CF003 /* HomeColCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeColCell2.xib; sourceTree = "<group>"; };
+		25E68EC42AEF5E36007CF003 /* HomeTableCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableCell2.swift; sourceTree = "<group>"; };
+		25E68EC52AEF5E36007CF003 /* HomeTableCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableCell2.xib; sourceTree = "<group>"; };
+		25E68EC92AEF8107007CF003 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		25E68ECC2AEF82DD007CF003 /* SFIconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFIconImage.swift; sourceTree = "<group>"; };
+		25E68ECF2AEF8716007CF003 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		25E68ED02AEF8716007CF003 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +161,7 @@
 		2595FE842AE8EF34006C3EA9 /* Product1Minggu1 */ = {
 			isa = PBXGroup;
 			children = (
+				25E68ECB2AEF828D007CF003 /* Common */,
 				2595FEED2AEBA2C1006C3EA9 /* Component */,
 				2595FEDE2AEB929F006C3EA9 /* Page */,
 				2595FED92AEB4E30006C3EA9 /* Model */,
@@ -236,6 +253,8 @@
 		2595FEDE2AEB929F006C3EA9 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				25E68ECE2AEF86F9007CF003 /* ProfilePage */,
+				25E68EC82AEF80AF007CF003 /* TabPage */,
 				2595FEF32AEBA636006C3EA9 /* EditPage */,
 				2595FEE12AEB96D0006C3EA9 /* HomePage */,
 				2595FED42AEB4795006C3EA9 /* LoginPage */,
@@ -248,6 +267,8 @@
 		2595FEE12AEB96D0006C3EA9 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				25E68EC32AEF5E11007CF003 /* HomeTableCell2 */,
+				25E68EBA2AEF5B0B007CF003 /* HomeCollCell2 */,
 				25E68EAD2AEF4DA5007CF003 /* HomeCollCell1 */,
 				25E68EA82AEF412E007CF003 /* HomeTableCell */,
 				2595FEE22AEB96E9006C3EA9 /* HomeViewController.swift */,
@@ -290,6 +311,49 @@
 				25E68EAF2AEF4DD3007CF003 /* HomeCollCell1.xib */,
 			);
 			path = HomeCollCell1;
+			sourceTree = "<group>";
+		};
+		25E68EBA2AEF5B0B007CF003 /* HomeCollCell2 */ = {
+			isa = PBXGroup;
+			children = (
+				25E68EBF2AEF5C81007CF003 /* HomeColCell2.swift */,
+				25E68EC02AEF5C81007CF003 /* HomeColCell2.xib */,
+			);
+			path = HomeCollCell2;
+			sourceTree = "<group>";
+		};
+		25E68EC32AEF5E11007CF003 /* HomeTableCell2 */ = {
+			isa = PBXGroup;
+			children = (
+				25E68EC42AEF5E36007CF003 /* HomeTableCell2.swift */,
+				25E68EC52AEF5E36007CF003 /* HomeTableCell2.xib */,
+			);
+			path = HomeTableCell2;
+			sourceTree = "<group>";
+		};
+		25E68EC82AEF80AF007CF003 /* TabPage */ = {
+			isa = PBXGroup;
+			children = (
+				25E68EC92AEF8107007CF003 /* TabBarViewController.swift */,
+			);
+			path = TabPage;
+			sourceTree = "<group>";
+		};
+		25E68ECB2AEF828D007CF003 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				25E68ECC2AEF82DD007CF003 /* SFIconImage.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		25E68ECE2AEF86F9007CF003 /* ProfilePage */ = {
+			isa = PBXGroup;
+			children = (
+				25E68ECF2AEF8716007CF003 /* ProfileViewController.swift */,
+				25E68ED02AEF8716007CF003 /* ProfileViewController.xib */,
+			);
+			path = ProfilePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,12 +463,15 @@
 				2595FEC42AEA268D006C3EA9 /* ShareViewController.xib in Resources */,
 				2595FE922AE8EF37006C3EA9 /* LaunchScreen.storyboard in Resources */,
 				25E68EB12AEF4DD3007CF003 /* HomeCollCell1.xib in Resources */,
+				25E68ED22AEF8716007CF003 /* ProfileViewController.xib in Resources */,
 				2595FE8F2AE8EF37006C3EA9 /* Assets.xcassets in Resources */,
 				2595FED02AEA49EB006C3EA9 /* ShareCell.xib in Resources */,
 				2595FEF12AEBA37B006C3EA9 /* FormInputField.xib in Resources */,
+				25E68EC22AEF5C81007CF003 /* HomeColCell2.xib in Resources */,
 				2595FE8D2AE8EF34006C3EA9 /* Main.storyboard in Resources */,
 				2595FED82AEB47C1006C3EA9 /* LoginViewController.xib in Resources */,
 				2595FEBF2AEA0DDC006C3EA9 /* SettingViewController.xib in Resources */,
+				25E68EC72AEF5E36007CF003 /* HomeTableCell2.xib in Resources */,
 				2595FEE52AEB96E9006C3EA9 /* HomeViewController.xib in Resources */,
 				2595FEF72AEBA6AE006C3EA9 /* EditViewController.xib in Resources */,
 				25E68EB92AEF5391007CF003 /* HomeTableCell.xib in Resources */,
@@ -438,16 +505,21 @@
 				2595FE862AE8EF34006C3EA9 /* AppDelegate.swift in Sources */,
 				2595FEC32AEA268D006C3EA9 /* ShareViewController.swift in Sources */,
 				2595FE882AE8EF34006C3EA9 /* SceneDelegate.swift in Sources */,
+				25E68ED12AEF8716007CF003 /* ProfileViewController.swift in Sources */,
 				2595FEEC2AEBA1A0006C3EA9 /* ExtUIView.swift in Sources */,
 				2595FED72AEB47C1006C3EA9 /* LoginViewController.swift in Sources */,
+				25E68ECA2AEF8107007CF003 /* TabBarViewController.swift in Sources */,
 				2595FEF62AEBA6AE006C3EA9 /* EditViewController.swift in Sources */,
 				2595FED32AEA4E39006C3EA9 /* ExtTableView.swift in Sources */,
 				2595FEEF2AEBA310006C3EA9 /* FormInputField.swift in Sources */,
 				25E68EB82AEF5391007CF003 /* HomeTableCell.swift in Sources */,
+				25E68EC12AEF5C81007CF003 /* HomeColCell2.swift in Sources */,
+				25E68ECD2AEF82DD007CF003 /* SFIconImage.swift in Sources */,
 				2595FEDD2AEB5629006C3EA9 /* SectionData.swift in Sources */,
 				2595FEBE2AEA0DDC006C3EA9 /* SettingViewController.swift in Sources */,
 				25E68EB02AEF4DD3007CF003 /* HomeCollCell1.swift in Sources */,
 				2595FECF2AEA49EB006C3EA9 /* ShareCell.swift in Sources */,
+				25E68EC62AEF5E36007CF003 /* HomeTableCell2.swift in Sources */,
 				2595FEE42AEB96E9006C3EA9 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

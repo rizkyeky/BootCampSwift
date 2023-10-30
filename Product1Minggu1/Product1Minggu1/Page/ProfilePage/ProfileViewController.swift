@@ -1,29 +1,29 @@
 //
-//  ViewController.swift
+//  ProfileViewController.swift
 //  Product1Minggu1
 //
-//  Created by Eky on 25/10/23.
+//  Created by Eky on 30/10/23.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var backgroundProfile: UIView?
-    @IBOutlet weak var avaProfile: UIImageView?
-    @IBOutlet weak var cardList: UIView?
+//    @IBOutlet weak var backgroundProfile: UIView!
+//    @IBOutlet weak var avaProfile: UIImageView!
+//    @IBOutlet weak var cardList: UIView!
     
-    var isDarkMode = false
-    @IBOutlet weak var switchDarkMode: UISwitch?
+//    var isDarkMode = false
+//    @IBOutlet weak var switchDarkMode: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupBackgroundProfile()
-        setupAvaProfile()
-        setupCardList()
-        
-        switchDarkMode?.setOn(isDarkMode, animated: false)
+//        setupBackgroundProfile()
+//        setupAvaProfile()
+//        setupCardList()
+//
+//        switchDarkMode?.setOn(isDarkMode, animated: false)
         
         self.navigationItem.title = "Profile"
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -31,30 +31,29 @@ class ViewController: UIViewController {
     }
     
     func setupBackgroundProfile() {
+//        backgroundProfile?.clipsToBounds = true
+//        backgroundProfile?.layer.cornerRadius = 8
+//        backgroundProfile?.layer.borderWidth = 0.5
+//        backgroundProfile?.layer.borderColor = UIColor.separator.cgColor
         
 //        backgroundProfile.layer.shadowColor = UIColor.systemGray.cgColor
 //        backgroundProfile.layer.shadowOpacity = 0.2
 //        backgroundProfile.layer.shadowOffset = CGSize(width: 2, height: 2)
 //        backgroundProfile.layer.shadowRadius = 4
-        
-        backgroundProfile?.clipsToBounds = true
-        backgroundProfile?.layer.cornerRadius = 8
-        backgroundProfile?.layer.borderWidth = 0.5
-        backgroundProfile?.layer.borderColor = UIColor.separator.cgColor
     }
     
     func setupAvaProfile() {
-        avaProfile?.clipsToBounds = true
-        avaProfile?.layer.cornerRadius = ((avaProfile?.frame.size.width ?? 1) / 2)
-        avaProfile?.layer.borderWidth = 6.0
-        avaProfile?.layer.borderColor = UIColor.systemBlue.cgColor
+//        avaProfile?.clipsToBounds = true
+//        avaProfile?.layer.cornerRadius = ((avaProfile?.frame.size.width ?? 1) / 2)
+//        avaProfile?.layer.borderWidth = 6.0
+//        avaProfile?.layer.borderColor = UIColor.systemBlue.cgColor
     }
     
     func setupCardList() {
-        cardList?.clipsToBounds = true
-        cardList?.layer.cornerRadius = 8
-        cardList?.layer.borderWidth = 0.5
-        cardList?.layer.borderColor = UIColor.separator.cgColor
+//        cardList?.clipsToBounds = true
+//        cardList?.layer.cornerRadius = 8
+//        cardList?.layer.borderWidth = 0.5
+//        cardList?.layer.borderColor = UIColor.separator.cgColor
 //        cardList.layer.shadowColor = UIColor.systemGray.cgColor
 //        cardList.layer.shadowOpacity = 0.2
 //        cardList.layer.shadowOffset = CGSize(width: 2, height: 2)
@@ -82,14 +81,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onTapDarkMode(_ sender: Any) {
-        turnOnOffDarkMode()
-        isDarkMode.toggle()
-        switchDarkMode?.setOn(isDarkMode, animated: true)
+//        turnOnOffDarkMode()
+//        isDarkMode.toggle()
+//        switchDarkMode?.setOn(isDarkMode, animated: true)
     }
     
     @IBAction func onChangedSwitchDarkMode(_ sender: Any) {
-        turnOnOffDarkMode()
-        isDarkMode.toggle()
+//        turnOnOffDarkMode()
+//        isDarkMode.toggle()
     }
 
     @IBAction func onTapLogout(_ sender: Any) {
@@ -107,18 +106,19 @@ class ViewController: UIViewController {
         // Present the alert
         self.present(alertController, animated: true, completion: nil)
     }
+
 }
 
-extension ViewController {
+extension ProfileViewController {
     func turnOnOffDarkMode() {
-        if (!isDarkMode) {
-            if #available(iOS 13.0, *) {
-                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
-            }
-        } else {
-            if #available(iOS 13.0, *) {
-                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
-            }
-        }
+//        if (!isDarkMode) {
+//            if #available(iOS 13.0, *) {
+//                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+//            }
+//        } else {
+//            if #available(iOS 13.0, *) {
+//                UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
+//            }
+//        }
     }
 }

@@ -20,26 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Op0-DA-V9c">
-                    <rect key="frame" x="16" y="75" width="67" height="29"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YQw-YK-B2X">
-                    <rect key="frame" x="16" y="120" width="361" height="698"/>
+                    <rect key="frame" x="16" y="59" width="361" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Op0-DA-V9c" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="SYJ-TE-QKt"/>
                 <constraint firstItem="YQw-YK-B2X" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="VG0-8A-w1C"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YQw-YK-B2X" secondAttribute="trailing" constant="16" id="c5g-7E-JrR"/>
-                <constraint firstItem="YQw-YK-B2X" firstAttribute="top" secondItem="Op0-DA-V9c" secondAttribute="bottom" constant="16" id="gYG-84-4ln"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YQw-YK-B2X" secondAttribute="bottom" id="iIr-Hu-XP2"/>
-                <constraint firstItem="Op0-DA-V9c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="rSK-lf-OdK"/>
+                <constraint firstItem="YQw-YK-B2X" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="s2J-Qe-OrS"/>
             </constraints>
             <point key="canvasLocation" x="-112.21374045801527" y="19.718309859154932"/>
         </view>
