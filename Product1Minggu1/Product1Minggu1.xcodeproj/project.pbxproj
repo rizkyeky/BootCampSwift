@@ -30,13 +30,15 @@
 		2595FEE02AEB9589006C3EA9 /* ExtCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEDF2AEB9589006C3EA9 /* ExtCollectionView.swift */; };
 		2595FEE42AEB96E9006C3EA9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEE22AEB96E9006C3EA9 /* HomeViewController.swift */; };
 		2595FEE52AEB96E9006C3EA9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2595FEE32AEB96E9006C3EA9 /* HomeViewController.xib */; };
-		2595FEE92AEB987C006C3EA9 /* HomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEE72AEB987C006C3EA9 /* HomeCollectionCell.swift */; };
-		2595FEEA2AEB987C006C3EA9 /* HomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2595FEE82AEB987C006C3EA9 /* HomeCollectionCell.xib */; };
 		2595FEEC2AEBA1A0006C3EA9 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEEB2AEBA1A0006C3EA9 /* ExtUIView.swift */; };
 		2595FEEF2AEBA310006C3EA9 /* FormInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEEE2AEBA310006C3EA9 /* FormInputField.swift */; };
 		2595FEF12AEBA37B006C3EA9 /* FormInputField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2595FEF02AEBA37B006C3EA9 /* FormInputField.xib */; };
 		2595FEF62AEBA6AE006C3EA9 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595FEF42AEBA6AE006C3EA9 /* EditViewController.swift */; };
 		2595FEF72AEBA6AE006C3EA9 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2595FEF52AEBA6AE006C3EA9 /* EditViewController.xib */; };
+		25E68EB02AEF4DD3007CF003 /* HomeCollCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EAE2AEF4DD3007CF003 /* HomeCollCell1.swift */; };
+		25E68EB12AEF4DD3007CF003 /* HomeCollCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E68EAF2AEF4DD3007CF003 /* HomeCollCell1.xib */; };
+		25E68EB82AEF5391007CF003 /* HomeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EB62AEF5391007CF003 /* HomeTableCell.swift */; };
+		25E68EB92AEF5391007CF003 /* HomeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E68EB72AEF5391007CF003 /* HomeTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,13 +86,15 @@
 		2595FEDF2AEB9589006C3EA9 /* ExtCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtCollectionView.swift; sourceTree = "<group>"; };
 		2595FEE22AEB96E9006C3EA9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2595FEE32AEB96E9006C3EA9 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		2595FEE72AEB987C006C3EA9 /* HomeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCell.swift; sourceTree = "<group>"; };
-		2595FEE82AEB987C006C3EA9 /* HomeCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionCell.xib; sourceTree = "<group>"; };
 		2595FEEB2AEBA1A0006C3EA9 /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		2595FEEE2AEBA310006C3EA9 /* FormInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInputField.swift; sourceTree = "<group>"; };
 		2595FEF02AEBA37B006C3EA9 /* FormInputField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormInputField.xib; sourceTree = "<group>"; };
 		2595FEF42AEBA6AE006C3EA9 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		2595FEF52AEBA6AE006C3EA9 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
+		25E68EAE2AEF4DD3007CF003 /* HomeCollCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollCell1.swift; sourceTree = "<group>"; };
+		25E68EAF2AEF4DD3007CF003 /* HomeCollCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollCell1.xib; sourceTree = "<group>"; };
+		25E68EB62AEF5391007CF003 /* HomeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableCell.swift; sourceTree = "<group>"; };
+		25E68EB72AEF5391007CF003 /* HomeTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,20 +248,12 @@
 		2595FEE12AEB96D0006C3EA9 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				2595FEE62AEB9851006C3EA9 /* HomeCollectionCell */,
+				25E68EAD2AEF4DA5007CF003 /* HomeCollCell1 */,
+				25E68EA82AEF412E007CF003 /* HomeTableCell */,
 				2595FEE22AEB96E9006C3EA9 /* HomeViewController.swift */,
 				2595FEE32AEB96E9006C3EA9 /* HomeViewController.xib */,
 			);
 			path = HomePage;
-			sourceTree = "<group>";
-		};
-		2595FEE62AEB9851006C3EA9 /* HomeCollectionCell */ = {
-			isa = PBXGroup;
-			children = (
-				2595FEE72AEB987C006C3EA9 /* HomeCollectionCell.swift */,
-				2595FEE82AEB987C006C3EA9 /* HomeCollectionCell.xib */,
-			);
-			path = HomeCollectionCell;
 			sourceTree = "<group>";
 		};
 		2595FEED2AEBA2C1006C3EA9 /* Component */ = {
@@ -276,6 +272,24 @@
 				2595FEF52AEBA6AE006C3EA9 /* EditViewController.xib */,
 			);
 			path = EditPage;
+			sourceTree = "<group>";
+		};
+		25E68EA82AEF412E007CF003 /* HomeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				25E68EB62AEF5391007CF003 /* HomeTableCell.swift */,
+				25E68EB72AEF5391007CF003 /* HomeTableCell.xib */,
+			);
+			path = HomeTableCell;
+			sourceTree = "<group>";
+		};
+		25E68EAD2AEF4DA5007CF003 /* HomeCollCell1 */ = {
+			isa = PBXGroup;
+			children = (
+				25E68EAE2AEF4DD3007CF003 /* HomeCollCell1.swift */,
+				25E68EAF2AEF4DD3007CF003 /* HomeCollCell1.xib */,
+			);
+			path = HomeCollCell1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +398,7 @@
 			files = (
 				2595FEC42AEA268D006C3EA9 /* ShareViewController.xib in Resources */,
 				2595FE922AE8EF37006C3EA9 /* LaunchScreen.storyboard in Resources */,
+				25E68EB12AEF4DD3007CF003 /* HomeCollCell1.xib in Resources */,
 				2595FE8F2AE8EF37006C3EA9 /* Assets.xcassets in Resources */,
 				2595FED02AEA49EB006C3EA9 /* ShareCell.xib in Resources */,
 				2595FEF12AEBA37B006C3EA9 /* FormInputField.xib in Resources */,
@@ -391,8 +406,8 @@
 				2595FED82AEB47C1006C3EA9 /* LoginViewController.xib in Resources */,
 				2595FEBF2AEA0DDC006C3EA9 /* SettingViewController.xib in Resources */,
 				2595FEE52AEB96E9006C3EA9 /* HomeViewController.xib in Resources */,
-				2595FEEA2AEB987C006C3EA9 /* HomeCollectionCell.xib in Resources */,
 				2595FEF72AEBA6AE006C3EA9 /* EditViewController.xib in Resources */,
+				25E68EB92AEF5391007CF003 /* HomeTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,10 +442,11 @@
 				2595FED72AEB47C1006C3EA9 /* LoginViewController.swift in Sources */,
 				2595FEF62AEBA6AE006C3EA9 /* EditViewController.swift in Sources */,
 				2595FED32AEA4E39006C3EA9 /* ExtTableView.swift in Sources */,
-				2595FEE92AEB987C006C3EA9 /* HomeCollectionCell.swift in Sources */,
 				2595FEEF2AEBA310006C3EA9 /* FormInputField.swift in Sources */,
+				25E68EB82AEF5391007CF003 /* HomeTableCell.swift in Sources */,
 				2595FEDD2AEB5629006C3EA9 /* SectionData.swift in Sources */,
 				2595FEBE2AEA0DDC006C3EA9 /* SettingViewController.swift in Sources */,
+				25E68EB02AEF4DD3007CF003 /* HomeCollCell1.swift in Sources */,
 				2595FECF2AEA49EB006C3EA9 /* ShareCell.swift in Sources */,
 				2595FEE42AEB96E9006C3EA9 /* HomeViewController.swift in Sources */,
 			);
@@ -622,6 +638,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -650,6 +667,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

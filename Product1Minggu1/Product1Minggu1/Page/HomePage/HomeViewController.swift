@@ -9,32 +9,29 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var mainTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
+        setupMainTableView()
     }
     
-    func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.registerCellWithNib(HomeCollectionCell.self)
+    func setupMainTableView() {
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
+        mainTableView.registerCellWithNib(HomeTableCell.self)
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
-    // set number of cell
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
     }
     
-    // set cell of collection
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath ) as HomeCollectionCell
-        cell.labelView.text = "Label \(indexPath.row)"
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableCell
+        cell.mainLabel.text = "TableCell \(indexPath.row)"
         return cell
     }
-    
 }
