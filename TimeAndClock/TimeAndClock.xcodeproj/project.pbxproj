@@ -32,6 +32,11 @@
 		25E68F3B2AEFB22D007CF003 /* HomePageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E68F392AEFB22D007CF003 /* HomePageTableViewCell.xib */; };
 		25F39E8F2AF0B165004C6440 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F39E8D2AF0B165004C6440 /* LoginPageViewController.swift */; };
 		25F39E902AF0B165004C6440 /* LoginPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F39E8E2AF0B165004C6440 /* LoginPageViewController.xib */; };
+		25F39E942AF0C138004C6440 /* AddPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F39E922AF0C138004C6440 /* AddPageViewController.swift */; };
+		25F39E952AF0C138004C6440 /* AddPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F39E932AF0C138004C6440 /* AddPageViewController.xib */; };
+		25F39E992AF0D4A8004C6440 /* LottieLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F39E982AF0D4A8004C6440 /* LottieLoadingView.swift */; };
+		25F39E9B2AF0D4BC004C6440 /* LottieLodingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F39E9A2AF0D4BC004C6440 /* LottieLodingView.xib */; };
+		25F39E9E2AF0F073004C6440 /* animation_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 25F39E9D2AF0F072004C6440 /* animation_loading.json */; };
 		6DDCFE766DD3568369B56D74 /* Pods_TimeAndClock_TimeAndClockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97FE5BEA87730C9B87B96553 /* Pods_TimeAndClock_TimeAndClockUITests.framework */; };
 		D567A0FC6E0B4588F5C6BE00 /* Pods_TimeAndClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E653603C839787899246444 /* Pods_TimeAndClock.framework */; };
 		E84751B0121F654336C676F0 /* Pods_TimeAndClockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AB077C855841C762950DEB /* Pods_TimeAndClockTests.framework */; };
@@ -84,6 +89,11 @@
 		25E68F392AEFB22D007CF003 /* HomePageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageTableViewCell.xib; sourceTree = "<group>"; };
 		25F39E8D2AF0B165004C6440 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		25F39E8E2AF0B165004C6440 /* LoginPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPageViewController.xib; sourceTree = "<group>"; };
+		25F39E922AF0C138004C6440 /* AddPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPageViewController.swift; sourceTree = "<group>"; };
+		25F39E932AF0C138004C6440 /* AddPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPageViewController.xib; sourceTree = "<group>"; };
+		25F39E982AF0D4A8004C6440 /* LottieLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoadingView.swift; sourceTree = "<group>"; };
+		25F39E9A2AF0D4BC004C6440 /* LottieLodingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieLodingView.xib; sourceTree = "<group>"; };
+		25F39E9D2AF0F072004C6440 /* animation_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = animation_loading.json; path = ../../../../../Downloads/animation_loading.json; sourceTree = "<group>"; };
 		3A8842BB574E91BD9C59303F /* Pods-TimeAndClockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeAndClockTests.release.xcconfig"; path = "Target Support Files/Pods-TimeAndClockTests/Pods-TimeAndClockTests.release.xcconfig"; sourceTree = "<group>"; };
 		3EB7A1D88D5F2FE60530E989 /* Pods-TimeAndClock-TimeAndClockUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeAndClock-TimeAndClockUITests.debug.xcconfig"; path = "Target Support Files/Pods-TimeAndClock-TimeAndClockUITests/Pods-TimeAndClock-TimeAndClockUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		431B482B3D2B474B978CC75E /* Pods-TimeAndClock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeAndClock.debug.xcconfig"; path = "Target Support Files/Pods-TimeAndClock/Pods-TimeAndClock.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +158,7 @@
 		25E68EDE2AEF9B3D007CF003 /* TimeAndClock */ = {
 			isa = PBXGroup;
 			children = (
+				25F39E972AF0D412004C6440 /* Component */,
 				25E68F192AEF9CA8007CF003 /* Extension */,
 				25E68F162AEF9C49007CF003 /* Page */,
 				25E68F152AEF9C3C007CF003 /* Common */,
@@ -156,6 +167,7 @@
 				25E68EE32AEF9B3D007CF003 /* ViewController.swift */,
 				25E68EE52AEF9B3D007CF003 /* Main.storyboard */,
 				25E68EE82AEF9B3F007CF003 /* Assets.xcassets */,
+				25F39E9D2AF0F072004C6440 /* animation_loading.json */,
 				25E68EEA2AEF9B3F007CF003 /* LaunchScreen.storyboard */,
 				25E68EED2AEF9B3F007CF003 /* Info.plist */,
 			);
@@ -227,6 +239,7 @@
 		25E68F162AEF9C49007CF003 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				25F39E912AF0C059004C6440 /* AddPage */,
 				25F39E8C2AF0B13F004C6440 /* LoginPage */,
 				25E68F122AEF9B78007CF003 /* SettingPage */,
 				25E68F112AEF9B5F007CF003 /* ProfilePage */,
@@ -262,6 +275,24 @@
 				25F39E8E2AF0B165004C6440 /* LoginPageViewController.xib */,
 			);
 			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		25F39E912AF0C059004C6440 /* AddPage */ = {
+			isa = PBXGroup;
+			children = (
+				25F39E922AF0C138004C6440 /* AddPageViewController.swift */,
+				25F39E932AF0C138004C6440 /* AddPageViewController.xib */,
+			);
+			path = AddPage;
+			sourceTree = "<group>";
+		};
+		25F39E972AF0D412004C6440 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				25F39E982AF0D4A8004C6440 /* LottieLoadingView.swift */,
+				25F39E9A2AF0D4BC004C6440 /* LottieLodingView.xib */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		A4088173A9C033827135161A /* Pods */ = {
@@ -402,7 +433,10 @@
 				25E68EEC2AEF9B3F007CF003 /* LaunchScreen.storyboard in Resources */,
 				25E68EE92AEF9B3F007CF003 /* Assets.xcassets in Resources */,
 				25E68F2C2AEFA33B007CF003 /* ProfilePageViewController.xib in Resources */,
+				25F39E9B2AF0D4BC004C6440 /* LottieLodingView.xib in Resources */,
+				25F39E9E2AF0F073004C6440 /* animation_loading.json in Resources */,
 				25E68EE72AEF9B3D007CF003 /* Main.storyboard in Resources */,
+				25F39E952AF0C138004C6440 /* AddPageViewController.xib in Resources */,
 				25E68F3B2AEFB22D007CF003 /* HomePageTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,10 +572,12 @@
 				25E68F262AEFA2FF007CF003 /* TabBarPageViewController.swift in Sources */,
 				25F39E8F2AF0B165004C6440 /* LoginPageViewController.swift in Sources */,
 				25E68F362AEFA9DD007CF003 /* AppColor.swift in Sources */,
+				25F39E942AF0C138004C6440 /* AddPageViewController.swift in Sources */,
 				25E68EE42AEF9B3D007CF003 /* ViewController.swift in Sources */,
 				25E68F2B2AEFA33B007CF003 /* ProfilePageViewController.swift in Sources */,
 				25E68EE02AEF9B3D007CF003 /* AppDelegate.swift in Sources */,
 				25E68F3A2AEFB22D007CF003 /* HomePageTableViewCell.swift in Sources */,
+				25F39E992AF0D4A8004C6440 /* LottieLoadingView.swift in Sources */,
 				25E68EE22AEF9B3D007CF003 /* SceneDelegate.swift in Sources */,
 				25E68F182AEF9C60007CF003 /* SFIconImage.swift in Sources */,
 				25E68F1E2AEF9CEA007CF003 /* ExtUIView.swift in Sources */,

@@ -39,7 +39,7 @@ class TabBarPageViewController: UITabBarController {
         UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: AppColor.base!], for: .selected)
         
         UITabBar.appearance().tintColor = AppColor.base
-        self.tabBar.backgroundColor = .clear
+        self.tabBar.backgroundColor = .white
     }
         
     func configureTabBar() {

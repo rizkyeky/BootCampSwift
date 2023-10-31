@@ -22,7 +22,7 @@ class LoginPageViewController: UIViewController {
         passwordTextField.isSecureTextEntry = !isShowPassword
         switchShowPass.setOn(isShowPassword, animated: true)
         
-        self.navigationItem.title = "Profile"
+        self.navigationItem.title = "Login"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
     }
@@ -31,19 +31,43 @@ class LoginPageViewController: UIViewController {
     @IBAction func didTapSubmitButton(_ sender: Any) {
         onTapSubmitButton?()
         
-        guard let enteredUsername = usernameTextField.text, !enteredUsername.isEmpty else {
+        let usernamePattern = "^[a-z]+$"
+        let usernameTest = NSPredicate(format: "SELF MATCHES %@", usernamePattern)
+        
+        guard let enteredUsername = usernameTextField.text, !enteredUsername.isEmpty, enteredUsername.count >= 6, usernameTest.evaluate(with: enteredUsername) else {
             showAlertDialog(title: "Wrong Username", message: "Please insert correct username")
             return
         }
-        guard let enteredPassword = passwordTextField.text, !enteredPassword.isEmpty else {
+        guard let enteredPassword = passwordTextField.text, !enteredPassword.isEmpty, enteredPassword.count >= 6 else {
             showAlertDialog(title: "Wrong Password", message: "Please insert correct password")
             return
         }
         
-        self.navigationController?.pushViewController(TabBarPageViewController(), animated: true)
+        submitButton.isUserInteractionEnabled = false
+
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.startAnimating()
+        
+        submitButton.addSubview(activityIndicator)
+        submitButton.setTitle("", for: .disabled)
+        
+        activityIndicator.center = CGPoint(x: submitButton.bounds.width / 2, y: submitButton.bounds.height / 2)
+        
+        submitButton.isEnabled = false
+        
+        Task {
+            try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+            print("Username: \(enteredUsername)")
+            print("Password: \(enteredPassword)")
+            
+            submitButton.isEnabled = true
+            submitButton.setTitle("Submit", for: .normal)
+            
+            self.navigationController?.pushViewController(TabBarPageViewController(), animated: true)
+        }
     }
     
-    @IBAction func onChangedSwitchDarkMode(_ sender: Any) {
+    @IBAction func onChangedSwitch(_ sender: Any) {
         isShowPassword.toggle()
         passwordTextField.isSecureTextEntry = !isShowPassword
     }

@@ -19,7 +19,8 @@ class HomePageTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupMainCard()
-        setupOptionButton()
+        
+        optionButton.setTitle("", for: .normal)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,11 +38,7 @@ class HomePageTableViewCell: UITableViewCell {
 
     }
     
-    func setupOptionButton() {
-        optionButton.addTarget(self, action: #selector(didTapOptionButton), for: .touchUpInside)
-    }
-    
-    @objc func didTapOptionButton() {
+    @IBAction func didTapOptionButton(_ sender: Any) {
         onTapOptionButton?()
     }
     

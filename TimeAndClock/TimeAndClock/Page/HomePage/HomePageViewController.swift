@@ -11,6 +11,8 @@ class HomePageViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var mainTableView: UITableView!
     
+//    var popUp = PopUpView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +46,18 @@ class HomePageViewController: UIViewController, UISearchBarDelegate {
     }
     
     @objc func onTapAddButton() {
+        
+        let vc = AddPageViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .pageSheet
+
+        if #available(iOS 15.0, *) {
+            if let sheet = nav.sheetPresentationController {
+                sheet.detents = [.large()]
+            }
+            present(nav, animated: true, completion: nil)
+        }
         
     }
     
