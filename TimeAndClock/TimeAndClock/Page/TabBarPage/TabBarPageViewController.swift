@@ -31,15 +31,15 @@ class TabBarPageViewController: UITabBarController {
     }
     
     func configureUITabBarItems() {
-        home.tabBarItem = UITabBarItem(title: "Home", image: SFIconImage.homeSymbol, tag: 0)
-        setting.tabBarItem = UITabBarItem(title: "Setting", image: SFIconImage.systemSymbol, tag: 1)
-        profile.tabBarItem = UITabBarItem(title: "Profile", image: SFIconImage.profileSymbol, tag: 2)
+        home.tabBarItem = UITabBarItem(title: "Home", image: SFIconImage.home, tag: 0)
+        setting.tabBarItem = UITabBarItem(title: "Setting", image: SFIconImage.system, tag: 1)
+        profile.tabBarItem = UITabBarItem(title: "Profile", image: SFIconImage.profile, tag: 2)
         
         UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: AppColor.base!], for: .selected)
         
         UITabBar.appearance().tintColor = AppColor.base
-        self.tabBar.backgroundColor = UIColor.white
+        self.tabBar.backgroundColor = .clear
     }
         
     func configureTabBar() {

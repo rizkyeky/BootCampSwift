@@ -1,0 +1,26 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '14.0'
+
+target 'TimeAndClock' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'lottie-ios'
+  pod 'Kingfisher'
+  pod 'FloatingPanel'
+  pod 'Alamofire'
+  pod 'FirebaseCore'
+  pod 'FirebaseFirestore'
+
+  # Pods for TimeAndClock
+
+  target 'TimeAndClockTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'TimeAndClockUITests' do
+    # Pods for testing
+  end
+
+end

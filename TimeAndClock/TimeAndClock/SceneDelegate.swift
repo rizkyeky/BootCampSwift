@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
 
-        let nav = UINavigationController(rootViewController: TabBarPageViewController())
+        let nav = UINavigationController(rootViewController: LoginPageViewController())
 
         window.rootViewController = nav
 
