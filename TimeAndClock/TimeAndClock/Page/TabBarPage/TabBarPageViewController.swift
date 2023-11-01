@@ -20,17 +20,6 @@ class TabBarPageViewController: UITabBarController {
         configureTabBar()
         configureUITabBarItems()
         
-//        let appearance = UITabBarAppearance()
-//        appearance.configureWithTransparentBackground()
-//        appearance.backgroundEffect = UIBlurEffect(style: .regular)
-        
-//        if #available(iOS 15.0, *) {
-//            self.tabBar.standardAppearance = appearance
-//            self.tabBar.scrollEdgeAppearance = appearance
-//        } else {
-//
-//        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,11 +37,11 @@ class TabBarPageViewController: UITabBarController {
         setting.tabBarItem = UITabBarItem(title: "Setting", image: SFIconImage.system, tag: 1)
         profile.tabBarItem = UITabBarItem(title: "Profile", image: SFIconImage.profile, tag: 2)
         
-        UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: UIColor.label], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: AppColor.base!], for: .selected)
         
         UITabBar.appearance().tintColor = AppColor.base
-        self.tabBar.backgroundColor = .white
+        self.tabBar.backgroundColor = .secondarySystemBackground
     }
         
     func configureTabBar() {

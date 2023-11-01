@@ -9,11 +9,11 @@ import UIKit
 
 class SettingPageViewController: UIViewController {
     
-    
     @IBOutlet weak var mainTableView: UITableView!
     
     var settingOptions: [[String]] = [
         [
+            "",
             "Account",
             "Logout",
         ],
@@ -64,9 +64,13 @@ extension SettingPageViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as SettingPageTableViewCell
         let option = settingOptions[indexPath.section][indexPath.row]
         cell.button.setTitle(option, for: .normal)
+        cell.button.layer.cornerRadius = 0
+        cell.button.makeCornerRadius(0)
         
         if (indexPath.section == 0 && indexPath.row == 0) {
             let cellDarkmode = tableView.dequeueReusableCell(forIndexPath: indexPath) as DarkModeTableViewCell
+            cellDarkmode.button.layer.cornerRadius = 0
+            cellDarkmode.button.makeCornerRadius(0)
             return cellDarkmode
         }
         

@@ -20,6 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
 
         let nav = UINavigationController(rootViewController: LoginPageViewController())
+        
+        let isDarkMode = UserDefaults.standard.bool(forKey: "darkmode")
+        if (isDarkMode) {
+            window.overrideUserInterfaceStyle = .dark
+        }
 
         window.rootViewController = nav
 

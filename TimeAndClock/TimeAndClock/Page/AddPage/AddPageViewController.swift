@@ -89,8 +89,6 @@ extension AddPageViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedDay = days[pickerView.selectedRow(inComponent: 0)]
         let selectedMonth = months[pickerView.selectedRow(inComponent: 1)]
-        let selectedYear = years[pickerView.selectedRow(inComponent: 2)]
-
-        print("Selected date: \(selectedDay) \(selectedMonth) \(selectedYear)")
+        let selectedYear = years[pickerView.selectedRow(inComponent: 2)]        
     }
 }

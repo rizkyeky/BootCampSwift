@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,24 +21,36 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKB-n0-KwP" userLabel="Container">
                         <rect key="frame" x="0.0" y="0.0" width="326" height="50"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNJ-cE-dhW">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNJ-cE-dhW">
                                 <rect key="frame" x="0.0" y="0.0" width="326" height="50"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                                <color key="tintColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Dark Mode" cornerStyle="fixed">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onTapDarkMode:" destination="KGk-i7-Jjw" eventType="touchDragInside" id="Id2-9O-KVy"/>
+                                </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZm-8d-BVu">
+                                <rect key="frame" x="261" y="9.6666666666666643" width="51" height="31"/>
+                                <connections>
+                                    <action selector="onChangedSwitchDarkMode:" destination="KGk-i7-Jjw" eventType="valueChanged" id="0JO-do-KqT"/>
+                                </connections>
+                            </switch>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HNJ-cE-dhW" firstAttribute="top" secondItem="xKB-n0-KwP" secondAttribute="top" id="099-xt-D2P"/>
                             <constraint firstAttribute="height" constant="50" id="2ZP-QB-AhI"/>
                             <constraint firstItem="HNJ-cE-dhW" firstAttribute="leading" secondItem="xKB-n0-KwP" secondAttribute="leading" id="Foj-4M-RBU"/>
                             <constraint firstAttribute="trailing" secondItem="HNJ-cE-dhW" secondAttribute="trailing" id="NfZ-Vf-Mo9"/>
+                            <constraint firstAttribute="trailing" secondItem="rZm-8d-BVu" secondAttribute="trailing" constant="16" id="SK3-jW-F6t"/>
+                            <constraint firstItem="rZm-8d-BVu" firstAttribute="centerY" secondItem="xKB-n0-KwP" secondAttribute="centerY" id="aHU-NN-oxA"/>
                             <constraint firstAttribute="bottom" secondItem="HNJ-cE-dhW" secondAttribute="bottom" id="nbA-D5-pP0"/>
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="AccentColor"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="xKB-n0-KwP" secondAttribute="bottom" id="9cT-GU-TsW"/>
                     <constraint firstItem="xKB-n0-KwP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bMJ-cB-eef"/>
@@ -48,19 +59,21 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="button" destination="HNJ-cE-dhW" id="XLK-jG-3IM"/>
+                <outlet property="switchButton" destination="rZm-8d-BVu" id="Swy-PI-CYh"/>
+            </connections>
             <point key="canvasLocation" x="39.694656488549619" y="43.661971830985919"/>
         </tableViewCell>
-        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="ZVa-4l-n6c">
-            <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <point key="canvasLocation" x="-201" y="-52"/>
-        </switch>
     </objects>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.91764705882352937" green="0.58431372549019611" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="systemBackgroundColor">
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>

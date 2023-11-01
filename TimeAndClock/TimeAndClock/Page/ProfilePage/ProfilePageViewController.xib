@@ -89,7 +89,7 @@
                                             </buttonConfiguration>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="imQ-fn-jlQ" firstAttribute="centerX" secondItem="jax-4D-hFl" secondAttribute="centerX" id="2ZU-RQ-1eF"/>
                                         <constraint firstAttribute="height" constant="200" id="6Ff-5f-Hrk"/>
@@ -103,21 +103,21 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fG-Mf-HKu" userLabel="Card1">
                                     <rect key="frame" x="16" y="232" width="361" height="128"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="pqE-WG-bX6"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpc-Ye-6EC" userLabel="Card2">
                                     <rect key="frame" x="16" y="376" width="361" height="300"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="300" id="VBW-fV-Ci9"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Js-Rz-m1E" userLabel="Card3">
                                     <rect key="frame" x="16" y="692" width="361" height="400"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="400" id="7ad-TW-fFY"/>
                                     </constraints>
@@ -165,8 +165,8 @@
         <image name="Avatar" width="323" height="323"/>
         <image name="pencil.line" catalog="system" width="128" height="98"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
