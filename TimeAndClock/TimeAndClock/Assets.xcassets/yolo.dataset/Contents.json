@@ -1,0 +1,12 @@
+{
+  "data" : [
+    {
+      "filename" : "yolo.mlmodel",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

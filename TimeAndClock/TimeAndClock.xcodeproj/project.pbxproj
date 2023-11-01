@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2518BF662AF2351A0059545C /* DarkModeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BF642AF2351A0059545C /* DarkModeTableViewCell.swift */; };
 		2518BF672AF2351A0059545C /* DarkModeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2518BF652AF2351A0059545C /* DarkModeTableViewCell.xib */; };
+		2518BF6B2AF252D60059545C /* GuestImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BF6A2AF252D60059545C /* GuestImage.swift */; };
 		254117C62AF1E5F000B0D07A /* EditProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254117C42AF1E5F000B0D07A /* EditProfilePageViewController.swift */; };
 		254117C72AF1E5F000B0D07A /* EditProfilePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254117C52AF1E5F000B0D07A /* EditProfilePageViewController.xib */; };
 		254117CC2AF1FA8F00B0D07A /* SettingPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254117CA2AF1FA8F00B0D07A /* SettingPageTableViewCell.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		2518BF642AF2351A0059545C /* DarkModeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeTableViewCell.swift; sourceTree = "<group>"; };
 		2518BF652AF2351A0059545C /* DarkModeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DarkModeTableViewCell.xib; sourceTree = "<group>"; };
+		2518BF6A2AF252D60059545C /* GuestImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestImage.swift; sourceTree = "<group>"; };
 		254117C42AF1E5F000B0D07A /* EditProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePageViewController.swift; sourceTree = "<group>"; };
 		254117C52AF1E5F000B0D07A /* EditProfilePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfilePageViewController.xib; sourceTree = "<group>"; };
 		254117CA2AF1FA8F00B0D07A /* SettingPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPageTableViewCell.swift; sourceTree = "<group>"; };
@@ -139,6 +141,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2518BF682AF252BD0059545C /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				2518BF6A2AF252D60059545C /* GuestImage.swift */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
 		254117C32AF1E5D200B0D07A /* EditProfilePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +194,7 @@
 		25E68EDE2AEF9B3D007CF003 /* TimeAndClock */ = {
 			isa = PBXGroup;
 			children = (
+				2518BF682AF252BD0059545C /* Feature */,
 				25F39E972AF0D412004C6440 /* Component */,
 				25E68F192AEF9CA8007CF003 /* Extension */,
 				25E68F162AEF9C49007CF003 /* Page */,
@@ -602,6 +613,7 @@
 				25F39E942AF0C138004C6440 /* AddPageViewController.swift in Sources */,
 				25E68EE42AEF9B3D007CF003 /* ViewController.swift in Sources */,
 				254117C62AF1E5F000B0D07A /* EditProfilePageViewController.swift in Sources */,
+				2518BF6B2AF252D60059545C /* GuestImage.swift in Sources */,
 				25E68F2B2AEFA33B007CF003 /* ProfilePageViewController.swift in Sources */,
 				25E68EE02AEF9B3D007CF003 /* AppDelegate.swift in Sources */,
 				25E68F3A2AEFB22D007CF003 /* HomePageTableViewCell.swift in Sources */,
