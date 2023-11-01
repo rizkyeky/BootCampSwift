@@ -35,5 +35,17 @@ class ProfilePageViewController: UIViewController {
         shareButton.setTitle("", for: .normal)
     }
     
+    @IBAction func didTapEditButton(_ sender: Any) {
+        let nav = UINavigationController(rootViewController: EditProfilePageViewController())
+        
+        nav.modalPresentationStyle = .pageSheet
+
+        if #available(iOS 15.0, *) {
+            if let sheet = nav.sheetPresentationController {
+                sheet.detents = [.large()]
+            }
+            present(nav, animated: true, completion: nil)
+        }
+    }
     
 }

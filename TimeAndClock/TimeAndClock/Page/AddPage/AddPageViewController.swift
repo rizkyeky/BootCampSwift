@@ -13,6 +13,7 @@ class AddPageViewController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     
     @IBOutlet weak var loadingAnimation: LottieAnimationView!
+    
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
     let days = Array(1...31)

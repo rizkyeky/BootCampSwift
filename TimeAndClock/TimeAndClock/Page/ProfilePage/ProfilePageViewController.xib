@@ -72,6 +72,9 @@
                                             <buttonConfiguration key="configuration" style="tinted" image="pencil.line" catalog="system" cornerStyle="capsule">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="medium" weight="regular"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="didTapEditButton:" destination="-1" eventType="touchUpInside" id="xmp-FE-4AT"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKL-fj-8Vc" userLabel="ShareButton">
                                             <rect key="frame" x="305" y="16" width="40" height="40"/>

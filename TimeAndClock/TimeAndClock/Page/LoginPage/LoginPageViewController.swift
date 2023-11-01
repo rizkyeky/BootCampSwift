@@ -27,14 +27,12 @@ class LoginPageViewController: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .always
     }
     
-    var onTapSubmitButton: (() -> Void)?
     @IBAction func didTapSubmitButton(_ sender: Any) {
-        onTapSubmitButton?()
         
         let usernamePattern = "^[a-z]+$"
         let usernameTest = NSPredicate(format: "SELF MATCHES %@", usernamePattern)
         
-        guard let enteredUsername = usernameTextField.text, !enteredUsername.isEmpty, enteredUsername.count >= 6, usernameTest.evaluate(with: enteredUsername) else {
+        guard let enteredUsername = usernameTextField.text, !enteredUsername.isEmpty, enteredUsername.count >= 3, usernameTest.evaluate(with: enteredUsername) else {
             showAlertDialog(title: "Wrong Username", message: "Please insert correct username")
             return
         }
@@ -56,14 +54,14 @@ class LoginPageViewController: UIViewController {
         submitButton.isEnabled = false
         
         Task {
-            try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+            try await Task.sleep(nanoseconds: 2 * 1_000_000_000)
             print("Username: \(enteredUsername)")
             print("Password: \(enteredPassword)")
             
             submitButton.isEnabled = true
             submitButton.setTitle("Submit", for: .normal)
             
-            self.navigationController?.pushViewController(TabBarPageViewController(), animated: true)
+            self.navigationController?.setViewControllers([TabBarPageViewController()], animated: true)
         }
     }
     

@@ -11,8 +11,8 @@ target 'TimeAndClock' do
   pod 'Alamofire'
   pod 'FirebaseCore'
   pod 'FirebaseFirestore'
-  pod 'StepSlider'
   pod 'SkeletonView'
+  pod 'RxSwift'
 
   # Pods for TimeAndClock
 

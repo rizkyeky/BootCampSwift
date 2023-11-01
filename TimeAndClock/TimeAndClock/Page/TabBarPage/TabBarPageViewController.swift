@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetKit
 
 class TabBarPageViewController: UITabBarController {
 
@@ -18,6 +19,18 @@ class TabBarPageViewController: UITabBarController {
         
         configureTabBar()
         configureUITabBarItems()
+        
+//        let appearance = UITabBarAppearance()
+//        appearance.configureWithTransparentBackground()
+//        appearance.backgroundEffect = UIBlurEffect(style: .regular)
+        
+//        if #available(iOS 15.0, *) {
+//            self.tabBar.standardAppearance = appearance
+//            self.tabBar.scrollEdgeAppearance = appearance
+//        } else {
+//
+//        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

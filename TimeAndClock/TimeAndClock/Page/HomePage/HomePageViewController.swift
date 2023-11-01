@@ -11,7 +11,6 @@ class HomePageViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var mainTableView: UITableView!
     
-//    var popUp = PopUpView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +41,12 @@ class HomePageViewController: UIViewController, UISearchBarDelegate {
         mainTableView.dataSource = self
         mainTableView.registerCellWithNib(HomePageTableViewCell.self)
         mainTableView.allowsSelection = false
-        mainTableView.separatorInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        mainTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     @objc func onTapAddButton() {
         
-        let vc = AddPageViewController()
-        let nav = UINavigationController(rootViewController: vc)
+        let nav = UINavigationController(rootViewController: AddPageViewController())
         
         nav.modalPresentationStyle = .pageSheet
 
@@ -70,7 +68,7 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
