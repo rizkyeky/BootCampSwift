@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomLoadingIndicator" customModule="TimeAndClock" customModuleProvider="target">
+            <connections>
+                <outlet property="card1" destination="f92-NE-dO5" id="Vx6-Gu-qfW"/>
+                <outlet property="card2" destination="UbJ-mQ-sSi" id="jOt-jO-gdG"/>
+                <outlet property="loadingIndicator" destination="VCl-pM-RaU" id="IxJ-FD-tme"/>
+                <outlet property="lottie" destination="wb2-sU-1Q5" id="gdj-If-8oj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="741"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KD-cd-62P">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="741"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f92-NE-dO5" userLabel="Card">
+                    <rect key="frame" x="146.66666666666666" y="320.66666666666669" width="100" height="100"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="VCl-pM-RaU">
+                            <rect key="frame" x="30" y="30" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="1wg-5k-oS6"/>
+                                <constraint firstAttribute="width" constant="40" id="BZz-v4-kRX"/>
+                            </constraints>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="AE9-NC-QKl"/>
+                        <constraint firstItem="VCl-pM-RaU" firstAttribute="centerX" secondItem="f92-NE-dO5" secondAttribute="centerX" id="Biu-md-rJn"/>
+                        <constraint firstAttribute="width" constant="100" id="Nww-wr-CZd"/>
+                        <constraint firstItem="VCl-pM-RaU" firstAttribute="centerY" secondItem="f92-NE-dO5" secondAttribute="centerY" id="YTn-gP-10C"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UbJ-mQ-sSi" userLabel="Card2">
+                    <rect key="frame" x="30.666666666666671" y="320.66666666666669" width="100.00000000000001" height="100"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wb2-sU-1Q5" userLabel="Lottie" customClass="LottieAnimationView" customModule="Lottie">
+                            <rect key="frame" x="5" y="5" width="90" height="90"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="90" id="64V-fR-Hgn"/>
+                                <constraint firstAttribute="width" constant="90" id="NSi-Ty-bQi"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="LoadingAnimation"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Adi-AZ-OET"/>
+                        <constraint firstAttribute="width" constant="100" id="BTo-qF-DDX"/>
+                        <constraint firstItem="wb2-sU-1Q5" firstAttribute="centerY" secondItem="UbJ-mQ-sSi" secondAttribute="centerY" id="W9I-2T-K3L"/>
+                        <constraint firstItem="wb2-sU-1Q5" firstAttribute="centerX" secondItem="UbJ-mQ-sSi" secondAttribute="centerX" id="oiI-gB-WSe"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstItem="4KD-cd-62P" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BI6-V1-iJT"/>
+                <constraint firstItem="4KD-cd-62P" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="LX4-LL-yt3"/>
+                <constraint firstItem="4KD-cd-62P" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MJN-lP-FWS"/>
+                <constraint firstItem="UbJ-mQ-sSi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Yde-LR-Lod"/>
+                <constraint firstItem="f92-NE-dO5" firstAttribute="leading" secondItem="UbJ-mQ-sSi" secondAttribute="trailing" constant="16" id="hcp-Pf-lnF"/>
+                <constraint firstItem="4KD-cd-62P" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="l0P-BH-8Zp"/>
+                <constraint firstItem="f92-NE-dO5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rVP-LV-HA1"/>
+                <constraint firstItem="f92-NE-dO5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ycH-kN-GJy"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-5.343511450381679" y="-19.366197183098592"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="wb2-sU-1Q5"/>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

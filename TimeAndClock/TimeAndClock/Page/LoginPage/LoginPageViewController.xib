@@ -89,6 +89,14 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPz-p3-VFQ" customClass="GIDSignInButton">
+                    <rect key="frame" x="76.666666666666686" y="368.66666666666669" width="240" height="60"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="RkM-K3-x4G"/>
+                        <constraint firstAttribute="width" constant="240" id="Ya2-9y-brL"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
@@ -102,7 +110,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bsu-3o-4iF" secondAttribute="trailing" constant="16" id="c1o-bG-9kC"/>
                 <constraint firstItem="Zim-Y2-ysR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="lIW-Ve-CkG"/>
                 <constraint firstItem="Bsu-3o-4iF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="mcO-qA-z4v"/>
+                <constraint firstItem="HPz-p3-VFQ" firstAttribute="top" secondItem="MqD-Zd-Hpu" secondAttribute="bottom" constant="16" id="oC0-pJ-6yk"/>
                 <constraint firstItem="Bsu-3o-4iF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qhO-E7-7L4"/>
+                <constraint firstItem="HPz-p3-VFQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="roy-ev-Ydy"/>
             </constraints>
             <point key="canvasLocation" x="-77.099236641221367" y="19.718309859154932"/>
         </view>
@@ -112,6 +122,9 @@
             <color red="0.91764705882352937" green="0.58431372549019611" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">

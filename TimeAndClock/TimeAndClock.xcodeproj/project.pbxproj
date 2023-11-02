@@ -10,15 +10,22 @@
 		2518BF662AF2351A0059545C /* DarkModeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BF642AF2351A0059545C /* DarkModeTableViewCell.swift */; };
 		2518BF672AF2351A0059545C /* DarkModeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2518BF652AF2351A0059545C /* DarkModeTableViewCell.xib */; };
 		2518BF6B2AF252D60059545C /* GuestImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BF6A2AF252D60059545C /* GuestImage.swift */; };
+		2518BF6C2AF333390059545C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25E68EE82AEF9B3F007CF003 /* Assets.xcassets */; };
+		2518BF732AF341570059545C /* CustomLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BF722AF341570059545C /* CustomLoadingIndicator.swift */; };
+		2518BF752AF3419D0059545C /* CustomLoadingIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2518BF742AF3419D0059545C /* CustomLoadingIndicator.xib */; };
+		2518BF7A2AF34A080059545C /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518BF782AF34A080059545C /* PopUpViewController.swift */; };
+		2518BF7B2AF34A080059545C /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2518BF792AF34A080059545C /* PopUpViewController.xib */; };
 		254117C62AF1E5F000B0D07A /* EditProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254117C42AF1E5F000B0D07A /* EditProfilePageViewController.swift */; };
 		254117C72AF1E5F000B0D07A /* EditProfilePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254117C52AF1E5F000B0D07A /* EditProfilePageViewController.xib */; };
 		254117CC2AF1FA8F00B0D07A /* SettingPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254117CA2AF1FA8F00B0D07A /* SettingPageTableViewCell.swift */; };
 		254117CD2AF1FA8F00B0D07A /* SettingPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254117CB2AF1FA8F00B0D07A /* SettingPageTableViewCell.xib */; };
+		2571E9B12AF37E680075F150 /* SqueezeNetFP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2518BF6F2AF3354E0059545C /* SqueezeNetFP16.mlmodel */; };
+		2571E9B22AF37E680075F150 /* DeepLabV3FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2518BF802AF368660059545C /* DeepLabV3FP16.mlmodel */; };
+		2571E9B42AF38F630075F150 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2571E9B32AF38F630075F150 /* GoogleService-Info.plist */; };
 		25E68EE02AEF9B3D007CF003 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EDF2AEF9B3D007CF003 /* AppDelegate.swift */; };
 		25E68EE22AEF9B3D007CF003 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EE12AEF9B3D007CF003 /* SceneDelegate.swift */; };
 		25E68EE42AEF9B3D007CF003 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EE32AEF9B3D007CF003 /* ViewController.swift */; };
 		25E68EE72AEF9B3D007CF003 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25E68EE52AEF9B3D007CF003 /* Main.storyboard */; };
-		25E68EE92AEF9B3F007CF003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25E68EE82AEF9B3F007CF003 /* Assets.xcassets */; };
 		25E68EEC2AEF9B3F007CF003 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25E68EEA2AEF9B3F007CF003 /* LaunchScreen.storyboard */; };
 		25E68EF72AEF9B3F007CF003 /* TimeAndClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EF62AEF9B3F007CF003 /* TimeAndClockTests.swift */; };
 		25E68F012AEF9B3F007CF003 /* TimeAndClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68F002AEF9B3F007CF003 /* TimeAndClockUITests.swift */; };
@@ -67,10 +74,17 @@
 		2518BF642AF2351A0059545C /* DarkModeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeTableViewCell.swift; sourceTree = "<group>"; };
 		2518BF652AF2351A0059545C /* DarkModeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DarkModeTableViewCell.xib; sourceTree = "<group>"; };
 		2518BF6A2AF252D60059545C /* GuestImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestImage.swift; sourceTree = "<group>"; };
+		2518BF6F2AF3354E0059545C /* SqueezeNetFP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNetFP16.mlmodel; sourceTree = "<group>"; };
+		2518BF722AF341570059545C /* CustomLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingIndicator.swift; sourceTree = "<group>"; };
+		2518BF742AF3419D0059545C /* CustomLoadingIndicator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLoadingIndicator.xib; sourceTree = "<group>"; };
+		2518BF782AF34A080059545C /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		2518BF792AF34A080059545C /* PopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
+		2518BF802AF368660059545C /* DeepLabV3FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3FP16.mlmodel; sourceTree = "<group>"; };
 		254117C42AF1E5F000B0D07A /* EditProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePageViewController.swift; sourceTree = "<group>"; };
 		254117C52AF1E5F000B0D07A /* EditProfilePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfilePageViewController.xib; sourceTree = "<group>"; };
 		254117CA2AF1FA8F00B0D07A /* SettingPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPageTableViewCell.swift; sourceTree = "<group>"; };
 		254117CB2AF1FA8F00B0D07A /* SettingPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingPageTableViewCell.xib; sourceTree = "<group>"; };
+		2571E9B32AF38F630075F150 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25E68EDC2AEF9B3D007CF003 /* TimeAndClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeAndClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E68EDF2AEF9B3D007CF003 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25E68EE12AEF9B3D007CF003 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +163,24 @@
 			path = Feature;
 			sourceTree = "<group>";
 		};
+		2518BF762AF349BA0059545C /* CustomLoadingIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				2518BF722AF341570059545C /* CustomLoadingIndicator.swift */,
+				2518BF742AF3419D0059545C /* CustomLoadingIndicator.xib */,
+			);
+			path = CustomLoadingIndicator;
+			sourceTree = "<group>";
+		};
+		2518BF772AF349DC0059545C /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				2518BF782AF34A080059545C /* PopUpViewController.swift */,
+				2518BF792AF34A080059545C /* PopUpViewController.xib */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
 		254117C32AF1E5D200B0D07A /* EditProfilePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +199,15 @@
 				2518BF652AF2351A0059545C /* DarkModeTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2571E9B02AF37E4B0075F150 /* MLModel */ = {
+			isa = PBXGroup;
+			children = (
+				2518BF6F2AF3354E0059545C /* SqueezeNetFP16.mlmodel */,
+				2518BF802AF368660059545C /* DeepLabV3FP16.mlmodel */,
+			);
+			path = MLModel;
 			sourceTree = "<group>";
 		};
 		25E68ED32AEF9B3D007CF003 = {
@@ -194,6 +235,7 @@
 		25E68EDE2AEF9B3D007CF003 /* TimeAndClock */ = {
 			isa = PBXGroup;
 			children = (
+				2571E9B02AF37E4B0075F150 /* MLModel */,
 				2518BF682AF252BD0059545C /* Feature */,
 				25F39E972AF0D412004C6440 /* Component */,
 				25E68F192AEF9CA8007CF003 /* Extension */,
@@ -206,6 +248,7 @@
 				25E68EE82AEF9B3F007CF003 /* Assets.xcassets */,
 				25E68EEA2AEF9B3F007CF003 /* LaunchScreen.storyboard */,
 				25E68EED2AEF9B3F007CF003 /* Info.plist */,
+				2571E9B32AF38F630075F150 /* GoogleService-Info.plist */,
 			);
 			path = TimeAndClock;
 			sourceTree = "<group>";
@@ -327,6 +370,8 @@
 		25F39E972AF0D412004C6440 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2518BF772AF349DC0059545C /* PopUp */,
+				2518BF762AF349BA0059545C /* CustomLoadingIndicator */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -465,15 +510,18 @@
 			files = (
 				25E68F342AEFA389007CF003 /* SettingPageViewController.xib in Resources */,
 				25E68F242AEFA2C5007CF003 /* HomePageViewController.xib in Resources */,
+				2571E9B42AF38F630075F150 /* GoogleService-Info.plist in Resources */,
 				25F39E902AF0B165004C6440 /* LoginPageViewController.xib in Resources */,
 				25E68EEC2AEF9B3F007CF003 /* LaunchScreen.storyboard in Resources */,
 				2518BF672AF2351A0059545C /* DarkModeTableViewCell.xib in Resources */,
 				254117CD2AF1FA8F00B0D07A /* SettingPageTableViewCell.xib in Resources */,
-				25E68EE92AEF9B3F007CF003 /* Assets.xcassets in Resources */,
 				25E68F2C2AEFA33B007CF003 /* ProfilePageViewController.xib in Resources */,
+				2518BF752AF3419D0059545C /* CustomLoadingIndicator.xib in Resources */,
 				25E68EE72AEF9B3D007CF003 /* Main.storyboard in Resources */,
 				254117C72AF1E5F000B0D07A /* EditProfilePageViewController.xib in Resources */,
 				25F39E952AF0C138004C6440 /* AddPageViewController.xib in Resources */,
+				2518BF7B2AF34A080059545C /* PopUpViewController.xib in Resources */,
+				2518BF6C2AF333390059545C /* Assets.xcassets in Resources */,
 				25E68F3B2AEFB22D007CF003 /* HomePageTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,7 +650,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2571E9B12AF37E680075F150 /* SqueezeNetFP16.mlmodel in Sources */,
+				2571E9B22AF37E680075F150 /* DeepLabV3FP16.mlmodel in Sources */,
+				2518BF732AF341570059545C /* CustomLoadingIndicator.swift in Sources */,
 				25E68F1C2AEF9CCC007CF003 /* ExtUITableView.swift in Sources */,
+				2518BF7A2AF34A080059545C /* PopUpViewController.swift in Sources */,
 				254117CC2AF1FA8F00B0D07A /* SettingPageTableViewCell.swift in Sources */,
 				25E68F232AEFA2C5007CF003 /* HomePageViewController.swift in Sources */,
 				25E68F202AEF9D3F007CF003 /* ExtUICollectionView.swift in Sources */,

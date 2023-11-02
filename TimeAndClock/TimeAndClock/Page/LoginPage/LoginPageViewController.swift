@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
+import LocalAuthentication
 
 class LoginPageViewController: UIViewController {
-
+    
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -42,7 +46,7 @@ class LoginPageViewController: UIViewController {
         }
         
         submitButton.isUserInteractionEnabled = false
-
+        
         let activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.startAnimating()
         
@@ -54,9 +58,10 @@ class LoginPageViewController: UIViewController {
         submitButton.isEnabled = false
         
         Task {
-            try await Task.sleep(nanoseconds: 2 * 1_000_000_000)
-            print("Username: \(enteredUsername)")
-            print("Password: \(enteredPassword)")
+            
+            singInFirebase(email: enteredUsername, password: enteredPassword)
+            
+            try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
             
             submitButton.isEnabled = true
             submitButton.setTitle("Submit", for: .normal)
@@ -76,4 +81,55 @@ class LoginPageViewController: UIViewController {
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func singInFirebase(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            
+            if (error != nil) {
+                print(error!.localizedDescription)
+            }
+            
+            guard let user = authResult?.user else {
+                print("User is not found")
+                return
+            }
+            
+            print("Success load user")
+            
+            let uid = user.uid
+            let email = user.email
+            let photoURL = user.photoURL
+            var multiFactorString = "MultiFactor: "
+            for info in user.multiFactor.enrolledFactors {
+                multiFactorString += info.displayName ?? "[DispayName]"
+                multiFactorString += " "
+            }
+        }
+    }
+    
+    func authenticateUser() {
+        let context = LAContext()
+
+        var error: NSError?
+
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Authentication required to access your data"
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, evaluateError in
+                if success {
+                    // User authenticated successfully
+                    print("Biometric authentication successful")
+                    // Perform action after successful authentication
+                } else {
+                    if let error = evaluateError {
+                        // Handle evaluation error or authentication failure
+                        print("Biometric authentication error: \(error.localizedDescription)")
+                    }
+                }
+            }
+        } else {
+            // Biometric authentication not available, use a fallback mechanism (e.g., passcode)
+            print("Biometric authentication not available")
+        }
+    }
+
 }

@@ -55,9 +55,9 @@ extension SettingPageViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     // set height of cell
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
     
     // set custom cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,6 +72,12 @@ extension SettingPageViewController: UITableViewDelegate, UITableViewDataSource 
             cellDarkmode.button.layer.cornerRadius = 0
             cellDarkmode.button.makeCornerRadius(0)
             return cellDarkmode
+        }
+        
+        if (indexPath.section == 0 && indexPath.row == 1) {
+            cell.onTap = {
+                self.showActionSheet()
+            }
         }
         
         return cell
@@ -95,5 +101,30 @@ extension SettingPageViewController: UITableViewDelegate, UITableViewDataSource 
     // set heigth of header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 1
+    }
+    
+    func showActionSheet() {
+        let actionSheet = UIAlertController(title: "Action Sheet Title", message: "Select an option", preferredStyle: .actionSheet)
+
+        // Add actions
+        actionSheet.addAction(UIAlertAction(title: "Option 1", style: .default, handler: { action in
+            // Handle Option 1 selection
+            print("Option 1 selected")
+        }))
+
+        actionSheet.addAction(UIAlertAction(title: "Option 2", style: .default, handler: { action in
+            // Handle Option 2 selection
+            print("Option 2 selected")
+        }))
+
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        // Present the Action Sheet
+        if let popoverController = actionSheet.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        present(actionSheet, animated: true, completion: nil)
     }
 }

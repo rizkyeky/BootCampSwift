@@ -15,35 +15,41 @@ class GuestImage {
     
     static let shared = GuestImage()
         
-    private init() {
-        
-    }
+    private init() {}
 
     private var model: MLModel?
 
-    func initModel() -> Void {
-        guard let modelPath = Bundle.main.url(forResource: "yolo", withExtension: "mlmodel") else {
-            print("Cannot find YOLO mlmodel")
-            return
+    func initModel() {
+        
+//        guard Bundle.main.url(forResource: "SqueezeNetFP16", withExtension: "mlmodel") != nil else {
+//            print("Cannot find mlmodel")
+//            return
+//        }
+//
+//        if let modelUrl = Bundle.main.url(forResource: "SqueezeNetFP16", withExtension: "mlmodel") {
+//            do {
+//                let modelc = try MLModel.compileModel(at: modelUrl)
+//                self.model = try MLModel.init(contentsOf: modelc)
+//                print("Success load model")
+//                return
+//            } catch {
+//                print(error)
+//                return
+//            }
+//        }
+        
+        let defaultConfig = MLModelConfiguration()
+        let squeezeNet = try? SqueezeNetFP16(configuration: defaultConfig)
+        
+        guard let imageClassifier = squeezeNet else {
+            fatalError("App failed to create an image classifier model instance.")
         }
-        print("Success find YOLO mlmodel")
-        do {
-            let modelc = try MLModel.compileModel(at: modelPath)
-            self.model = try MLModel.init(contentsOf: modelc)
-            print("Success load model")
-            return
-        } catch {
-            print(error)
-            return
-        }
+
+        // Get the underlying model instance.
+        model = imageClassifier.model
     }
     
-    func processImage(image: UIImage) -> String? {
-        
-        guard let cgImage = image.cgImage else {
-            print("Failed to load image")
-            return nil
-        }
+    func processImage(image cgImage: CGImage) -> String? {
         
         do {
             if (model != nil) {
@@ -58,7 +64,12 @@ class GuestImage {
                 let prediction = try model!.prediction(from: featureProviderDict)
                 let value = prediction.featureValue(for: "classLabel")?.stringValue
                 
-                return value ?? "nil"
+                prediction.featureNames.forEach() { name in
+                    let val = prediction.featureValue(for: name)?.stringValue
+                    print(val!)
+                }
+                
+                return value
             } else {
                 print("Model is not initilize")
                 return nil

@@ -20,22 +20,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7x-Zi-UOP" userLabel="Container">
-                        <rect key="frame" x="0.0" y="0.0" width="336" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="336" height="51"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHF-Pj-yOP">
-                                <rect key="frame" x="0.0" y="0.0" width="336" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="336" height="51"/>
                                 <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                                 <color key="tintColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Log Out" cornerStyle="fixed" titleAlignment="automatic">
+                                <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Log Out" cornerStyle="fixed" buttonSize="large" titleAlignment="automatic">
                                     <imageReference key="image" image="chevron.forward" catalog="system" symbolScale="small" variableValue="0.60000000000000009"/>
                                     <backgroundConfiguration key="background"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0ec-ai-b1n"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="NHF-Pj-yOP" secondAttribute="bottom" id="dox-PQ-qsV"/>
-                            <constraint firstAttribute="height" constant="50" id="dz4-MD-eqb"/>
+                            <constraint firstAttribute="height" constant="51" id="dz4-MD-eqb" userLabel="height = 51"/>
                             <constraint firstAttribute="trailing" secondItem="NHF-Pj-yOP" secondAttribute="trailing" id="euT-PH-YEy"/>
                             <constraint firstItem="NHF-Pj-yOP" firstAttribute="top" secondItem="A7x-Zi-UOP" secondAttribute="top" id="pO9-5q-2i0"/>
                             <constraint firstItem="NHF-Pj-yOP" firstAttribute="leading" secondItem="A7x-Zi-UOP" secondAttribute="leading" id="wfW-tO-eJx"/>

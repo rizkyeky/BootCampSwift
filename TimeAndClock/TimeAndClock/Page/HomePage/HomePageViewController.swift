@@ -78,6 +78,14 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.onTapOptionButton = {
             print("OptionButton TableCell \(indexPath.row)")
+            let vc = PopUpViewController()
+            vc.modalTransitionStyle = .coverVertical
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.onTapBarrier = {
+                self.dismiss(animated: true)
+            }
+            
+            self.present(vc, animated: true)
         }
         
         cell.onTapMainCard = {

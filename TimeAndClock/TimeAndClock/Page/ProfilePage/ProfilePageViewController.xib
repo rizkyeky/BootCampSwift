@@ -7,6 +7,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -89,7 +90,7 @@
                                             </buttonConfiguration>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                    <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="imQ-fn-jlQ" firstAttribute="centerX" secondItem="jax-4D-hFl" secondAttribute="centerX" id="2ZU-RQ-1eF"/>
                                         <constraint firstAttribute="height" constant="200" id="6Ff-5f-Hrk"/>
@@ -101,7 +102,7 @@
                                         <constraint firstItem="oah-b3-6ND" firstAttribute="top" secondItem="jax-4D-hFl" secondAttribute="top" constant="16" id="vKc-7W-50a"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fG-Mf-HKu" userLabel="Card1">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fG-Mf-HKu" userLabel="Card1" customClass="CustomLoadingIndicator" customModule="TimeAndClock" customModuleProvider="target">
                                     <rect key="frame" x="16" y="232" width="361" height="128"/>
                                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     <constraints>
@@ -110,14 +111,57 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpc-Ye-6EC" userLabel="Card2">
                                     <rect key="frame" x="16" y="376" width="361" height="300"/>
-                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0j-Xz-9qw">
+                                            <rect key="frame" x="16" y="16" width="46" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="46" id="nDV-yM-Cae"/>
+                                                <constraint firstAttribute="height" constant="30" id="un8-U0-kqP"/>
+                                            </constraints>
+                                            <menu key="menu" id="cwF-Je-OiK">
+                                                <children>
+                                                    <command title="Item 1" id="N3X-b0-d1A"/>
+                                                    <command title="Item 2" id="NJr-Yh-V7a"/>
+                                                </children>
+                                            </menu>
+                                            <state key="normal" title="Button"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEF-T4-y0J">
+                                            <rect key="frame" x="16" y="62" width="41" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="HBC-DX-rUt"/>
+                                                <constraint firstAttribute="width" constant="41" id="ctF-by-IJt"/>
+                                            </constraints>
+                                            <menu key="menu" id="Lyo-Do-3V6">
+                                                <children>
+                                                    <command title="Item 1" id="P1L-fZ-bvX"/>
+                                                    <command title="Item 2" id="jYc-C8-5Er"/>
+                                                </children>
+                                            </menu>
+                                            <state key="normal" title="Button"/>
+                                        </button>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dDa-Vz-F3L">
+                                            <rect key="frame" x="78" y="16" width="131" height="32"/>
+                                            <segments>
+                                                <segment title="First"/>
+                                                <segment title="Second"/>
+                                            </segments>
+                                        </segmentedControl>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                     <constraints>
+                                        <constraint firstItem="dDa-Vz-F3L" firstAttribute="leading" secondItem="b0j-Xz-9qw" secondAttribute="trailing" constant="16" id="KqT-oX-nCc"/>
                                         <constraint firstAttribute="height" constant="300" id="VBW-fV-Ci9"/>
+                                        <constraint firstItem="QEF-T4-y0J" firstAttribute="top" secondItem="b0j-Xz-9qw" secondAttribute="bottom" constant="16" id="gk8-O2-3Uv"/>
+                                        <constraint firstItem="dDa-Vz-F3L" firstAttribute="top" secondItem="bpc-Ye-6EC" secondAttribute="top" constant="16" id="hia-Qw-oCi"/>
+                                        <constraint firstItem="QEF-T4-y0J" firstAttribute="leading" secondItem="bpc-Ye-6EC" secondAttribute="leading" constant="16" id="jLJ-bp-3a3"/>
+                                        <constraint firstItem="b0j-Xz-9qw" firstAttribute="leading" secondItem="bpc-Ye-6EC" secondAttribute="leading" constant="16" id="sIL-1B-8KX"/>
+                                        <constraint firstItem="b0j-Xz-9qw" firstAttribute="top" secondItem="bpc-Ye-6EC" secondAttribute="top" constant="16" id="zb9-Tt-fd9"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Js-Rz-m1E" userLabel="Card3">
                                     <rect key="frame" x="16" y="692" width="361" height="400"/>
-                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                    <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="400" id="7ad-TW-fFY"/>
                                     </constraints>
@@ -167,6 +211,9 @@
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

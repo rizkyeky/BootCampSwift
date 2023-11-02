@@ -55,19 +55,26 @@ extension EditProfilePageViewController: UIImagePickerControllerDelegate, UINavi
         if let pickedImage = info[.originalImage] as? UIImage {
             avatarImage.image = pickedImage
             
+            guard let cgImage = pickedImage.cgImage else {
+                print("Error CgImage")
+                return
+            }
+            
             var message = ""
-            if let predict = GuestImage.shared.processImage(image: pickedImage) {
+            if let predict = GuestImage.shared.processImage(image: cgImage) {
                 message = "The image is \(predict)"
             } else {
                 message = "Cannot predict the image"
             }
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-            
-            
+            Task {
+                try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }
