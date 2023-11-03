@@ -33,16 +33,33 @@ class HomePageTableViewCell: UITableViewCell {
         mainCard.layer.borderWidth = 0.5
         mainCard.layer.borderColor = UIColor.separator.cgColor
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapMainCard))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapMainCard(_:)))
         mainCard.addGestureRecognizer(tapGesture)
-
+        
+        
     }
     
-    @IBAction func didTapOptionButton(_ sender: Any) {
+    @IBAction func didTapOptionButton(_ sender: UIButton) {
         onTapOptionButton?()
     }
     
-    @objc func didTapMainCard() {
+    @objc func didTapMainCard(_ sender: UITapGestureRecognizer) {
         onTapMainCard?()
+    
+        if sender.state == .began {
+            print("Pressed")
+//            mainCard.onTapDownAnimateBounce()
+        } else if sender.state == .ended {
+            print("Released")
+//            mainCard.onTapUpAnimateBounce()
+        }
+        
+        UIView.animate(withDuration: 0.098, animations: {
+            self.mainCard.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
+        }) { _ in
+            UIView.animate(withDuration: 0.098, animations: {
+                self.mainCard.transform = CGAffineTransform.identity
+            })
+        }
     }
 }

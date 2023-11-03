@@ -11,8 +11,12 @@ target 'TimeAndClock' do
   pod 'Alamofire'
   pod 'FirebaseCore'
   pod 'FirebaseFirestore'
+  pod 'FirebaseAuth'
   pod 'SkeletonView'
   pod 'RxSwift'
+  pod 'GoogleSignIn'
+  pod 'PocketSVG'
+
 
   # Pods for TimeAndClock
 

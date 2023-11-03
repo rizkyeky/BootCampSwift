@@ -40,8 +40,16 @@ class TabBarPageViewController: UITabBarController {
         UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: UIColor.label], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: AppColor.base!], for: .selected)
         
-        UITabBar.appearance().tintColor = AppColor.base
-        self.tabBar.backgroundColor = .secondarySystemBackground
+//        UITabBar.appearance().tintColor = AppColor.base
+//        self.tabBar.backgroundColor = .secondarySystemBackground
+        
+//        let blurEffect = UIBlurEffect(style: .light)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = tabBarController?.tabBar.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        tabBarController?.tabBar.addSubview(blurEffectView)
+//        tabBarController?.tabBar.sendSubviewToBack(blurEffectView)
+
     }
         
     func configureTabBar() {

@@ -22,6 +22,8 @@
 		2571E9B12AF37E680075F150 /* SqueezeNetFP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2518BF6F2AF3354E0059545C /* SqueezeNetFP16.mlmodel */; };
 		2571E9B22AF37E680075F150 /* DeepLabV3FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2518BF802AF368660059545C /* DeepLabV3FP16.mlmodel */; };
 		2571E9B42AF38F630075F150 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2571E9B32AF38F630075F150 /* GoogleService-Info.plist */; };
+		25D431CD2AF492DE0085B247 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D431CC2AF492DE0085B247 /* EndPoint.swift */; };
+		25D431CF2AF4AF0A0085B247 /* ExtUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D431CE2AF4AF0A0085B247 /* ExtUIButton.swift */; };
 		25E68EE02AEF9B3D007CF003 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EDF2AEF9B3D007CF003 /* AppDelegate.swift */; };
 		25E68EE22AEF9B3D007CF003 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EE12AEF9B3D007CF003 /* SceneDelegate.swift */; };
 		25E68EE42AEF9B3D007CF003 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EE32AEF9B3D007CF003 /* ViewController.swift */; };
@@ -85,6 +87,8 @@
 		254117CA2AF1FA8F00B0D07A /* SettingPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPageTableViewCell.swift; sourceTree = "<group>"; };
 		254117CB2AF1FA8F00B0D07A /* SettingPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingPageTableViewCell.xib; sourceTree = "<group>"; };
 		2571E9B32AF38F630075F150 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		25D431CC2AF492DE0085B247 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		25D431CE2AF4AF0A0085B247 /* ExtUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIButton.swift; sourceTree = "<group>"; };
 		25E68EDC2AEF9B3D007CF003 /* TimeAndClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeAndClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E68EDF2AEF9B3D007CF003 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25E68EE12AEF9B3D007CF003 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 			children = (
 				25E68F172AEF9C60007CF003 /* SFIconImage.swift */,
 				25E68F352AEFA9DD007CF003 /* AppColor.swift */,
+				25D431CC2AF492DE0085B247 /* EndPoint.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				25E68F1B2AEF9CCC007CF003 /* ExtUITableView.swift */,
 				25E68F1D2AEF9CEA007CF003 /* ExtUIView.swift */,
 				25E68F1F2AEF9D3F007CF003 /* ExtUICollectionView.swift */,
+				25D431CE2AF4AF0A0085B247 /* ExtUIButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -659,6 +665,7 @@
 				25E68F232AEFA2C5007CF003 /* HomePageViewController.swift in Sources */,
 				25E68F202AEF9D3F007CF003 /* ExtUICollectionView.swift in Sources */,
 				25E68F332AEFA389007CF003 /* SettingPageViewController.swift in Sources */,
+				25D431CF2AF4AF0A0085B247 /* ExtUIButton.swift in Sources */,
 				25E68F262AEFA2FF007CF003 /* TabBarPageViewController.swift in Sources */,
 				25F39E8F2AF0B165004C6440 /* LoginPageViewController.swift in Sources */,
 				25E68F362AEFA9DD007CF003 /* AppColor.swift in Sources */,
@@ -668,6 +675,7 @@
 				2518BF6B2AF252D60059545C /* GuestImage.swift in Sources */,
 				25E68F2B2AEFA33B007CF003 /* ProfilePageViewController.swift in Sources */,
 				25E68EE02AEF9B3D007CF003 /* AppDelegate.swift in Sources */,
+				25D431CD2AF492DE0085B247 /* EndPoint.swift in Sources */,
 				25E68F3A2AEFB22D007CF003 /* HomePageTableViewCell.swift in Sources */,
 				2518BF662AF2351A0059545C /* DarkModeTableViewCell.swift in Sources */,
 				25E68EE22AEF9B3D007CF003 /* SceneDelegate.swift in Sources */,

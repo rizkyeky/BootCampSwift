@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginPageViewController" customModule="TimeAndClock" customModuleProvider="target">
             <connections>
+                <outlet property="faceidButton" destination="HvX-gr-Vrs" id="aNy-F1-Arf"/>
                 <outlet property="passwordTextField" destination="DnM-7l-u4Z" id="vXb-2o-vMt"/>
                 <outlet property="submitButton" destination="MqD-Zd-Hpu" id="2PD-Nz-UhC"/>
                 <outlet property="switchShowPass" destination="pmQ-Yc-gJB" id="g4R-ij-881"/>
@@ -97,14 +98,30 @@
                         <constraint firstAttribute="width" constant="240" id="Ya2-9y-brL"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HvX-gr-Vrs">
+                    <rect key="frame" x="166.66666666666666" y="444.66666666666669" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="0Rk-aE-rzy"/>
+                        <constraint firstAttribute="width" constant="60" id="S3t-lO-2Cl"/>
+                    </constraints>
+                    <color key="tintColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled"/>
+                    <connections>
+                        <action selector="didTapFaceIDButton:" destination="-1" eventType="touchUpInside" id="jwB-Yq-8f5"/>
+                        <action selector="didTapFaceIDButtonTouchDown:" destination="-1" eventType="touchDown" id="ilx-5T-P14"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Zim-Y2-ysR" secondAttribute="trailing" constant="16" id="10J-2t-TNU"/>
                 <constraint firstItem="MqD-Zd-Hpu" firstAttribute="top" secondItem="Bsu-3o-4iF" secondAttribute="bottom" constant="48" id="3Qk-FA-dcn"/>
+                <constraint firstItem="HvX-gr-Vrs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6bq-Kp-fF5"/>
                 <constraint firstItem="MqD-Zd-Hpu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BTq-Hj-43A"/>
                 <constraint firstItem="Bsu-3o-4iF" firstAttribute="top" secondItem="Zim-Y2-ysR" secondAttribute="bottom" constant="16" id="GBb-fs-IG5"/>
+                <constraint firstItem="HvX-gr-Vrs" firstAttribute="top" secondItem="HPz-p3-VFQ" secondAttribute="bottom" constant="16" id="KFT-hw-JAY"/>
                 <constraint firstItem="Zim-Y2-ysR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OmD-Gk-l5e"/>
                 <constraint firstItem="Zim-Y2-ysR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Woi-Sd-dK0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bsu-3o-4iF" secondAttribute="trailing" constant="16" id="c1o-bG-9kC"/>

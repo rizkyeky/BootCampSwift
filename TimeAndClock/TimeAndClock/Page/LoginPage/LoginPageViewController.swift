@@ -18,6 +18,8 @@ class LoginPageViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var switchShowPass: UISwitch!
     
+    @IBOutlet weak var faceidButton: UIButton!
+    
     var isShowPassword = false
     
     override func viewDidLoad() {
@@ -29,6 +31,11 @@ class LoginPageViewController: UIViewController {
         self.navigationItem.title = "Login"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
+        
+        let faceIdImage = UIImage(named: "face_id")
+        faceidButton.setImage(faceIdImage, for: .normal)
+        faceidButton.setTitle("", for: .normal)
+        
     }
     
     @IBAction func didTapSubmitButton(_ sender: Any) {
@@ -75,6 +82,21 @@ class LoginPageViewController: UIViewController {
         passwordTextField.isSecureTextEntry = !isShowPassword
     }
     
+    @IBAction func didTapFaceIDButtonTouchDown(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1, animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        })
+    }
+    
+    @IBAction func didTapFaceIDButton(_ sender: UIButton) {
+        authenticateUser()
+        
+        UIView.animate(withDuration: 0.1, animations: {
+            sender.transform = CGAffineTransform.identity
+        })
+    }
+    
+    
     func showAlertDialog(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
@@ -83,7 +105,7 @@ class LoginPageViewController: UIViewController {
     }
     
     func singInFirebase(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             
             if (error != nil) {
                 print(error!.localizedDescription)
@@ -96,14 +118,14 @@ class LoginPageViewController: UIViewController {
             
             print("Success load user")
             
-            let uid = user.uid
-            let email = user.email
-            let photoURL = user.photoURL
-            var multiFactorString = "MultiFactor: "
-            for info in user.multiFactor.enrolledFactors {
-                multiFactorString += info.displayName ?? "[DispayName]"
-                multiFactorString += " "
-            }
+//            let uid = user.uid
+//            let email = user.email
+//            let photoURL = user.photoURL
+//            var multiFactorString = "MultiFactor: "
+//            for info in user.multiFactor.enrolledFactors {
+//                multiFactorString += info.displayName ?? "[DispayName]"
+//                multiFactorString += " "
+//            }
         }
     }
     
@@ -116,18 +138,14 @@ class LoginPageViewController: UIViewController {
             let reason = "Authentication required to access your data"
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, evaluateError in
                 if success {
-                    // User authenticated successfully
                     print("Biometric authentication successful")
-                    // Perform action after successful authentication
                 } else {
                     if let error = evaluateError {
-                        // Handle evaluation error or authentication failure
                         print("Biometric authentication error: \(error.localizedDescription)")
                     }
                 }
             }
         } else {
-            // Biometric authentication not available, use a fallback mechanism (e.g., passcode)
             print("Biometric authentication not available")
         }
     }

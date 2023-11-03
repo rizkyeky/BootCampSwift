@@ -24,12 +24,12 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHF-Pj-yOP">
                                 <rect key="frame" x="0.0" y="0.0" width="336" height="51"/>
-                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                                 <color key="tintColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Log Out" cornerStyle="fixed" buttonSize="large" titleAlignment="automatic">
                                     <imageReference key="image" image="chevron.forward" catalog="system" symbolScale="small" variableValue="0.60000000000000009"/>
-                                    <backgroundConfiguration key="background"/>
+                                    <backgroundConfiguration key="background" cornerRadius="0.0"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="didTapButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0ec-ai-b1n"/>
@@ -45,6 +45,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="A7x-Zi-UOP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Avr-kQ-iRz"/>
                     <constraint firstItem="A7x-Zi-UOP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ef2-sq-P9Y"/>
@@ -62,9 +63,6 @@
         <image name="chevron.forward" catalog="system" width="97" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="secondarySystemFillColor">
-            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

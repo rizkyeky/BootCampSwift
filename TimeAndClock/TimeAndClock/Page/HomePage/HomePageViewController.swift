@@ -21,9 +21,9 @@ class HomePageViewController: UIViewController, UISearchBarDelegate {
     
     func setupNavigation() {
         self.navigationItem.title = "Home"
-        self.navigationItem.titleView?.backgroundColor = .clear
+//        self.navigationItem.titleView?.backgroundColor = .clear
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.largeTitleDisplayMode = .automatic
+//        self.navigationItem.largeTitleDisplayMode = .automatic
         
         let addButton = UIBarButtonItem(image: SFIconImage.add, style: .plain, target: self, action: #selector(onTapAddButton))
         self.navigationItem.rightBarButtonItem = addButton
@@ -34,6 +34,13 @@ class HomePageViewController: UIViewController, UISearchBarDelegate {
         
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = true
+        
+//        let blurEffect = UIBlurEffect(style: .light)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = navigationController!.navigationBar.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        navigationController?.navigationBar.addSubview(blurEffectView)
+//        navigationController?.navigationBar.sendSubviewToBack(blurEffectView)
     }
     
     func setupMainTableView() {
