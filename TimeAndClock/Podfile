@@ -16,7 +16,14 @@ target 'TimeAndClock' do
   pod 'RxSwift'
   pod 'GoogleSignIn'
   pod 'PocketSVG'
-
+  pod 'SwiftIconFont'
+  pod 'IoniconsKit'
+  pod 'DefaultsKit'
+  pod 'SVProgressHUD'
+  pod 'Hero'
+  pod 'AsyncPlus'
+  pod 'MaterialComponents'
+  pod 'SnapKit'
 
   # Pods for TimeAndClock
 

@@ -36,6 +36,10 @@ class LoginPageViewController: UIViewController {
         faceidButton.setImage(faceIdImage, for: .normal)
         faceidButton.setTitle("", for: .normal)
         
+        let button = UIButton(primaryAction: UIAction(handler: { action in
+            print(action.state)
+        } ))
+        
     }
     
     @IBAction func didTapSubmitButton(_ sender: Any) {

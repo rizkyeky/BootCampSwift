@@ -21,7 +21,7 @@
 		254117CD2AF1FA8F00B0D07A /* SettingPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254117CB2AF1FA8F00B0D07A /* SettingPageTableViewCell.xib */; };
 		2571E9B12AF37E680075F150 /* SqueezeNetFP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2518BF6F2AF3354E0059545C /* SqueezeNetFP16.mlmodel */; };
 		2571E9B22AF37E680075F150 /* DeepLabV3FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2518BF802AF368660059545C /* DeepLabV3FP16.mlmodel */; };
-		2571E9B42AF38F630075F150 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2571E9B32AF38F630075F150 /* GoogleService-Info.plist */; };
+		2584FDDB2AF680B6002A3635 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2584FDDA2AF680B6002A3635 /* GoogleService-Info.plist */; };
 		25D431CD2AF492DE0085B247 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D431CC2AF492DE0085B247 /* EndPoint.swift */; };
 		25D431CF2AF4AF0A0085B247 /* ExtUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D431CE2AF4AF0A0085B247 /* ExtUIButton.swift */; };
 		25E68EE02AEF9B3D007CF003 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E68EDF2AEF9B3D007CF003 /* AppDelegate.swift */; };
@@ -86,7 +86,7 @@
 		254117C52AF1E5F000B0D07A /* EditProfilePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfilePageViewController.xib; sourceTree = "<group>"; };
 		254117CA2AF1FA8F00B0D07A /* SettingPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPageTableViewCell.swift; sourceTree = "<group>"; };
 		254117CB2AF1FA8F00B0D07A /* SettingPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingPageTableViewCell.xib; sourceTree = "<group>"; };
-		2571E9B32AF38F630075F150 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2584FDDA2AF680B6002A3635 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25D431CC2AF492DE0085B247 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		25D431CE2AF4AF0A0085B247 /* ExtUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIButton.swift; sourceTree = "<group>"; };
 		25E68EDC2AEF9B3D007CF003 /* TimeAndClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeAndClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,7 +252,7 @@
 				25E68EE82AEF9B3F007CF003 /* Assets.xcassets */,
 				25E68EEA2AEF9B3F007CF003 /* LaunchScreen.storyboard */,
 				25E68EED2AEF9B3F007CF003 /* Info.plist */,
-				2571E9B32AF38F630075F150 /* GoogleService-Info.plist */,
+				2584FDDA2AF680B6002A3635 /* GoogleService-Info.plist */,
 			);
 			path = TimeAndClock;
 			sourceTree = "<group>";
@@ -516,7 +516,7 @@
 			files = (
 				25E68F342AEFA389007CF003 /* SettingPageViewController.xib in Resources */,
 				25E68F242AEFA2C5007CF003 /* HomePageViewController.xib in Resources */,
-				2571E9B42AF38F630075F150 /* GoogleService-Info.plist in Resources */,
+				2584FDDB2AF680B6002A3635 /* GoogleService-Info.plist in Resources */,
 				25F39E902AF0B165004C6440 /* LoginPageViewController.xib in Resources */,
 				25E68EEC2AEF9B3F007CF003 /* LaunchScreen.storyboard in Resources */,
 				2518BF672AF2351A0059545C /* DarkModeTableViewCell.xib in Resources */,
@@ -786,7 +786,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -840,7 +840,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
