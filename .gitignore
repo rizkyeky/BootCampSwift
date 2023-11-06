@@ -1,3 +1,7 @@
 
 TimeAndClock/Pods/
+CinemaTix/Pods/
 TestBundle/
+
+**/GoogleService-Info.plist
+**/.png
