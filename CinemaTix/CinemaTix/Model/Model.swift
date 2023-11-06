@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - ResultTmDB
-struct ResultTmDBList<T: Codable>: Codable {
+struct BaseResultModel<T: Codable>: Codable {
     let dates: RangeDates?
     let page: Int?
     let results: [T]?

@@ -29,6 +29,29 @@
 		25414A072AF8A7BA00DFA4C9 /* MovieDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A062AF8A7BA00DFA4C9 /* MovieDetailModel.swift */; };
 		25414A092AF8A90400DFA4C9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A082AF8A90400DFA4C9 /* Model.swift */; };
 		25414A0B2AF8B9A900DFA4C9 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A0A2AF8B9A900DFA4C9 /* Service.swift */; };
+		25414A0E2AF8CAE500DFA4C9 /* Biometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A0D2AF8CAE500DFA4C9 /* Biometric.swift */; };
+		25414A102AF8CC8E00DFA4C9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A0F2AF8CC8E00DFA4C9 /* Color.swift */; };
+		25414A122AF8CD8F00DFA4C9 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A112AF8CD8F00DFA4C9 /* Icon.swift */; };
+		25414A142AF8CE0400DFA4C9 /* ExtUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A132AF8CE0400DFA4C9 /* ExtUITableView.swift */; };
+		25414A162AF8CE2900DFA4C9 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A152AF8CE2900DFA4C9 /* ExtUIView.swift */; };
+		25414A182AF8CE9400DFA4C9 /* ExtUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A172AF8CE9400DFA4C9 /* ExtUICollectionView.swift */; };
+		25414A1A2AF8CEE300DFA4C9 /* ExtUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A192AF8CEE300DFA4C9 /* ExtUIButton.swift */; };
+		25414A1D2AF8CFCE00DFA4C9 /* TransacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A1B2AF8CFCE00DFA4C9 /* TransacViewController.swift */; };
+		25414A1E2AF8CFCE00DFA4C9 /* TransacViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A1C2AF8CFCE00DFA4C9 /* TransacViewController.xib */; };
+		25414A212AF8CFE100DFA4C9 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A1F2AF8CFE100DFA4C9 /* WalletViewController.swift */; };
+		25414A222AF8CFE100DFA4C9 /* WalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A202AF8CFE100DFA4C9 /* WalletViewController.xib */; };
+		25414A252AF8D00400DFA4C9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A232AF8D00400DFA4C9 /* HomeViewController.swift */; };
+		25414A262AF8D00400DFA4C9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A242AF8D00400DFA4C9 /* HomeViewController.xib */; };
+		25414A2A2AF8D02900DFA4C9 /* SigInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A282AF8D02900DFA4C9 /* SigInViewController.swift */; };
+		25414A2B2AF8D02900DFA4C9 /* SigInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A292AF8D02900DFA4C9 /* SigInViewController.xib */; };
+		25414A2E2AF8D05A00DFA4C9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A2C2AF8D05A00DFA4C9 /* RegisterViewController.swift */; };
+		25414A2F2AF8D05A00DFA4C9 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A2D2AF8D05A00DFA4C9 /* RegisterViewController.xib */; };
+		25414A332AF8D07600DFA4C9 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A312AF8D07600DFA4C9 /* MovieListViewController.swift */; };
+		25414A342AF8D07600DFA4C9 /* MovieListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A322AF8D07600DFA4C9 /* MovieListViewController.xib */; };
+		25414A372AF8D0A900DFA4C9 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A352AF8D0A900DFA4C9 /* MovieDetailViewController.swift */; };
+		25414A382AF8D0A900DFA4C9 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A362AF8D0A900DFA4C9 /* MovieDetailViewController.xib */; };
+		25414A3A2AF8D50E00DFA4C9 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A392AF8D50E00DFA4C9 /* DarkMode.swift */; };
+		25414A3C2AF8DD2E00DFA4C9 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */; };
 		A9702F5F95870B4FD773938B /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +98,29 @@
 		25414A062AF8A7BA00DFA4C9 /* MovieDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailModel.swift; sourceTree = "<group>"; };
 		25414A082AF8A90400DFA4C9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		25414A0A2AF8B9A900DFA4C9 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		25414A0D2AF8CAE500DFA4C9 /* Biometric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biometric.swift; sourceTree = "<group>"; };
+		25414A0F2AF8CC8E00DFA4C9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		25414A112AF8CD8F00DFA4C9 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		25414A132AF8CE0400DFA4C9 /* ExtUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITableView.swift; sourceTree = "<group>"; };
+		25414A152AF8CE2900DFA4C9 /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
+		25414A172AF8CE9400DFA4C9 /* ExtUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUICollectionView.swift; sourceTree = "<group>"; };
+		25414A192AF8CEE300DFA4C9 /* ExtUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIButton.swift; sourceTree = "<group>"; };
+		25414A1B2AF8CFCE00DFA4C9 /* TransacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransacViewController.swift; sourceTree = "<group>"; };
+		25414A1C2AF8CFCE00DFA4C9 /* TransacViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransacViewController.xib; sourceTree = "<group>"; };
+		25414A1F2AF8CFE100DFA4C9 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		25414A202AF8CFE100DFA4C9 /* WalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletViewController.xib; sourceTree = "<group>"; };
+		25414A232AF8D00400DFA4C9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		25414A242AF8D00400DFA4C9 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		25414A282AF8D02900DFA4C9 /* SigInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigInViewController.swift; sourceTree = "<group>"; };
+		25414A292AF8D02900DFA4C9 /* SigInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SigInViewController.xib; sourceTree = "<group>"; };
+		25414A2C2AF8D05A00DFA4C9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		25414A2D2AF8D05A00DFA4C9 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		25414A312AF8D07600DFA4C9 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
+		25414A322AF8D07600DFA4C9 /* MovieListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListViewController.xib; sourceTree = "<group>"; };
+		25414A352AF8D0A900DFA4C9 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		25414A362AF8D0A900DFA4C9 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
+		25414A392AF8D50E00DFA4C9 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
+		25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F308EB817918C1E9BEBC98 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
 		6B601FF28E071254BFB9ADEE /* Pods-CinemaTix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.debug.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +247,8 @@
 		254149E02AF882A600DFA4C9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				25414A232AF8D00400DFA4C9 /* HomeViewController.swift */,
+				25414A242AF8D00400DFA4C9 /* HomeViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -208,6 +256,8 @@
 		254149E12AF882C000DFA4C9 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				25414A1F2AF8CFE100DFA4C9 /* WalletViewController.swift */,
+				25414A202AF8CFE100DFA4C9 /* WalletViewController.xib */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -224,6 +274,8 @@
 		254149E32AF882DA00DFA4C9 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				25414A282AF8D02900DFA4C9 /* SigInViewController.swift */,
+				25414A292AF8D02900DFA4C9 /* SigInViewController.xib */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -231,6 +283,8 @@
 		254149E42AF882E400DFA4C9 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				25414A2C2AF8D05A00DFA4C9 /* RegisterViewController.swift */,
+				25414A2D2AF8D05A00DFA4C9 /* RegisterViewController.xib */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -238,6 +292,8 @@
 		254149E52AF882FB00DFA4C9 /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				25414A1B2AF8CFCE00DFA4C9 /* TransacViewController.swift */,
+				25414A1C2AF8CFCE00DFA4C9 /* TransacViewController.xib */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -245,6 +301,8 @@
 		254149E62AF8831000DFA4C9 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
+				25414A312AF8D07600DFA4C9 /* MovieListViewController.swift */,
+				25414A322AF8D07600DFA4C9 /* MovieListViewController.xib */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -252,6 +310,8 @@
 		254149E72AF8831E00DFA4C9 /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
+				25414A352AF8D0A900DFA4C9 /* MovieDetailViewController.swift */,
+				25414A362AF8D0A900DFA4C9 /* MovieDetailViewController.xib */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";
@@ -261,6 +321,8 @@
 			children = (
 				254149FF2AF89D2300DFA4C9 /* Api */,
 				254149FD2AF88F4700DFA4C9 /* Endpoint.swift */,
+				25414A0F2AF8CC8E00DFA4C9 /* Color.swift */,
+				25414A112AF8CD8F00DFA4C9 /* Icon.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -268,6 +330,11 @@
 		254149E92AF8834D00DFA4C9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				25414A132AF8CE0400DFA4C9 /* ExtUITableView.swift */,
+				25414A152AF8CE2900DFA4C9 /* ExtUIView.swift */,
+				25414A172AF8CE9400DFA4C9 /* ExtUICollectionView.swift */,
+				25414A192AF8CEE300DFA4C9 /* ExtUIButton.swift */,
+				25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -282,6 +349,8 @@
 		254149EB2AF8838C00DFA4C9 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				25414A0D2AF8CAE500DFA4C9 /* Biometric.swift */,
+				25414A392AF8D50E00DFA4C9 /* DarkMode.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -445,10 +514,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25414A1E2AF8CFCE00DFA4C9 /* TransacViewController.xib in Resources */,
+				25414A2B2AF8D02900DFA4C9 /* SigInViewController.xib in Resources */,
 				254149BB2AF87EBC00DFA4C9 /* LaunchScreen.storyboard in Resources */,
 				254149FC2AF88A5700DFA4C9 /* WelcomeViewController.xib in Resources */,
 				254149B82AF87EBC00DFA4C9 /* Assets.xcassets in Resources */,
+				25414A2F2AF8D05A00DFA4C9 /* RegisterViewController.xib in Resources */,
 				254149B32AF87EBA00DFA4C9 /* Main.storyboard in Resources */,
+				25414A262AF8D00400DFA4C9 /* HomeViewController.xib in Resources */,
+				25414A222AF8CFE100DFA4C9 /* WalletViewController.xib in Resources */,
+				25414A382AF8D0A900DFA4C9 /* MovieDetailViewController.xib in Resources */,
+				25414A342AF8D07600DFA4C9 /* MovieListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,19 +652,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25414A3A2AF8D50E00DFA4C9 /* DarkMode.swift in Sources */,
 				254149F52AF8860C00DFA4C9 /* Api.swift in Sources */,
 				254149FE2AF88F4700DFA4C9 /* Endpoint.swift in Sources */,
 				254149FB2AF88A5700DFA4C9 /* WelcomeViewController.swift in Sources */,
+				25414A332AF8D07600DFA4C9 /* MovieListViewController.swift in Sources */,
 				25414A092AF8A90400DFA4C9 /* Model.swift in Sources */,
+				25414A142AF8CE0400DFA4C9 /* ExtUITableView.swift in Sources */,
+				25414A2A2AF8D02900DFA4C9 /* SigInViewController.swift in Sources */,
 				254149B62AF87EBA00DFA4C9 /* CinemaTix.xcdatamodeld in Sources */,
+				25414A252AF8D00400DFA4C9 /* HomeViewController.swift in Sources */,
 				25414A042AF8A6B300DFA4C9 /* MovieService.swift in Sources */,
 				25414A0B2AF8B9A900DFA4C9 /* Service.swift in Sources */,
 				254149B02AF87EBA00DFA4C9 /* ViewController.swift in Sources */,
+				25414A102AF8CC8E00DFA4C9 /* Color.swift in Sources */,
+				25414A162AF8CE2900DFA4C9 /* ExtUIView.swift in Sources */,
+				25414A0E2AF8CAE500DFA4C9 /* Biometric.swift in Sources */,
 				254149AC2AF87EBA00DFA4C9 /* AppDelegate.swift in Sources */,
 				254149F32AF8844700DFA4C9 /* TabBarViewController.swift in Sources */,
+				25414A2E2AF8D05A00DFA4C9 /* RegisterViewController.swift in Sources */,
+				25414A182AF8CE9400DFA4C9 /* ExtUICollectionView.swift in Sources */,
+				25414A212AF8CFE100DFA4C9 /* WalletViewController.swift in Sources */,
 				25414A012AF89D4100DFA4C9 /* MovieApi.swift in Sources */,
 				25414A072AF8A7BA00DFA4C9 /* MovieDetailModel.swift in Sources */,
+				25414A122AF8CD8F00DFA4C9 /* Icon.swift in Sources */,
+				25414A3C2AF8DD2E00DFA4C9 /* ExtUIViewController.swift in Sources */,
 				254149AE2AF87EBA00DFA4C9 /* SceneDelegate.swift in Sources */,
+				25414A1A2AF8CEE300DFA4C9 /* ExtUIButton.swift in Sources */,
+				25414A372AF8D0A900DFA4C9 /* MovieDetailViewController.swift in Sources */,
+				25414A1D2AF8CFCE00DFA4C9 /* TransacViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,7 +788,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -753,7 +845,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -772,6 +864,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QHWS6Y2JRB;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"$(inherited)",
+					"TMDB_APIKEY=\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOTc4NmU2YzQwODg2MGQ1MjQzMzY2ZDU2ZjQ1NjVmYiIsInN1YiI6IjVmM2U3NmU0YzE3NWIyMDAzNjVjYWQyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.m6-n_LC0tAyozYRn1U5dsKZ2SS1fJNjtrFpPU7AUg8g\"",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CinemaTix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -779,6 +875,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -801,6 +898,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QHWS6Y2JRB;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"$(inherited)",
+					"TMDB_APIKEY=\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOTc4NmU2YzQwODg2MGQ1MjQzMzY2ZDU2ZjQ1NjVmYiIsInN1YiI6IjVmM2U3NmU0YzE3NWIyMDAzNjVjYWQyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.m6-n_LC0tAyozYRn1U5dsKZ2SS1fJNjtrFpPU7AUg8g\"",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CinemaTix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -808,6 +909,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -831,7 +933,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QHWS6Y2JRB;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rizkyeky.CinemaTixTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -852,7 +954,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QHWS6Y2JRB;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rizkyeky.CinemaTixTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
