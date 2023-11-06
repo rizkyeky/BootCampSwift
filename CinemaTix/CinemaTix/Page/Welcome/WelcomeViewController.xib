@@ -22,19 +22,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5j-bW-yyu" userLabel="SignIn">
-                    <rect key="frame" x="81.666666666666686" y="568" width="230" height="50"/>
+                    <rect key="frame" x="46.666666666666657" y="568" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Dqo-oA-cwZ"/>
-                        <constraint firstAttribute="width" constant="230" id="PD0-0b-W5V"/>
+                        <constraint firstAttribute="width" constant="300" id="PD0-0b-W5V"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="tinted" title="Button"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbB-7z-qdE" userLabel="Register">
-                    <rect key="frame" x="81.666666666666686" y="502" width="230" height="50"/>
+                    <rect key="frame" x="46.666666666666657" y="502" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="iko-nM-zSg"/>
-                        <constraint firstAttribute="width" constant="230" id="u0m-UA-Tiu"/>
+                        <constraint firstAttribute="width" constant="300" id="u0m-UA-Tiu"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="Button"/>

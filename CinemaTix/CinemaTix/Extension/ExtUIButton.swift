@@ -15,18 +15,18 @@ extension UIButton {
             self.onTapDownAnimateBounce()
         }, for: .touchDown)
         self.addAction(UIAction { _ in
-            self.onTapDownAnimateBounce()
+            self.onTapUpAnimateBounce()
         }, for: .touchUpInside)
     }
     
     func onTapDownAnimateBounce() {
         UIView.animate(withDuration: 0.081, animations: {
-            self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            self.transform = CGAffineTransform(scaleX: 0.96, y: 0.96)
         })
     }
     
     func onTapUpAnimateBounce() {
-        UIView.animate(withDuration: 0.81, animations: {
+        UIView.animate(withDuration: 0.081, animations: {
             self.transform = CGAffineTransform.identity
         })
     }

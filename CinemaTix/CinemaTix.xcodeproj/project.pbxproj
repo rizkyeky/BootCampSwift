@@ -42,8 +42,6 @@
 		25414A222AF8CFE100DFA4C9 /* WalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A202AF8CFE100DFA4C9 /* WalletViewController.xib */; };
 		25414A252AF8D00400DFA4C9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A232AF8D00400DFA4C9 /* HomeViewController.swift */; };
 		25414A262AF8D00400DFA4C9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A242AF8D00400DFA4C9 /* HomeViewController.xib */; };
-		25414A2A2AF8D02900DFA4C9 /* SigInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A282AF8D02900DFA4C9 /* SigInViewController.swift */; };
-		25414A2B2AF8D02900DFA4C9 /* SigInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A292AF8D02900DFA4C9 /* SigInViewController.xib */; };
 		25414A2E2AF8D05A00DFA4C9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A2C2AF8D05A00DFA4C9 /* RegisterViewController.swift */; };
 		25414A2F2AF8D05A00DFA4C9 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A2D2AF8D05A00DFA4C9 /* RegisterViewController.xib */; };
 		25414A332AF8D07600DFA4C9 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A312AF8D07600DFA4C9 /* MovieListViewController.swift */; };
@@ -52,6 +50,8 @@
 		25414A382AF8D0A900DFA4C9 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A362AF8D0A900DFA4C9 /* MovieDetailViewController.xib */; };
 		25414A3A2AF8D50E00DFA4C9 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A392AF8D50E00DFA4C9 /* DarkMode.swift */; };
 		25414A3C2AF8DD2E00DFA4C9 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */; };
+		25414A402AF8E78100DFA4C9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A3E2AF8E78100DFA4C9 /* SignInViewController.swift */; };
+		25414A412AF8E78100DFA4C9 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A3F2AF8E78100DFA4C9 /* SignInViewController.xib */; };
 		A9702F5F95870B4FD773938B /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,8 +111,6 @@
 		25414A202AF8CFE100DFA4C9 /* WalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletViewController.xib; sourceTree = "<group>"; };
 		25414A232AF8D00400DFA4C9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		25414A242AF8D00400DFA4C9 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		25414A282AF8D02900DFA4C9 /* SigInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigInViewController.swift; sourceTree = "<group>"; };
-		25414A292AF8D02900DFA4C9 /* SigInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SigInViewController.xib; sourceTree = "<group>"; };
 		25414A2C2AF8D05A00DFA4C9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		25414A2D2AF8D05A00DFA4C9 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		25414A312AF8D07600DFA4C9 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +119,8 @@
 		25414A362AF8D0A900DFA4C9 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		25414A392AF8D50E00DFA4C9 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
+		25414A3E2AF8E78100DFA4C9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		25414A3F2AF8E78100DFA4C9 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F308EB817918C1E9BEBC98 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
 		6B601FF28E071254BFB9ADEE /* Pods-CinemaTix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.debug.xcconfig"; sourceTree = "<group>"; };
@@ -274,8 +274,8 @@
 		254149E32AF882DA00DFA4C9 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				25414A282AF8D02900DFA4C9 /* SigInViewController.swift */,
-				25414A292AF8D02900DFA4C9 /* SigInViewController.xib */,
+				25414A3E2AF8E78100DFA4C9 /* SignInViewController.swift */,
+				25414A3F2AF8E78100DFA4C9 /* SignInViewController.xib */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -515,7 +515,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				25414A1E2AF8CFCE00DFA4C9 /* TransacViewController.xib in Resources */,
-				25414A2B2AF8D02900DFA4C9 /* SigInViewController.xib in Resources */,
 				254149BB2AF87EBC00DFA4C9 /* LaunchScreen.storyboard in Resources */,
 				254149FC2AF88A5700DFA4C9 /* WelcomeViewController.xib in Resources */,
 				254149B82AF87EBC00DFA4C9 /* Assets.xcassets in Resources */,
@@ -523,6 +522,7 @@
 				254149B32AF87EBA00DFA4C9 /* Main.storyboard in Resources */,
 				25414A262AF8D00400DFA4C9 /* HomeViewController.xib in Resources */,
 				25414A222AF8CFE100DFA4C9 /* WalletViewController.xib in Resources */,
+				25414A412AF8E78100DFA4C9 /* SignInViewController.xib in Resources */,
 				25414A382AF8D0A900DFA4C9 /* MovieDetailViewController.xib in Resources */,
 				25414A342AF8D07600DFA4C9 /* MovieListViewController.xib in Resources */,
 			);
@@ -659,10 +659,10 @@
 				25414A332AF8D07600DFA4C9 /* MovieListViewController.swift in Sources */,
 				25414A092AF8A90400DFA4C9 /* Model.swift in Sources */,
 				25414A142AF8CE0400DFA4C9 /* ExtUITableView.swift in Sources */,
-				25414A2A2AF8D02900DFA4C9 /* SigInViewController.swift in Sources */,
 				254149B62AF87EBA00DFA4C9 /* CinemaTix.xcdatamodeld in Sources */,
 				25414A252AF8D00400DFA4C9 /* HomeViewController.swift in Sources */,
 				25414A042AF8A6B300DFA4C9 /* MovieService.swift in Sources */,
+				25414A402AF8E78100DFA4C9 /* SignInViewController.swift in Sources */,
 				25414A0B2AF8B9A900DFA4C9 /* Service.swift in Sources */,
 				254149B02AF87EBA00DFA4C9 /* ViewController.swift in Sources */,
 				25414A102AF8CC8E00DFA4C9 /* Color.swift in Sources */,
@@ -773,7 +773,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -781,6 +781,10 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"$(inherited)",
+					"TMDB_APIKEY=\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOTc4NmU2YzQwODg2MGQ1MjQzMzY2ZDU2ZjQ1NjVmYiIsInN1YiI6IjVmM2U3NmU0YzE3NWIyMDAzNjVjYWQyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.m6-n_LC0tAyozYRn1U5dsKZ2SS1fJNjtrFpPU7AUg8g\"",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -836,9 +840,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "TMDB_APIKEY=\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOTc4NmU2YzQwODg2MGQ1MjQzMzY2ZDU2ZjQ1NjVmYiIsInN1YiI6IjVmM2U3NmU0YzE3NWIyMDAzNjVjYWQyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.m6-n_LC0tAyozYRn1U5dsKZ2SS1fJNjtrFpPU7AUg8g\"";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -864,6 +869,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QHWS6Y2JRB;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
 					"$(inherited)",
 					"TMDB_APIKEY=\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOTc4NmU2YzQwODg2MGQ1MjQzMzY2ZDU2ZjQ1NjVmYiIsInN1YiI6IjVmM2U3NmU0YzE3NWIyMDAzNjVjYWQyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.m6-n_LC0tAyozYRn1U5dsKZ2SS1fJNjtrFpPU7AUg8g\"",
@@ -898,6 +904,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QHWS6Y2JRB;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
 					"$(inherited)",
 					"TMDB_APIKEY=\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOTc4NmU2YzQwODg2MGQ1MjQzMzY2ZDU2ZjQ1NjVmYiIsInN1YiI6IjVmM2U3NmU0YzE3NWIyMDAzNjVjYWQyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.m6-n_LC0tAyozYRn1U5dsKZ2SS1fJNjtrFpPU7AUg8g\"",

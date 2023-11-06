@@ -6,35 +6,33 @@
 //
 
 import UIKit
+import FloatingPanel
 
 class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var registerButton: UIButton!
-    
     @IBOutlet weak var signInButton: UIButton!
     
-    let movieService = MovieService()
+    var floatingPanelController: FloatingPanelController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        signInButton.setAnimateBounce()
+        
+        setupFloatingPanel()
+        setupRegisterButton()
+        setupSignInButton()
     }
-    
-    
 }
 
 extension WelcomeViewController {
     func setupRegisterButton() {
         registerButton.setTitle("Create New Account", for: .normal)
         registerButton.setAnimateBounce()
-        registerButton.addAction(UIAction { _ in
-            self.onTapRegisterButton()
-        }, for: .touchUpInside)
+        registerButton.addAction(UIAction(handler: onTapRegisterButton), for: .touchUpInside)
     }
     
-    func onTapRegisterButton() {
-        openBottomSheet(to: SigInViewController())
+    func onTapRegisterButton(_ action: UIAction) {
+        openBottomSheet(to: RegisterViewController())
     }
 }
 
@@ -42,28 +40,33 @@ extension WelcomeViewController {
     func setupSignInButton() {
         signInButton.setTitle("Sign In", for: .normal)
         signInButton.setAnimateBounce()
-        signInButton.addAction(UIAction { _ in
-            self.onTapSignInButton()
-        }, for: .touchUpInside)
+        signInButton.addAction(UIAction(handler: onTapSignInButton), for: .touchUpInside)
     }
     
-    func onTapSignInButton() {
-        openBottomSheet(to: SigInViewController())
-        
-        print("get getPlayingNow")
-        movieService.getPlayingNow { result in
-            switch result {
-            case .success(let models):
-                if ((models?.isEmpty) != nil) {
-                    print(models?.count)
-                    print(models?[0].title)
-                }
-            case .failure(let error):
-                print(error.asAFError?.errorDescription)
-            }
-        }
+    func onTapSignInButton(_ action: UIAction) {
+        floatingPanelController.show(animated: true)
     }
 
 }
 
+
+extension WelcomeViewController: FloatingPanelControllerDelegate {
+    
+    func setupFloatingPanel() {
+        floatingPanelController = FloatingPanelController()
+        floatingPanelController.delegate = self
+        
+        floatingPanelController.set(contentViewController: SignInViewController())
+        floatingPanelController.addPanel(toParent: self)
+        
+        floatingPanelController.surfaceView.makeCornerRadius(16)
+        
+        floatingPanelController.hide()
+    }
+    
+//    func floatingPanel(_ vc: FloatingPanelController, layoutFor, newCollection: UITraitCollection) -> FloatingPanelLayout? {
+//        
+//    }
+    
+}
 

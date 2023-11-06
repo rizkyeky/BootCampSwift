@@ -27,18 +27,18 @@ final class CinemaTixTests: XCTestCase {
         // Any test you write for XCTest can be annotated as throws and async.
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-        print("Run testExample")
-        movieService.getPlayingNow { result in
-            switch result {
-            case .success(let models):
-                if ((models?.isEmpty) != nil) {
-                    print(models?.count)
-                    print(models?[0].title)
-                }
-            case .failure(let error):
-                print(error.asAFError?.errorDescription)
-            }
-        }
+//        print("Run testExample")
+//        movieService.getPlayingNow { result in
+//            switch result {
+//            case .success(let models):
+//                if ((models?.isEmpty) != nil) {
+//                    print(models?.count)
+//                    print(models?[0].title)
+//                }
+//            case .failure(let error):
+//                print(error.asAFError?.errorDescription)
+//            }
+//        }
 
     }
 

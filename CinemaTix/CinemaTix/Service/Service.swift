@@ -11,7 +11,7 @@ import Alamofire
 class Service {
     
     func getData<T: Codable>(url: URLRequestConvertible, expecting type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
-        let dataReq = AF.request(url)
+        AF.request(url)
             .validate()
             .responseDecodable(of: type.self) { response in
                 switch response.result {

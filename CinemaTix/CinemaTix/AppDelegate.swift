@@ -13,13 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        if let apiKey = ProcessInfo.processInfo.environment["TMDB_APIKEY"] {
-            print("API Key: \(apiKey)")
-        } else {
-            print("API Key not found")
-        }
-        
+                
         return true
     }
 
