@@ -5,3 +5,5 @@ TestBundle/
 
 **/GoogleService-Info.plist
 **/.png
+
+CinemaTix/CinemaTix/Secret.plist
