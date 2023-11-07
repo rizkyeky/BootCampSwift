@@ -44,9 +44,8 @@ extension WelcomeViewController {
     }
     
     func onTapSignInButton(_ action: UIAction) {
-        floatingPanelController.show(animated: true)
+        showFloatingPanel()
     }
-
 }
 
 
@@ -56,17 +55,31 @@ extension WelcomeViewController: FloatingPanelControllerDelegate {
         floatingPanelController = FloatingPanelController()
         floatingPanelController.delegate = self
         
-        floatingPanelController.set(contentViewController: SignInViewController())
-        floatingPanelController.addPanel(toParent: self)
+        floatingPanelController.surfaceView.makeCornerRadius(24)
         
-        floatingPanelController.surfaceView.makeCornerRadius(16)
-        
-        floatingPanelController.hide()
+        floatingPanelController.backdropView.dismissalTapGestureRecognizer.isEnabled = true
+        floatingPanelController.isRemovalInteractionEnabled = true
     }
     
-//    func floatingPanel(_ vc: FloatingPanelController, layoutFor, newCollection: UITraitCollection) -> FloatingPanelLayout? {
-//        
-//    }
+    func showFloatingPanel() {
+        let signInVC = SignInViewController()
+        signInVC.onTapCloseButton = {
+            self.dismiss(animated: true)
+        }
+        floatingPanelController.set(contentViewController: signInVC)
+        present(floatingPanelController, animated: true, completion: nil)
+    }
     
+    func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout {
+        return SignInFloatingPanelLayout()
+    }
+    
+    func floatingPanel(_ fpc: FloatingPanelController, animatorForPresentingTo state: FloatingPanelState) -> UIViewPropertyAnimator {
+        return UIViewPropertyAnimator(duration: TimeInterval(0.24), curve: .easeOut)
+    }
+    
+    func floatingPanel(_ fpc: FloatingPanelController, animatorForDismissingWith velocity: CGVector) -> UIViewPropertyAnimator {
+        return UIViewPropertyAnimator(duration: TimeInterval(0.24), curve: .easeOut)
+    }
 }
 

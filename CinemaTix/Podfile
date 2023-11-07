@@ -8,8 +8,17 @@ target 'CinemaTix' do
   pod 'Alamofire'
   pod 'Kingfisher'
   pod 'Kingfisher'
-  pod 'PocketSVG'
   pod 'FloatingPanel'
+  pod 'lottie-ios'
+  pod 'SnapKit'
+  pod 'AsyncPlus'
+  pod 'SwiftIconFont'
+  pod 'FirebaseCore'
+  pod 'FirebaseAuth'
+  pod 'SkeletonView'
+  pod 'RxSwift'
+  pod 'Swinject'
+  pod 'Cards'
 
   # Pods for CinemaTix
 

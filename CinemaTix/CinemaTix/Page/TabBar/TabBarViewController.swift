@@ -31,9 +31,9 @@ class TabBarViewController: UITabBarController {
     }
     
     func configureUITabBarItems() {
-        home.tabBarItem = UITabBarItem(title: "Home", image: Icon.home, tag: 0)
-        wallet.tabBarItem = UITabBarItem(title: "Wallet", image: Icon.system, tag: 1)
-        transac.tabBarItem = UITabBarItem(title: "Transaction", image: Icon.profile, tag: 2)
+        home.tabBarItem = UITabBarItem(title: "Home", image: SFIcon.home, tag: 0)
+        wallet.tabBarItem = UITabBarItem(title: "Wallet", image: SFIcon.system, tag: 1)
+        transac.tabBarItem = UITabBarItem(title: "Transaction", image: SFIcon.profile, tag: 2)
         
         UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: UIColor.label], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: Color.base], for: .selected)

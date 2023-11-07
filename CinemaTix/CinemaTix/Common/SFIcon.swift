@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum Icon {
+enum SFIcon {
     static let home = UIImage(systemName: "house.fill")
     static let system = UIImage(systemName: "gear")
     static let profile = UIImage(systemName: "person.crop.circle.fill")

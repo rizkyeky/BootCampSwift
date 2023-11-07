@@ -31,7 +31,7 @@
 		25414A0B2AF8B9A900DFA4C9 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A0A2AF8B9A900DFA4C9 /* Service.swift */; };
 		25414A0E2AF8CAE500DFA4C9 /* Biometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A0D2AF8CAE500DFA4C9 /* Biometric.swift */; };
 		25414A102AF8CC8E00DFA4C9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A0F2AF8CC8E00DFA4C9 /* Color.swift */; };
-		25414A122AF8CD8F00DFA4C9 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A112AF8CD8F00DFA4C9 /* Icon.swift */; };
+		25414A122AF8CD8F00DFA4C9 /* SFIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A112AF8CD8F00DFA4C9 /* SFIcon.swift */; };
 		25414A142AF8CE0400DFA4C9 /* ExtUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A132AF8CE0400DFA4C9 /* ExtUITableView.swift */; };
 		25414A162AF8CE2900DFA4C9 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A152AF8CE2900DFA4C9 /* ExtUIView.swift */; };
 		25414A182AF8CE9400DFA4C9 /* ExtUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A172AF8CE9400DFA4C9 /* ExtUICollectionView.swift */; };
@@ -52,6 +52,8 @@
 		25414A3C2AF8DD2E00DFA4C9 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */; };
 		25414A402AF8E78100DFA4C9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A3E2AF8E78100DFA4C9 /* SignInViewController.swift */; };
 		25414A412AF8E78100DFA4C9 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A3F2AF8E78100DFA4C9 /* SignInViewController.xib */; };
+		2577E75F2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */; };
+		2577E7612AF9DCCF002D6AF6 /* SVGIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */; };
 		A9702F5F95870B4FD773938B /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,7 +102,7 @@
 		25414A0A2AF8B9A900DFA4C9 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		25414A0D2AF8CAE500DFA4C9 /* Biometric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biometric.swift; sourceTree = "<group>"; };
 		25414A0F2AF8CC8E00DFA4C9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		25414A112AF8CD8F00DFA4C9 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		25414A112AF8CD8F00DFA4C9 /* SFIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFIcon.swift; sourceTree = "<group>"; };
 		25414A132AF8CE0400DFA4C9 /* ExtUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITableView.swift; sourceTree = "<group>"; };
 		25414A152AF8CE2900DFA4C9 /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		25414A172AF8CE9400DFA4C9 /* ExtUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUICollectionView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,8 @@
 		25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		25414A3E2AF8E78100DFA4C9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		25414A3F2AF8E78100DFA4C9 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFloatingPanel.swift; sourceTree = "<group>"; };
+		2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGIcon.swift; sourceTree = "<group>"; };
 		536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F308EB817918C1E9BEBC98 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
 		6B601FF28E071254BFB9ADEE /* Pods-CinemaTix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.debug.xcconfig"; sourceTree = "<group>"; };
@@ -322,7 +326,8 @@
 				254149FF2AF89D2300DFA4C9 /* Api */,
 				254149FD2AF88F4700DFA4C9 /* Endpoint.swift */,
 				25414A0F2AF8CC8E00DFA4C9 /* Color.swift */,
-				25414A112AF8CD8F00DFA4C9 /* Icon.swift */,
+				25414A112AF8CD8F00DFA4C9 /* SFIcon.swift */,
+				2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 		254149EA2AF8838500DFA4C9 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -669,13 +675,15 @@
 				25414A162AF8CE2900DFA4C9 /* ExtUIView.swift in Sources */,
 				25414A0E2AF8CAE500DFA4C9 /* Biometric.swift in Sources */,
 				254149AC2AF87EBA00DFA4C9 /* AppDelegate.swift in Sources */,
+				2577E7612AF9DCCF002D6AF6 /* SVGIcon.swift in Sources */,
 				254149F32AF8844700DFA4C9 /* TabBarViewController.swift in Sources */,
 				25414A2E2AF8D05A00DFA4C9 /* RegisterViewController.swift in Sources */,
 				25414A182AF8CE9400DFA4C9 /* ExtUICollectionView.swift in Sources */,
 				25414A212AF8CFE100DFA4C9 /* WalletViewController.swift in Sources */,
 				25414A012AF89D4100DFA4C9 /* MovieApi.swift in Sources */,
 				25414A072AF8A7BA00DFA4C9 /* MovieDetailModel.swift in Sources */,
-				25414A122AF8CD8F00DFA4C9 /* Icon.swift in Sources */,
+				25414A122AF8CD8F00DFA4C9 /* SFIcon.swift in Sources */,
+				2577E75F2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift in Sources */,
 				25414A3C2AF8DD2E00DFA4C9 /* ExtUIViewController.swift in Sources */,
 				254149AE2AF87EBA00DFA4C9 /* SceneDelegate.swift in Sources */,
 				25414A1A2AF8CEE300DFA4C9 /* ExtUIButton.swift in Sources */,

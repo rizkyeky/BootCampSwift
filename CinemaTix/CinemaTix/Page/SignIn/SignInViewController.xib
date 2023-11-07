@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="CinemaTix" customModuleProvider="target">
             <connections>
                 <outlet property="appleButton" destination="35L-Tr-FW0" id="Qlw-aZ-0MQ"/>
+                <outlet property="closeButton" destination="akh-fX-qtG" id="CnZ-8F-92s"/>
                 <outlet property="emailButton" destination="OdA-8M-BZH" id="ZlD-2k-Ygl"/>
                 <outlet property="googleButton" destination="3OR-Cu-X76" id="tKD-zg-7BI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="zSO-fk-h8s">
-                    <rect key="frame" x="46.666666666666657" y="91" width="300" height="198"/>
+                    <rect key="frame" x="46.666666666666657" y="123" width="300" height="198"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35L-Tr-FW0" userLabel="SignInApple">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
@@ -32,7 +33,7 @@
                                 <constraint firstAttribute="width" constant="300" id="xYH-YZ-reT"/>
                             </constraints>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            <buttonConfiguration key="configuration" style="gray" title="Button"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3OR-Cu-X76" userLabel="SignInGoogle">
                             <rect key="frame" x="0.0" y="74" width="300" height="50"/>
@@ -41,7 +42,7 @@
                                 <constraint firstAttribute="height" constant="50" id="76h-3t-ybj"/>
                             </constraints>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            <buttonConfiguration key="configuration" style="gray" title="Button"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OdA-8M-BZH" userLabel="SignInEmail">
                             <rect key="frame" x="0.0" y="148" width="300" height="50"/>
@@ -50,21 +51,39 @@
                                 <constraint firstAttribute="height" constant="50" id="gkw-FP-SfS"/>
                             </constraints>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            <buttonConfiguration key="configuration" style="gray" title="Button"/>
                         </button>
                     </subviews>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akh-fX-qtG">
+                    <rect key="frame" x="347" y="75" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="3Ye-Pf-xpW"/>
+                        <constraint firstAttribute="width" constant="30" id="fjm-H6-uub"/>
+                    </constraints>
+                    <color key="tintColor" systemColor="secondaryLabelColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="xmark.circle.fill" catalog="system" cornerStyle="capsule">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                    </buttonConfiguration>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="zSO-fk-h8s" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wai-DP-VYz"/>
-                <constraint firstItem="zSO-fk-h8s" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="ayG-jd-ve7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="akh-fX-qtG" secondAttribute="trailing" constant="16" id="XmU-ja-py6"/>
+                <constraint firstItem="akh-fX-qtG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="h2V-nf-02p"/>
+                <constraint firstItem="zSO-fk-h8s" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="rnJ-07-P0I"/>
             </constraints>
             <point key="canvasLocation" x="56" y="20"/>
         </view>
     </objects>
     <resources>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
