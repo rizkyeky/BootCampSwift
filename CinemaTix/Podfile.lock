@@ -39,6 +39,11 @@ PODS:
   - Player (0.13.0)
   - PromisesObjC (2.3.1)
   - RecaptchaInterop (100.0.0)
+  - RxCocoa (6.6.0):
+    - RxRelay (= 6.6.0)
+    - RxSwift (= 6.6.0)
+  - RxRelay (6.6.0):
+    - RxSwift (= 6.6.0)
   - RxSwift (6.6.0)
   - SkeletonView (1.30.4)
   - SnapKit (5.6.0)
@@ -54,6 +59,7 @@ DEPENDENCIES:
   - FloatingPanel
   - Kingfisher
   - lottie-ios
+  - RxCocoa
   - RxSwift
   - SkeletonView
   - SnapKit
@@ -77,6 +83,8 @@ SPEC REPOS:
     - Player
     - PromisesObjC
     - RecaptchaInterop
+    - RxCocoa
+    - RxRelay
     - RxSwift
     - SkeletonView
     - SnapKit
@@ -99,12 +107,14 @@ SPEC CHECKSUMS:
   Player: 968d8d07d923bcdd6f7e4091c9e306eb44a5f7a4
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
+  RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
+  RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftIconFont: b2ac08d9c18f617d0544c817f4a407b126cb9ae9
   Swinject: 893c9a543000ac2f10ee4cbaf0933c6992c935d5
 
-PODFILE CHECKSUM: 3d32ddbe602be36dff694f2c8d55349bdced17ac
+PODFILE CHECKSUM: 7a419ca91b1bff6d14426b26a848679bf882e52d
 
 COCOAPODS: 1.14.2

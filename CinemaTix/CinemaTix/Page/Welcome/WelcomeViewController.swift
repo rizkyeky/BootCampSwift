@@ -19,6 +19,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupFloatingPanel()
+        
         setupRegisterButton()
         setupSignInButton()
     }

@@ -17,6 +17,7 @@ target 'CinemaTix' do
   pod 'FirebaseAuth'
   pod 'SkeletonView'
   pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'Swinject'
   pod 'Cards'
 

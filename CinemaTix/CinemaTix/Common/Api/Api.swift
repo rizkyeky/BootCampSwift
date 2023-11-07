@@ -64,9 +64,19 @@ class TmdbApi: Api {
     var baseURL: String = "https://api.themoviedb.org/3/"
     var key: String = "f9786e6c408860d5243366d56f4565fb"
     var headers: HTTPHeaders = [
-        "Content-Type": "application/json",
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOTc4NmU2YzQwODg2MGQ1MjQzMzY2ZDU2ZjQ1NjVmYiIsInN1YiI6IjVmM2U3NmU0YzE3NWIyMDAzNjVjYWQyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.m6-n_LC0tAyozYRn1U5dsKZ2SS1fJNjtrFpPU7AUg8g"
+        "Content-Type": "application/json"
     ]
+    
+    init() {
+        if let path = Bundle.main.path(forResource: "Secret", ofType: "plist") {
+            if let dict = NSDictionary(contentsOfFile: path) as? [String: Any] {
+                if let apiKey = dict["APIKEY"] as? String {
+                    let value = "Bearer \(apiKey)"
+                    headers.add(name: "Authorization", value: value)
+                }
+            }
+        }
+    }
     
     internal func createEndpoint(path: String,
                                  method: HTTPMethod,

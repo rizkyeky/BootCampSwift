@@ -39,19 +39,25 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="Button"/>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="bZG-Xg-L8p">
+                    <rect key="frame" x="119" y="204" width="155" height="158"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="cbB-7z-qdE" firstAttribute="top" secondItem="bZG-Xg-L8p" secondAttribute="bottom" constant="140" id="0Nz-hn-LPQ"/>
                 <constraint firstItem="c5j-bW-yyu" firstAttribute="top" secondItem="cbB-7z-qdE" secondAttribute="bottom" constant="16" id="5St-cH-2wd"/>
                 <constraint firstItem="c5j-bW-yyu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Anc-wL-ZJq"/>
                 <constraint firstItem="cbB-7z-qdE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="W1d-02-hNX"/>
+                <constraint firstItem="bZG-Xg-L8p" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="w0c-IC-ffb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="c5j-bW-yyu" secondAttribute="bottom" constant="200" id="yVM-v1-DjZ"/>
             </constraints>
             <point key="canvasLocation" x="48" y="21"/>
         </view>
     </objects>
     <resources>
+        <image name="Icon" width="155" height="158"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

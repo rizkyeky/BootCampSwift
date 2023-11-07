@@ -54,6 +54,10 @@
 		25414A412AF8E78100DFA4C9 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A3F2AF8E78100DFA4C9 /* SignInViewController.xib */; };
 		2577E75F2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */; };
 		2577E7612AF9DCCF002D6AF6 /* SVGIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */; };
+		2577E7632AF9ECDC002D6AF6 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2577E7622AF9ECDC002D6AF6 /* Secret.plist */; };
+		2577E7652AF9F27F002D6AF6 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E7642AF9F27F002D6AF6 /* RegisterTextField.swift */; };
+		2577E7682AF9F2CF002D6AF6 /* RegisterTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2577E7672AF9F2CF002D6AF6 /* RegisterTextField.xib */; };
+		2577E76A2AFA2066002D6AF6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E7692AFA2066002D6AF6 /* BaseViewController.swift */; };
 		A9702F5F95870B4FD773938B /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +129,10 @@
 		25414A3F2AF8E78100DFA4C9 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFloatingPanel.swift; sourceTree = "<group>"; };
 		2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGIcon.swift; sourceTree = "<group>"; };
+		2577E7622AF9ECDC002D6AF6 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
+		2577E7642AF9F27F002D6AF6 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
+		2577E7672AF9F2CF002D6AF6 /* RegisterTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterTextField.xib; sourceTree = "<group>"; };
+		2577E7692AFA2066002D6AF6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F308EB817918C1E9BEBC98 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
 		6B601FF28E071254BFB9ADEE /* Pods-CinemaTix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.debug.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +210,7 @@
 				254149B72AF87EBC00DFA4C9 /* Assets.xcassets */,
 				254149B92AF87EBC00DFA4C9 /* LaunchScreen.storyboard */,
 				254149BC2AF87EBC00DFA4C9 /* Info.plist */,
+				2577E7622AF9ECDC002D6AF6 /* Secret.plist */,
 				254149B42AF87EBA00DFA4C9 /* CinemaTix.xcdatamodeld */,
 			);
 			path = CinemaTix;
@@ -328,6 +337,7 @@
 				25414A0F2AF8CC8E00DFA4C9 /* Color.swift */,
 				25414A112AF8CD8F00DFA4C9 /* SFIcon.swift */,
 				2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */,
+				2577E7692AFA2066002D6AF6 /* BaseViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -348,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */,
+				2577E7662AF9F2AC002D6AF6 /* RegisterTextField */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -386,6 +397,15 @@
 				25414A082AF8A90400DFA4C9 /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2577E7662AF9F2AC002D6AF6 /* RegisterTextField */ = {
+			isa = PBXGroup;
+			children = (
+				2577E7642AF9F27F002D6AF6 /* RegisterTextField.swift */,
+				2577E7672AF9F2CF002D6AF6 /* RegisterTextField.xib */,
+			);
+			path = RegisterTextField;
 			sourceTree = "<group>";
 		};
 		3A1D27266542EE5B398A30C6 /* Frameworks */ = {
@@ -526,10 +546,12 @@
 				254149B82AF87EBC00DFA4C9 /* Assets.xcassets in Resources */,
 				25414A2F2AF8D05A00DFA4C9 /* RegisterViewController.xib in Resources */,
 				254149B32AF87EBA00DFA4C9 /* Main.storyboard in Resources */,
+				2577E7682AF9F2CF002D6AF6 /* RegisterTextField.xib in Resources */,
 				25414A262AF8D00400DFA4C9 /* HomeViewController.xib in Resources */,
 				25414A222AF8CFE100DFA4C9 /* WalletViewController.xib in Resources */,
 				25414A412AF8E78100DFA4C9 /* SignInViewController.xib in Resources */,
 				25414A382AF8D0A900DFA4C9 /* MovieDetailViewController.xib in Resources */,
+				2577E7632AF9ECDC002D6AF6 /* Secret.plist in Resources */,
 				25414A342AF8D07600DFA4C9 /* MovieListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,7 +680,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2577E7652AF9F27F002D6AF6 /* RegisterTextField.swift in Sources */,
 				25414A3A2AF8D50E00DFA4C9 /* DarkMode.swift in Sources */,
+				2577E76A2AFA2066002D6AF6 /* BaseViewController.swift in Sources */,
 				254149F52AF8860C00DFA4C9 /* Api.swift in Sources */,
 				254149FE2AF88F4700DFA4C9 /* Endpoint.swift in Sources */,
 				254149FB2AF88A5700DFA4C9 /* WelcomeViewController.swift in Sources */,

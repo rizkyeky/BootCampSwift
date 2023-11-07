@@ -17,6 +17,8 @@ class SignInViewController: UIViewController {
     
     var onTapCloseButton: (() -> Void)?
     
+    let movieService = MovieService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +32,7 @@ class SignInViewController: UIViewController {
 extension SignInViewController {
     func setupAppleButton() {
         appleButton.setTitle("Sign In with Apple", for: .normal)
+        appleButton.setTitleColor(.label, for: .normal)
         if let appleLogo = SVGIcon.apple.getImage() {
             let view = UIImageView(image: appleLogo)
             view.tintColor = .white
@@ -47,6 +50,7 @@ extension SignInViewController {
 extension SignInViewController {
     func setupGoogleButton() {
         googleButton.setTitle("Sign In with Google", for: .normal)
+        googleButton.setTitleColor(.label, for: .normal)
         if let googleLogo = SVGIcon.google.getImage() {
             let view = UIImageView(image: googleLogo)
             view.tintColor = .white
@@ -64,6 +68,7 @@ extension SignInViewController {
 extension SignInViewController {
     func setupEmailButton() {
         emailButton.setTitle("Sign In with Email", for: .normal)
+        emailButton.setTitleColor(.label, for: .normal)
         if let emailLogo = SVGIcon.email.getImage() {
             let view = UIImageView(image: emailLogo)
             view.tintColor = .white
@@ -75,6 +80,25 @@ extension SignInViewController {
             }
         }
         emailButton.setAnimateBounce()
+        emailButton.addAction(UIAction(handler: didTapEmailButton), for: .touchUpInside)
+    }
+    
+    func didTapEmailButton(_ action: UIAction) {
+        dismiss(animated: true)
+        Task {
+            try await Task.sleep(nanoseconds: 1 * 100_000_000)
+            print("go to tab bar")
+            navigationController?.pushViewController(TabBarViewController(), animated: true)
+        }
+        
+//        movieService.getPlayingNow { result in
+//            switch result {
+//            case .success(let model):
+//                print(model?.count)
+//            case .failure(let error):
+//                print(error.asAFError?.errorDescription)
+//            }
+//        }
     }
 }
 

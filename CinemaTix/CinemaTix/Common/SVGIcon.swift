@@ -18,7 +18,7 @@ enum SVGIcon: String {
     case homeOutline = "home-outline"
     case wallet = "wallet"
     case walletOutline = "wallet-outline"
-    case email = "email"
+    case email = "mail"
     
 //    func getView() -> SVGImageView? {
 //        guard let url = Bundle.main.url(forResource: rawValue, withExtension: "svg") else {
