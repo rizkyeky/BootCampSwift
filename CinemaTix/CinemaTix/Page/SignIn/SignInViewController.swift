@@ -16,6 +16,9 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     
     var onTapCloseButton: (() -> Void)?
+    var onTapAppleButton: (() -> Void)?
+    var onTapGoolgeButton: (() -> Void)?
+    var onTapEmailButton: (() -> Void)?
     
     let movieService = MovieService()
     
@@ -44,6 +47,9 @@ extension SignInViewController {
             }
         }
         appleButton.setAnimateBounce()
+        appleButton.addAction(UIAction() { _ in
+            self.onTapAppleButton?()
+        }, for: .touchUpInside)
     }
 }
 
@@ -62,6 +68,9 @@ extension SignInViewController {
             }
         }
         googleButton.setAnimateBounce()
+        googleButton.addAction(UIAction() { _ in
+            self.onTapGoolgeButton?()
+        }, for: .touchUpInside)
     }
 }
 
@@ -80,25 +89,9 @@ extension SignInViewController {
             }
         }
         emailButton.setAnimateBounce()
-        emailButton.addAction(UIAction(handler: didTapEmailButton), for: .touchUpInside)
-    }
-    
-    func didTapEmailButton(_ action: UIAction) {
-        dismiss(animated: true)
-        Task {
-            try await Task.sleep(nanoseconds: 1 * 100_000_000)
-            print("go to tab bar")
-            navigationController?.pushViewController(TabBarViewController(), animated: true)
-        }
-        
-//        movieService.getPlayingNow { result in
-//            switch result {
-//            case .success(let model):
-//                print(model?.count)
-//            case .failure(let error):
-//                print(error.asAFError?.errorDescription)
-//            }
-//        }
+        emailButton.addAction(UIAction() { _ in
+            self.onTapEmailButton?()
+        }, for: .touchUpInside)
     }
 }
 

@@ -25,18 +25,16 @@ class TabBarViewController: UITabBarController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
     func configureUITabBarItems() {
-        home.tabBarItem = UITabBarItem(title: "Home", image: SFIcon.home, tag: 0)
-        wallet.tabBarItem = UITabBarItem(title: "Wallet", image: SFIcon.system, tag: 1)
-        transac.tabBarItem = UITabBarItem(title: "Transaction", image: SFIcon.profile, tag: 2)
+        if let homeImage = SVGIcon.home.getImage() {
+            home.tabBarItem = UITabBarItem(title: "Home", image: homeImage, tag: 0)
+        }
+        
+        wallet.tabBarItem = UITabBarItem(title: "Wallet", image: SVGIcon.wallet.getImage(), tag: 1)
+        transac.tabBarItem = UITabBarItem(title: "Transaction", image: SVGIcon.bag.getImage(), tag: 2)
         
         UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: UIColor.label], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: Color.base], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: Color.accent!], for: .selected)
 
     }
         

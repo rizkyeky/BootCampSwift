@@ -33,7 +33,14 @@ extension WelcomeViewController {
     }
     
     func onTapRegisterButton(_ action: UIAction) {
-        openBottomSheet(to: RegisterViewController())
+        let registerVC = RegisterViewController()
+        registerVC.onTapRegisterButton = {
+            self.dismiss(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.16) {
+                self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+            }
+        }
+        openBottomSheet(to: registerVC)
     }
 }
 
@@ -66,6 +73,12 @@ extension WelcomeViewController: FloatingPanelControllerDelegate {
         let signInVC = SignInViewController()
         signInVC.onTapCloseButton = {
             self.dismiss(animated: true)
+        }
+        signInVC.onTapEmailButton = {
+            self.dismiss(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.16) {
+                self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+            }
         }
         floatingPanelController.set(contentViewController: signInVC)
         present(floatingPanelController, animated: true, completion: nil)

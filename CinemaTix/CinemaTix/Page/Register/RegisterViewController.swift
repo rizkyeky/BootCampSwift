@@ -21,6 +21,8 @@ class RegisterViewController: BaseViewController {
     var email: String = ""
     var password: String = ""
     
+    var onTapRegisterButton: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -98,6 +100,11 @@ class RegisterViewController: BaseViewController {
         registerBtn.rx.tap.subscribe { [weak self] _ in
             guard let self = self else {return}
             print(self.username)
+            
         }.disposed(by: bag)
+        registerBtn.addAction(UIAction() { action in
+            self.onTapRegisterButton?()
+        }, for: .touchUpInside)
+        
     }
 }
