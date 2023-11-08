@@ -7,7 +7,6 @@ target 'CinemaTix' do
 
   pod 'Alamofire'
   pod 'Kingfisher'
-  pod 'Kingfisher'
   pod 'FloatingPanel'
   pod 'lottie-ios'
   pod 'SnapKit'
@@ -19,7 +18,7 @@ target 'CinemaTix' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Swinject'
-  pod 'Cards'
+  pod 'CenteredCollectionView'
 
   # Pods for CinemaTix
 

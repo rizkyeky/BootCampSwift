@@ -20,13 +20,13 @@ extension UIButton {
     }
     
     func onTapDownAnimateBounce() {
-        UIView.animate(withDuration: 0.081, animations: {
-            self.transform = CGAffineTransform(scaleX: 0.96, y: 0.96)
+        UIView.animate(withDuration: 0.092, animations: {
+            self.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)
         })
     }
     
     func onTapUpAnimateBounce() {
-        UIView.animate(withDuration: 0.081, animations: {
+        UIView.animate(withDuration: 0.092, animations: {
             self.transform = CGAffineTransform.identity
         })
     }

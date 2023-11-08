@@ -27,20 +27,27 @@ class TabBarViewController: UITabBarController {
 
     func configureUITabBarItems() {
         if let homeImage = SVGIcon.home.getImage() {
-            home.tabBarItem = UITabBarItem(title: "Home", image: homeImage, tag: 0)
+            let img = homeImage.resizeWith(size: CGSize(width: 30, height: 30))
+            home.tabBarItem = UITabBarItem(title: "Home", image: img, tag: 0)
         }
         
-        wallet.tabBarItem = UITabBarItem(title: "Wallet", image: SVGIcon.wallet.getImage(), tag: 1)
-        transac.tabBarItem = UITabBarItem(title: "Transaction", image: SVGIcon.bag.getImage(), tag: 2)
+        if let walletImage = SVGIcon.wallet.getImage() {
+            let img = walletImage.resizeWith(size: CGSize(width: 30, height: 30))
+            wallet.tabBarItem = UITabBarItem(title: "Wallet", image: img, tag: 1)
+        }
         
-        UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: UIColor.label], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: Color.accent!], for: .selected)
+        if let transacImage = SVGIcon.bag.getImage() {
+            let img = transacImage.resizeWith(size: CGSize(width: 30, height: 30))
+            transac.tabBarItem = UITabBarItem(title: "Transaction", image: img, tag: 2)
+        }
+        
+//        let tabBarAppearance = UITabBarItem.appearance()
+//        tabBarAppearance.setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: UIColor.label], for: .normal)
+//        tabBarAppearance.setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: Color.accent!], for: .selected)
 
     }
         
     func configureTabBar() {
         setViewControllers([home, wallet, transac], animated: true)
     }
-    
-    
 }

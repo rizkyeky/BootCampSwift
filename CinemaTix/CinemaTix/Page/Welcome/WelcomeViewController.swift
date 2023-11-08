@@ -89,11 +89,11 @@ extension WelcomeViewController: FloatingPanelControllerDelegate {
     }
     
     func floatingPanel(_ fpc: FloatingPanelController, animatorForPresentingTo state: FloatingPanelState) -> UIViewPropertyAnimator {
-        return UIViewPropertyAnimator(duration: TimeInterval(0.24), curve: .easeOut)
+        return UIViewPropertyAnimator(duration: TimeInterval(0.16), curve: .easeOut)
     }
     
     func floatingPanel(_ fpc: FloatingPanelController, animatorForDismissingWith velocity: CGVector) -> UIViewPropertyAnimator {
-        return UIViewPropertyAnimator(duration: TimeInterval(0.24), curve: .easeOut)
+        return UIViewPropertyAnimator(duration: TimeInterval(0.16), curve: .easeOut)
     }
 }
 
