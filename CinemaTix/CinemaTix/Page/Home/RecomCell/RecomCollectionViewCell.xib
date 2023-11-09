@@ -18,11 +18,11 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jG7-b3-YEe" userLabel="Card" customClass="Card" customModule="CinemaTix" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="140" height="210"/>
+                        <rect key="frame" x="0.0" y="-1" width="140" height="212"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="140" id="mMp-QU-2Mv"/>
-                            <constraint firstAttribute="height" constant="210" id="qfa-gE-ADG"/>
+                            <constraint firstAttribute="height" constant="212" id="qfa-gE-ADG"/>
                         </constraints>
                     </view>
                 </subviews>

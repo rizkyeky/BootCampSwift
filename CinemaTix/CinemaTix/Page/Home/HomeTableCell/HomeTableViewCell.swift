@@ -13,6 +13,9 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var carousel: UICollectionView!
     var carouselFlowLayout: CenteredCollectionViewFlowLayout!
     
+    static let height = 240
+    static let heightItem = 228
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCarousel()
@@ -29,13 +32,14 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     func setupCarousel() {
         carousel.delegate = self
         carousel.dataSource = self
+        
         carousel.registerCellWithNib(CarouselCell.self)
         
         carouselFlowLayout = (carousel.collectionViewLayout as! CenteredCollectionViewFlowLayout)
             
         carousel.decelerationRate = .fast
         
-        carouselFlowLayout.itemSize = CGSize(width: 360,height: 228)
+        carouselFlowLayout.itemSize = CGSize(width: 360, height: HomeTableViewCell.heightItem)
         carouselFlowLayout.minimumLineSpacing = 16
 
         carousel.showsVerticalScrollIndicator = false
