@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Swinject
 
 class TabBarViewController: UITabBarController {
 
@@ -18,6 +19,10 @@ class TabBarViewController: UITabBarController {
         
         configureTabBar()
         configureUITabBarItems()
+        
+        Container.shared.register(UINavigationController.self) { r in
+            return self.navigationController!
+        }.inObjectScope(.container)
     }
     
     override func viewWillAppear(_ animated: Bool) {

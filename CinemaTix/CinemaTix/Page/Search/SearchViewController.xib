@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="CinemaTix" customModuleProvider="target">
             <connections>
+                <outlet property="tableQueryList" destination="cIQ-3g-Rrz" id="vIs-b0-LEY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7n5-ai-zk3">
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" background="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7n5-ai-zk3">
                     <rect key="frame" x="16" y="59" width="361" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="SX9-gk-Nit"/>
@@ -27,18 +28,28 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cIQ-3g-Rrz">
+                    <rect key="frame" x="0.0" y="115" width="393" height="737"/>
+                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7n5-ai-zk3" secondAttribute="trailing" constant="16" id="3Yu-Sb-VLW"/>
+                <constraint firstItem="cIQ-3g-Rrz" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Gd6-XD-VUh"/>
+                <constraint firstAttribute="bottom" secondItem="cIQ-3g-Rrz" secondAttribute="bottom" id="LJ0-BA-Bor"/>
                 <constraint firstItem="7n5-ai-zk3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Omj-yp-cxR"/>
+                <constraint firstItem="cIQ-3g-Rrz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SpT-je-k4i"/>
+                <constraint firstItem="cIQ-3g-Rrz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Vxc-6u-cvA"/>
                 <constraint firstItem="7n5-ai-zk3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Z5H-sn-O57"/>
+                <constraint firstItem="cIQ-3g-Rrz" firstAttribute="top" secondItem="7n5-ai-zk3" secondAttribute="bottom" constant="16" id="rXB-Uv-MV6"/>
             </constraints>
-            <point key="canvasLocation" x="-24" y="20"/>
+            <point key="canvasLocation" x="-25.190839694656489" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -73,6 +73,8 @@
 		254DF13F2AFDC7E000B99EFC /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 254DF13D2AFDC7E000B99EFC /* Lato-Regular.ttf */; };
 		254DF1402AFDC7E000B99EFC /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 254DF13E2AFDC7E000B99EFC /* Lato-Bold.ttf */; };
 		254DF1422AFDD44500B99EFC /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1412AFDD44500B99EFC /* AuthViewModel.swift */; };
+		254DF1462AFE1AEE00B99EFC /* QueryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1442AFE1AEE00B99EFC /* QueryCellTableViewCell.swift */; };
+		254DF1472AFE1AEE00B99EFC /* QueryCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254DF1452AFE1AEE00B99EFC /* QueryCellTableViewCell.xib */; };
 		2577E75F2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */; };
 		2577E7612AF9DCCF002D6AF6 /* SVGIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */; };
 		2577E7632AF9ECDC002D6AF6 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2577E7622AF9ECDC002D6AF6 /* Secret.plist */; };
@@ -169,6 +171,8 @@
 		254DF13D2AFDC7E000B99EFC /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		254DF13E2AFDC7E000B99EFC /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		254DF1412AFDD44500B99EFC /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		254DF1442AFE1AEE00B99EFC /* QueryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryCellTableViewCell.swift; sourceTree = "<group>"; };
+		254DF1452AFE1AEE00B99EFC /* QueryCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueryCellTableViewCell.xib; sourceTree = "<group>"; };
 		2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFloatingPanel.swift; sourceTree = "<group>"; };
 		2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGIcon.swift; sourceTree = "<group>"; };
 		2577E7622AF9ECDC002D6AF6 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
@@ -473,6 +477,7 @@
 		254DF11F2AFB6CB800B99EFC /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				254DF1432AFE1ACE00B99EFC /* QueryCell */,
 				254DF1202AFB6CE300B99EFC /* SearchViewController.swift */,
 				254DF1212AFB6CE300B99EFC /* SearchViewController.xib */,
 			);
@@ -508,6 +513,15 @@
 				254DF13D2AFDC7E000B99EFC /* Lato-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		254DF1432AFE1ACE00B99EFC /* QueryCell */ = {
+			isa = PBXGroup;
+			children = (
+				254DF1442AFE1AEE00B99EFC /* QueryCellTableViewCell.swift */,
+				254DF1452AFE1AEE00B99EFC /* QueryCellTableViewCell.xib */,
+			);
+			path = QueryCell;
 			sourceTree = "<group>";
 		};
 		2577E7662AF9F2AC002D6AF6 /* RegisterTextField */ = {
@@ -668,6 +682,7 @@
 				25414A262AF8D00400DFA4C9 /* HomeViewController.xib in Resources */,
 				25414A222AF8CFE100DFA4C9 /* WalletViewController.xib in Resources */,
 				25414A412AF8E78100DFA4C9 /* SignInViewController.xib in Resources */,
+				254DF1472AFE1AEE00B99EFC /* QueryCellTableViewCell.xib in Resources */,
 				25414A382AF8D0A900DFA4C9 /* MovieDetailViewController.xib in Resources */,
 				2577E7632AF9ECDC002D6AF6 /* Secret.plist in Resources */,
 				254DF1282AFB84D300B99EFC /* RecomCollectionViewCell.xib in Resources */,
@@ -802,6 +817,7 @@
 			files = (
 				2577E7652AF9F27F002D6AF6 /* RegisterTextField.swift in Sources */,
 				254DF1312AFC698700B99EFC /* HomeTableViewCell2.swift in Sources */,
+				254DF1462AFE1AEE00B99EFC /* QueryCellTableViewCell.swift in Sources */,
 				25414A3A2AF8D50E00DFA4C9 /* DarkMode.swift in Sources */,
 				2577E76A2AFA2066002D6AF6 /* BaseViewController.swift in Sources */,
 				254149F52AF8860C00DFA4C9 /* Api.swift in Sources */,

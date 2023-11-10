@@ -120,7 +120,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if let detail = self.movieViewModel.playingNowMovies?[index] {
             let movieDetailVC = MovieDetailViewController()
             movieDetailVC.detail = detail
+            movieDetailVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
+//            if let tabBarNavigationController = Container.shared.resolve(UINavigationController.self) {
+//                tabBarNavigationController.pushViewController(movieDetailVC, animated: true)
+//            }
         }
     }
 }
