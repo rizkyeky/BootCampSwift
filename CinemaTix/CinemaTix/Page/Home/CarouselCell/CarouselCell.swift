@@ -16,10 +16,14 @@ class CarouselCell: UICollectionViewCell {
     let subtitle = UILabel()
     let bookButton = UIButton(configuration: .filled())
     
+    var onTap: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        card.backgroundImage = UIImage(named: "joker")
+        card.onTap = {
+            self.onTap?()
+        }
         
         let boxBlur = UIView()
         boxBlur.backgroundColor = .clear

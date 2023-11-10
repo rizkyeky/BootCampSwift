@@ -7,13 +7,19 @@
 
 import UIKit
 import CenteredCollectionView
+import Swinject
+import Kingfisher
 
 class HomeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var carousel: UICollectionView!
     var carouselFlowLayout: CenteredCollectionViewFlowLayout!
     
-    static let height = 240
+    let movieViewModel = Container.shared.resolve(MovieViewModel.self)!
+    
+    var onTap: ((Int) -> Void)?
+    
+    static let height = 228
     static let heightItem = 228
     
     override func awakeFromNib() {
@@ -46,12 +52,29 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         carousel.showsHorizontalScrollIndicator = false
     }
     
+    func setupCell(_ cell: CarouselCell, _ index: Int) {
+        cell.onTap = { self.onTap?(index) }
+        
+        let details = movieViewModel.playingNowMovies
+        cell.title.text = details?[index].title ?? "-"
+        
+        let rating = details?[index].voteAverage
+        cell.subtitle.text = rating != nil ? "Rating: \(rating!)" : "-"
+        
+        if let backdropPath = details?[index].backdropPath {
+            let path = String(backdropPath.dropFirst())
+            
+            cell.card.backgroundView.kf.setImage(with: TmdbApi.getImageURL(path), placeholder: UIImage(named: "imagenotfound"))
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = carousel.dequeueReusableCell(forIndexPath: indexPath ) as CarouselCell
+        let cell = carousel.dequeueReusableCell(forIndexPath: indexPath) as CarouselCell
+        setupCell(cell, indexPath.row)
         return cell
     }
     

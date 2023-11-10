@@ -68,6 +68,11 @@
 		254DF1322AFC698700B99EFC /* HomeTableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254DF1302AFC698700B99EFC /* HomeTableViewCell2.xib */; };
 		254DF1352AFC6E7300B99EFC /* HomeTableViewCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1332AFC6E7300B99EFC /* HomeTableViewCell3.swift */; };
 		254DF1362AFC6E7300B99EFC /* HomeTableViewCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254DF1342AFC6E7300B99EFC /* HomeTableViewCell3.xib */; };
+		254DF1382AFCCDA000B99EFC /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1372AFCCDA000B99EFC /* BaseViewModel.swift */; };
+		254DF13B2AFCD8EA00B99EFC /* ExtContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF13A2AFCD8EA00B99EFC /* ExtContainer.swift */; };
+		254DF13F2AFDC7E000B99EFC /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 254DF13D2AFDC7E000B99EFC /* Lato-Regular.ttf */; };
+		254DF1402AFDC7E000B99EFC /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 254DF13E2AFDC7E000B99EFC /* Lato-Bold.ttf */; };
+		254DF1422AFDD44500B99EFC /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1412AFDD44500B99EFC /* AuthViewModel.swift */; };
 		2577E75F2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */; };
 		2577E7612AF9DCCF002D6AF6 /* SVGIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */; };
 		2577E7632AF9ECDC002D6AF6 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2577E7622AF9ECDC002D6AF6 /* Secret.plist */; };
@@ -159,6 +164,11 @@
 		254DF1302AFC698700B99EFC /* HomeTableViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell2.xib; sourceTree = "<group>"; };
 		254DF1332AFC6E7300B99EFC /* HomeTableViewCell3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell3.swift; sourceTree = "<group>"; };
 		254DF1342AFC6E7300B99EFC /* HomeTableViewCell3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell3.xib; sourceTree = "<group>"; };
+		254DF1372AFCCDA000B99EFC /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		254DF13A2AFCD8EA00B99EFC /* ExtContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtContainer.swift; sourceTree = "<group>"; };
+		254DF13D2AFDC7E000B99EFC /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		254DF13E2AFDC7E000B99EFC /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		254DF1412AFDD44500B99EFC /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFloatingPanel.swift; sourceTree = "<group>"; };
 		2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGIcon.swift; sourceTree = "<group>"; };
 		2577E7622AF9ECDC002D6AF6 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
@@ -228,6 +238,7 @@
 		254149AA2AF87EBA00DFA4C9 /* CinemaTix */ = {
 			isa = PBXGroup;
 			children = (
+				254DF13C2AFDC7BB00B99EFC /* Fonts */,
 				254DF11C2AFB6B7000B99EFC /* ViewModel */,
 				25414A052AF8A6F200DFA4C9 /* Model */,
 				254149EC2AF8839B00DFA4C9 /* Service */,
@@ -297,7 +308,7 @@
 				254DF1242AFB848600B99EFC /* RecomCell */,
 				254DF1112AFB20BC00B99EFC /* CarouselCell */,
 				25414A232AF8D00400DFA4C9 /* HomeViewController.swift */,
-				254DF1292AFB8B6100B99EFC /* HomeTableCell */,
+				254DF1292AFB8B6100B99EFC /* TableCell */,
 				25414A242AF8D00400DFA4C9 /* HomeViewController.xib */,
 			);
 			path = Home;
@@ -375,6 +386,7 @@
 				25414A112AF8CD8F00DFA4C9 /* SFIcon.swift */,
 				2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */,
 				2577E7692AFA2066002D6AF6 /* BaseViewController.swift */,
+				254DF1372AFCCDA000B99EFC /* BaseViewModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -388,6 +400,7 @@
 				25414A192AF8CEE300DFA4C9 /* ExtUIButton.swift */,
 				254DF1162AFB26CF00B99EFC /* ExtUIImage.swift */,
 				25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */,
+				254DF13A2AFCD8EA00B99EFC /* ExtContainer.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -452,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				254DF11D2AFB6BA300B99EFC /* MovieViewModel.swift */,
+				254DF1412AFDD44500B99EFC /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -474,7 +488,7 @@
 			path = RecomCell;
 			sourceTree = "<group>";
 		};
-		254DF1292AFB8B6100B99EFC /* HomeTableCell */ = {
+		254DF1292AFB8B6100B99EFC /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
 				254DF12A2AFB8BCB00B99EFC /* HomeTableViewCell.swift */,
@@ -484,7 +498,16 @@
 				254DF1332AFC6E7300B99EFC /* HomeTableViewCell3.swift */,
 				254DF1342AFC6E7300B99EFC /* HomeTableViewCell3.xib */,
 			);
-			path = HomeTableCell;
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		254DF13C2AFDC7BB00B99EFC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				254DF13E2AFDC7E000B99EFC /* Lato-Bold.ttf */,
+				254DF13D2AFDC7E000B99EFC /* Lato-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		2577E7662AF9F2AC002D6AF6 /* RegisterTextField */ = {
@@ -632,12 +655,14 @@
 				254DF11B2AFB4D8500B99EFC /* Card.xib in Resources */,
 				254DF1362AFC6E7300B99EFC /* HomeTableViewCell3.xib in Resources */,
 				254149BB2AF87EBC00DFA4C9 /* LaunchScreen.storyboard in Resources */,
+				254DF13F2AFDC7E000B99EFC /* Lato-Regular.ttf in Resources */,
 				254149FC2AF88A5700DFA4C9 /* WelcomeViewController.xib in Resources */,
 				254DF1322AFC698700B99EFC /* HomeTableViewCell2.xib in Resources */,
 				254DF12D2AFB8BCB00B99EFC /* HomeTableViewCell.xib in Resources */,
 				254DF1152AFB20E000B99EFC /* CarouselCell.xib in Resources */,
 				254149B82AF87EBC00DFA4C9 /* Assets.xcassets in Resources */,
 				25414A2F2AF8D05A00DFA4C9 /* RegisterViewController.xib in Resources */,
+				254DF1402AFDC7E000B99EFC /* Lato-Bold.ttf in Resources */,
 				254149B32AF87EBA00DFA4C9 /* Main.storyboard in Resources */,
 				2577E7682AF9F2CF002D6AF6 /* RegisterTextField.xib in Resources */,
 				25414A262AF8D00400DFA4C9 /* HomeViewController.xib in Resources */,
@@ -780,6 +805,7 @@
 				25414A3A2AF8D50E00DFA4C9 /* DarkMode.swift in Sources */,
 				2577E76A2AFA2066002D6AF6 /* BaseViewController.swift in Sources */,
 				254149F52AF8860C00DFA4C9 /* Api.swift in Sources */,
+				254DF1382AFCCDA000B99EFC /* BaseViewModel.swift in Sources */,
 				254DF1222AFB6CE300B99EFC /* SearchViewController.swift in Sources */,
 				254149FE2AF88F4700DFA4C9 /* Endpoint.swift in Sources */,
 				254DF12C2AFB8BCB00B99EFC /* HomeTableViewCell.swift in Sources */,
@@ -799,6 +825,7 @@
 				254DF1172AFB26CF00B99EFC /* ExtUIImage.swift in Sources */,
 				25414A102AF8CC8E00DFA4C9 /* Color.swift in Sources */,
 				25414A162AF8CE2900DFA4C9 /* ExtUIView.swift in Sources */,
+				254DF13B2AFCD8EA00B99EFC /* ExtContainer.swift in Sources */,
 				254DF1192AFB49D300B99EFC /* Card.swift in Sources */,
 				25414A0E2AF8CAE500DFA4C9 /* Biometric.swift in Sources */,
 				254149AC2AF87EBA00DFA4C9 /* AppDelegate.swift in Sources */,
@@ -808,6 +835,7 @@
 				25414A182AF8CE9400DFA4C9 /* ExtUICollectionView.swift in Sources */,
 				25414A212AF8CFE100DFA4C9 /* WalletViewController.swift in Sources */,
 				25414A012AF89D4100DFA4C9 /* MovieApi.swift in Sources */,
+				254DF1422AFDD44500B99EFC /* AuthViewModel.swift in Sources */,
 				25414A072AF8A7BA00DFA4C9 /* MovieDetailModel.swift in Sources */,
 				25414A122AF8CD8F00DFA4C9 /* SFIcon.swift in Sources */,
 				2577E75F2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift in Sources */,

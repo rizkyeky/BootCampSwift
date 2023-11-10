@@ -11,18 +11,18 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="RecomCollectionViewCell" customModule="CinemaTix" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="140" height="210"/>
+            <rect key="frame" x="0.0" y="0.0" width="408" height="446"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="140" height="210"/>
+                <rect key="frame" x="0.0" y="0.0" width="408" height="446"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jG7-b3-YEe" userLabel="Card" customClass="Card" customModule="CinemaTix" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="-1" width="140" height="212"/>
+                        <rect key="frame" x="84" y="73" width="240" height="300"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="140" id="mMp-QU-2Mv"/>
-                            <constraint firstAttribute="height" constant="212" id="qfa-gE-ADG"/>
+                            <constraint firstAttribute="width" constant="240" id="mMp-QU-2Mv"/>
+                            <constraint firstAttribute="height" constant="300" id="qfa-gE-ADG"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -32,11 +32,11 @@
                 <constraint firstItem="jG7-b3-YEe" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="cZo-iO-JyO"/>
                 <constraint firstItem="jG7-b3-YEe" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="djQ-bf-9GF"/>
             </constraints>
-            <size key="customSize" width="145" height="210"/>
+            <size key="customSize" width="413" height="446"/>
             <connections>
                 <outlet property="card" destination="jG7-b3-YEe" id="nce-ou-RmV"/>
             </connections>
-            <point key="canvasLocation" x="210.68702290076334" y="76.056338028169023"/>
+            <point key="canvasLocation" x="415.26717557251908" y="159.1549295774648"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -12,7 +12,9 @@ class TransacViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationItem.title = "Transaction"
+        navigationItem.backButtonDisplayMode = .generic
+        navigationItem.backButtonTitle = "Back"
     }
 
 

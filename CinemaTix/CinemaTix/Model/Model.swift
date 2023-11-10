@@ -21,7 +21,7 @@ struct BaseResultModel<T: Codable>: Codable {
     }
 }
 
-// MARK: - Dates
+// MARK: - RangeDates
 struct RangeDates: Codable {
     let maximum, minimum: String?
 }

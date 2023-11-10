@@ -18,8 +18,23 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7n5-ai-zk3">
+                    <rect key="frame" x="16" y="59" width="361" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="SX9-gk-Nit"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7n5-ai-zk3" secondAttribute="trailing" constant="16" id="3Yu-Sb-VLW"/>
+                <constraint firstItem="7n5-ai-zk3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Omj-yp-cxR"/>
+                <constraint firstItem="7n5-ai-zk3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Z5H-sn-O57"/>
+            </constraints>
             <point key="canvasLocation" x="-24" y="20"/>
         </view>
     </objects>

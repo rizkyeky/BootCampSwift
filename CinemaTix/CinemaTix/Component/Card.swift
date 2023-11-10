@@ -9,8 +9,21 @@ import UIKit
 
 class Card: UIView {
     
-    private let backgroundIV = UIImageView()
-    private var tap = UITapGestureRecognizer()
+    private var tapGesture = UITapGestureRecognizer()
+    
+    public var onTap: (() -> Void)?
+    
+    public var radius: CGFloat = 16 {
+        didSet {
+            self.layer.cornerRadius = radius
+        }
+    }
+    
+    public var backgroundView = UIImageView() {
+        didSet {
+            setupBackground()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,41 +43,30 @@ class Card: UIView {
         self.addSubview(view)
     }
     
-    func setupTapGesture() {
-        self.addGestureRecognizer(tap)
-        tap.delegate = self
-        tap.cancelsTouchesInView = false
+    private func setupTapGesture() {
+        self.addGestureRecognizer(tapGesture)
+        tapGesture.delegate = self
+        tapGesture.cancelsTouchesInView = false
     }
     
-    func setupBackground() {
-        self.addSubview(backgroundIV)
-        backgroundIV.isUserInteractionEnabled = true
-        self.clipsToBounds = true
-    }
-    
-    @IBInspectable public var backgroundImage: UIImage? {
-        didSet {
-            self.backgroundIV.image = backgroundImage
-        }
-    }
-    
-    @IBInspectable public var radius: CGFloat = 16 {
-        didSet {
-            self.layer.cornerRadius = radius
-        }
-    }
-    
-    override open func draw(_ rect: CGRect) {
-        super.draw(rect)
+    private func setupBackground() {
         
         self.layer.cornerRadius = radius
-        
-        backgroundIV.image = backgroundImage
-        backgroundIV.layer.cornerRadius = self.layer.cornerRadius
-        backgroundIV.clipsToBounds = true
-        backgroundIV.contentMode = .scaleAspectFill
-        backgroundIV.frame.origin = bounds.origin
-        backgroundIV.frame.size = CGSize(width: bounds.width, height: bounds.height)
+        self.clipsToBounds = true
+        setupBackgroundView()
+    }
+    
+    private func setupBackgroundView() {
+//        if backgroundView.image == nil {
+//            backgroundView.image = UIImage(named: "imagenotfound")
+//        }
+        self.addSubview(backgroundView)
+        backgroundView.isUserInteractionEnabled = true
+        backgroundView.layer.cornerRadius = self.layer.cornerRadius
+        backgroundView.clipsToBounds = true
+        backgroundView.contentMode = .scaleAspectFill
+        backgroundView.frame.origin = bounds.origin
+        backgroundView.frame.size = CGSize(width: bounds.width, height: bounds.height)
     }
 }
 
@@ -83,15 +85,16 @@ extension Card: UIGestureRecognizerDelegate {
         })
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    internal override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        resetAnimated()
+        onTap?()
+    }
+    
+    internal override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         resetAnimated()
     }
     
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        resetAnimated()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    internal override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         shrinkAnimated()
     }
 }

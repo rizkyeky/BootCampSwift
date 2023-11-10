@@ -9,24 +9,39 @@ import Foundation
 import RxSwift
 import RxRelay
 
-class MovieViewModel {
+class MovieViewModel: BaseViewModel {
+    
+    var loadingState: LoadingState = .done
     
     let movieService = MovieService()
     
-    func getPlayingNowMovies() {
-        
-    }
+    var playingNowMovies: [MovieDetailModel]?
     
-    private let dataRelay = BehaviorRelay<[MovieDetailModel]>(value: [])
-        
-    var data: Observable<[MovieDetailModel]> {
-        return dataRelay.asObservable()
-    }
-
-    func fetchDataFromAPI() {
-        // Make an API request and update the dataRelay with the fetched data.
-        // Assuming `fetchedData` is an array of YourDataType.
-//        let fetchedData: [MovieDetailModel] =
-//        dataRelay.accept(fetchedData)
+//    private let dataRelay = BehaviorRelay<[MovieDetailModel]>(value: [])
+//    
+//    let behavior = BehaviorSubject(value: 0)
+//    let publish = PublishSubject<String>()
+//        
+//    var data: Observable<[MovieDetailModel]> {
+//        return dataRelay.asObservable()
+//    }
+    
+    var onCompleteGetPlayingNowMovies: [(() -> Void)?] = []
+    func getPlayingNowMovies(completion: @escaping () -> Void ) {
+        loadingState = .start
+        movieService.getPlayingNow() { result in
+            switch result {
+            case .success(let models):
+                self.playingNowMovies = models
+                self.loadingState = .done
+                completion()
+                for onComplete in self.onCompleteGetPlayingNowMovies {
+                    onComplete?()
+                }
+            case .failure(let error):
+                print(error.asAFError?.errorDescription)
+                self.loadingState = .done
+            }
+        }
     }
 }
