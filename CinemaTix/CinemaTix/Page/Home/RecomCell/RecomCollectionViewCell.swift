@@ -14,10 +14,14 @@ class RecomCollectionViewCell: UICollectionViewCell {
     let title = UILabel()
     let subtitle = UILabel()
     
+    var onTap: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        card.backgroundView = UIImageView(image: UIImage(named: "marvel"))
+        card.onTap = {
+            self.onTap?()
+        }
         
         let boxBlur = UIView()
         boxBlur.backgroundColor = .clear

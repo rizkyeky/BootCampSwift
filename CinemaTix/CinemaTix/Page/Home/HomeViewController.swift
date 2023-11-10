@@ -36,6 +36,11 @@ class HomeViewController: UIViewController {
             print("Reload Main Table View")
             self.mainTable.reloadData()
         }
+        
+        movieViewModel.getTopRatedMovies {
+            print("Reload Main Table View")
+            self.mainTable.reloadData()
+        }
     }
     
     func setupNavigation() {
@@ -43,7 +48,9 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let searchButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 40), primaryAction: UIAction() { _ in
-            self.navigationController?.pushViewController(SearchViewController(), animated: true)
+            let searchVC = SearchViewController()
+            searchVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(searchVC, animated: true)
         })
         searchButton.configuration = .tinted()
         
@@ -105,6 +112,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell3
+            cell.onTap = onTapTopRatedCarouselCell
+            movieViewModel.onCompleteGetPlayingNowMovies.append({
+                print("Reload Third Table Cell")
+                cell.collection.reloadData()
+            })
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell2
@@ -112,6 +124,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         default:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell3
+            cell.onTap = onTapTopRatedCarouselCell
+            movieViewModel.onCompleteGetPlayingNowMovies.append({
+                print("Reload Fourth Table Cell")
+                cell.collection.reloadData()
+            })
             return cell
         }
     }
@@ -127,4 +144,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 //            }
         }
     }
+    
+    func onTapTopRatedCarouselCell(index: Int) {
+        if let detail = self.movieViewModel.playingNowMovies?[index] {
+            let movieDetailVC = MovieDetailViewController()
+            movieDetailVC.detail = detail
+            movieDetailVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(movieDetailVC, animated: true)
+        }
+    }
+
 }

@@ -59,7 +59,8 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         cell.title.text = details?[index].title ?? "-"
         
         let rating = details?[index].voteAverage
-        cell.subtitle.text = rating != nil ? "Rating: \(rating!)" : "-"
+        let strRating = String(format: "%.2f", rating ?? 0)
+        cell.subtitle.text = rating != nil ? "Rating: \(strRating)%" : "-"
         
         if let backdropPath = details?[index].backdropPath {
             let path = String(backdropPath.dropFirst())
@@ -70,7 +71,7 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let movies = self.movieViewModel.playingNowMovies {
-            return movies.count
+            return movies.count > 5 ? 5 : movies.count
         } else {
             return 3
         }

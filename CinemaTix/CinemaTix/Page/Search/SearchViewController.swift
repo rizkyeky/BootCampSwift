@@ -18,7 +18,11 @@ class SearchViewController: UIViewController {
         navigationItem.backButtonDisplayMode = .generic
         navigationItem.backButtonTitle = "Back"
         
-        tableQueryList.separatorStyle = .none 
+        tableQueryList.delegate = self
+        tableQueryList.dataSource = self
+        tableQueryList.registerCellWithNib(QueryCellTableViewCell.self)
+        
+        tableQueryList.separatorStyle = .singleLine
     }
 }
 
@@ -29,7 +33,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

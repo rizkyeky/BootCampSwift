@@ -18,7 +18,7 @@ class DarkMode {
         }
     }
     
-    let defaults = UserDefaults.standard
+    private let defaults = UserDefaults.standard
     
     func setup(completion: (Bool) -> Void) {
         _isActive = defaults.bool(forKey: "dark_mode")
