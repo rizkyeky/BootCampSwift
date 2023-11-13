@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     
     let refreshControl = UIRefreshControl()
     
-    let movieViewModel = Container.shared.resolve(MovieViewModel.self)!
+    let movieViewModel = ContainerDI.shared.resolve(MovieViewModel.self)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,21 +24,25 @@ class HomeViewController: UIViewController {
         setupNavigation()
         
         refreshControl.addAction(UIAction() { _ in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                print("End refreshing")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self.refreshControl.endRefreshing()
-            }
-        }, for: .touchUpInside)
+            }            
+        }, for: .primaryActionTriggered)
         
         mainTable.addSubview(refreshControl)
         
         movieViewModel.getPlayingNowMovies {
-            print("Reload Main Table View")
+            print("Get PlayingNowMovies Reload Main Table View")
             self.mainTable.reloadData()
         }
         
         movieViewModel.getTopRatedMovies {
-            print("Reload Main Table View")
+            print("Get TopRatedMovies Reload Main Table View")
+            self.mainTable.reloadData()
+        }
+        
+        movieViewModel.getUpComingMovies {
+            print("Get UpComingMovies Reload Main Table View")
             self.mainTable.reloadData()
         }
     }
@@ -47,24 +51,36 @@ class HomeViewController: UIViewController {
         navigationItem.title = "Playing Now"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        let searchButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 40), primaryAction: UIAction() { _ in
-            let searchVC = SearchViewController()
-            searchVC.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(searchVC, animated: true)
-        })
-        searchButton.configuration = .tinted()
+        let searchBarItem = 
+        UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: nil)
         
-//        searchButton.setImage(UIImage(named: "magnifyingglass"), for: .normal)
-        searchButton.configuration?.imagePlacement = .trailing
+        let settingBarItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItems = [searchBarItem, settingBarItem]
+//        let searchButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 40), primaryAction: UIAction() { _ in
+//            let searchVC = SearchViewController()
+//            searchVC.hidesBottomBarWhenPushed = true
+//            self.navigationController?.pushViewController(searchVC, animated: true)
+//        })
+//        searchButton.configuration = .tinted()
+//        searchButton.configuration?.imagePlacement = .trailing
+//        searchButton.configuration?.cornerStyle = .capsule
         
-        searchButton.setTitle("Search", for: .normal)
-        searchButton.configuration?.cornerStyle = .capsule
-        searchButton.contentHorizontalAlignment = .fill
-        
-        let barButtonItem = UIBarButtonItem(customView: searchButton)
-        navigationItem.setRightBarButton(barButtonItem, animated: true)
-        
-        navigationItem.rightBarButtonItems?.append(barButtonItem)
+//        searchButton.setTitle("Search", for: .normal)
+//        searchButton.contentHorizontalAlignment = .fill
+//        navigationItem.setRightBarButton(UIBarButtonItem(customView: searchButton), animated: true)
+//        
+//        let settingButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 40), primaryAction: UIAction() { _ in
+//            let settingVC = SettingViewController()
+//            settingVC.hidesBottomBarWhenPushed = true
+//            self.navigationController?.pushViewController(settingVC, animated: true)
+//        })
+//        settingButton.configuration = .tinted()
+//        settingButton.configuration?.imagePlacement = .trailing
+//        settingButton.configuration?.cornerStyle = .capsule
+//        
+//        settingButton.setTitle("Setting", for: .normal)
+//        settingButton.contentHorizontalAlignment = .fill
+//        navigationItem.setLeftBarButton(UIBarButtonItem(customView: settingButton), animated: true)
     }
 }
 
@@ -102,31 +118,51 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell
             cell.onTap = onTapPlayingNowCarouselCell
             movieViewModel.onCompleteGetPlayingNowMovies.append({
-                print("Reload First Table Cell")
+                print("Reload First Carousel")
                 cell.carousel.reloadData()
             })
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell2
+            let cell = tableView.dequeueReusableCell<HomeTableViewCell2>(forIndexPath: indexPath) as HomeTableViewCell2
             cell.label.text = "Recommanded for You"
+            cell.onTap = {
+                if let movies = self.movieViewModel.topRatedMovies {
+                    let movieListVC = MovieListViewController()
+                    movieListVC.titlePage = "Recommanded for You"
+                    movieListVC.movies = movies
+                    movieListVC.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(movieListVC, animated: true)
+                }
+            }
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell3
             cell.onTap = onTapTopRatedCarouselCell
-            movieViewModel.onCompleteGetPlayingNowMovies.append({
-                print("Reload Third Table Cell")
+            cell.movies = movieViewModel.topRatedMovies
+            movieViewModel.onCompleteGetTopRatedMovies.append({
+                print("Reload Second Carousel")
                 cell.collection.reloadData()
             })
             return cell
         case 3:
-            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell2
+            let cell = tableView.dequeueReusableCell<HomeTableViewCell2>(forIndexPath: indexPath) as HomeTableViewCell2
             cell.label.text = "Upcoming Movies"
+            cell.onTap = {
+                if let movies = self.movieViewModel.upComingMovies {
+                    let movieListVC = MovieListViewController()
+                    movieListVC.titlePage = "Upcoming Movies"
+                    movieListVC.movies = movies
+                    movieListVC.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(movieListVC, animated: true)
+                }
+            }
             return cell
         default:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell3
-            cell.onTap = onTapTopRatedCarouselCell
-            movieViewModel.onCompleteGetPlayingNowMovies.append({
-                print("Reload Fourth Table Cell")
+            cell.onTap = onTapUpComingCarouselCell
+            cell.movies = movieViewModel.upComingMovies
+            movieViewModel.onCompleteGetUpComingMovies.append({
+                print("Reload Third Carousel")
                 cell.collection.reloadData()
             })
             return cell
@@ -139,14 +175,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             movieDetailVC.detail = detail
             movieDetailVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
-//            if let tabBarNavigationController = Container.shared.resolve(UINavigationController.self) {
-//                tabBarNavigationController.pushViewController(movieDetailVC, animated: true)
-//            }
         }
     }
     
     func onTapTopRatedCarouselCell(index: Int) {
-        if let detail = self.movieViewModel.playingNowMovies?[index] {
+        if let detail = self.movieViewModel.topRatedMovies?[index] {
+            let movieDetailVC = MovieDetailViewController()
+            movieDetailVC.detail = detail
+            movieDetailVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(movieDetailVC, animated: true)
+        }
+    }
+    
+    func onTapUpComingCarouselCell(index: Int) {
+        if let detail = self.movieViewModel.upComingMovies?[index] {
             let movieDetailVC = MovieDetailViewController()
             movieDetailVC.detail = detail
             movieDetailVC.hidesBottomBarWhenPushed = true

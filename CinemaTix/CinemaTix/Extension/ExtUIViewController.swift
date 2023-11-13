@@ -20,4 +20,18 @@ extension UIViewController {
             present(signInNav, animated: true, completion: nil)
         }
     }
+    
+    func showAlertOKCancel(title: String, message: String, onTapOK: @escaping (() -> Void), onTapCancel: @escaping (() -> Void), completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            onTapOK()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+            onTapCancel()
+        }))
+        present(alert, animated: true, completion: completion)
+    }
+
 }

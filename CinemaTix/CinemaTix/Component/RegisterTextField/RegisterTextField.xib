@@ -18,59 +18,74 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="78"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E7o-YC-3vm" userLabel="TextField">
-                    <rect key="frame" x="0.0" y="38" width="300" height="40"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Neo-tl-shg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E7o-YC-3vm" userLabel="TextField">
+                            <rect key="frame" x="0.0" y="34" width="375" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="2rX-qB-pNX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyN-iw-iQl">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Znj-S7-boK"/>
+                                <constraint firstAttribute="width" constant="100" id="knn-lz-RPu"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4B-oE-AWV" userLabel="SecureButton">
+                            <rect key="frame" x="324" y="41.666666666666664" width="35" height="34.999999999999993"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="Mhf-zB-fvL"/>
+                                <constraint firstAttribute="width" constant="35" id="rWS-eS-nCa"/>
+                            </constraints>
+                            <color key="tintColor" systemColor="secondaryLabelColor"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="eye.fill" catalog="system" cornerStyle="capsule">
+                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="medium"/>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="m7A-Cc-cqR"/>
+                        <constraint firstAttribute="trailing" secondItem="E7o-YC-3vm" secondAttribute="trailing" id="3VR-pC-NB4"/>
+                        <constraint firstAttribute="height" constant="84" id="8Fy-os-4U5"/>
+                        <constraint firstItem="XyN-iw-iQl" firstAttribute="top" secondItem="Neo-tl-shg" secondAttribute="top" id="EYC-yM-COb"/>
+                        <constraint firstItem="E7o-YC-3vm" firstAttribute="leading" secondItem="Neo-tl-shg" secondAttribute="leading" id="O73-NX-dFC"/>
+                        <constraint firstAttribute="trailing" secondItem="n4B-oE-AWV" secondAttribute="trailing" constant="16" id="OJN-Ee-KRZ"/>
+                        <constraint firstItem="XyN-iw-iQl" firstAttribute="leading" secondItem="Neo-tl-shg" secondAttribute="leading" id="jdw-v3-avC"/>
+                        <constraint firstAttribute="bottom" secondItem="E7o-YC-3vm" secondAttribute="bottom" id="kLL-Oh-wfA"/>
+                        <constraint firstItem="n4B-oE-AWV" firstAttribute="centerY" secondItem="E7o-YC-3vm" secondAttribute="centerY" id="l6h-dr-qxZ"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyN-iw-iQl">
-                    <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Znj-S7-boK"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4B-oE-AWV" userLabel="SecureButton">
-                    <rect key="frame" x="249" y="40.666666666666664" width="35" height="34.999999999999993"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="35" id="Mhf-zB-fvL"/>
-                        <constraint firstAttribute="width" constant="35" id="rWS-eS-nCa"/>
-                    </constraints>
-                    <color key="tintColor" systemColor="secondaryLabelColor"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="eye.fill" catalog="system" cornerStyle="capsule">
-                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="medium"/>
-                    </buttonConfiguration>
-                </button>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
-                <constraint firstItem="E7o-YC-3vm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7YR-bO-zei"/>
-                <constraint firstItem="n4B-oE-AWV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="NSe-IC-2Bh"/>
-                <constraint firstItem="XyN-iw-iQl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="RtJ-lF-v88"/>
-                <constraint firstItem="E7o-YC-3vm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="d84-DR-bdP"/>
-                <constraint firstItem="E7o-YC-3vm" firstAttribute="top" secondItem="XyN-iw-iQl" secondAttribute="bottom" constant="8" id="fvc-JY-XLc"/>
-                <constraint firstItem="XyN-iw-iQl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mIa-fe-61R"/>
-                <constraint firstItem="E7o-YC-3vm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="q9U-EH-DS4"/>
-                <constraint firstItem="n4B-oE-AWV" firstAttribute="trailing" secondItem="E7o-YC-3vm" secondAttribute="trailing" constant="-16" id="sAx-P9-O3c"/>
-                <constraint firstItem="E7o-YC-3vm" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="zKB-iE-zFJ"/>
+                <constraint firstItem="Neo-tl-shg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="B91-pW-0yh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Neo-tl-shg" secondAttribute="trailing" id="BtF-30-ntC"/>
+                <constraint firstItem="Neo-tl-shg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="po0-ef-wTE"/>
+                <constraint firstItem="Neo-tl-shg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rLi-NX-emo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-79.389312977099237" y="-50"/>
+            <point key="canvasLocation" x="-37.404580152671755" y="9.1549295774647899"/>
         </view>
     </objects>
     <resources>
         <image name="eye.fill" catalog="system" width="128" height="80"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

@@ -50,8 +50,8 @@
 		25414A382AF8D0A900DFA4C9 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A362AF8D0A900DFA4C9 /* MovieDetailViewController.xib */; };
 		25414A3A2AF8D50E00DFA4C9 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A392AF8D50E00DFA4C9 /* DarkMode.swift */; };
 		25414A3C2AF8DD2E00DFA4C9 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */; };
-		25414A402AF8E78100DFA4C9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A3E2AF8E78100DFA4C9 /* SignInViewController.swift */; };
-		25414A412AF8E78100DFA4C9 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A3F2AF8E78100DFA4C9 /* SignInViewController.xib */; };
+		25414A402AF8E78100DFA4C9 /* WelcomePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A3E2AF8E78100DFA4C9 /* WelcomePanelViewController.swift */; };
+		25414A412AF8E78100DFA4C9 /* WelcomePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A3F2AF8E78100DFA4C9 /* WelcomePanelViewController.xib */; };
 		254DF1142AFB20E000B99EFC /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1122AFB20E000B99EFC /* CarouselCell.swift */; };
 		254DF1152AFB20E000B99EFC /* CarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254DF1132AFB20E000B99EFC /* CarouselCell.xib */; };
 		254DF1172AFB26CF00B99EFC /* ExtUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1162AFB26CF00B99EFC /* ExtUIImage.swift */; };
@@ -69,7 +69,6 @@
 		254DF1352AFC6E7300B99EFC /* HomeTableViewCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1332AFC6E7300B99EFC /* HomeTableViewCell3.swift */; };
 		254DF1362AFC6E7300B99EFC /* HomeTableViewCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254DF1342AFC6E7300B99EFC /* HomeTableViewCell3.xib */; };
 		254DF1382AFCCDA000B99EFC /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1372AFCCDA000B99EFC /* BaseViewModel.swift */; };
-		254DF13B2AFCD8EA00B99EFC /* ExtContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF13A2AFCD8EA00B99EFC /* ExtContainer.swift */; };
 		254DF13F2AFDC7E000B99EFC /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 254DF13D2AFDC7E000B99EFC /* Lato-Regular.ttf */; };
 		254DF1402AFDC7E000B99EFC /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 254DF13E2AFDC7E000B99EFC /* Lato-Bold.ttf */; };
 		254DF1422AFDD44500B99EFC /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1412AFDD44500B99EFC /* AuthViewModel.swift */; };
@@ -81,6 +80,19 @@
 		2577E7652AF9F27F002D6AF6 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E7642AF9F27F002D6AF6 /* RegisterTextField.swift */; };
 		2577E7682AF9F2CF002D6AF6 /* RegisterTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2577E7672AF9F2CF002D6AF6 /* RegisterTextField.xib */; };
 		2577E76A2AFA2066002D6AF6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E7692AFA2066002D6AF6 /* BaseViewController.swift */; };
+		2578D4902AFFC97D00EC8D59 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578D48E2AFFC97D00EC8D59 /* SignInViewController.swift */; };
+		2578D4912AFFC97D00EC8D59 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2578D48F2AFFC97D00EC8D59 /* SignInViewController.xib */; };
+		2578D4932B00692400EC8D59 /* ContainerDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578D4922B00692400EC8D59 /* ContainerDI.swift */; };
+		25A070A32B0095EB0074118D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A22B0095EB0074118D /* DataController.swift */; };
+		25A070A62B01C4F20074118D /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A52B01C4F20074118D /* ExtString.swift */; };
+		25A070AA2B01CE3C0074118D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A82B01CE3C0074118D /* SettingViewController.swift */; };
+		25A070AB2B01CE3C0074118D /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A070A92B01CE3C0074118D /* SettingViewController.xib */; };
+		25A070B32B01D0F60074118D /* SettingBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070B12B01D0F50074118D /* SettingBaseCell.swift */; };
+		25A070B42B01D0F60074118D /* SettingBaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A070B22B01D0F60074118D /* SettingBaseCell.xib */; };
+		25A070B72B01DAB10074118D /* SettingDarkModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070B52B01DAB10074118D /* SettingDarkModeCell.swift */; };
+		25A070B82B01DAB10074118D /* SettingDarkModeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A070B62B01DAB10074118D /* SettingDarkModeCell.xib */; };
+		25A070BC2B0214040074118D /* MovieItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070BA2B0214040074118D /* MovieItemCell.swift */; };
+		25A070BD2B0214040074118D /* MovieItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A070BB2B0214040074118D /* MovieItemCell.xib */; };
 		A9702F5F95870B4FD773938B /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -148,8 +160,8 @@
 		25414A362AF8D0A900DFA4C9 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		25414A392AF8D50E00DFA4C9 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
-		25414A3E2AF8E78100DFA4C9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		25414A3F2AF8E78100DFA4C9 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		25414A3E2AF8E78100DFA4C9 /* WelcomePanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePanelViewController.swift; sourceTree = "<group>"; };
+		25414A3F2AF8E78100DFA4C9 /* WelcomePanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomePanelViewController.xib; sourceTree = "<group>"; };
 		254DF1122AFB20E000B99EFC /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		254DF1132AFB20E000B99EFC /* CarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselCell.xib; sourceTree = "<group>"; };
 		254DF1162AFB26CF00B99EFC /* ExtUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImage.swift; sourceTree = "<group>"; };
@@ -167,7 +179,6 @@
 		254DF1332AFC6E7300B99EFC /* HomeTableViewCell3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell3.swift; sourceTree = "<group>"; };
 		254DF1342AFC6E7300B99EFC /* HomeTableViewCell3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell3.xib; sourceTree = "<group>"; };
 		254DF1372AFCCDA000B99EFC /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		254DF13A2AFCD8EA00B99EFC /* ExtContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtContainer.swift; sourceTree = "<group>"; };
 		254DF13D2AFDC7E000B99EFC /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		254DF13E2AFDC7E000B99EFC /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		254DF1412AFDD44500B99EFC /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -179,6 +190,19 @@
 		2577E7642AF9F27F002D6AF6 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
 		2577E7672AF9F2CF002D6AF6 /* RegisterTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterTextField.xib; sourceTree = "<group>"; };
 		2577E7692AFA2066002D6AF6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2578D48E2AFFC97D00EC8D59 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		2578D48F2AFFC97D00EC8D59 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		2578D4922B00692400EC8D59 /* ContainerDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerDI.swift; sourceTree = "<group>"; };
+		25A070A22B0095EB0074118D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		25A070A52B01C4F20074118D /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
+		25A070A82B01CE3C0074118D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		25A070A92B01CE3C0074118D /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		25A070B12B01D0F50074118D /* SettingBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingBaseCell.swift; sourceTree = "<group>"; };
+		25A070B22B01D0F60074118D /* SettingBaseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingBaseCell.xib; sourceTree = "<group>"; };
+		25A070B52B01DAB10074118D /* SettingDarkModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDarkModeCell.swift; sourceTree = "<group>"; };
+		25A070B62B01DAB10074118D /* SettingDarkModeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingDarkModeCell.xib; sourceTree = "<group>"; };
+		25A070BA2B0214040074118D /* MovieItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemCell.swift; sourceTree = "<group>"; };
+		25A070BB2B0214040074118D /* MovieItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieItemCell.xib; sourceTree = "<group>"; };
 		536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F308EB817918C1E9BEBC98 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
 		6B601FF28E071254BFB9ADEE /* Pods-CinemaTix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.debug.xcconfig"; sourceTree = "<group>"; };
@@ -242,7 +266,9 @@
 		254149AA2AF87EBA00DFA4C9 /* CinemaTix */ = {
 			isa = PBXGroup;
 			children = (
+				25A070A12B0095DB0074118D /* Data */,
 				254DF13C2AFDC7BB00B99EFC /* Fonts */,
+				254149FF2AF89D2300DFA4C9 /* Api */,
 				254DF11C2AFB6B7000B99EFC /* ViewModel */,
 				25414A052AF8A6F200DFA4C9 /* Model */,
 				254149EC2AF8839B00DFA4C9 /* Service */,
@@ -284,6 +310,7 @@
 		254149DE2AF8829600DFA4C9 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				25A070A72B01CE2A0074118D /* Setting */,
 				254DF11F2AFB6CB800B99EFC /* Search */,
 				254149E72AF8831E00DFA4C9 /* MovieDetail */,
 				254149E62AF8831000DFA4C9 /* MovieList */,
@@ -309,10 +336,10 @@
 		254149E02AF882A600DFA4C9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				254DF1292AFB8B6100B99EFC /* TableCell */,
 				254DF1242AFB848600B99EFC /* RecomCell */,
 				254DF1112AFB20BC00B99EFC /* CarouselCell */,
 				25414A232AF8D00400DFA4C9 /* HomeViewController.swift */,
-				254DF1292AFB8B6100B99EFC /* TableCell */,
 				25414A242AF8D00400DFA4C9 /* HomeViewController.xib */,
 			);
 			path = Home;
@@ -332,6 +359,8 @@
 			children = (
 				254149F92AF88A5700DFA4C9 /* WelcomeViewController.swift */,
 				254149FA2AF88A5700DFA4C9 /* WelcomeViewController.xib */,
+				25414A3E2AF8E78100DFA4C9 /* WelcomePanelViewController.swift */,
+				25414A3F2AF8E78100DFA4C9 /* WelcomePanelViewController.xib */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -339,8 +368,8 @@
 		254149E32AF882DA00DFA4C9 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				25414A3E2AF8E78100DFA4C9 /* SignInViewController.swift */,
-				25414A3F2AF8E78100DFA4C9 /* SignInViewController.xib */,
+				2578D48E2AFFC97D00EC8D59 /* SignInViewController.swift */,
+				2578D48F2AFFC97D00EC8D59 /* SignInViewController.xib */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -366,6 +395,7 @@
 		254149E62AF8831000DFA4C9 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
+				25A070B92B0213D60074118D /* Cell */,
 				25414A312AF8D07600DFA4C9 /* MovieListViewController.swift */,
 				25414A322AF8D07600DFA4C9 /* MovieListViewController.xib */,
 			);
@@ -384,13 +414,13 @@
 		254149E82AF8834500DFA4C9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				254149FF2AF89D2300DFA4C9 /* Api */,
 				254149FD2AF88F4700DFA4C9 /* Endpoint.swift */,
 				25414A0F2AF8CC8E00DFA4C9 /* Color.swift */,
 				25414A112AF8CD8F00DFA4C9 /* SFIcon.swift */,
 				2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */,
 				2577E7692AFA2066002D6AF6 /* BaseViewController.swift */,
 				254DF1372AFCCDA000B99EFC /* BaseViewModel.swift */,
+				2578D4922B00692400EC8D59 /* ContainerDI.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -404,7 +434,7 @@
 				25414A192AF8CEE300DFA4C9 /* ExtUIButton.swift */,
 				254DF1162AFB26CF00B99EFC /* ExtUIImage.swift */,
 				25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */,
-				254DF13A2AFCD8EA00B99EFC /* ExtContainer.swift */,
+				25A070A52B01C4F20074118D /* ExtString.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -477,7 +507,7 @@
 		254DF11F2AFB6CB800B99EFC /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				254DF1432AFE1ACE00B99EFC /* QueryCell */,
+				254DF1432AFE1ACE00B99EFC /* Cell */,
 				254DF1202AFB6CE300B99EFC /* SearchViewController.swift */,
 				254DF1212AFB6CE300B99EFC /* SearchViewController.xib */,
 			);
@@ -515,13 +545,13 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		254DF1432AFE1ACE00B99EFC /* QueryCell */ = {
+		254DF1432AFE1ACE00B99EFC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				254DF1442AFE1AEE00B99EFC /* QueryCellTableViewCell.swift */,
 				254DF1452AFE1AEE00B99EFC /* QueryCellTableViewCell.xib */,
 			);
-			path = QueryCell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		2577E7662AF9F2AC002D6AF6 /* RegisterTextField */ = {
@@ -531,6 +561,44 @@
 				2577E7672AF9F2CF002D6AF6 /* RegisterTextField.xib */,
 			);
 			path = RegisterTextField;
+			sourceTree = "<group>";
+		};
+		25A070A12B0095DB0074118D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				25A070A22B0095EB0074118D /* DataController.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		25A070A72B01CE2A0074118D /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				25A070AC2B01D0190074118D /* Cell */,
+				25A070A82B01CE3C0074118D /* SettingViewController.swift */,
+				25A070A92B01CE3C0074118D /* SettingViewController.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		25A070AC2B01D0190074118D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				25A070B12B01D0F50074118D /* SettingBaseCell.swift */,
+				25A070B22B01D0F60074118D /* SettingBaseCell.xib */,
+				25A070B52B01DAB10074118D /* SettingDarkModeCell.swift */,
+				25A070B62B01DAB10074118D /* SettingDarkModeCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		25A070B92B0213D60074118D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				25A070BA2B0214040074118D /* MovieItemCell.swift */,
+				25A070BB2B0214040074118D /* MovieItemCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		3A1D27266542EE5B398A30C6 /* Frameworks */ = {
@@ -681,11 +749,16 @@
 				2577E7682AF9F2CF002D6AF6 /* RegisterTextField.xib in Resources */,
 				25414A262AF8D00400DFA4C9 /* HomeViewController.xib in Resources */,
 				25414A222AF8CFE100DFA4C9 /* WalletViewController.xib in Resources */,
-				25414A412AF8E78100DFA4C9 /* SignInViewController.xib in Resources */,
+				2578D4912AFFC97D00EC8D59 /* SignInViewController.xib in Resources */,
+				25414A412AF8E78100DFA4C9 /* WelcomePanelViewController.xib in Resources */,
+				25A070B82B01DAB10074118D /* SettingDarkModeCell.xib in Resources */,
 				254DF1472AFE1AEE00B99EFC /* QueryCellTableViewCell.xib in Resources */,
+				25A070B42B01D0F60074118D /* SettingBaseCell.xib in Resources */,
 				25414A382AF8D0A900DFA4C9 /* MovieDetailViewController.xib in Resources */,
 				2577E7632AF9ECDC002D6AF6 /* Secret.plist in Resources */,
+				25A070AB2B01CE3C0074118D /* SettingViewController.xib in Resources */,
 				254DF1282AFB84D300B99EFC /* RecomCollectionViewCell.xib in Resources */,
+				25A070BD2B0214040074118D /* MovieItemCell.xib in Resources */,
 				254DF1232AFB6CE300B99EFC /* SearchViewController.xib in Resources */,
 				25414A342AF8D07600DFA4C9 /* MovieListViewController.xib in Resources */,
 			);
@@ -828,37 +901,44 @@
 				254DF1142AFB20E000B99EFC /* CarouselCell.swift in Sources */,
 				254149FB2AF88A5700DFA4C9 /* WelcomeViewController.swift in Sources */,
 				25414A332AF8D07600DFA4C9 /* MovieListViewController.swift in Sources */,
+				25A070A32B0095EB0074118D /* DataController.swift in Sources */,
 				254DF1272AFB84D300B99EFC /* RecomCollectionViewCell.swift in Sources */,
 				25414A092AF8A90400DFA4C9 /* Model.swift in Sources */,
 				25414A142AF8CE0400DFA4C9 /* ExtUITableView.swift in Sources */,
 				254149B62AF87EBA00DFA4C9 /* CinemaTix.xcdatamodeld in Sources */,
 				25414A252AF8D00400DFA4C9 /* HomeViewController.swift in Sources */,
 				25414A042AF8A6B300DFA4C9 /* MovieService.swift in Sources */,
-				25414A402AF8E78100DFA4C9 /* SignInViewController.swift in Sources */,
+				25A070BC2B0214040074118D /* MovieItemCell.swift in Sources */,
+				25414A402AF8E78100DFA4C9 /* WelcomePanelViewController.swift in Sources */,
 				25414A0B2AF8B9A900DFA4C9 /* Service.swift in Sources */,
 				254149B02AF87EBA00DFA4C9 /* ViewController.swift in Sources */,
 				254DF1352AFC6E7300B99EFC /* HomeTableViewCell3.swift in Sources */,
 				254DF1172AFB26CF00B99EFC /* ExtUIImage.swift in Sources */,
+				25A070A62B01C4F20074118D /* ExtString.swift in Sources */,
 				25414A102AF8CC8E00DFA4C9 /* Color.swift in Sources */,
 				25414A162AF8CE2900DFA4C9 /* ExtUIView.swift in Sources */,
-				254DF13B2AFCD8EA00B99EFC /* ExtContainer.swift in Sources */,
 				254DF1192AFB49D300B99EFC /* Card.swift in Sources */,
 				25414A0E2AF8CAE500DFA4C9 /* Biometric.swift in Sources */,
 				254149AC2AF87EBA00DFA4C9 /* AppDelegate.swift in Sources */,
 				2577E7612AF9DCCF002D6AF6 /* SVGIcon.swift in Sources */,
 				254149F32AF8844700DFA4C9 /* TabBarViewController.swift in Sources */,
+				2578D4932B00692400EC8D59 /* ContainerDI.swift in Sources */,
 				25414A2E2AF8D05A00DFA4C9 /* RegisterViewController.swift in Sources */,
+				25A070AA2B01CE3C0074118D /* SettingViewController.swift in Sources */,
 				25414A182AF8CE9400DFA4C9 /* ExtUICollectionView.swift in Sources */,
 				25414A212AF8CFE100DFA4C9 /* WalletViewController.swift in Sources */,
+				2578D4902AFFC97D00EC8D59 /* SignInViewController.swift in Sources */,
 				25414A012AF89D4100DFA4C9 /* MovieApi.swift in Sources */,
 				254DF1422AFDD44500B99EFC /* AuthViewModel.swift in Sources */,
 				25414A072AF8A7BA00DFA4C9 /* MovieDetailModel.swift in Sources */,
 				25414A122AF8CD8F00DFA4C9 /* SFIcon.swift in Sources */,
 				2577E75F2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift in Sources */,
 				25414A3C2AF8DD2E00DFA4C9 /* ExtUIViewController.swift in Sources */,
+				25A070B32B01D0F60074118D /* SettingBaseCell.swift in Sources */,
 				254149AE2AF87EBA00DFA4C9 /* SceneDelegate.swift in Sources */,
 				25414A1A2AF8CEE300DFA4C9 /* ExtUIButton.swift in Sources */,
 				254DF11E2AFB6BA300B99EFC /* MovieViewModel.swift in Sources */,
+				25A070B72B01DAB10074118D /* SettingDarkModeCell.swift in Sources */,
 				25414A372AF8D0A900DFA4C9 /* MovieDetailViewController.swift in Sources */,
 				25414A1D2AF8CFCE00DFA4C9 /* TransacViewController.swift in Sources */,
 			);

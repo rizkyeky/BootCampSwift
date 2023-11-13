@@ -11,10 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="CinemaTix" customModuleProvider="target">
             <connections>
-                <outlet property="appleButton" destination="35L-Tr-FW0" id="Qlw-aZ-0MQ"/>
-                <outlet property="closeButton" destination="akh-fX-qtG" id="CnZ-8F-92s"/>
-                <outlet property="emailButton" destination="OdA-8M-BZH" id="ZlD-2k-Ygl"/>
-                <outlet property="googleButton" destination="3OR-Cu-X76" id="tKD-zg-7BI"/>
+                <outlet property="emailInput" destination="DZn-Dy-1Wq" id="XBw-7G-fL1"/>
+                <outlet property="passwordInput" destination="PXc-3e-gtk" id="mma-tL-yia"/>
+                <outlet property="submitButton" destination="DUA-lc-jC7" id="tjH-Hl-B7v"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,67 +22,46 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="zSO-fk-h8s">
-                    <rect key="frame" x="46.666666666666657" y="123" width="300" height="198"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35L-Tr-FW0" userLabel="SignInApple">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Y5C-IA-WsD"/>
-                                <constraint firstAttribute="width" constant="300" id="xYH-YZ-reT"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="gray" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3OR-Cu-X76" userLabel="SignInGoogle">
-                            <rect key="frame" x="0.0" y="74" width="300" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="300" id="4Hr-ox-Ahv"/>
-                                <constraint firstAttribute="height" constant="50" id="76h-3t-ybj"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="gray" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OdA-8M-BZH" userLabel="SignInEmail">
-                            <rect key="frame" x="0.0" y="148" width="300" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="300" id="4MA-YU-TqG"/>
-                                <constraint firstAttribute="height" constant="50" id="gkw-FP-SfS"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="gray" title="Button"/>
-                        </button>
-                    </subviews>
-                </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akh-fX-qtG">
-                    <rect key="frame" x="347" y="75" width="30" height="30"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZn-Dy-1Wq" customClass="RegisterTextField" customModule="CinemaTix" customModuleProvider="target">
+                    <rect key="frame" x="16" y="59" width="361" height="88"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="3Ye-Pf-xpW"/>
-                        <constraint firstAttribute="width" constant="30" id="fjm-H6-uub"/>
+                        <constraint firstAttribute="height" constant="88" id="M3O-oG-baY"/>
                     </constraints>
-                    <color key="tintColor" systemColor="secondaryLabelColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXc-3e-gtk" customClass="RegisterTextField" customModule="CinemaTix" customModuleProvider="target">
+                    <rect key="frame" x="16" y="163" width="361" height="88"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="88" id="tAh-WL-bsH"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUA-lc-jC7">
+                    <rect key="frame" x="46.666666666666657" y="341" width="300" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="S46-zc-dlg"/>
+                        <constraint firstAttribute="width" constant="300" id="ioN-Vm-fkl"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="xmark.circle.fill" catalog="system" cornerStyle="capsule">
-                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
-                    </buttonConfiguration>
+                    <buttonConfiguration key="configuration" style="filled" title="Button"/>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="zSO-fk-h8s" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wai-DP-VYz"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="akh-fX-qtG" secondAttribute="trailing" constant="16" id="XmU-ja-py6"/>
-                <constraint firstItem="akh-fX-qtG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="h2V-nf-02p"/>
-                <constraint firstItem="zSO-fk-h8s" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="rnJ-07-P0I"/>
+                <constraint firstItem="DUA-lc-jC7" firstAttribute="top" secondItem="PXc-3e-gtk" secondAttribute="bottom" constant="90" id="24j-te-1Ew"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PXc-3e-gtk" secondAttribute="trailing" constant="16" id="8cp-2n-vNL"/>
+                <constraint firstItem="PXc-3e-gtk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="PWQ-Fg-33R"/>
+                <constraint firstItem="DUA-lc-jC7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VXl-zk-Gje"/>
+                <constraint firstItem="PXc-3e-gtk" firstAttribute="top" secondItem="DZn-Dy-1Wq" secondAttribute="bottom" constant="16" id="Wc5-iY-ho8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DZn-Dy-1Wq" secondAttribute="trailing" constant="16" id="dkq-wW-WlU"/>
+                <constraint firstItem="DZn-Dy-1Wq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="glc-6i-meg"/>
+                <constraint firstItem="DZn-Dy-1Wq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="u6M-Lk-fYN"/>
             </constraints>
-            <point key="canvasLocation" x="56" y="20"/>
+            <point key="canvasLocation" x="57.251908396946561" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
-        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

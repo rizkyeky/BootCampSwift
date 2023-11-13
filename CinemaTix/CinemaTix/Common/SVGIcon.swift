@@ -20,15 +20,6 @@ enum SVGIcon: String {
     case walletOutline = "wallet-outline"
     case email = "mail"
     
-//    func getView() -> SVGImageView? {
-//        guard let url = Bundle.main.url(forResource: rawValue, withExtension: "svg") else {
-//            print("\(rawValue) SVG is not found")
-//            return nil
-//        }
-//        let svgImageView = SVGImageView.init(contentsOf: url)
-//        return svgImageView
-//    }
-    
     func getImage() -> UIImage? {
         guard let image = UIImage(named: rawValue) else {
             print("\(rawValue) Image is not found")

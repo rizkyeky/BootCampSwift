@@ -13,8 +13,7 @@ class RegisterTextField: UIView {
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var secureButton: UIButton!
     
-    var isObsecure = false
-        
+    private var isObsecure = false
     private var isHideInput = false
     
     override init(frame: CGRect) {

@@ -70,17 +70,17 @@ extension WelcomeViewController: FloatingPanelControllerDelegate {
     }
     
     func showFloatingPanel() {
-        let signInVC = SignInViewController()
-        signInVC.onTapCloseButton = {
+        let panelVC = WelcomePanelViewController()
+        panelVC.onTapCloseButton = {
             self.dismiss(animated: true)
         }
-        signInVC.onTapEmailButton = {
+        panelVC.onTapEmailButton = {
             self.dismiss(animated: true)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.16) {
-                self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+                self.navigationController?.pushViewController(SignInViewController(), animated: true)
             }
         }
-        floatingPanelController.set(contentViewController: signInVC)
+        floatingPanelController.set(contentViewController: panelVC)
         present(floatingPanelController, animated: true, completion: nil)
     }
     

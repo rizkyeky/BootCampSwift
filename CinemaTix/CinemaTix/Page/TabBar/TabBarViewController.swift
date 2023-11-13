@@ -20,9 +20,10 @@ class TabBarViewController: UITabBarController {
         configureTabBar()
         configureUITabBarItems()
         
-        Container.shared.register(UINavigationController.self) { r in
-            return self.navigationController!
-        }.inObjectScope(.container)
+        navigationController?.navigationItem.backButtonTitle = ""
+        home.navigationController?.navigationItem.backButtonTitle = ""
+        wallet.navigationController?.navigationItem.backButtonTitle = ""
+        transac.navigationController?.navigationItem.backButtonTitle = ""
     }
     
     override func viewWillAppear(_ animated: Bool) {

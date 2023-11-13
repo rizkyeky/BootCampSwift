@@ -17,7 +17,7 @@ class MovieService: Service {
     }
     
     func getPopular(completion: @escaping (Result<[MovieDetailModel]?, Error>) -> Void) -> Void {
-        let url = movieApi.popular()
+        let url = movieApi.popular
         getData(url: url, expecting: BaseResultModel<MovieDetailModel>.self) { result in
             switch result {
             case .success(let model):
@@ -30,7 +30,7 @@ class MovieService: Service {
     }
     
     func getPlayingNow(completion: @escaping (Result<[MovieDetailModel]?, Error>) -> Void) -> Void {
-        let url = movieApi.playingNow()
+        let url = movieApi.playingNow
         getData(url: url, expecting: BaseResultModel<MovieDetailModel>.self) { result in
             switch result {
             case .success(let model):
@@ -43,7 +43,7 @@ class MovieService: Service {
     }
     
     func getUpComing(completion: @escaping (Result<[MovieDetailModel]?, Error>) -> Void) -> Void {
-        let url = movieApi.upComing()
+        let url = movieApi.upComing
         getData(url: url, expecting: BaseResultModel<MovieDetailModel>.self) { result in
             switch result {
             case .success(let model):
@@ -56,7 +56,7 @@ class MovieService: Service {
     }
     
     func getTopRated(completion: @escaping (Result<[MovieDetailModel]?, Error>) -> Void) -> Void {
-        let url = movieApi.topRated()
+        let url = movieApi.topRated
         getData(url: url, expecting: BaseResultModel<MovieDetailModel>.self) { result in
             switch result {
             case .success(let model):
@@ -82,7 +82,7 @@ class MovieService: Service {
     }
     
     func getDiscover(query: String, completion: @escaping (Result<[MovieDetailModel]?, Error>) -> Void) -> Void {
-        let url = movieApi.discover()
+        let url = movieApi.discover
         getData(url: url, expecting: BaseResultModel<MovieDetailModel>.self) { result in
             switch result {
             case .success(let model):
@@ -93,5 +93,4 @@ class MovieService: Service {
             }
         }
     }
-
 }

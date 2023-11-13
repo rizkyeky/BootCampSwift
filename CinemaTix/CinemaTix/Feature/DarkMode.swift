@@ -25,7 +25,7 @@ class DarkMode {
         completion(_isActive)
     }
     
-    func toggle(completion: (Bool) -> Void) {
+    func toggle(completion: (Bool) -> Void = { _ in }) {
         turnOnOffUIStyle()
         _isActive.toggle()
         defaults.set(_isActive, forKey: "dark_mode")

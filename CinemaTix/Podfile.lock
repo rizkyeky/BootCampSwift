@@ -45,6 +45,9 @@ PODS:
   - RxSwift (6.6.0)
   - SkeletonView (1.30.4)
   - SnapKit (5.6.0)
+  - SVProgressHUD (2.3.1):
+    - SVProgressHUD/Core (= 2.3.1)
+  - SVProgressHUD/Core (2.3.1)
   - SwiftIconFont (6.2.1)
   - Swinject (2.8.3)
 
@@ -61,6 +64,7 @@ DEPENDENCIES:
   - RxSwift
   - SkeletonView
   - SnapKit
+  - SVProgressHUD
   - SwiftIconFont
   - Swinject
 
@@ -85,6 +89,7 @@ SPEC REPOS:
     - RxSwift
     - SkeletonView
     - SnapKit
+    - SVProgressHUD
     - SwiftIconFont
     - Swinject
 
@@ -108,9 +113,10 @@ SPEC CHECKSUMS:
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
   SwiftIconFont: b2ac08d9c18f617d0544c817f4a407b126cb9ae9
   Swinject: 893c9a543000ac2f10ee4cbaf0933c6992c935d5
 
-PODFILE CHECKSUM: 2a29146e34c34371c8d17626f375a72051011333
+PODFILE CHECKSUM: 296dd9501f3eb86113712927b56dd20c65259b58
 
 COCOAPODS: 1.14.2

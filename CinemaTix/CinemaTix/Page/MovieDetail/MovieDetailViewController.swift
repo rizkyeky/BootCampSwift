@@ -21,6 +21,7 @@ class MovieDetailViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = detail?.title ?? "Null"
+        (navigationItem.titleView as? UILabel)?.textColor = .white
         navigationItem.backButtonTitle = "Back"
         navigationItem.backButtonDisplayMode = .minimal
         

@@ -11,7 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -21,11 +20,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let nav = UINavigationController(rootViewController: WelcomeViewController())
         
-//        let isDarkMode = UserDefaults.standard.bool(forKey: "darkmode")
-//        if (isDarkMode) {
-//            window.overrideUserInterfaceStyle = .dark
-//        }
-
+        ContainerDI.shared.register(UINavigationController.self) { r in
+            return nav
+        }.inObjectScope(.container)
+        
+        if let darkMode = ContainerDI.shared.resolve(DarkMode.self) {
+            if (darkMode.isActive) {
+                window.overrideUserInterfaceStyle = .dark
+            }
+        }
+        
         window.rootViewController = nav
 
         self.window = window

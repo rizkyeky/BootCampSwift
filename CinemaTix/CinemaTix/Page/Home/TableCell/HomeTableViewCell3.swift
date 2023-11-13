@@ -15,7 +15,7 @@ class HomeTableViewCell3: UITableViewCell {
     
     var collectionFlowLayout: CenteredCollectionViewFlowLayout!
     
-    let movieViewModel = Container.shared.resolve(MovieViewModel.self)!
+    var movies: [MovieDetailModel]?
     
     var onTap: ((Int) -> Void)?
     
@@ -54,14 +54,13 @@ extension HomeTableViewCell3: UICollectionViewDelegate, UICollectionViewDataSour
     func setupCell(_ cell: RecomCollectionViewCell, _ index: Int) {
         cell.onTap = { self.onTap?(index) }
         
-        let details = movieViewModel.topRatedMovies
-        cell.title.text = details?[index].title ?? "-"
+        cell.title.text = movies?[index].title ?? "-"
         
-        let rating = details?[index].voteAverage
+        let rating = movies?[index].voteAverage
         let strRating = String(format: "%.2f", rating ?? 0)
-        cell.subtitle.text = rating != nil ? "Rating: \(strRating)%" : "-"
+        cell.subtitle.text = rating != nil ? "Rating: \(strRating)" : "-"
         
-        if let backdropPath = details?[index].backdropPath {
+        if let backdropPath = movies?[index].backdropPath {
             let path = String(backdropPath.dropFirst())
             
             cell.card.backgroundView.kf.setImage(with: TmdbApi.getImageURL(path), placeholder: UIImage(named: "imagenotfound"))
@@ -69,7 +68,7 @@ extension HomeTableViewCell3: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let movies = self.movieViewModel.topRatedMovies {
+        if let movies = self.movies {
             return movies.count > 5 ? 5 : movies.count
         } else {
             return 3

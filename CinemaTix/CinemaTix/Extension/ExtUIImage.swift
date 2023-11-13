@@ -9,14 +9,6 @@ import Foundation
 import UIKit
 
 extension UIImage {
-//    func resizeImageTo(size: CGSize) -> UIImage? {
-//        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-//        self.draw(in: CGRect(origin: .zero, size: size))
-//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        return newImage
-//    }
-    
     func resizeWith(size newSize: CGSize) -> UIImage {
         let horizontalRatio = newSize.width / self.size.width
         let verticalRatio = newSize.height / self.size.height
@@ -32,8 +24,6 @@ extension UIImage {
             }
             return newImage
         } else {
-            // Fallback for older iOS versions
-            // Implement your own resizing logic here
             return self
         }
     }

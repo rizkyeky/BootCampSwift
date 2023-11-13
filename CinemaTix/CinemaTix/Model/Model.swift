@@ -25,3 +25,8 @@ struct BaseResultModel<T: Codable>: Codable {
 struct RangeDates: Codable {
     let maximum, minimum: String?
 }
+
+struct QueryResult: Codable {
+    let id: Int?
+    let name: String?
+}

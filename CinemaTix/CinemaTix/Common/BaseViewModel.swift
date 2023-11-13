@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 enum LoadingState {
     case start
@@ -20,6 +21,7 @@ enum LoadingState {
     }
 }
 
-protocol BaseViewModel {
-    var loadingState: LoadingState { get }
+class BaseViewModel {
+    internal var loadingState: LoadingState = .done
+    internal let disposeBag = DisposeBag()
 }

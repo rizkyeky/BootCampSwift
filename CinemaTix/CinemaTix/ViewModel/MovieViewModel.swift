@@ -11,16 +11,22 @@ import RxRelay
 
 class MovieViewModel: BaseViewModel {
     
-    var loadingState: LoadingState = .done
-    
     let movieService = MovieService()
     
     var playingNowMovies: [MovieDetailModel]?
     var popularMovies: [MovieDetailModel]?
     var topRatedMovies: [MovieDetailModel]?
     var upComingMovies: [MovieDetailModel]?
+    var resultsSearchMovies: [MovieDetailModel]?
     
-    var onCompleteGetPlayingNowMovies: [(() -> Void)?] = []
+    let querySearchText = PublishSubject<String>()
+    
+    var onCompleteGetPlayingNowMovies: [(() -> Void)] = []
+    var onCompleteGetUpComingMovies: [(() -> Void)] = []
+    var onCompleteGetPopularMovies: [(() -> Void)] = []
+    var onCompleteGetTopRatedMovies: [(() -> Void)] = []
+    var onCompleteGetQuerySearch: [(() -> Void)] = []
+
     func getPlayingNowMovies(completion: @escaping () -> Void) {
         loadingState = .start
         movieService.getPlayingNow() { result in
@@ -30,7 +36,7 @@ class MovieViewModel: BaseViewModel {
                 self.loadingState = .done
                 completion()
                 for onComplete in self.onCompleteGetPlayingNowMovies {
-                    onComplete?()
+                    onComplete()
                 }
             case .failure(_):
                 self.loadingState = .done
@@ -38,17 +44,17 @@ class MovieViewModel: BaseViewModel {
         }
     }
     
-    var onCompleteGetPopularMovies: [(() -> Void)?] = []
+    
     func getPopularMovies(completion: @escaping () -> Void) {
         loadingState = .start
-        movieService.getPopular { result in
+        movieService.getPopular() { result in
             switch result {
             case .success(let models):
                 self.popularMovies = models
                 self.loadingState = .done
                 completion()
                 for onComplete in self.onCompleteGetPopularMovies {
-                    onComplete?()
+                    onComplete()
                 }
             case .failure(_):
                 self.loadingState = .done
@@ -56,7 +62,7 @@ class MovieViewModel: BaseViewModel {
         }
     }
     
-    var onCompleteGetTopRatedMovies: [(() -> Void)?] = []
+    
     func getTopRatedMovies(completion: @escaping () -> Void) {
         loadingState = .start
         movieService.getTopRated() { result in
@@ -66,7 +72,7 @@ class MovieViewModel: BaseViewModel {
                 self.loadingState = .done
                 completion()
                 for onComplete in self.onCompleteGetTopRatedMovies {
-                    onComplete?()
+                    onComplete()
                 }
             case .failure(_):
                 self.loadingState = .done
@@ -74,22 +80,39 @@ class MovieViewModel: BaseViewModel {
         }
     }
     
-    var onCompleteGetUpComingMovies: [(() -> Void)?] = []
     func getUpComingMovies(completion: @escaping () -> Void) {
         loadingState = .start
-        movieService.getUpComing { result in
+        movieService.getUpComing() { result in
             switch result {
             case .success(let models):
                 self.upComingMovies = models
                 self.loadingState = .done
                 completion()
                 for onComplete in self.onCompleteGetUpComingMovies {
-                    onComplete?()
+                    onComplete()
                 }
             case .failure(_):
                 self.loadingState = .done
             }
         }
     }
-
+    
+    func getQuerySearch(completion: @escaping () -> Void) {
+        querySearchText.subscribe() { text in
+            self.loadingState = .start
+            self.movieService.getBySearch(query: text) { result in
+                switch result {
+                case .success(let models):
+                    self.resultsSearchMovies = models
+                    self.loadingState = .done
+                    completion()
+                    for onComplete in self.onCompleteGetQuerySearch {
+                        onComplete()
+                    }
+                case .failure(_):
+                    self.loadingState = .done
+                }
+            }
+        }.disposed(by: disposeBag)
+    }
 }

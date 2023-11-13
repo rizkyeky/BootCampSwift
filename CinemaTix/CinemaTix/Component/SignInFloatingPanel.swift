@@ -18,7 +18,7 @@ class SignInFloatingPanelLayout: FloatingPanelLayout {
     ]
     
     func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
-        if state == FloatingPanelState.half {
+        if state == .half {
             return 0.64
         } else {
             return 0

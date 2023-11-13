@@ -18,6 +18,13 @@ class Service {
                 case .success(let model):
                     completion(.success(model))
                 case .failure(let error):
+                    if let err = response.error {
+                        debugPrint(err.errorDescription)
+                        if let data = response.data {
+                            let jsonString = String(data: data, encoding: .utf8)
+                            print("Response JSON: \(jsonString ?? "")")
+                        }
+                    }
                     completion(.failure(error))
                 }
             }

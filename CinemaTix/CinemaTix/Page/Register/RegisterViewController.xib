@@ -24,28 +24,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQM-2a-02O" userLabel="UserTextField" customClass="RegisterTextField" customModule="CinemaTix" customModuleProvider="target">
-                    <rect key="frame" x="16" y="75" width="361" height="120"/>
+                    <rect key="frame" x="16" y="75" width="361" height="88"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="pcl-Xq-PoT"/>
+                        <constraint firstAttribute="height" constant="88" id="pcl-Xq-PoT"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auo-Ma-2A8" userLabel="EmailTextField" customClass="RegisterTextField" customModule="CinemaTix" customModuleProvider="target">
-                    <rect key="frame" x="16" y="211" width="361" height="120"/>
+                    <rect key="frame" x="16" y="179" width="361" height="88"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="TNX-m0-Fdn"/>
+                        <constraint firstAttribute="height" constant="88" id="TNX-m0-Fdn"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HwO-rV-bOy" userLabel="PasswordTextField" customClass="RegisterTextField" customModule="CinemaTix" customModuleProvider="target">
-                    <rect key="frame" x="16" y="347" width="361" height="120"/>
+                    <rect key="frame" x="16" y="283" width="361" height="88"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="6qJ-Ag-Waq"/>
+                        <constraint firstAttribute="height" constant="88" id="6qJ-Ag-Waq"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwb-N5-Zm7">
-                    <rect key="frame" x="46.666666666666657" y="531" width="300" height="50"/>
+                    <rect key="frame" x="46.666666666666657" y="435" width="300" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="Zsh-b6-uk6"/>
                         <constraint firstAttribute="height" constant="50" id="bmh-tE-c1X"/>

@@ -15,7 +15,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var carousel: UICollectionView!
     var carouselFlowLayout: CenteredCollectionViewFlowLayout!
     
-    let movieViewModel = Container.shared.resolve(MovieViewModel.self)!
+    let movieViewModel = ContainerDI.shared.resolve(MovieViewModel.self)!
     
     var onTap: ((Int) -> Void)?
     
@@ -60,7 +60,7 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         
         let rating = details?[index].voteAverage
         let strRating = String(format: "%.2f", rating ?? 0)
-        cell.subtitle.text = rating != nil ? "Rating: \(strRating)%" : "-"
+        cell.subtitle.text = rating != nil ? "Rating: \(strRating)" : "-"
         
         if let backdropPath = details?[index].backdropPath {
             let path = String(backdropPath.dropFirst())
