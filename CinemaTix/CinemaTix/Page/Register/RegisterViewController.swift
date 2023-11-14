@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Swinject
+import SVProgressHUD
 
 class RegisterViewController: BaseViewController {
 
@@ -37,11 +38,13 @@ class RegisterViewController: BaseViewController {
     func setupCancelButton() {
         navigationItem.title = "Register"
         
-        let cancelButton = UIBarButtonItem(title: "Cancel")
-        cancelButton.primaryAction = UIAction() { action in
+        let cancelButton = UIButton(configuration: .plain(), primaryAction: UIAction() { _ in
             self.dismiss(animated: true)
-        }
-        navigationItem.setLeftBarButton(cancelButton, animated: true)
+        })
+        cancelButton.setTitle("Cancel", for: .normal)
+        let cancelBarItem = UIBarButtonItem(customView: cancelButton)
+        
+        navigationItem.leftBarButtonItems = [cancelBarItem]
     }
     
     func setupUsernameTextField() {
@@ -74,7 +77,7 @@ class RegisterViewController: BaseViewController {
     
     func setupPasswordTextField() {
         passwordTextField.mainLabel.text = "Password"
-        passwordTextField.textField.placeholder = "Input pasword"
+        passwordTextField.textField.placeholder = "Input password"
         passwordTextField.activateObsecure()
         
         passwordTextField.textField.rx.text
@@ -89,15 +92,23 @@ class RegisterViewController: BaseViewController {
     
     func setupRegisterButton() {
         registerBtn.setAnimateBounce()
+        
         registerBtn.rx.tap.subscribe { [weak self] _ in
             guard let self = self else {return}
+            SVProgressHUD.show()
             authViewModel.register() { user in
-                self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+                SVProgressHUD.dismiss()
+                self.onTapRegisterButton?()
+            } onInvalidEmail: {
+                SVProgressHUD.dismiss()
+                self.showAlertOK(title: "Invalid Email", message: "Please input correct email")
+            } onInvalidUsername: {
+                SVProgressHUD.dismiss()
+                self.showAlertOK(title: "Invalid Username", message: "Please input correct username")
+            } onInvalidPassword: {
+                SVProgressHUD.dismiss()
+                self.showAlertOK(title: "Invalid Password", message: "Please input correct password")
             }
         }.disposed(by: disposeBag)
-        registerBtn.addAction(UIAction() { action in
-            self.onTapRegisterButton?()
-        }, for: .touchUpInside)
-        
     }
 }

@@ -15,6 +15,8 @@ class WelcomePanelViewController: UIViewController {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
     
+    @IBOutlet weak var topBar: UIView!
+    
     var onTapCloseButton: (() -> Void)?
     var onTapAppleButton: (() -> Void)?
     var onTapGoolgeButton: (() -> Void)?
@@ -29,6 +31,8 @@ class WelcomePanelViewController: UIViewController {
         setupGoogleButton()
         setupEmailButton()
         setupCloseButton()
+        
+        topBar.addBottomBorder(color: .separator, thickness: 1.0)
     }
 }
 
@@ -38,7 +42,6 @@ extension WelcomePanelViewController {
         appleButton.setTitleColor(.label, for: .normal)
         if let appleLogo = SVGIcon.apple.getImage() {
             let view = UIImageView(image: appleLogo)
-            view.tintColor = .white
             appleButton.addSubview(view)
             view.snp.makeConstraints { make in
                 make.width.height.equalTo(30)
@@ -59,7 +62,6 @@ extension WelcomePanelViewController {
         googleButton.setTitleColor(.label, for: .normal)
         if let googleLogo = SVGIcon.google.getImage() {
             let view = UIImageView(image: googleLogo)
-            view.tintColor = .white
             googleButton.addSubview(view)
             view.snp.makeConstraints { make in
                 make.width.height.equalTo(30)
@@ -80,7 +82,6 @@ extension WelcomePanelViewController {
         emailButton.setTitleColor(.label, for: .normal)
         if let emailLogo = SVGIcon.email.getImage() {
             let view = UIImageView(image: emailLogo)
-            view.tintColor = .white
             emailButton.addSubview(view)
             view.snp.makeConstraints { make in
                 make.width.height.equalTo(30)

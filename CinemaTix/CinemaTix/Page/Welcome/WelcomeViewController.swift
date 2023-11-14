@@ -36,7 +36,7 @@ extension WelcomeViewController {
         let registerVC = RegisterViewController()
         registerVC.onTapRegisterButton = {
             self.dismiss(animated: true)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.16) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.navigationController?.pushViewController(TabBarViewController(), animated: true)
             }
         }

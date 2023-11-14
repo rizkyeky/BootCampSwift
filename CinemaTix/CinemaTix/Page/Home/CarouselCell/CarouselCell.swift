@@ -42,7 +42,7 @@ class CarouselCell: UICollectionViewCell {
             make.top.left.right.bottom.equalTo(boxBlur)
         }
         
-        title.text = "JOKER 1990"
+        title.text = "-"
         title.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         title.textColor = .white
         boxBlur.addSubview(title)
@@ -51,7 +51,7 @@ class CarouselCell: UICollectionViewCell {
             make.left.equalTo(boxBlur).offset(16)
         }
         
-        subtitle.text = "18+ | Rating: 4.8"
+        subtitle.text = "-"
         subtitle.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         subtitle.textColor = .white
         boxBlur.addSubview(subtitle)
@@ -63,8 +63,14 @@ class CarouselCell: UICollectionViewCell {
         bookButton.setTitle("Book Now", for: .normal)
         boxBlur.addSubview(bookButton)
         bookButton.snp.makeConstraints { make in
+            make.width.equalTo(120)
+            make.height.equalTo(32)
             make.right.equalTo(boxBlur).offset(-16)
             make.centerY.equalTo(boxBlur.snp.centerY)
+        }
+        
+        title.snp.makeConstraints { make in
+            make.right.equalTo(bookButton.snp.left).offset(-8)
         }
     }
 }

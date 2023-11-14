@@ -10,17 +10,13 @@ target 'CinemaTix' do
   pod 'FloatingPanel'
   pod 'lottie-ios'
   pod 'SnapKit'
-  pod 'AsyncPlus'
-  pod 'SwiftIconFont'
-  pod 'FirebaseCore'
-  pod 'FirebaseAuth'
   pod 'SkeletonView'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Swinject'
   pod 'CenteredCollectionView'
   pod 'SVProgressHUD'
-
+  pod 'netfox', :configurations => ['Debug']
   # Pods for CinemaTix
 
   target 'CinemaTixTests' do

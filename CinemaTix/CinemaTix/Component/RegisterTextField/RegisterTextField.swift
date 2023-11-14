@@ -37,10 +37,13 @@ class RegisterTextField: UIView {
         
         secureButton.setAnimateBounce()
         secureButton.addAction(UIAction(handler: didTapSecureButton), for: .touchUpInside)
+        
+        mainLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
     }
     
     func activateObsecure() {
         isObsecure = true
+        isHideInput = true
         secureButton.isHidden = false
         textField.isSecureTextEntry = true
     }
@@ -48,10 +51,10 @@ class RegisterTextField: UIView {
     func didTapSecureButton(_ action: UIAction) {
         isHideInput.toggle()
         if isHideInput {
-            secureButton.setImage(UIImage(named: "eye.slash.fill"), for: .normal)
+            secureButton.imageView?.image = UIImage(named: "eye.slash.fill")
             textField.isSecureTextEntry = true
         } else {
-            secureButton.setImage(UIImage(named: "eye.fill"), for: .normal)
+            secureButton.imageView?.image = UIImage(named: "eye.fill")
             textField.isSecureTextEntry = false
         }
     }

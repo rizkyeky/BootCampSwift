@@ -55,7 +55,7 @@
                             </buttonConfiguration>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="E7o-YC-3vm" secondAttribute="trailing" id="3VR-pC-NB4"/>
                         <constraint firstAttribute="height" constant="84" id="8Fy-os-4U5"/>
@@ -69,6 +69,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Neo-tl-shg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="B91-pW-0yh"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Neo-tl-shg" secondAttribute="trailing" id="BtF-30-ntC"/>
@@ -83,9 +84,6 @@
         <image name="eye.fill" catalog="system" width="128" height="80"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

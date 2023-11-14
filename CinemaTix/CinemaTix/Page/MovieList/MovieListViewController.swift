@@ -9,7 +9,7 @@ import UIKit
 
 class MovieListViewController: UIViewController {
     
-    var movies: [MovieDetailModel]?
+    var movies: [MovieModel]?
     var titlePage: String?
 
     @IBOutlet weak var collection: UICollectionView!
@@ -20,7 +20,7 @@ class MovieListViewController: UIViewController {
         navigationItem.title = titlePage ?? "-"
         navigationItem.backButtonDisplayMode = .minimal
         
-        navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease"), style: .plain, target: self, action: nil), animated: true)
+        navigationItem.setRightBarButton(UIBarButtonItem(image: SFIcon.filter, style: .plain, target: self, action: nil), animated: true)
         
         collection.delegate = self
         collection.dataSource = self
@@ -32,15 +32,17 @@ class MovieListViewController: UIViewController {
 extension MovieListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func setupCell(_ cell: MovieItemCell, _ index: Int) {
-//        cell.onTap = { self.onTap?(index) }
+        cell.onTap = {
+            if let movie = self.movies?[index] {
+                let movieDetailVC = MovieDetailViewController()
+                movieDetailVC.movie = movie
+                movieDetailVC.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(movieDetailVC, animated: true)
+            }
+        }
         
-//        let details = movieViewModel.playingNowMovies
-//        cell.title.text = details?[index].title ?? "-"
-        
-        let rating = movies?[index].voteAverage
-        let strRating = String(format: "%.2f", rating ?? 0)
-//        cell.subtitle.text = rating != nil ? "Rating: \(strRating)" : "-"
-        
+        cell.title.text = movies?[index].title ?? "-"
+    
         if let backdropPath = movies?[index].backdropPath {
             let path = String(backdropPath.dropFirst())
             

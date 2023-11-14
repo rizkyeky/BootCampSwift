@@ -8,11 +8,11 @@
 import Foundation
 import LocalAuthentication
 
-class Biometric {
+class BiometricAuth {
     
     let context = LAContext()
     
-    func authenticateUser() {
+    func authenticateUser(completion: @escaping (Bool) -> Void) {
     
         var error: NSError?
 
@@ -21,14 +21,19 @@ class Biometric {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, evaluateError in
                 if success {
                     print("Biometric authentication successful")
+                    completion(true)
                 } else {
                     if let error = evaluateError {
                         print("Biometric authentication error: \(error.localizedDescription)")
+                        completion(false)
+                    } else {
+                        completion(false)
                     }
                 }
             }
         } else {
             print("Biometric authentication not available")
+            completion(false)
         }
     }
 

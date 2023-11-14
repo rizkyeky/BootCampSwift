@@ -15,7 +15,7 @@ class HomeTableViewCell3: UITableViewCell {
     
     var collectionFlowLayout: CenteredCollectionViewFlowLayout!
     
-    var movies: [MovieDetailModel]?
+    var movies: [MovieModel]?
     
     var onTap: ((Int) -> Void)?
     

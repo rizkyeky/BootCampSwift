@@ -21,16 +21,29 @@ extension UIViewController {
         }
     }
     
-    func showAlertOKCancel(title: String, message: String, onTapOK: @escaping (() -> Void), onTapCancel: @escaping (() -> Void), completion: (() -> Void)? = nil) {
+    func showAlertOKCancel(title: String, message: String, onTapOK: (() -> Void)? = nil, onTapCancel: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            onTapOK()
+            alert.dismiss(animated: true)
+            onTapOK?()
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-            onTapCancel()
+            alert.dismiss(animated: true)
+            onTapCancel?()
         }))
+        present(alert, animated: true, completion: completion)
+    }
+    
+    func showAlertOK(title: String, message: String, onTapOK: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            alert.dismiss(animated: true)
+            onTapOK?()
+        }))
+        
         present(alert, animated: true, completion: completion)
     }
 

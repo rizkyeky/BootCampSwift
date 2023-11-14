@@ -28,6 +28,11 @@ class ContainerDI {
         container.register(DarkMode.self) { r in
             return DarkMode()
         }.inObjectScope(.container)
+        
+        container.register(BiometricAuth.self) { r in
+            return BiometricAuth()
+        }.inObjectScope(.container)
+        
 
         
         return container

@@ -24,63 +24,68 @@ class HomeViewController: UIViewController {
         setupNavigation()
         
         refreshControl.addAction(UIAction() { _ in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.getDataFromService() {
                 self.refreshControl.endRefreshing()
-            }            
+            }
         }, for: .primaryActionTriggered)
         
         mainTable.addSubview(refreshControl)
         
-        movieViewModel.getPlayingNowMovies {
-            print("Get PlayingNowMovies Reload Main Table View")
-            self.mainTable.reloadData()
-        }
-        
-        movieViewModel.getTopRatedMovies {
-            print("Get TopRatedMovies Reload Main Table View")
-            self.mainTable.reloadData()
-        }
-        
-        movieViewModel.getUpComingMovies {
-            print("Get UpComingMovies Reload Main Table View")
+        getDataFromService() {
             self.mainTable.reloadData()
         }
     }
     
+    func getDataFromService(completion: (() -> Void)? = nil) {
+        movieViewModel.getAllGenres {
+            self.movieViewModel.getPlayingNowMovies {
+                print("Get PlayingNowMovies Reload Main Table View")
+                self.movieViewModel.getTopRatedMovies {
+                    print("Get TopRatedMovies Reload Main Table View")
+                    self.movieViewModel.getUpComingMovies {
+                        print("Get UpComingMovies Reload Main Table View")
+                        completion?()
+                    }
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     func setupNavigation() {
         navigationItem.title = "Playing Now"
-        navigationController?.navigationBar.prefersLargeTitles = true
         
-        let searchBarItem = 
-        UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: nil)
+        let searchButton = UIButton(configuration: .plain(), primaryAction: UIAction() { _ in
+            self.navigationController?.pushViewController(SearchViewController(), animated: true)
+        })
+        searchButton.setTitle("Search", for: .normal)
+        searchButton.setImage(SFIcon.search, for: .normal)
+        let searchBarItem = UIBarButtonItem(customView: searchButton)
         
-        let settingBarItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: nil)
-        navigationItem.rightBarButtonItems = [searchBarItem, settingBarItem]
-//        let searchButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 40), primaryAction: UIAction() { _ in
-//            let searchVC = SearchViewController()
-//            searchVC.hidesBottomBarWhenPushed = true
-//            self.navigationController?.pushViewController(searchVC, animated: true)
-//        })
-//        searchButton.configuration = .tinted()
-//        searchButton.configuration?.imagePlacement = .trailing
-//        searchButton.configuration?.cornerStyle = .capsule
+        let settingButton = UIButton(configuration: .plain(), primaryAction: UIAction() { _ in
+            self.navigationController?.pushViewController(SettingViewController(), animated: true)
+        })
         
-//        searchButton.setTitle("Search", for: .normal)
-//        searchButton.contentHorizontalAlignment = .fill
-//        navigationItem.setRightBarButton(UIBarButtonItem(customView: searchButton), animated: true)
-//        
-//        let settingButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 40), primaryAction: UIAction() { _ in
-//            let settingVC = SettingViewController()
-//            settingVC.hidesBottomBarWhenPushed = true
-//            self.navigationController?.pushViewController(settingVC, animated: true)
-//        })
-//        settingButton.configuration = .tinted()
-//        settingButton.configuration?.imagePlacement = .trailing
-//        settingButton.configuration?.cornerStyle = .capsule
-//        
-//        settingButton.setTitle("Setting", for: .normal)
-//        settingButton.contentHorizontalAlignment = .fill
-//        navigationItem.setLeftBarButton(UIBarButtonItem(customView: settingButton), animated: true)
+        settingButton.setImage(SFIcon.setting, for: .normal)
+        let settingBarItem = UIBarButtonItem(customView: settingButton)
+        
+        let profileButton = UIButton(configuration: .plain(), primaryAction: UIAction() { _ in
+            
+        })
+        profileButton.setImage(SFIcon.profile, for: .normal)
+        let profileBarItem = UIBarButtonItem(customView: profileButton)
+        
+        navigationItem.rightBarButtonItems = [searchBarItem]
+        navigationItem.leftBarButtonItems = [settingBarItem, profileBarItem]
     }
 }
 
@@ -172,7 +177,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func onTapPlayingNowCarouselCell(index: Int) {
         if let detail = self.movieViewModel.playingNowMovies?[index] {
             let movieDetailVC = MovieDetailViewController()
-            movieDetailVC.detail = detail
+            movieDetailVC.movie = detail
             movieDetailVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
         }
@@ -181,7 +186,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func onTapTopRatedCarouselCell(index: Int) {
         if let detail = self.movieViewModel.topRatedMovies?[index] {
             let movieDetailVC = MovieDetailViewController()
-            movieDetailVC.detail = detail
+            movieDetailVC.movie = detail
             movieDetailVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
         }
@@ -190,7 +195,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func onTapUpComingCarouselCell(index: Int) {
         if let detail = self.movieViewModel.upComingMovies?[index] {
             let movieDetailVC = MovieDetailViewController()
-            movieDetailVC.detail = detail
+            movieDetailVC.movie = detail
             movieDetailVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
         }

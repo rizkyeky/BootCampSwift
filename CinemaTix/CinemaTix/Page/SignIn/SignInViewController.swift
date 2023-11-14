@@ -16,6 +16,7 @@ class SignInViewController: BaseViewController {
     @IBOutlet weak var emailInput: RegisterTextField!
     @IBOutlet weak var passwordInput: RegisterTextField!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var faceIdButton: UIButton!
     
     let authViewModel = ContainerDI.shared.resolve(AuthViewModel.self)!
     
@@ -30,14 +31,31 @@ class SignInViewController: BaseViewController {
         submitButton.setTitle("Submit", for: .normal)
         submitButton.setAnimateBounce()
         
+        faceIdButton.setAnimateBounce()
+        faceIdButton.addAction(UIAction() { _ in
+            self.authViewModel.biometric?.authenticateUser() { isSuccess in
+                if isSuccess {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+                    }
+                } else {
+                    self.showAlertOK(title: "Invalid Biometric", message: "This app does not get permission for biometric")
+                }
+            }
+        }, for: .touchUpInside)
+        
         submitButton.addAction(UIAction() { _ in
+            SVProgressHUD.show()
             self.authViewModel.signIn() { [weak self] user in
                 guard let self = self else {return}
-                SVProgressHUD.show()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    SVProgressHUD.dismiss()
-                    self.navigationController?.pushViewController(TabBarViewController(), animated: true)
-                }
+                SVProgressHUD.dismiss()
+                self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+            } onInvalidEmail: {
+                SVProgressHUD.dismiss()
+                self.showAlertOK(title: "Invalid Email", message: "Please input correct email")
+            } onInvalidPassword: {
+                SVProgressHUD.dismiss()
+                self.showAlertOK(title: "Invalid Password", message: "Please input correct password")
             }
             
         }, for: .touchUpInside)

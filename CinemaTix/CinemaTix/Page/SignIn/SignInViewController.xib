@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="CinemaTix" customModuleProvider="target">
             <connections>
                 <outlet property="emailInput" destination="DZn-Dy-1Wq" id="XBw-7G-fL1"/>
+                <outlet property="faceIdButton" destination="obv-qP-AkQ" id="uRi-aN-8o6"/>
                 <outlet property="passwordInput" destination="PXc-3e-gtk" id="mma-tL-yia"/>
                 <outlet property="submitButton" destination="DUA-lc-jC7" id="tjH-Hl-B7v"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,14 +25,12 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZn-Dy-1Wq" customClass="RegisterTextField" customModule="CinemaTix" customModuleProvider="target">
                     <rect key="frame" x="16" y="59" width="361" height="88"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="88" id="M3O-oG-baY"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXc-3e-gtk" customClass="RegisterTextField" customModule="CinemaTix" customModuleProvider="target">
                     <rect key="frame" x="16" y="163" width="361" height="88"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="88" id="tAh-WL-bsH"/>
                     </constraints>
@@ -45,16 +44,29 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="Button"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obv-qP-AkQ" userLabel="FaceIDButton">
+                    <rect key="frame" x="166.66666666666666" y="471" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="4YO-cF-IEU"/>
+                        <constraint firstAttribute="height" constant="60" id="A0p-XI-bVz"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="gray" image="faceid" cornerStyle="large">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                    </buttonConfiguration>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
             <constraints>
                 <constraint firstItem="DUA-lc-jC7" firstAttribute="top" secondItem="PXc-3e-gtk" secondAttribute="bottom" constant="90" id="24j-te-1Ew"/>
+                <constraint firstItem="obv-qP-AkQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5P0-jL-9mD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PXc-3e-gtk" secondAttribute="trailing" constant="16" id="8cp-2n-vNL"/>
                 <constraint firstItem="PXc-3e-gtk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="PWQ-Fg-33R"/>
                 <constraint firstItem="DUA-lc-jC7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VXl-zk-Gje"/>
                 <constraint firstItem="PXc-3e-gtk" firstAttribute="top" secondItem="DZn-Dy-1Wq" secondAttribute="bottom" constant="16" id="Wc5-iY-ho8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DZn-Dy-1Wq" secondAttribute="trailing" constant="16" id="dkq-wW-WlU"/>
+                <constraint firstItem="obv-qP-AkQ" firstAttribute="top" secondItem="DUA-lc-jC7" secondAttribute="bottom" constant="80" id="fS1-G2-Aun"/>
                 <constraint firstItem="DZn-Dy-1Wq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="glc-6i-meg"/>
                 <constraint firstItem="DZn-Dy-1Wq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="u6M-Lk-fYN"/>
             </constraints>
@@ -62,8 +74,9 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <image name="faceid" width="30" height="30"/>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

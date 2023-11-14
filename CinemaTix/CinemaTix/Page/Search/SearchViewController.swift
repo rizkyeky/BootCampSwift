@@ -60,10 +60,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableQueryList.dequeueReusableCell(forIndexPath: indexPath) as QueryCellTableViewCell
         if let result = movieViewModel.resultsSearchMovies {
-            cell.label.text = "\(indexPath.row+1) \(result[indexPath.row].title ?? "-")"
+            cell.label.text = "\(result[indexPath.row].title ?? "-")"
             cell.onTap = {
                 let movieVC = MovieDetailViewController()
-                movieVC.detail = result[indexPath.row]
+                movieVC.movie = result[indexPath.row]
                 self.navigationController?.pushViewController(movieVC, animated: true)
             }
         }

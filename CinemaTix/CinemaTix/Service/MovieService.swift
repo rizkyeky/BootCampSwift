@@ -16,9 +16,19 @@ class MovieService: Service {
         getData(url: url, expecting: MovieDetailModel.self, completion: completion)
     }
     
-    func getPopular(completion: @escaping (Result<[MovieDetailModel]?, Error>) -> Void) -> Void {
+    func getCredit(id: Int, completion: @escaping (Result<ResultCredit, Error>) -> Void) -> Void {
+        let url = movieApi.credit(id)
+        getData(url: url, expecting: ResultCredit.self, completion: completion)
+    }
+    
+    func getAllGenres(completion: @escaping (Result<ResultGenre, Error>) -> Void) -> Void {
+        let url = movieApi.genres
+        getData(url: url, expecting: ResultGenre.self, completion: completion)
+    }
+    
+    func getPopular(completion: @escaping (Result<[MovieModel]?, Error>) -> Void) -> Void {
         let url = movieApi.popular
-        getData(url: url, expecting: BaseResultModel<MovieDetailModel>.self) { result in
+        getData(url: url, expecting: BaseResultModel<MovieModel>.self) { result in
             switch result {
             case .success(let model):
                 let movies = model.results
@@ -29,9 +39,9 @@ class MovieService: Service {
         }
     }
     
-    func getPlayingNow(completion: @escaping (Result<[MovieDetailModel]?, Error>) -> Void) -> Void {
+    func getPlayingNow(completion: @escaping (Result<[MovieModel]?, Error>) -> Void) -> Void {
         let url = movieApi.playingNow
-        getData(url: url, expecting: BaseResultModel<MovieDetailModel>.self) { result in
+        getData(url: url, expecting: BaseResultModel<MovieModel>.self) { result in
             switch result {
             case .success(let model):
                 let movies = model.results
@@ -42,9 +52,9 @@ class MovieService: Service {
         }
     }
     
-    func getUpComing(completion: @escaping (Result<[MovieDetailModel]?, Error>) -> Void) -> Void {
+    func getUpComing(completion: @escaping (Result<[MovieModel]?, Error>) -> Void) -> Void {
         let url = movieApi.upComing
-        getData(url: url, expecting: BaseResultModel<MovieDetailModel>.self) { result in
+        getData(url: url, expecting: BaseResultModel<MovieModel>.self) { result in
             switch result {
             case .success(let model):
                 let movies = model.results
@@ -55,9 +65,9 @@ class MovieService: Service {
         }
     }
     
-    func getTopRated(completion: @escaping (Result<[MovieDetailModel]?, Error>) -> Void) -> Void {
+    func getTopRated(completion: @escaping (Result<[MovieModel]?, Error>) -> Void) -> Void {
         let url = movieApi.topRated
-        getData(url: url, expecting: BaseResultModel<MovieDetailModel>.self) { result in
+        getData(url: url, expecting: BaseResultModel<MovieModel>.self) { result in
             switch result {
             case .success(let model):
                 let movies = model.results
@@ -68,9 +78,9 @@ class MovieService: Service {
         }
     }
     
-    func getBySearch(query: String, completion: @escaping (Result<[MovieDetailModel]?, Error>) -> Void) -> Void {
+    func getBySearch(query: String, completion: @escaping (Result<[MovieModel]?, Error>) -> Void) -> Void {
         let url = movieApi.searchByKeywords(query)
-        getData(url: url, expecting: BaseResultModel<MovieDetailModel>.self) { result in
+        getData(url: url, expecting: BaseResultModel<MovieModel>.self) { result in
             switch result {
             case .success(let model):
                 let movies = model.results
@@ -81,9 +91,9 @@ class MovieService: Service {
         }
     }
     
-    func getDiscover(query: String, completion: @escaping (Result<[MovieDetailModel]?, Error>) -> Void) -> Void {
+    func getDiscover(query: String, completion: @escaping (Result<[MovieModel]?, Error>) -> Void) -> Void {
         let url = movieApi.discover
-        getData(url: url, expecting: BaseResultModel<MovieDetailModel>.self) { result in
+        getData(url: url, expecting: BaseResultModel<MovieModel>.self) { result in
             switch result {
             case .success(let model):
                 let movies = model.results

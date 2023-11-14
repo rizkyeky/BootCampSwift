@@ -21,8 +21,8 @@ class SettingBaseCell: UITableViewCell {
         button.configuration?.imagePlacement = .trailing
         button.tintColor = .label
         
-        if let iconImage = UIImage(systemName: "chevron.right") {
-            button.setImage(iconImage, for: .normal)
+        if let icon = SFIcon.forward {
+            button.setImage(icon, for: .normal)
             button.setPreferredSymbolConfiguration(.init(scale: .small), forImageIn: .normal)
         }
     }

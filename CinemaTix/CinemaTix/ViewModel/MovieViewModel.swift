@@ -13,11 +13,12 @@ class MovieViewModel: BaseViewModel {
     
     let movieService = MovieService()
     
-    var playingNowMovies: [MovieDetailModel]?
-    var popularMovies: [MovieDetailModel]?
-    var topRatedMovies: [MovieDetailModel]?
-    var upComingMovies: [MovieDetailModel]?
-    var resultsSearchMovies: [MovieDetailModel]?
+    var playingNowMovies: [MovieModel]?
+    var popularMovies: [MovieModel]?
+    var topRatedMovies: [MovieModel]?
+    var upComingMovies: [MovieModel]?
+    var resultsSearchMovies: [MovieModel]?
+    var genres: [Genre]?
     
     let querySearchText = PublishSubject<String>()
     
@@ -26,6 +27,47 @@ class MovieViewModel: BaseViewModel {
     var onCompleteGetPopularMovies: [(() -> Void)] = []
     var onCompleteGetTopRatedMovies: [(() -> Void)] = []
     var onCompleteGetQuerySearch: [(() -> Void)] = []
+    
+    func getAllGenres(completion: (() -> Void)? = nil) {
+        loadingState = .start
+        movieService.getAllGenres() { result in
+            switch result {
+            case .success(let models):
+                self.genres = models.genres
+                self.loadingState = .done
+                completion?()
+            case .failure(_):
+                self.loadingState = .done
+            }
+        }
+    }
+    
+    func getCredit(id: Int, completion: @escaping (([People]?) -> Void)) {
+        loadingState = .start
+        movieService.getCredit(id: id) { result in
+            switch result {
+            case .success(let models):
+                self.loadingState = .done
+                completion(models.cast)
+            case .failure(_):
+                self.loadingState = .done
+            }
+        }
+    }
+    
+    func getDetailMovie(id: Int, completion: @escaping ((MovieDetailModel) -> Void)) {
+        loadingState = .start
+        movieService.getDetail(id: id) { result in
+            switch result {
+            case .success(let model):
+                self.loadingState = .done
+                completion(model)
+            case .failure(_):
+                self.loadingState = .done
+            }
+        }
+    }
+
 
     func getPlayingNowMovies(completion: @escaping () -> Void) {
         loadingState = .start

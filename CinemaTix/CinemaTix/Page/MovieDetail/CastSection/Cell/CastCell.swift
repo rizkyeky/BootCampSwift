@@ -1,17 +1,17 @@
 //
-//  MovieItemCell.swift
+//  CastCell.swift
 //  CinemaTix
 //
-//  Created by Eky on 13/11/23.
+//  Created by Eky on 14/11/23.
 //
 
 import UIKit
 
-class MovieItemCell: UICollectionViewCell {
-
+class CastCell: UICollectionViewCell {
+    
     @IBOutlet weak var card: Card!
     
-    static let height = 240
+    static let height = 200
     
     let title = UILabel()
     

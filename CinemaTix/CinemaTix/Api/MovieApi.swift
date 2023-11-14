@@ -46,9 +46,11 @@ class MovieApi: TmdbApi {
     }
     
     var topRated: Endpoint {
-        return createEndpoint(path: "movie/top_rated", method: .get, query: [
-            "page": 1,
-        ])
+        get {
+            return createEndpoint(path: "movie/top_rated", method: .get, query: [
+                "page": 1,
+            ])
+        }
     }
     
     var upComing: Endpoint {
@@ -61,6 +63,10 @@ class MovieApi: TmdbApi {
     
     func detailById(_ id: Int) -> Endpoint {
         return createEndpoint(path: "movie/\(id)", method: .get)
+    }
+    
+    func credit(_ id: Int) -> Endpoint {
+        return createEndpoint(path: "movie/\(id)/credits", method: .get)
     }
     
     func searchByKeywords(_ query: String) -> Endpoint {
