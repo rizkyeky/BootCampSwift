@@ -11,7 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WalletViewController" customModule="CinemaTix" customModuleProvider="target">
             <connections>
                 <outlet property="base" destination="HrO-3X-P0G" id="lHc-tg-iLv"/>
-                <outlet property="card" destination="vX6-xt-Gp4" id="KpZ-ia-X56"/>
+                <outlet property="card" destination="vX6-xt-Gp4" id="vHJ-RU-bXm"/>
+                <outlet property="scrollView" destination="4YS-ns-N3S" id="bKu-pC-fBf"/>
+                <outlet property="topUpButton" destination="9Kd-nk-eRL" id="j51-cS-ufq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,7 +32,7 @@
                                 <constraint firstAttribute="height" constant="160" id="2HC-Sl-OfZ"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vX6-xt-Gp4" userLabel="Card">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vX6-xt-Gp4" userLabel="Card" customClass="Card" customModule="CinemaTix" customModuleProvider="target">
                             <rect key="frame" x="16.666666666666657" y="60" width="360" height="200"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -38,14 +40,33 @@
                                 <constraint firstAttribute="width" constant="360" id="gdg-Ec-j22"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SC7-Hf-uoT" customClass="TransSection" customModule="CinemaTix" customModuleProvider="target">
+                            <rect key="frame" x="16" y="342" width="361" height="470"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Kd-nk-eRL">
+                            <rect key="frame" x="16" y="276" width="361" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="x83-Fl-1q3"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="HrO-3X-P0G" secondAttribute="bottom" constant="652" id="4kV-YS-a12"/>
                         <constraint firstAttribute="trailing" secondItem="HrO-3X-P0G" secondAttribute="trailing" id="BDI-pt-PCj"/>
                         <constraint firstItem="HrO-3X-P0G" firstAttribute="leading" secondItem="4YS-ns-N3S" secondAttribute="leading" id="BbW-OP-EPj"/>
+                        <constraint firstItem="SC7-Hf-uoT" firstAttribute="leading" secondItem="4YS-ns-N3S" secondAttribute="leading" constant="16" id="GzW-Jz-czk"/>
+                        <constraint firstItem="9Kd-nk-eRL" firstAttribute="top" secondItem="vX6-xt-Gp4" secondAttribute="bottom" constant="16" id="KO3-dj-V57"/>
                         <constraint firstItem="vX6-xt-Gp4" firstAttribute="top" secondItem="HrO-3X-P0G" secondAttribute="bottom" constant="-100" id="OvE-bq-L3D"/>
+                        <constraint firstAttribute="trailing" secondItem="9Kd-nk-eRL" secondAttribute="trailing" constant="16" id="R3Y-V0-YXg"/>
                         <constraint firstItem="vX6-xt-Gp4" firstAttribute="centerX" secondItem="4YS-ns-N3S" secondAttribute="centerX" id="WkB-4S-8sw"/>
+                        <constraint firstAttribute="bottom" secondItem="SC7-Hf-uoT" secondAttribute="bottom" id="cP9-4w-9z6"/>
+                        <constraint firstAttribute="trailing" secondItem="SC7-Hf-uoT" secondAttribute="trailing" constant="16" id="d43-Na-ZIX"/>
+                        <constraint firstItem="SC7-Hf-uoT" firstAttribute="top" secondItem="9Kd-nk-eRL" secondAttribute="bottom" constant="16" id="dZu-Fb-MVV"/>
                         <constraint firstItem="HrO-3X-P0G" firstAttribute="centerX" secondItem="4YS-ns-N3S" secondAttribute="centerX" id="rvq-IG-xHP"/>
+                        <constraint firstItem="9Kd-nk-eRL" firstAttribute="leading" secondItem="4YS-ns-N3S" secondAttribute="leading" constant="16" id="wbK-kH-ga1"/>
                         <constraint firstItem="HrO-3X-P0G" firstAttribute="top" secondItem="4YS-ns-N3S" secondAttribute="top" id="xvx-aU-15L"/>
                     </constraints>
                 </scrollView>
@@ -65,7 +86,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -17,6 +17,7 @@ PODS:
     - SVProgressHUD/Core (= 2.3.1)
   - SVProgressHUD/Core (2.3.1)
   - Swinject (2.8.3)
+  - ToastViewSwift (2.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - SnapKit
   - SVProgressHUD
   - Swinject
+  - ToastViewSwift
 
 SPEC REPOS:
   trunk:
@@ -47,6 +49,7 @@ SPEC REPOS:
     - SnapKit
     - SVProgressHUD
     - Swinject
+    - ToastViewSwift
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
@@ -62,7 +65,8 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
   Swinject: 893c9a543000ac2f10ee4cbaf0933c6992c935d5
+  ToastViewSwift: db710ad3c19c826269d004038c7b69f5b658dc6f
 
-PODFILE CHECKSUM: 66b5176a88efbeacbb52025f8bb72fd0dbedf7b1
+PODFILE CHECKSUM: 6f490cb4857e73ac7a014f1d7d70ff82dc55ac49
 
 COCOAPODS: 1.14.2

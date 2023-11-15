@@ -17,6 +17,10 @@ target 'CinemaTix' do
   pod 'CenteredCollectionView'
   pod 'SVProgressHUD'
   pod 'netfox', :configurations => ['Debug']
+  pod 'ToastViewSwift'
+  pod 'UIKitLivePreview', :git => 'https://github.com/nicoelayda/UIKitLivePreview.git'
+  pod 'L10n-swift', :git => 'https://github.com/Decybel07/L10n-swift'
+  pod 'CryptoSwift', :git => 'https://github.com/krzyzanowskim/CryptoSwift'
   # Pods for CinemaTix
 
   target 'CinemaTixTests' do

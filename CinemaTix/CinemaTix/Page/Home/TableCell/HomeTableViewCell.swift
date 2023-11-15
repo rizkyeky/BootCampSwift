@@ -57,6 +57,7 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         
         let details = movieViewModel.playingNowMovies
         cell.title.text = details?[index].title ?? "-"
+        cell.card.backgroundColor = .systemGroupedBackground
         
         let rating = details?[index].voteAverage
         let strRating = String(format: "%.2f", rating ?? 0)

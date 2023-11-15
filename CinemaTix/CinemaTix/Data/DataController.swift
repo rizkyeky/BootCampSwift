@@ -26,12 +26,17 @@ class DataController {
         user.email = email
         user.password = password
         
+        let wallet = Wallet(context: context)
+        wallet.id = UUID()
+        wallet.transactions = NSSet(array: [
+//            Transac(context: context)
+        ])
+        user.wallet = wallet.id
+        
         do {
             try context.save()
-            print("Save to User")
             return user
         } catch {
-            print("Failed to save user: \(error)")
             return nil
         }
     }
@@ -46,21 +51,12 @@ class DataController {
             let fetchedResults = try context.fetch(fetchRequest)
             
             if let user = fetchedResults.first {
-                print("Found user with email: \(user.email ?? "N/A")")
                 return user
             } else {
-                print("User with email \(email) not found")
                 return nil
             }
         } catch {
-            print("Error fetching user: \(error.localizedDescription)")
             return nil
         }
     }
-    
-//    func deleteAllUser(context: NSManagedObjectContext) {
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//        
-//    }
 }

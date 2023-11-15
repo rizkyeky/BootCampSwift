@@ -55,6 +55,7 @@ extension HomeTableViewCell3: UICollectionViewDelegate, UICollectionViewDataSour
         cell.onTap = { self.onTap?(index) }
         
         cell.title.text = movies?[index].title ?? "-"
+        cell.card.backgroundColor = .systemGroupedBackground
         
         let rating = movies?[index].voteAverage
         let strRating = String(format: "%.2f", rating ?? 0)

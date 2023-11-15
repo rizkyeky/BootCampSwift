@@ -21,6 +21,8 @@ enum SFIcon {
     static let setting = UIImage(systemName: "gear")
     static let profile = UIImage(systemName: "person")
     
+    static let up = UIImage(systemName: "arrowshape.up.circle")
+    
 //    static let search = UIImage(from: .fontAwesome5, code: "search", textColor: .tintColor, backgroundColor: .clear, size: CGSize(width: 40, height: 40))
 //    
 //    static let setting = UIImage(from: .fontAwesome5, code: "gear", textColor: .tintColor, backgroundColor: .clear, size: CGSize(width: 40, height: 40))

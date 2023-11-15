@@ -52,6 +52,11 @@
 		25414A3C2AF8DD2E00DFA4C9 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */; };
 		25414A402AF8E78100DFA4C9 /* WelcomePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A3E2AF8E78100DFA4C9 /* WelcomePanelViewController.swift */; };
 		25414A412AF8E78100DFA4C9 /* WelcomePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A3F2AF8E78100DFA4C9 /* WelcomePanelViewController.xib */; };
+		25478DDE2B046D0200F26BE9 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25478DDD2B046D0100F26BE9 /* Preview.swift */; };
+		25478DE12B04992100F26BE9 /* TransSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25478DE02B04992000F26BE9 /* TransSection.swift */; };
+		25478DE32B049A3600F26BE9 /* TransSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25478DE22B049A3600F26BE9 /* TransSection.xib */; };
+		25478DEA2B049DE700F26BE9 /* TransCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25478DE82B049DE700F26BE9 /* TransCell.swift */; };
+		25478DEB2B049DE700F26BE9 /* TransCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25478DE92B049DE700F26BE9 /* TransCell.xib */; };
 		254DF1142AFB20E000B99EFC /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1122AFB20E000B99EFC /* CarouselCell.swift */; };
 		254DF1152AFB20E000B99EFC /* CarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254DF1132AFB20E000B99EFC /* CarouselCell.xib */; };
 		254DF1172AFB26CF00B99EFC /* ExtUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1162AFB26CF00B99EFC /* ExtUIImage.swift */; };
@@ -174,6 +179,11 @@
 		25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		25414A3E2AF8E78100DFA4C9 /* WelcomePanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePanelViewController.swift; sourceTree = "<group>"; };
 		25414A3F2AF8E78100DFA4C9 /* WelcomePanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomePanelViewController.xib; sourceTree = "<group>"; };
+		25478DDD2B046D0100F26BE9 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
+		25478DE02B04992000F26BE9 /* TransSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransSection.swift; sourceTree = "<group>"; };
+		25478DE22B049A3600F26BE9 /* TransSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransSection.xib; sourceTree = "<group>"; };
+		25478DE82B049DE700F26BE9 /* TransCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransCell.swift; sourceTree = "<group>"; };
+		25478DE92B049DE700F26BE9 /* TransCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransCell.xib; sourceTree = "<group>"; };
 		254DF1122AFB20E000B99EFC /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		254DF1132AFB20E000B99EFC /* CarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselCell.xib; sourceTree = "<group>"; };
 		254DF1162AFB26CF00B99EFC /* ExtUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImage.swift; sourceTree = "<group>"; };
@@ -304,6 +314,7 @@
 				254149AB2AF87EBA00DFA4C9 /* AppDelegate.swift */,
 				254149AD2AF87EBA00DFA4C9 /* SceneDelegate.swift */,
 				254149AF2AF87EBA00DFA4C9 /* ViewController.swift */,
+				25478DDD2B046D0100F26BE9 /* Preview.swift */,
 				254149B12AF87EBA00DFA4C9 /* Main.storyboard */,
 				254149B72AF87EBC00DFA4C9 /* Assets.xcassets */,
 				254149B92AF87EBC00DFA4C9 /* LaunchScreen.storyboard */,
@@ -372,6 +383,7 @@
 		254149E12AF882C000DFA4C9 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				25478DDF2B04987F00F26BE9 /* TransSection */,
 				25414A1F2AF8CFE100DFA4C9 /* WalletViewController.swift */,
 				25414A202AF8CFE100DFA4C9 /* WalletViewController.xib */,
 			);
@@ -514,6 +526,25 @@
 				25A070D02B035ECE0074118D /* People.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		25478DDF2B04987F00F26BE9 /* TransSection */ = {
+			isa = PBXGroup;
+			children = (
+				25478DE42B049CDC00F26BE9 /* Cell */,
+				25478DE02B04992000F26BE9 /* TransSection.swift */,
+				25478DE22B049A3600F26BE9 /* TransSection.xib */,
+			);
+			path = TransSection;
+			sourceTree = "<group>";
+		};
+		25478DE42B049CDC00F26BE9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				25478DE82B049DE700F26BE9 /* TransCell.swift */,
+				25478DE92B049DE700F26BE9 /* TransCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		254DF1112AFB20BC00B99EFC /* CarouselCell */ = {
@@ -817,6 +848,7 @@
 				254DF1402AFDC7E000B99EFC /* Lato-Bold.ttf in Resources */,
 				254149B32AF87EBA00DFA4C9 /* Main.storyboard in Resources */,
 				25A070D72B0360A50074118D /* CastSection.xib in Resources */,
+				25478DE32B049A3600F26BE9 /* TransSection.xib in Resources */,
 				2577E7682AF9F2CF002D6AF6 /* RegisterTextField.xib in Resources */,
 				25A070CD2B0335290074118D /* SmallCarouselCell.xib in Resources */,
 				25414A262AF8D00400DFA4C9 /* HomeViewController.xib in Resources */,
@@ -824,6 +856,7 @@
 				2578D4912AFFC97D00EC8D59 /* SignInViewController.xib in Resources */,
 				25414A412AF8E78100DFA4C9 /* WelcomePanelViewController.xib in Resources */,
 				25A070B82B01DAB10074118D /* SettingDarkModeCell.xib in Resources */,
+				25478DEB2B049DE700F26BE9 /* TransCell.xib in Resources */,
 				254DF1472AFE1AEE00B99EFC /* QueryCellTableViewCell.xib in Resources */,
 				25A070B42B01D0F60074118D /* SettingBaseCell.xib in Resources */,
 				25414A382AF8D0A900DFA4C9 /* MovieDetailViewController.xib in Resources */,
@@ -960,6 +993,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25478DDE2B046D0200F26BE9 /* Preview.swift in Sources */,
 				2577E7652AF9F27F002D6AF6 /* RegisterTextField.swift in Sources */,
 				254DF1312AFC698700B99EFC /* HomeTableViewCell2.swift in Sources */,
 				254DF1462AFE1AEE00B99EFC /* QueryCellTableViewCell.swift in Sources */,
@@ -972,6 +1006,7 @@
 				254149FE2AF88F4700DFA4C9 /* Endpoint.swift in Sources */,
 				254DF12C2AFB8BCB00B99EFC /* HomeTableViewCell.swift in Sources */,
 				25A070DE2B036DEF0074118D /* GradientView.swift in Sources */,
+				25478DE12B04992100F26BE9 /* TransSection.swift in Sources */,
 				254DF1142AFB20E000B99EFC /* CarouselCell.swift in Sources */,
 				254149FB2AF88A5700DFA4C9 /* WelcomeViewController.swift in Sources */,
 				25414A332AF8D07600DFA4C9 /* MovieListViewController.swift in Sources */,
@@ -1008,6 +1043,7 @@
 				25414A182AF8CE9400DFA4C9 /* ExtUICollectionView.swift in Sources */,
 				25414A212AF8CFE100DFA4C9 /* WalletViewController.swift in Sources */,
 				2578D4902AFFC97D00EC8D59 /* SignInViewController.swift in Sources */,
+				25478DEA2B049DE700F26BE9 /* TransCell.swift in Sources */,
 				25414A012AF89D4100DFA4C9 /* MovieApi.swift in Sources */,
 				254DF1422AFDD44500B99EFC /* AuthViewModel.swift in Sources */,
 				25414A072AF8A7BA00DFA4C9 /* MovieDetailModel.swift in Sources */,

@@ -57,10 +57,8 @@ class Card: UIView {
     }
     
     private func setupBackgroundView() {
-//        if backgroundView.image == nil {
-//            backgroundView.image = UIImage(named: "imagenotfound")
-//        }
         self.addSubview(backgroundView)
+        backgroundView.backgroundColor = .clear
         backgroundView.isUserInteractionEnabled = true
         backgroundView.layer.cornerRadius = self.layer.cornerRadius
         backgroundView.clipsToBounds = true
