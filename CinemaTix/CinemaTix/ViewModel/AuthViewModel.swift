@@ -19,7 +19,7 @@ class AuthViewModel: BaseViewModel {
     
     let dataController = ContainerDI.shared.resolve(DataController.self)
     
-    func signIn(onSuccess: @escaping ((User) -> Void), onInvalidEmail: (() -> Void)? = nil, onInvalidPassword: (() -> Void)? = nil) {
+    func signIn(onSuccess: @escaping ((User) -> Void), onDone: (() -> Void)? = nil, onInvalidEmail: (() -> Void)? = nil, onInvalidPassword: (() -> Void)? = nil) {
         
         if let correctEmail = email, !correctEmail.isEmpty, correctEmail.isValidEmail() {
             if let correctPass = password, !correctPass.isEmpty {
@@ -28,17 +28,21 @@ class AuthViewModel: BaseViewModel {
                     let context = appDelegate.persistentContainer.viewContext
                     if let user = self.dataController?.getUser(email: correctEmail, password: correctPass, context: context) {
                         onSuccess(user)
+                        onDone?()
                     } else {
                         onInvalidEmail?()
+                        onDone?()
                     }
                 }
             } else {
                 print("Invalid Password")
                 onInvalidPassword?()
+                onDone?()
             }
         } else {
             print("Invalid Email")
             onInvalidEmail?()
+            onDone?()
         }
          
         email = nil

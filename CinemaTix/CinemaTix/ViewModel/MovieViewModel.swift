@@ -68,7 +68,6 @@ class MovieViewModel: BaseViewModel {
         }
     }
 
-
     func getPlayingNowMovies(completion: @escaping () -> Void) {
         loadingState = .start
         movieService.getPlayingNow() { result in

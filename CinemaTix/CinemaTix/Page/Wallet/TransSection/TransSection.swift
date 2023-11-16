@@ -48,16 +48,6 @@ extension TransSection: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(forIndexPath: indexPath) as TransCell
         cell.label.text = "Transaction \(indexPath.row)"
-        cell.makeCornerRadius(16)
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        return 8
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 8
-    }
-    
 }

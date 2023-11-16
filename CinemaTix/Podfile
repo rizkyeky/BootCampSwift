@@ -19,8 +19,10 @@ target 'CinemaTix' do
   pod 'netfox', :configurations => ['Debug']
   pod 'ToastViewSwift'
   pod 'UIKitLivePreview', :git => 'https://github.com/nicoelayda/UIKitLivePreview.git'
-  pod 'L10n-swift', :git => 'https://github.com/Decybel07/L10n-swift'
-  pod 'CryptoSwift', :git => 'https://github.com/krzyzanowskim/CryptoSwift'
+  pod 'L10n-swift', :git => 'https://github.com/Decybel07/L10n-swift.git'
+  pod 'CryptoSwift', :git => 'https://github.com/krzyzanowskim/CryptoSwift.git'
+  pod 'KeyboardObserver', :git => 'https://github.com/morizotter/KeyboardObserver.git'
+  pod 'IQKeyboardManager', :git => 'https://github.com/hackiftekhar/IQKeyboardManager.git'
   # Pods for CinemaTix
 
   target 'CinemaTixTests' do

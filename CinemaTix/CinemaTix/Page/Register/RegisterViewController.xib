@@ -45,31 +45,52 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwb-N5-Zm7">
-                    <rect key="frame" x="46.666666666666657" y="435" width="300" height="50"/>
+                    <rect key="frame" x="46" y="611" width="301" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="300" id="Zsh-b6-uk6"/>
-                        <constraint firstAttribute="height" constant="50" id="bmh-tE-c1X"/>
+                        <constraint firstAttribute="height" constant="50" id="pDe-te-BGh"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="Register"/>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhm-oL-fTv" customClass="BrithDateView" customModule="CinemaTix" customModuleProvider="target">
+                    <rect key="frame" x="46.666666666666657" y="423" width="300" height="140"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="nnm-1X-i36"/>
+                        <constraint firstAttribute="width" constant="300" id="tAF-oX-Vmk"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bg-sv-NqV">
+                    <rect key="frame" x="16" y="387" width="94.666666666666671" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="BSZ-xP-fbQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="auo-Ma-2A8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="0dI-MK-NzC"/>
+                <constraint firstItem="Bhm-oL-fTv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2v7-hw-KfK"/>
+                <constraint firstItem="Bhm-oL-fTv" firstAttribute="top" secondItem="6bg-sv-NqV" secondAttribute="bottom" id="E7g-Me-Wyk"/>
                 <constraint firstItem="LQM-2a-02O" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="ERJ-7z-ZFh"/>
                 <constraint firstItem="HwO-rV-bOy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="F3p-b9-cW3"/>
+                <constraint firstItem="6bg-sv-NqV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="FNY-iV-QfG"/>
+                <constraint firstItem="jwb-N5-Zm7" firstAttribute="centerX" secondItem="Bhm-oL-fTv" secondAttribute="centerX" id="Glf-E8-fsd"/>
+                <constraint firstItem="jwb-N5-Zm7" firstAttribute="top" secondItem="Bhm-oL-fTv" secondAttribute="bottom" constant="48" id="Lud-ZJ-bav"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LQM-2a-02O" secondAttribute="trailing" constant="16" id="MOm-63-lE6"/>
-                <constraint firstItem="jwb-N5-Zm7" firstAttribute="top" secondItem="HwO-rV-bOy" secondAttribute="bottom" constant="64" id="O8Q-xb-o4G"/>
+                <constraint firstItem="jwb-N5-Zm7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="46" id="V7Q-4n-noX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HwO-rV-bOy" secondAttribute="trailing" constant="16" id="ZES-Ud-Cil"/>
                 <constraint firstItem="auo-Ma-2A8" firstAttribute="top" secondItem="LQM-2a-02O" secondAttribute="bottom" constant="16" id="chR-QS-QhV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="auo-Ma-2A8" secondAttribute="trailing" constant="16" id="ean-dz-kPg"/>
-                <constraint firstItem="jwb-N5-Zm7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eha-UV-a61"/>
+                <constraint firstItem="6bg-sv-NqV" firstAttribute="top" secondItem="HwO-rV-bOy" secondAttribute="bottom" constant="16" id="oRU-1j-zAp"/>
                 <constraint firstItem="HwO-rV-bOy" firstAttribute="top" secondItem="auo-Ma-2A8" secondAttribute="bottom" constant="16" id="qXr-lT-Tdg"/>
                 <constraint firstItem="LQM-2a-02O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="rzH-bf-eY5"/>
             </constraints>
-            <point key="canvasLocation" x="89" y="20"/>
+            <point key="canvasLocation" x="87.786259541984734" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>

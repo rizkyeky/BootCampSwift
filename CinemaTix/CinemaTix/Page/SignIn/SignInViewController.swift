@@ -45,19 +45,24 @@ class SignInViewController: BaseViewController {
         }, for: .touchUpInside)
         
         submitButton.addAction(UIAction() { _ in
+            
+            let activity = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+            activity.backgroundColor = .black
+            let loading = UIActivityIndicatorView(style: .medium)
+            activity.addSubview(loading)
+            SVProgressHUD.setContainerView(activity)
             SVProgressHUD.show()
+            
             self.authViewModel.signIn() { [weak self] user in
                 guard let self = self else {return}
-                SVProgressHUD.dismiss()
                 self.navigationController?.pushViewController(TabBarViewController(), animated: true)
-            } onInvalidEmail: {
+            } onDone: {
                 SVProgressHUD.dismiss()
+            } onInvalidEmail: {
                 self.showAlertOK(title: "Invalid Email", message: "Please input correct email")
             } onInvalidPassword: {
-                SVProgressHUD.dismiss()
                 self.showAlertOK(title: "Invalid Password", message: "Please input correct password")
             }
-            
         }, for: .touchUpInside)
         
         emailInput.textField.rx.text

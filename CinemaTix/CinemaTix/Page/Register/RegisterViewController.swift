@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 import Swinject
 import SVProgressHUD
+import UIKitLivePreview
 
 class RegisterViewController: BaseViewController {
 
@@ -112,3 +113,88 @@ class RegisterViewController: BaseViewController {
         }.disposed(by: disposeBag)
     }
 }
+
+class BrithDateView: UIView {
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    let days = Array(1...31)
+    let years = Array(1900...2100)
+    
+    let pickerView = UIPickerView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    func setup() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        addSubview(pickerView)
+        pickerView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(self)
+            make.centerX.centerY.equalTo(self)
+        }
+    }
+}
+
+extension BrithDateView: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 3 // Date, Month, Year
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch component {
+        case 0: // Days
+            return days.count
+        case 1: // Months
+            return months.count
+        case 2: // Years
+            return years.count
+        default:
+            return 0
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch component {
+        case 0: // Days
+            return String(days[row])
+        case 1: // Months
+            return months[row]
+        case 2: // Years
+            return String(years[row])
+        default:
+            return nil
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedDay = days[pickerView.selectedRow(inComponent: 0)]
+        let selectedMonth = months[pickerView.selectedRow(inComponent: 1)]
+        let selectedYear = years[pickerView.selectedRow(inComponent: 2)]
+    }
+}
+
+
+#if DEBUG && canImport(SwiftUI)
+
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct RegisterViewController_Preview: PreviewProvider {
+    static var previews: some View {
+        RegisterViewController()
+            .preview()
+            .device(.iPhone11)
+    }
+}
+
+#endif

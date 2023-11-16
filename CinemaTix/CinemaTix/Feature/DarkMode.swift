@@ -20,8 +20,11 @@ class DarkMode {
     
     private let defaults = UserDefaults.standard
     
-    func setup(completion: (Bool) -> Void) {
+    func setup(window: UIWindow, completion: (Bool) -> Void = { _ in }) {
         _isActive = defaults.bool(forKey: "dark_mode")
+        if (_isActive) {
+            window.overrideUserInterfaceStyle = .dark
+        }
         completion(_isActive)
     }
     

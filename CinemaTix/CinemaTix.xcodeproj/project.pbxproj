@@ -52,7 +52,6 @@
 		25414A3C2AF8DD2E00DFA4C9 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */; };
 		25414A402AF8E78100DFA4C9 /* WelcomePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25414A3E2AF8E78100DFA4C9 /* WelcomePanelViewController.swift */; };
 		25414A412AF8E78100DFA4C9 /* WelcomePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25414A3F2AF8E78100DFA4C9 /* WelcomePanelViewController.xib */; };
-		25478DDE2B046D0200F26BE9 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25478DDD2B046D0100F26BE9 /* Preview.swift */; };
 		25478DE12B04992100F26BE9 /* TransSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25478DE02B04992000F26BE9 /* TransSection.swift */; };
 		25478DE32B049A3600F26BE9 /* TransSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25478DE22B049A3600F26BE9 /* TransSection.xib */; };
 		25478DEA2B049DE700F26BE9 /* TransCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25478DE82B049DE700F26BE9 /* TransCell.swift */; };
@@ -88,6 +87,8 @@
 		2578D4902AFFC97D00EC8D59 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578D48E2AFFC97D00EC8D59 /* SignInViewController.swift */; };
 		2578D4912AFFC97D00EC8D59 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2578D48F2AFFC97D00EC8D59 /* SignInViewController.xib */; };
 		2578D4932B00692400EC8D59 /* ContainerDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578D4922B00692400EC8D59 /* ContainerDI.swift */; };
+		258C58DE2B061A9000951A3A /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58DD2B061A9000951A3A /* WalletViewModel.swift */; };
+		258C58E02B061B1400951A3A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58DF2B061B1400951A3A /* Transaction.swift */; };
 		25A070A32B0095EB0074118D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A22B0095EB0074118D /* DataController.swift */; };
 		25A070A62B01C4F20074118D /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A52B01C4F20074118D /* ExtString.swift */; };
 		25A070AA2B01CE3C0074118D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A82B01CE3C0074118D /* SettingViewController.swift */; };
@@ -179,7 +180,6 @@
 		25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		25414A3E2AF8E78100DFA4C9 /* WelcomePanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePanelViewController.swift; sourceTree = "<group>"; };
 		25414A3F2AF8E78100DFA4C9 /* WelcomePanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomePanelViewController.xib; sourceTree = "<group>"; };
-		25478DDD2B046D0100F26BE9 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		25478DE02B04992000F26BE9 /* TransSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransSection.swift; sourceTree = "<group>"; };
 		25478DE22B049A3600F26BE9 /* TransSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransSection.xib; sourceTree = "<group>"; };
 		25478DE82B049DE700F26BE9 /* TransCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransCell.swift; sourceTree = "<group>"; };
@@ -215,6 +215,8 @@
 		2578D48E2AFFC97D00EC8D59 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		2578D48F2AFFC97D00EC8D59 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		2578D4922B00692400EC8D59 /* ContainerDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerDI.swift; sourceTree = "<group>"; };
+		258C58DD2B061A9000951A3A /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
+		258C58DF2B061B1400951A3A /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		25A070A22B0095EB0074118D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		25A070A52B01C4F20074118D /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
 		25A070A82B01CE3C0074118D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -303,9 +305,9 @@
 				25A070A12B0095DB0074118D /* Data */,
 				254DF13C2AFDC7BB00B99EFC /* Fonts */,
 				254149FF2AF89D2300DFA4C9 /* Api */,
+				254149EC2AF8839B00DFA4C9 /* Service */,
 				254DF11C2AFB6B7000B99EFC /* ViewModel */,
 				25414A052AF8A6F200DFA4C9 /* Model */,
-				254149EC2AF8839B00DFA4C9 /* Service */,
 				254149EB2AF8838C00DFA4C9 /* Feature */,
 				254149EA2AF8838500DFA4C9 /* Component */,
 				254149E92AF8834D00DFA4C9 /* Extension */,
@@ -314,7 +316,6 @@
 				254149AB2AF87EBA00DFA4C9 /* AppDelegate.swift */,
 				254149AD2AF87EBA00DFA4C9 /* SceneDelegate.swift */,
 				254149AF2AF87EBA00DFA4C9 /* ViewController.swift */,
-				25478DDD2B046D0100F26BE9 /* Preview.swift */,
 				254149B12AF87EBA00DFA4C9 /* Main.storyboard */,
 				254149B72AF87EBC00DFA4C9 /* Assets.xcassets */,
 				254149B92AF87EBC00DFA4C9 /* LaunchScreen.storyboard */,
@@ -524,6 +525,7 @@
 				25414A082AF8A90400DFA4C9 /* Model.swift */,
 				25A070BE2B0329670074118D /* GenreModel.swift */,
 				25A070D02B035ECE0074118D /* People.swift */,
+				258C58DF2B061B1400951A3A /* Transaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -561,6 +563,7 @@
 			children = (
 				254DF11D2AFB6BA300B99EFC /* MovieViewModel.swift */,
 				254DF1412AFDD44500B99EFC /* AuthViewModel.swift */,
+				258C58DD2B061A9000951A3A /* WalletViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -993,7 +996,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25478DDE2B046D0200F26BE9 /* Preview.swift in Sources */,
 				2577E7652AF9F27F002D6AF6 /* RegisterTextField.swift in Sources */,
 				254DF1312AFC698700B99EFC /* HomeTableViewCell2.swift in Sources */,
 				254DF1462AFE1AEE00B99EFC /* QueryCellTableViewCell.swift in Sources */,
@@ -1031,12 +1033,14 @@
 				25414A162AF8CE2900DFA4C9 /* ExtUIView.swift in Sources */,
 				254DF1192AFB49D300B99EFC /* Card.swift in Sources */,
 				25414A0E2AF8CAE500DFA4C9 /* Biometric.swift in Sources */,
+				258C58DE2B061A9000951A3A /* WalletViewModel.swift in Sources */,
 				254149AC2AF87EBA00DFA4C9 /* AppDelegate.swift in Sources */,
 				2577E7612AF9DCCF002D6AF6 /* SVGIcon.swift in Sources */,
 				254149F32AF8844700DFA4C9 /* TabBarViewController.swift in Sources */,
 				25A070D52B0360920074118D /* CastSection.swift in Sources */,
 				2578D4932B00692400EC8D59 /* ContainerDI.swift in Sources */,
 				25A070C22B0331510074118D /* SmallCarousel.swift in Sources */,
+				258C58E02B061B1400951A3A /* Transaction.swift in Sources */,
 				25A070CF2B0355090074118D /* MovieModel.swift in Sources */,
 				25414A2E2AF8D05A00DFA4C9 /* RegisterViewController.swift in Sources */,
 				25A070AA2B01CE3C0074118D /* SettingViewController.swift in Sources */,

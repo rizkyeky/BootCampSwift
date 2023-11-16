@@ -24,11 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return nav
         }.inObjectScope(.container)
         
-        if let darkMode = ContainerDI.shared.resolve(DarkMode.self) {
-            if (darkMode.isActive) {
-                window.overrideUserInterfaceStyle = .dark
-            }
-        }
+        let darkMode = ContainerDI.shared.resolve(DarkMode.self)
+        darkMode?.setup(window: window)
         
         window.rootViewController = nav
 

@@ -21,6 +21,10 @@ class ContainerDI {
             return AuthViewModel()
         }.inObjectScope(.container)
         
+        container.register(WalletViewModel.self) { r in
+            return WalletViewModel()
+        }.inObjectScope(.container)
+        
         container.register(DataController.self) { r in
             return DataController()
         }.inObjectScope(.container)
