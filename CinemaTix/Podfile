@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+ platform :ios, '13.0'
 
 target 'CinemaTix' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -10,20 +10,27 @@ target 'CinemaTix' do
   pod 'FloatingPanel'
   pod 'lottie-ios'
   pod 'SnapKit'
-  pod 'SkeletonView'
+  pod 'SkeletonView', :git => 'https://github.com/Juanpe/SkeletonView'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Swinject'
   pod 'CenteredCollectionView'
-  pod 'SVProgressHUD'
   pod 'netfox', :configurations => ['Debug']
-  pod 'ToastViewSwift'
+  pod 'ViewAnimator', :git => 'https://github.com/marcosgriselli/ViewAnimator.git'
+  pod 'SPAlert', :git => 'https://github.com/sparrowcode/AlertKit.git'
   pod 'UIKitLivePreview', :git => 'https://github.com/nicoelayda/UIKitLivePreview.git'
-  pod 'L10n-swift', :git => 'https://github.com/Decybel07/L10n-swift.git'
-  pod 'CryptoSwift', :git => 'https://github.com/krzyzanowskim/CryptoSwift.git'
   pod 'KeyboardObserver', :git => 'https://github.com/morizotter/KeyboardObserver.git'
-  pod 'IQKeyboardManager', :git => 'https://github.com/hackiftekhar/IQKeyboardManager.git'
-  # Pods for CinemaTix
+  pod 'IQKeyboardManagerSwift', :git => 'https://github.com/hackiftekhar/IQKeyboardManager.git'
+  pod 'PKHUD', :git => 'https://github.com/pkluz/PKHUD.git'
+
+#  pod 'EFNavigationBar', :git => 'https://github.com/EFPrefix/EFNavigationBar.git'
+#  pod 'CryptoSwift', :git => 'https://github.com/krzyzanowskim/CryptoSwift.git'
+#  pod 'L10n-swift', :git => 'https://github.com/Decybel07/L10n-swift.git'
+#  pod 'ToastViewSwift', :git => 'https://github.com/BastiaanJansen/Toast-Swift.git'
+#  pod 'SVProgressHUD'
+
+
+# Pods for CinemaTix
 
   target 'CinemaTixTests' do
     inherit! :search_paths

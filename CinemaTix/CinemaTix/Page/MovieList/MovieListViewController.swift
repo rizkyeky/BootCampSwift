@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
+class MovieListViewController: BaseViewController {
     
     var movies: [MovieModel]?
     var titlePage: String?
@@ -20,12 +20,16 @@ class MovieListViewController: UIViewController {
         navigationItem.title = titlePage ?? "-"
         navigationItem.backButtonDisplayMode = .minimal
         
-        navigationItem.setRightBarButton(UIBarButtonItem(image: SFIcon.filter, style: .plain, target: self, action: nil), animated: true)
+        navBar.isHidden = false
         
         collection.delegate = self
         collection.dataSource = self
         
         collection.registerCellWithNib(MovieItemCell.self)
+        
+        collection.snp.makeConstraints { make in
+            make.top.equalTo(navBar.snp.bottom)
+        }
     }
 }
 
@@ -33,6 +37,7 @@ extension MovieListViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func setupCell(_ cell: MovieItemCell, _ index: Int) {
         cell.onTap = {
+            print("cell onTap")
             if let movie = self.movies?[index] {
                 let movieDetailVC = MovieDetailViewController()
                 movieDetailVC.movie = movie
@@ -48,6 +53,9 @@ extension MovieListViewController: UICollectionViewDelegate, UICollectionViewDat
             
             cell.card.backgroundView.kf.setImage(with: TmdbApi.getImageURL(path), placeholder: UIImage(named: "imagenotfound"))
         }
+        
+        cell.isSkeletonable = true
+        cell.skeletonCornerRadius = 16
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

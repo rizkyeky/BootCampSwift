@@ -56,6 +56,9 @@ extension CastSection: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             let path = String(backdropPath.dropFirst())
             cell.card.backgroundView.kf.setImage(with: TmdbApi.getImageURL(path), placeholder: UIImage(named: "imagenotfound"))
         }
+        
+        cell.isSkeletonable = true
+        cell.skeletonCornerRadius = 16
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

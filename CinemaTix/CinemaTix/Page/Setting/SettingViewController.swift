@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SVProgressHUD
 
 struct SettingOption {
     let label: String
@@ -18,7 +17,7 @@ struct SettingOption {
     }
 }
 
-class SettingViewController: UIViewController {
+class SettingViewController: BaseViewController {
 
     @IBOutlet weak var table: UITableView!
     
@@ -26,7 +25,7 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationItem.title = "Setting"
         
         table.delegate = self
@@ -41,9 +40,7 @@ class SettingViewController: UIViewController {
                 SettingOption("Logout") {
                     if let tabNavController = ContainerDI.shared.resolve(UINavigationController.self) {
                         self.showAlertOKCancel(title: "Logout", message: "Are you sure want to logout ?") {
-                            SVProgressHUD.show()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                SVProgressHUD.dismiss()
                                 tabNavController.setViewControllers([WelcomeViewController()], animated: true)
                             }
                         } onTapCancel: {
@@ -102,16 +99,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return settingOptions.count
     }
-    
-    // add section title
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "Section \(section+1)"
-//    }
-    
-    // set custom header
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return UIView()
-//    }
     
     // set heigth of header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -15,6 +15,7 @@
                 <outlet property="payButton" destination="tzR-B9-Pnt" id="HJv-11-Q8U"/>
                 <outlet property="scrollView" destination="4YS-ns-N3S" id="bKu-pC-fBf"/>
                 <outlet property="topUpButton" destination="9Kd-nk-eRL" id="j51-cS-ufq"/>
+                <outlet property="transSection" destination="SC7-Hf-uoT" id="1kh-8x-O9V"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

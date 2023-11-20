@@ -89,6 +89,9 @@
 		2578D4932B00692400EC8D59 /* ContainerDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578D4922B00692400EC8D59 /* ContainerDI.swift */; };
 		258C58DE2B061A9000951A3A /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58DD2B061A9000951A3A /* WalletViewModel.swift */; };
 		258C58E02B061B1400951A3A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58DF2B061B1400951A3A /* Transaction.swift */; };
+		258C58E22B070FB700951A3A /* ExtNSNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E12B070FB700951A3A /* ExtNSNumber.swift */; };
+		258C58E52B0719D600951A3A /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E42B0719D600951A3A /* QRScanner.swift */; };
+		258C58EA2B074FEE00951A3A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E92B074FEE00951A3A /* Constant.swift */; };
 		25A070A32B0095EB0074118D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A22B0095EB0074118D /* DataController.swift */; };
 		25A070A62B01C4F20074118D /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A52B01C4F20074118D /* ExtString.swift */; };
 		25A070AA2B01CE3C0074118D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A82B01CE3C0074118D /* SettingViewController.swift */; };
@@ -111,6 +114,10 @@
 		25A070DB2B0362820074118D /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070D92B0362820074118D /* CastCell.swift */; };
 		25A070DC2B0362820074118D /* CastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A070DA2B0362820074118D /* CastCell.xib */; };
 		25A070DE2B036DEF0074118D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070DD2B036DEF0074118D /* GradientView.swift */; };
+		25B0F8802B0B5417004A2056 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0F87F2B0B5417004A2056 /* NavBar.swift */; };
+		25BA44AB2B0AFE1F00C74AB6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA44AA2B0AFE1F00C74AB6 /* UserModel.swift */; };
+		25BA44AE2B0B0DD200C74AB6 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 25BA44AD2B0B0DD200C74AB6 /* en.json */; };
+		25BA44B02B0B12B800C74AB6 /* id.json in Resources */ = {isa = PBXBuildFile; fileRef = 25BA44AF2B0B12B800C74AB6 /* id.json */; };
 		A9702F5F95870B4FD773938B /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -217,6 +224,9 @@
 		2578D4922B00692400EC8D59 /* ContainerDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerDI.swift; sourceTree = "<group>"; };
 		258C58DD2B061A9000951A3A /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
 		258C58DF2B061B1400951A3A /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		258C58E12B070FB700951A3A /* ExtNSNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtNSNumber.swift; sourceTree = "<group>"; };
+		258C58E42B0719D600951A3A /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
+		258C58E92B074FEE00951A3A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		25A070A22B0095EB0074118D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		25A070A52B01C4F20074118D /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
 		25A070A82B01CE3C0074118D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +249,10 @@
 		25A070D92B0362820074118D /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
 		25A070DA2B0362820074118D /* CastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCell.xib; sourceTree = "<group>"; };
 		25A070DD2B036DEF0074118D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		25B0F87F2B0B5417004A2056 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		25BA44AA2B0AFE1F00C74AB6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		25BA44AD2B0B0DD200C74AB6 /* en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
+		25BA44AF2B0B12B800C74AB6 /* id.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = id.json; sourceTree = "<group>"; };
 		536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F308EB817918C1E9BEBC98 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
 		6B601FF28E071254BFB9ADEE /* Pods-CinemaTix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.debug.xcconfig"; sourceTree = "<group>"; };
@@ -302,6 +316,7 @@
 		254149AA2AF87EBA00DFA4C9 /* CinemaTix */ = {
 			isa = PBXGroup;
 			children = (
+				25BA44AC2B0B0DAD00C74AB6 /* L10n */,
 				25A070A12B0095DB0074118D /* Data */,
 				254DF13C2AFDC7BB00B99EFC /* Fonts */,
 				254149FF2AF89D2300DFA4C9 /* Api */,
@@ -346,6 +361,7 @@
 		254149DE2AF8829600DFA4C9 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				258C58E32B0719AB00951A3A /* QRScanner */,
 				25A070A72B01CE2A0074118D /* Setting */,
 				254DF11F2AFB6CB800B99EFC /* Search */,
 				254149E72AF8831E00DFA4C9 /* MovieDetail */,
@@ -459,6 +475,7 @@
 				2577E7692AFA2066002D6AF6 /* BaseViewController.swift */,
 				254DF1372AFCCDA000B99EFC /* BaseViewModel.swift */,
 				2578D4922B00692400EC8D59 /* ContainerDI.swift */,
+				258C58E92B074FEE00951A3A /* Constant.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -473,6 +490,7 @@
 				254DF1162AFB26CF00B99EFC /* ExtUIImage.swift */,
 				25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */,
 				25A070A52B01C4F20074118D /* ExtString.swift */,
+				258C58E12B070FB700951A3A /* ExtNSNumber.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -486,6 +504,7 @@
 				254DF1182AFB49D300B99EFC /* Card.swift */,
 				254DF11A2AFB4D8500B99EFC /* Card.xib */,
 				25A070DD2B036DEF0074118D /* GradientView.swift */,
+				25B0F87F2B0B5417004A2056 /* NavBar.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -526,6 +545,7 @@
 				25A070BE2B0329670074118D /* GenreModel.swift */,
 				25A070D02B035ECE0074118D /* People.swift */,
 				258C58DF2B061B1400951A3A /* Transaction.swift */,
+				25BA44AA2B0AFE1F00C74AB6 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -627,6 +647,14 @@
 			path = RegisterTextField;
 			sourceTree = "<group>";
 		};
+		258C58E32B0719AB00951A3A /* QRScanner */ = {
+			isa = PBXGroup;
+			children = (
+				258C58E42B0719D600951A3A /* QRScanner.swift */,
+			);
+			path = QRScanner;
+			sourceTree = "<group>";
+		};
 		25A070A12B0095DB0074118D /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,6 +729,15 @@
 				25A070DA2B0362820074118D /* CastCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		25BA44AC2B0B0DAD00C74AB6 /* L10n */ = {
+			isa = PBXGroup;
+			children = (
+				25BA44AD2B0B0DD200C74AB6 /* en.json */,
+				25BA44AF2B0B12B800C74AB6 /* id.json */,
+			);
+			path = L10n;
 			sourceTree = "<group>";
 		};
 		3A1D27266542EE5B398A30C6 /* Frameworks */ = {
@@ -839,6 +876,7 @@
 				25A070C42B0333A50074118D /* SmallCarousel.xib in Resources */,
 				254DF11B2AFB4D8500B99EFC /* Card.xib in Resources */,
 				254DF1362AFC6E7300B99EFC /* HomeTableViewCell3.xib in Resources */,
+				25BA44AE2B0B0DD200C74AB6 /* en.json in Resources */,
 				254149BB2AF87EBC00DFA4C9 /* LaunchScreen.storyboard in Resources */,
 				254DF13F2AFDC7E000B99EFC /* Lato-Regular.ttf in Resources */,
 				254149FC2AF88A5700DFA4C9 /* WelcomeViewController.xib in Resources */,
@@ -858,6 +896,7 @@
 				25414A222AF8CFE100DFA4C9 /* WalletViewController.xib in Resources */,
 				2578D4912AFFC97D00EC8D59 /* SignInViewController.xib in Resources */,
 				25414A412AF8E78100DFA4C9 /* WelcomePanelViewController.xib in Resources */,
+				25BA44B02B0B12B800C74AB6 /* id.json in Resources */,
 				25A070B82B01DAB10074118D /* SettingDarkModeCell.xib in Resources */,
 				25478DEB2B049DE700F26BE9 /* TransCell.xib in Resources */,
 				254DF1472AFE1AEE00B99EFC /* QueryCellTableViewCell.xib in Resources */,
@@ -1017,15 +1056,18 @@
 				25414A092AF8A90400DFA4C9 /* Model.swift in Sources */,
 				25414A142AF8CE0400DFA4C9 /* ExtUITableView.swift in Sources */,
 				25A070CC2B0335290074118D /* SmallCarouselCell.swift in Sources */,
+				258C58E22B070FB700951A3A /* ExtNSNumber.swift in Sources */,
 				254149B62AF87EBA00DFA4C9 /* CinemaTix.xcdatamodeld in Sources */,
 				25414A252AF8D00400DFA4C9 /* HomeViewController.swift in Sources */,
 				25414A042AF8A6B300DFA4C9 /* MovieService.swift in Sources */,
+				25B0F8802B0B5417004A2056 /* NavBar.swift in Sources */,
 				25A070BC2B0214040074118D /* MovieItemCell.swift in Sources */,
 				25A070BF2B0329670074118D /* GenreModel.swift in Sources */,
 				25414A402AF8E78100DFA4C9 /* WelcomePanelViewController.swift in Sources */,
 				25414A0B2AF8B9A900DFA4C9 /* Service.swift in Sources */,
 				254149B02AF87EBA00DFA4C9 /* ViewController.swift in Sources */,
 				254DF1352AFC6E7300B99EFC /* HomeTableViewCell3.swift in Sources */,
+				25BA44AB2B0AFE1F00C74AB6 /* UserModel.swift in Sources */,
 				254DF1172AFB26CF00B99EFC /* ExtUIImage.swift in Sources */,
 				25A070D12B035ECE0074118D /* People.swift in Sources */,
 				25A070A62B01C4F20074118D /* ExtString.swift in Sources */,
@@ -1037,6 +1079,7 @@
 				254149AC2AF87EBA00DFA4C9 /* AppDelegate.swift in Sources */,
 				2577E7612AF9DCCF002D6AF6 /* SVGIcon.swift in Sources */,
 				254149F32AF8844700DFA4C9 /* TabBarViewController.swift in Sources */,
+				258C58E52B0719D600951A3A /* QRScanner.swift in Sources */,
 				25A070D52B0360920074118D /* CastSection.swift in Sources */,
 				2578D4932B00692400EC8D59 /* ContainerDI.swift in Sources */,
 				25A070C22B0331510074118D /* SmallCarousel.swift in Sources */,
@@ -1049,6 +1092,7 @@
 				2578D4902AFFC97D00EC8D59 /* SignInViewController.swift in Sources */,
 				25478DEA2B049DE700F26BE9 /* TransCell.swift in Sources */,
 				25414A012AF89D4100DFA4C9 /* MovieApi.swift in Sources */,
+				258C58EA2B074FEE00951A3A /* Constant.swift in Sources */,
 				254DF1422AFDD44500B99EFC /* AuthViewModel.swift in Sources */,
 				25414A072AF8A7BA00DFA4C9 /* MovieDetailModel.swift in Sources */,
 				25414A122AF8CD8F00DFA4C9 /* SFIcon.swift in Sources */,

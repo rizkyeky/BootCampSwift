@@ -21,19 +21,27 @@ class BiometricAuth {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, evaluateError in
                 if success {
                     print("Biometric authentication successful")
-                    completion(true)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        completion(true)
+                    }
                 } else {
                     if let error = evaluateError {
                         print("Biometric authentication error: \(error.localizedDescription)")
-                        completion(false)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            completion(false)
+                        }
                     } else {
-                        completion(false)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            completion(false)
+                        }
                     }
                 }
             }
         } else {
             print("Biometric authentication not available")
-            completion(false)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                completion(false)
+            }
         }
     }
 

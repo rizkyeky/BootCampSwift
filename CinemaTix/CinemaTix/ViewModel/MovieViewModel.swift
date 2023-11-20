@@ -35,10 +35,10 @@ class MovieViewModel: BaseViewModel {
             case .success(let models):
                 self.genres = models.genres
                 self.loadingState = .done
-                completion?()
             case .failure(_):
                 self.loadingState = .done
             }
+            completion?()
         }
     }
     
@@ -51,6 +51,7 @@ class MovieViewModel: BaseViewModel {
                 completion(models.cast)
             case .failure(_):
                 self.loadingState = .done
+                completion(nil)
             }
         }
     }

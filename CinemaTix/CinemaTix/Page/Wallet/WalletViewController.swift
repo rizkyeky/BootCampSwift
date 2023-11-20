@@ -9,9 +9,10 @@ import UIKit
 import UIKitLivePreview
 import FloatingPanel
 import KeyboardObserver
-import SVProgressHUD
+import RxSwift
+import RxCocoa
 
-class WalletViewController: UIViewController {
+class WalletViewController: BaseViewController {
 
     @IBOutlet weak var base: UIView!
     @IBOutlet weak var card: Card!
@@ -20,11 +21,15 @@ class WalletViewController: UIViewController {
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var transSection: TransSection!
+    
     let amountText = UILabel()
     
     var floatingPanelController: FloatingPanelController!
     
     let keyboardObserver = KeyboardObserver()
+    
+    let walletViewModel = ContainerDI.shared.resolve(WalletViewModel.self)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +39,6 @@ class WalletViewController: UIViewController {
         runAnim()
         
         setupFloatingPanel()
-        
-        scrollView.setContentOffset(CGPoint(x: 0, y: 500), animated: false)
 
         navigationItem.title = "Wallet"
 
@@ -50,14 +53,14 @@ class WalletViewController: UIViewController {
             make.top.left.right.bottom.equalTo(card)
         }
         
-        amountText.text = "Rp5.000.000"
+        amountText.text = "Rp0"
         amountText.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         amountText.textColor = .white
         
         card.addSubview(amountText)
         amountText.snp.makeConstraints { make in
             make.centerY.equalTo(self.card)
-            make.right.equalTo(self.card).offset(-16)
+            make.right.equalTo(self.card).inset(16)
         }
         
         topUpButton.setImage(SFIcon.up, for: .normal)
@@ -78,6 +81,9 @@ class WalletViewController: UIViewController {
         payButton.contentHorizontalAlignment = .fill
         payButton.setAnimateBounce()
         payButton.makeCornerRadius(16)
+        payButton.addAction(UIAction { _ in
+            self.navigationController?.openBottomSheet(to: ScannerViewController())
+        }, for: .touchUpInside)
         
         keyboardObserver.observe { [weak self] (event) -> Void in
             guard let self = self else { return }
@@ -90,15 +96,24 @@ class WalletViewController: UIViewController {
                 break
             }
         }
+        
+        transSection.onRemoveItem = { index in
+            self.updateAmount()
+        }
     }
     
     func runAnim() {
         let animation = CABasicAnimation(keyPath: "backgroundColor")
         animation.fromValue = UIColor.systemBlue.cgColor
         animation.toValue = UIColor.clear.cgColor
-        animation.duration = 3.0
+        animation.duration = 2.0
         
         card.layer.add(animation, forKey: "colorChange")
+    }
+    
+    func updateAmount() {
+        let total = self.walletViewModel.getTotalAmount()
+        self.amountText.rx.text.onNext("Rp\(NSNumber(value:total).formatAsDecimalString())")
     }
 }
 
@@ -116,6 +131,12 @@ extension WalletViewController: FloatingPanelControllerDelegate {
     func showTopUpPanel() {
         let panelVC = TopUpPanelViewController()
         panelVC.onTapClose = { self.hidePanel() }
+        panelVC.didFailAdd = { self.hidePanel() }
+        panelVC.didSuccessAdd = {
+            self.updateAmount()
+            self.transSection.table.reloadData()
+            self.hidePanel()
+        }
         floatingPanelController.set(contentViewController: panelVC)
         present(floatingPanelController, animated: true, completion: nil)
     }
@@ -159,8 +180,14 @@ class TopUpFloatingPanelLayout: FloatingPanelLayout {
 class TopUpPanelViewController: UIViewController {
     
     var onTapClose: (() -> Void)?
+    var didSuccessAdd: (() -> Void)?
+    var didFailAdd: (() -> Void)?
     
     let boxTopBar = UIView()
+    
+    let disposeBag = DisposeBag()
+    
+    let walletViewModel = ContainerDI.shared.resolve(WalletViewModel.self)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -177,10 +204,12 @@ class TopUpPanelViewController: UIViewController {
             make.bottom.equalTo(self.view).offset(-16)
             make.top.equalTo(self.boxTopBar.snp.bottom).offset(16)
         }
-        
-        let amountField = UITextField(frame: .zero)
+        var amountTemp: String?
+        let amountField = UITextField()
+        amountField.backgroundColor = .systemBackground
         amountField.makeCornerRadius(8)
-        amountField.backgroundColor = .systemGroupedBackground
+        amountField.addBorderLine(width: 1, color: .separator)
+        amountField.keyboardType = .numberPad
         amountField.placeholder = "Rp 0"
         base.addSubview(amountField)
         amountField.snp.makeConstraints { make in
@@ -189,6 +218,18 @@ class TopUpPanelViewController: UIViewController {
             make.right.equalTo(base).offset(-16)
             make.top.equalTo(base).offset(16)
         }
+        amountField.rx.text
+            .compactMap { $0 }
+            .map { text in
+                return text.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+            }
+            .map { text in
+                amountTemp = text
+                let num = NSNumber(value: Double(text) ?? 0.0)
+                return currencyFormatter.string(from: num) ?? ""
+            }
+            .bind(to: amountField.rx.text)
+            .disposed(by: disposeBag)
         
         let addBtn = UIButton(configuration: .filled())
         addBtn.setTitle("Top Up", for: .normal)
@@ -201,22 +242,28 @@ class TopUpPanelViewController: UIViewController {
             make.left.equalTo(base).offset(16)
             make.right.equalTo(base).offset(-16)
         }
+        addBtn.addAction(UIAction { _ in
+            print(amountTemp ?? "-")
+            if let amount = Double(amountTemp ?? "") {
+                self.walletViewModel.addTrans(label: "Top Up", amount: amount, type: .income)
+                self.didSuccessAdd?()
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.didFailAdd?()
+                }
+            }
+        }, for: .touchUpInside)
     }
     
     func setupTopBar() {
-        boxTopBar.addBottomBorder(color: .separator, thickness: 1.0)
+        view.backgroundColor = .systemGroupedBackground
         view.addSubview(boxTopBar)
-        boxTopBar.backgroundColor = .systemGroupedBackground
+        boxTopBar.backgroundColor = .systemBackground
+        boxTopBar.addBorderLine(width: 1, color: .separator)
         boxTopBar.snp.makeConstraints { make in
-            make.height.equalTo(60)
+            make.height.equalTo(48)
             make.top.equalTo(self.view.snp.top)
             make.left.right.equalTo(self.view)
-        }
-        let label = UILabel(frame: .zero)
-        label.text = "Top Up"
-        boxTopBar.addSubview(label)
-        label.snp.makeConstraints { make in
-            make.centerX.centerY.equalTo(self.boxTopBar)
         }
         
         let closeBtn = UIButton(configuration: .gray())

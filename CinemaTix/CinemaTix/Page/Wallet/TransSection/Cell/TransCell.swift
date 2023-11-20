@@ -11,13 +11,16 @@ class TransCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     
-    static let height = 50
+    @IBOutlet weak var icon: UIImageView!
+    
+    @IBOutlet weak var amount: UILabel!
     
     var onTap: (() -> Void)?
+    static let height = 50
+    var trans: Transaction?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

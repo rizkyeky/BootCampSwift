@@ -20,6 +20,10 @@ class MovieItemCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        card.onTap = {
+            self.onTap?()
+        }
+        
         let boxBlur = UIView()
         boxBlur.backgroundColor = .clear
         card.addSubview(boxBlur)

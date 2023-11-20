@@ -7,8 +7,10 @@
 
 import UIKit
 import Kingfisher
+import UIKitLivePreview
+import SkeletonView
 
-class MovieDetailViewController: UIViewController {
+class MovieDetailViewController: BaseViewController {
     
     @IBOutlet weak var backDropImage: UIImageView!
     @IBOutlet weak var overviewText: UILabel!
@@ -37,15 +39,6 @@ class MovieDetailViewController: UIViewController {
         bookButton.setTitleColor(.label, for: .normal)
         
         gradientBackdropTop.direction = .verticalReverse
-
-        navigationItem.title = movie?.title ?? "-"
-        
-        let backButton = UIButton(configuration: .gray(), primaryAction: UIAction() { _ in
-        })
-        backButton.setImage(SFIcon.back, for: .normal)
-        backButton.setAnimateBounce()
-        navigationItem.backBarButtonItem = UIBarButtonItem(customView: backButton)
-        navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(customView: backButton)
         
         if let backdropPath = movie?.backdropPath {
             let path = String(backdropPath.dropFirst())
@@ -57,29 +50,43 @@ class MovieDetailViewController: UIViewController {
             overviewText.text = desc
         }
         if let idMovie = movie?.id {
-//            movieViewModel.getDetailMovie(id: idMovie) { detail in
-//                self.movieDetail = detail
-//            }
+            self.castSection.collection.showAnimatedSkeleton()
             movieViewModel.getCredit(id: idMovie) { _peoples in
                 self.castSection.peoples = _peoples
+                self.castSection.collection.hideSkeleton()
                 self.castSection.collection.reloadData()
             }
         }
+        
+        navBar.isHidden = false
+        navBar.title.text = movie?.title ?? "-"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationController?.navigationBar.overrideUserInterfaceStyle = .dark
         
-        if let heightNavBar = navigationController?.navigationBar.frame.height {
-            scrollView.contentInset = UIEdgeInsets(top: -(heightNavBar+60), left: 0, bottom: 0, right: 0)
-        }
+        scrollView.contentInset = UIEdgeInsets(top: -100, left: 0, bottom: 0, right: 0)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
+//        navigationController?.navigationBar.prefersLargeTitles = false
 //        navigationController?.navigationBar.overrideUserInterfaceStyle = .light
     }
 }
+
+
+#if DEBUG && canImport(SwiftUI)
+
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct MovieDetailViewController_Preview: PreviewProvider {
+    static var previews: some View {
+        MovieDetailViewController()
+            .preview()
+            .device(.iPhone11)
+    }
+}
+
+#endif

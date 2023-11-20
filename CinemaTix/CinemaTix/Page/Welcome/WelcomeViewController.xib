@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="CinemaTix" customModuleProvider="target">
             <connections>
+                <outlet property="lottie" destination="NVX-69-bav" id="Vcz-T4-UYo"/>
                 <outlet property="registerButton" destination="cbB-7z-qdE" id="Nuj-Ot-V54"/>
                 <outlet property="signInButton" destination="c5j-bW-yyu" id="rcd-q1-FAR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -21,6 +22,17 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVX-69-bav" customClass="LottieAnimationView" customModule="Lottie">
+                    <rect key="frame" x="36.666666666666657" y="238" width="320" height="200"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="EdZ-HH-siQ"/>
+                        <constraint firstAttribute="height" constant="200" id="KBm-ye-45W"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="anim_ticket2"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5j-bW-yyu" userLabel="SignIn">
                     <rect key="frame" x="46.666666666666657" y="568" width="300" height="50"/>
                     <constraints>
@@ -40,17 +52,23 @@
                     <buttonConfiguration key="configuration" style="filled" title="Button"/>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="bZG-Xg-L8p">
-                    <rect key="frame" x="119" y="204" width="155" height="158"/>
+                    <rect key="frame" x="32" y="91" width="160" height="160"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="160" id="NGI-KW-F1v"/>
+                        <constraint firstAttribute="width" constant="160" id="b8a-ZN-c8k"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="cbB-7z-qdE" firstAttribute="top" secondItem="bZG-Xg-L8p" secondAttribute="bottom" constant="140" id="0Nz-hn-LPQ"/>
                 <constraint firstItem="c5j-bW-yyu" firstAttribute="top" secondItem="cbB-7z-qdE" secondAttribute="bottom" constant="16" id="5St-cH-2wd"/>
                 <constraint firstItem="c5j-bW-yyu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Anc-wL-ZJq"/>
+                <constraint firstItem="bZG-Xg-L8p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="OfO-vd-ogV"/>
+                <constraint firstItem="bZG-Xg-L8p" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="SEc-lj-pVQ"/>
+                <constraint firstItem="NVX-69-bav" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UZV-Ne-zQh"/>
                 <constraint firstItem="cbB-7z-qdE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="W1d-02-hNX"/>
-                <constraint firstItem="bZG-Xg-L8p" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="w0c-IC-ffb"/>
+                <constraint firstItem="cbB-7z-qdE" firstAttribute="top" secondItem="NVX-69-bav" secondAttribute="bottom" constant="64" id="mKC-Me-q7E"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="c5j-bW-yyu" secondAttribute="bottom" constant="200" id="yVM-v1-DjZ"/>
             </constraints>
             <point key="canvasLocation" x="48" y="21"/>

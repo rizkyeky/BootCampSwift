@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TransType {
+enum TransType: String {
     case income, outcome
 }
 
@@ -18,7 +18,7 @@ class Transaction {
     var desc: String?
     var type: TransType?
     
-    init(label: String? = nil, amount: Double? = nil, desc: String? = nil, type: TransType? = nil) {
+    init(label: String, amount: Double? = nil, desc: String? = nil, type: TransType? = nil) {
         self.label = label
         self.amount = amount
         self.desc = desc

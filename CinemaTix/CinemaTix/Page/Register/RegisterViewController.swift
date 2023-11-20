@@ -9,8 +9,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Swinject
-import SVProgressHUD
 import UIKitLivePreview
+import SPAlert
+import PKHUD
 
 class RegisterViewController: BaseViewController {
 
@@ -55,7 +56,7 @@ class RegisterViewController: BaseViewController {
         usernameTextField.textField.rx.text
             .compactMap {$0}
             .filter { $0.isEmpty || $0.count > 4 }
-            .map { $0 + ".00"}
+//            .map { $0 + ".00"}
             .subscribe { [weak self] text in
                 guard let self = self else {return}
                 authViewModel.username = text
@@ -66,6 +67,7 @@ class RegisterViewController: BaseViewController {
     func setupEmailTextField() {
         emailTextField.mainLabel.text = "Email"
         emailTextField.textField.placeholder = "Input email"
+        emailTextField.textField.keyboardType = .emailAddress
         
         emailTextField.textField.rx.text
             .compactMap {$0}
@@ -84,7 +86,6 @@ class RegisterViewController: BaseViewController {
         passwordTextField.textField.rx.text
             .compactMap {$0}
             .filter { $0.isEmpty || $0.count > 4 }
-//            .map { $0 + ".00"}
             .subscribe { [weak self] text in
                 guard let self = self else {return}
                 authViewModel.password = text
@@ -96,18 +97,26 @@ class RegisterViewController: BaseViewController {
         
         registerBtn.rx.tap.subscribe { [weak self] _ in
             guard let self = self else {return}
-            SVProgressHUD.show()
+            HUD.show(.progress)
             authViewModel.register() { user in
-                SVProgressHUD.dismiss()
                 self.onTapRegisterButton?()
+                HUD.flash(.success, delay: 1.0)
+                AlertKitAPI.present(
+                    title: "Success Register",
+                    icon: AlertIcon.done,
+                    style: .iOS17AppleMusic,
+                    haptic: .success
+                )
+            }onDone: {
+                
             } onInvalidEmail: {
-                SVProgressHUD.dismiss()
+                HUD.hide()
                 self.showAlertOK(title: "Invalid Email", message: "Please input correct email")
             } onInvalidUsername: {
-                SVProgressHUD.dismiss()
+                HUD.hide()
                 self.showAlertOK(title: "Invalid Username", message: "Please input correct username")
             } onInvalidPassword: {
-                SVProgressHUD.dismiss()
+                HUD.hide()
                 self.showAlertOK(title: "Invalid Password", message: "Please input correct password")
             }
         }.disposed(by: disposeBag)
@@ -176,11 +185,11 @@ extension BrithDateView: UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedDay = days[pickerView.selectedRow(inComponent: 0)]
-        let selectedMonth = months[pickerView.selectedRow(inComponent: 1)]
-        let selectedYear = years[pickerView.selectedRow(inComponent: 2)]
-    }
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        let selectedDay = days[pickerView.selectedRow(inComponent: 0)]
+//        let selectedMonth = months[pickerView.selectedRow(inComponent: 1)]
+//        let selectedYear = years[pickerView.selectedRow(inComponent: 2)]
+//    }
 }
 
 

@@ -37,8 +37,6 @@ class ContainerDI {
             return BiometricAuth()
         }.inObjectScope(.container)
         
-
-        
         return container
     }()
 }

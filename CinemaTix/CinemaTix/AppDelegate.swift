@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import Swinject
 import netfox
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         NFX.sharedInstance().start()
+        IQKeyboardManager.shared.enable = true
+        
         return true
     }
 

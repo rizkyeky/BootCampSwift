@@ -32,7 +32,7 @@ class WelcomePanelViewController: UIViewController {
         setupEmailButton()
         setupCloseButton()
         
-        topBar.addBottomBorder(color: .separator, thickness: 1.0)
+        topBar.addBorderLine(width: 1, color: .separator)
     }
 }
 

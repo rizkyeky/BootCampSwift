@@ -11,6 +11,10 @@ class TransSection: UIView {
 
     @IBOutlet weak var table: UITableView!
     
+    let walletViewModel = ContainerDI.shared.resolve(WalletViewModel.self)!
+    
+    var onRemoveItem: ((Int) -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -38,7 +42,7 @@ class TransSection: UIView {
 
 extension TransSection: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return walletViewModel.getLenTrans()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -47,7 +51,28 @@ extension TransSection: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(forIndexPath: indexPath) as TransCell
-        cell.label.text = "Transaction \(indexPath.row)"
+        let trans = walletViewModel.getTrans(indexPath.row)
+        cell.label.text = "\(trans.label ?? "-")"
+        cell.amount.text = "Rp\(NSNumber(value: trans.amount ?? 0).formatAsDecimalString())"
+        if let type = trans.type {
+            switch type {
+            case .income:
+                cell.icon.image = SFIcon.up
+            case .outcome:
+                cell.icon.image = SFIcon.down
+            }
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            table.beginUpdates()
+            let id = walletViewModel.getTrans(indexPath.row).id
+            walletViewModel.deleteTransBy(id: id)
+            table.deleteRows(at: [indexPath], with: .left)
+            table.endUpdates()
+            onRemoveItem?(indexPath.row)
+        }
     }
 }

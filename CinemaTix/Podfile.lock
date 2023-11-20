@@ -1,21 +1,13 @@
 PODS:
   - Alamofire (5.8.1)
   - CenteredCollectionView (2.2.2)
-  - CryptoSwift (1.8.0)
-  - FloatingPanel (2.8.0)
+  - FloatingPanel (2.8.1)
+  - IQKeyboardManagerSwift (7.0.0)
   - KeyboardObserver (2.1.0)
   - Kingfisher (7.10.0)
-  - L10n-swift (5.10.2):
-    - L10n-swift/Core (= 5.10.2)
-    - L10n-swift/Extension (= 5.10.2)
-    - L10n-swift/IBInspectable (= 5.10.2)
-  - L10n-swift/Core (5.10.2)
-  - L10n-swift/Extension (5.10.2):
-    - L10n-swift/Core
-  - L10n-swift/IBInspectable (5.10.2):
-    - L10n-swift/Core
   - lottie-ios (4.3.3)
   - netfox (1.21.0)
+  - PKHUD (5.4.0)
   - RxCocoa (6.6.0):
     - RxRelay (= 6.6.0)
     - RxSwift (= 6.6.0)
@@ -24,31 +16,29 @@ PODS:
   - RxSwift (6.6.0)
   - SkeletonView (1.30.4)
   - SnapKit (5.6.0)
-  - SVProgressHUD (2.3.1):
-    - SVProgressHUD/Core (= 2.3.1)
-  - SVProgressHUD/Core (2.3.1)
+  - SPAlert (5.1.8)
   - Swinject (2.8.3)
-  - ToastViewSwift (2.0.0)
   - UIKitLivePreview (1.3.1)
+  - ViewAnimator (3.1.0)
 
 DEPENDENCIES:
   - Alamofire
   - CenteredCollectionView
-  - CryptoSwift (from `https://github.com/krzyzanowskim/CryptoSwift.git`)
   - FloatingPanel
+  - IQKeyboardManagerSwift (from `https://github.com/hackiftekhar/IQKeyboardManager.git`)
   - KeyboardObserver (from `https://github.com/morizotter/KeyboardObserver.git`)
   - Kingfisher
-  - L10n-swift (from `https://github.com/Decybel07/L10n-swift.git`)
   - lottie-ios
   - netfox
+  - PKHUD (from `https://github.com/pkluz/PKHUD.git`)
   - RxCocoa
   - RxSwift
-  - SkeletonView
+  - SkeletonView (from `https://github.com/Juanpe/SkeletonView`)
   - SnapKit
-  - SVProgressHUD
+  - SPAlert (from `https://github.com/sparrowcode/AlertKit.git`)
   - Swinject
-  - ToastViewSwift
   - UIKitLivePreview (from `https://github.com/nicoelayda/UIKitLivePreview.git`)
+  - ViewAnimator (from `https://github.com/marcosgriselli/ViewAnimator.git`)
 
 SPEC REPOS:
   trunk:
@@ -61,56 +51,68 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
-    - SkeletonView
     - SnapKit
-    - SVProgressHUD
     - Swinject
-    - ToastViewSwift
 
 EXTERNAL SOURCES:
-  CryptoSwift:
-    :git: https://github.com/krzyzanowskim/CryptoSwift.git
+  IQKeyboardManagerSwift:
+    :git: https://github.com/hackiftekhar/IQKeyboardManager.git
   KeyboardObserver:
     :git: https://github.com/morizotter/KeyboardObserver.git
-  L10n-swift:
-    :git: https://github.com/Decybel07/L10n-swift.git
+  PKHUD:
+    :git: https://github.com/pkluz/PKHUD.git
+  SkeletonView:
+    :git: https://github.com/Juanpe/SkeletonView
+  SPAlert:
+    :git: https://github.com/sparrowcode/AlertKit.git
   UIKitLivePreview:
     :git: https://github.com/nicoelayda/UIKitLivePreview.git
+  ViewAnimator:
+    :git: https://github.com/marcosgriselli/ViewAnimator.git
 
 CHECKOUT OPTIONS:
-  CryptoSwift:
-    :commit: 23bc51a4b810b0eaafe382768d30099420d1a98e
-    :git: https://github.com/krzyzanowskim/CryptoSwift.git
+  IQKeyboardManagerSwift:
+    :commit: 6f357ea18e0da4e089368da3b2b278d09102df65
+    :git: https://github.com/hackiftekhar/IQKeyboardManager.git
   KeyboardObserver:
     :commit: ea45fa1d845a8d418658e6bdb44aeb82e7643ae2
     :git: https://github.com/morizotter/KeyboardObserver.git
-  L10n-swift:
-    :commit: 813aa7229b7e32e2cc579055bdc6ac2195c72ff9
-    :git: https://github.com/Decybel07/L10n-swift.git
+  PKHUD:
+    :commit: 8fd26f23057c6bebd6695524b1c3e05e93aba571
+    :git: https://github.com/pkluz/PKHUD.git
+  SkeletonView:
+    :commit: 0f5eaf82e82441690d38abfc4118c961f113881c
+    :git: https://github.com/Juanpe/SkeletonView
+  SPAlert:
+    :commit: 23e812f8a893202fc4c436193a740a79fd118bd4
+    :git: https://github.com/sparrowcode/AlertKit.git
   UIKitLivePreview:
     :commit: e15c8dcc205465e9418408496a97c0b33e431f1d
     :git: https://github.com/nicoelayda/UIKitLivePreview.git
+  ViewAnimator:
+    :commit: 55f1c46241b181c3e0b68d70edb6d87926c7d183
+    :git: https://github.com/marcosgriselli/ViewAnimator.git
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
   CenteredCollectionView: a9217908a698c386cbb98af11b596da48900b908
-  CryptoSwift: 52aaf3fce7337552863b1d952e408085f0e65030
-  FloatingPanel: f585be005983e66f8f4932f93ca46bf9f09dae3a
+  FloatingPanel: 0c32d8c97e52cf6913833af573506f5d86451465
+  IQKeyboardManagerSwift: 0d76a0f0420fe51d5fb28ca6a308c2effdf6c5c0
   KeyboardObserver: 07610b23782ca6ec417a5a8eef5f93c3d97755f1
   Kingfisher: a18f05d3b6d37d8650ee4a3e61d57a28fc6207f6
-  L10n-swift: 55773890db57d1efe367434751018ab6ceb058b0
   lottie-ios: 25e7b2675dad5c3ddad369ac9baab03560c5bfdd
   netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
+  PKHUD: 026ee10894f7d983cdb585138523a2ae098e4424
   RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
   RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
-  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
+  SPAlert: 7027ed9df9a2ba8202cab39fd05b53e110f48a99
   Swinject: 893c9a543000ac2f10ee4cbaf0933c6992c935d5
-  ToastViewSwift: db710ad3c19c826269d004038c7b69f5b658dc6f
   UIKitLivePreview: d2e3c23381d1e043adfd3b522ecd77583169e52d
+  ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
 
-PODFILE CHECKSUM: 94110d4276631bd44b2c8a372b17824a8853a2cb
+PODFILE CHECKSUM: 446e54827099ce8e7691c8872e24c0f87c377fc7
 
 COCOAPODS: 1.14.2

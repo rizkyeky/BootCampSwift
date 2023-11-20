@@ -19,16 +19,6 @@ class TabBarViewController: UITabBarController {
         
         configureTabBar()
         configureUITabBarItems()
-        
-        navigationController?.navigationItem.backButtonTitle = ""
-        home.navigationController?.navigationItem.backButtonTitle = ""
-        wallet.navigationController?.navigationItem.backButtonTitle = ""
-        transac.navigationController?.navigationItem.backButtonTitle = ""
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     func configureUITabBarItems() {

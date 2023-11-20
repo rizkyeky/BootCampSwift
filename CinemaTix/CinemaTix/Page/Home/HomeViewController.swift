@@ -8,8 +8,11 @@
 import UIKit
 import CenteredCollectionView
 import Swinject
+import UIKitLivePreview
+import ViewAnimator
+import SkeletonView
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     
     @IBOutlet weak var mainTable: UITableView!
     
@@ -31,9 +34,8 @@ class HomeViewController: UIViewController {
         
         mainTable.addSubview(refreshControl)
         
-        getDataFromService() {
-            self.mainTable.reloadData()
-        }
+        let animationDir = AnimationType.from(direction: .left, offset: 30.0)
+        mainTable.animate(animations: [animationDir], initialAlpha: 0.48, finalAlpha: 1, duration: TimeInterval(0.64))
     }
     
     func getDataFromService(completion: (() -> Void)? = nil) {
@@ -49,16 +51,6 @@ class HomeViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     func setupNavigation() {
@@ -103,11 +95,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let heights = [
+            CGFloat(HomeTableViewCell2.height),
             CGFloat(HomeTableViewCell.height),
             CGFloat(HomeTableViewCell2.height),
             CGFloat(HomeTableViewCell3.height),
@@ -118,16 +111,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let animationDir = AnimationType.from(direction: .right, offset: 30.0)
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell
-            cell.onTap = onTapPlayingNowCarouselCell
-            movieViewModel.onCompleteGetPlayingNowMovies.append({
-                print("Reload First Carousel")
-                cell.carousel.reloadData()
-            })
+            let cell = tableView.dequeueReusableCell<HomeTableViewCell2>(forIndexPath: indexPath) as HomeTableViewCell2
+            cell.label.text = "Playing Now"
+            cell.label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+            cell.button.isHidden = true
             return cell
         case 1:
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell
+            cell.animate(animations: [animationDir], initialAlpha: 0.64, finalAlpha: 1, duration: TimeInterval(1))
+            cell.carousel.showAnimatedSkeleton()
+            self.movieViewModel.getPlayingNowMovies {
+                cell.onTap = self.onTapPlayingNowCarouselCell
+                cell.carousel.hideSkeleton()
+                debugPrint("Reload Playing Now Carousel")
+                cell.carousel.reloadData()
+            }
+            return cell
+        case 2:
             let cell = tableView.dequeueReusableCell<HomeTableViewCell2>(forIndexPath: indexPath) as HomeTableViewCell2
             cell.label.text = "Recommanded for You"
             cell.onTap = {
@@ -140,17 +143,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
             return cell
-        case 2:
-            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell3
-            cell.onTap = onTapTopRatedCarouselCell
-            cell.movies = movieViewModel.topRatedMovies
-            movieViewModel.onCompleteGetTopRatedMovies.append({
-                print("Reload Second Carousel")
-                cell.collection.reloadData()
-            })
-            return cell
         case 3:
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell3
+            let animationDir = AnimationType.from(direction: .right, offset: 30.0)
+            cell.animate(animations: [animationDir], initialAlpha: 0.64, finalAlpha: 1, duration: TimeInterval(1))
+            cell.collection.showAnimatedSkeleton()
+            self.movieViewModel.getTopRatedMovies {
+                debugPrint("Reload Top Rated Carousel")
+                cell.collection.hideSkeleton()
+                cell.onTap = self.onTapTopRatedCarouselCell
+                cell.movies = self.movieViewModel.topRatedMovies
+                cell.collection.reloadData()
+            }
+            return cell
+        case 4:
             let cell = tableView.dequeueReusableCell<HomeTableViewCell2>(forIndexPath: indexPath) as HomeTableViewCell2
+            let animationDir = AnimationType.from(direction: .right, offset: 30.0)
+            cell.animate(animations: [animationDir], initialAlpha: 0.64, finalAlpha: 1, duration: TimeInterval(1))
             cell.label.text = "Upcoming Movies"
             cell.onTap = {
                 if let movies = self.movieViewModel.upComingMovies {
@@ -164,12 +173,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         default:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell3
-            cell.onTap = onTapUpComingCarouselCell
-            cell.movies = movieViewModel.upComingMovies
-            movieViewModel.onCompleteGetUpComingMovies.append({
-                print("Reload Third Carousel")
+            cell.animate(animations: [animationDir], initialAlpha: 0.64, finalAlpha: 1, duration: TimeInterval(1))
+            cell.collection.showAnimatedSkeleton()
+            self.movieViewModel.getUpComingMovies {
+                debugPrint("Reload Up Coming Carousel")
+                cell.collection.hideSkeleton()
+                cell.onTap = self.onTapUpComingCarouselCell
+                cell.movies = self.movieViewModel.upComingMovies
                 cell.collection.reloadData()
-            })
+            }
             return cell
         }
     }
@@ -200,5 +212,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
         }
     }
-
 }
+
+#if DEBUG && canImport(SwiftUI)
+
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct HomeViewController_Preview: PreviewProvider {
+    static var previews: some View {
+        HomeViewController()
+            .preview()
+            .device(.iPhone11)
+    }
+}
+
+#endif
+

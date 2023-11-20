@@ -19,7 +19,7 @@ class AuthViewModel: BaseViewModel {
     
     let dataController = ContainerDI.shared.resolve(DataController.self)
     
-    func signIn(onSuccess: @escaping ((User) -> Void), onDone: (() -> Void)? = nil, onInvalidEmail: (() -> Void)? = nil, onInvalidPassword: (() -> Void)? = nil) {
+    func signIn(onSuccess: @escaping ((UserModel) -> Void), onDone: (() -> Void)? = nil, onInvalidEmail: (() -> Void)? = nil, onInvalidPassword: (() -> Void)? = nil) {
         
         if let correctEmail = email, !correctEmail.isEmpty, correctEmail.isValidEmail() {
             if let correctPass = password, !correctPass.isEmpty {
@@ -27,7 +27,19 @@ class AuthViewModel: BaseViewModel {
                     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
                     let context = appDelegate.persistentContainer.viewContext
                     if let user = self.dataController?.getUser(email: correctEmail, password: correctPass, context: context) {
-                        onSuccess(user)
+                        let userModel = UserModel(
+                            email: user.email ?? correctEmail,
+                            password: user.password ?? correctPass,
+                            displayName: user.displayName,
+                            birthDate: user.birthDate,
+                            username: user.username,
+                            gender: Int(user.gender)
+                        )
+                        ContainerDI.shared.register(UserModel.self) { r in
+                            return userModel
+                        }.inObjectScope(.container)
+                        
+                        onSuccess(userModel)
                         onDone?()
                     } else {
                         onInvalidEmail?()
@@ -49,7 +61,7 @@ class AuthViewModel: BaseViewModel {
         password = nil
     }
     
-    func register(onSuccess: @escaping ((User) -> Void), onInvalidEmail: (() -> Void)? = nil, onInvalidUsername: (() -> Void)? = nil, onInvalidPassword: (() -> Void)? = nil) {
+    func register(onSuccess: @escaping ((UserModel) -> Void), onDone: (() -> Void)? = nil, onInvalidEmail: (() -> Void)? = nil, onInvalidUsername: (() -> Void)? = nil, onInvalidPassword: (() -> Void)? = nil) {
          
         if let correctEmail = email, !correctEmail.isEmpty, correctEmail.isValidEmail() {
             if let correctPass = password, !correctPass.isEmpty {
@@ -58,20 +70,37 @@ class AuthViewModel: BaseViewModel {
                         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
                         let context = appDelegate.persistentContainer.viewContext
                         if let user = self.dataController?.addUser(username: correctUsername, email: correctEmail, password: correctPass, context: context) {
-                            onSuccess(user)
+                            
+                            let userModel = UserModel(
+                                email: user.email ?? correctEmail,
+                                password: user.password ?? correctPass,
+                                displayName: user.displayName,
+                                birthDate: user.birthDate,
+                                username: user.username,
+                                gender: Int(user.gender)
+                            )
+                            ContainerDI.shared.register(UserModel.self) { r in
+                                return userModel
+                            }.inObjectScope(.container)
+                            
+                            onSuccess(userModel)
+                            onDone?()
                         }
                     }
                 } else {
                     print("Invalid Username")
                     onInvalidUsername?()
+                    onDone?()
                 }
             } else {
                 print("Invalid Password")
                 onInvalidPassword?()
+                onDone?()
             }
         } else {
             print("Invalid Email")
             onInvalidEmail?()
+            onDone?()
         }
         
         email = nil

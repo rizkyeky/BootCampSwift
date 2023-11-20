@@ -9,7 +9,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Swinject
-import SVProgressHUD
+import SPAlert
+import PKHUD
 
 class SignInViewController: BaseViewController {
 
@@ -28,6 +29,8 @@ class SignInViewController: BaseViewController {
         emailInput.mainLabel.text = "Email"
         passwordInput.mainLabel.text = "Password"
         
+        emailInput.textField.keyboardType = .emailAddress
+        
         submitButton.setTitle("Submit", for: .normal)
         submitButton.setAnimateBounce()
         
@@ -37,30 +40,43 @@ class SignInViewController: BaseViewController {
                 if isSuccess {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+                        AlertKitAPI.present(
+                            title: "Success Sign In with Face ID",
+                            icon: AlertIcon.done,
+                            style: .iOS17AppleMusic,
+                            haptic: .success
+                        )
                     }
                 } else {
-                    self.showAlertOK(title: "Invalid Biometric", message: "This app does not get permission for biometric")
+                    AlertKitAPI.present(
+                        title: "Failed Sign In with Face ID",
+                        icon: AlertIcon.error,
+                        style: .iOS17AppleMusic,
+                        haptic: .error
+                    )
                 }
             }
         }, for: .touchUpInside)
         
         submitButton.addAction(UIAction() { _ in
-            
-            let activity = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-            activity.backgroundColor = .black
-            let loading = UIActivityIndicatorView(style: .medium)
-            activity.addSubview(loading)
-            SVProgressHUD.setContainerView(activity)
-            SVProgressHUD.show()
-            
+            HUD.show(.progress)
             self.authViewModel.signIn() { [weak self] user in
                 guard let self = self else {return}
                 self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+                HUD.flash(.success, delay: 1.0)
+                AlertKitAPI.present(
+                    title: "Success Sign In",
+                    icon: AlertIcon.done,
+                    style: .iOS17AppleMusic,
+                    haptic: .success
+                )
             } onDone: {
-                SVProgressHUD.dismiss()
+
             } onInvalidEmail: {
+                HUD.flash(.error, delay: 1.0)
                 self.showAlertOK(title: "Invalid Email", message: "Please input correct email")
             } onInvalidPassword: {
+                HUD.flash(.error, delay: 1.0)
                 self.showAlertOK(title: "Invalid Password", message: "Please input correct password")
             }
         }, for: .touchUpInside)

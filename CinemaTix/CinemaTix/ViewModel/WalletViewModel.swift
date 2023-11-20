@@ -11,21 +11,49 @@ class WalletViewModel: BaseViewModel {
     
     private var transactions: [Transaction] = []
     
-    func getTrans(_ index: Int) -> Transaction{
+    func getLenTrans() -> Int {
+        return transactions.count
+    }
+    
+    func getTotalAmount() -> Double {
+        var temp = 0.0
+        transactions.forEach { item in
+            temp += item.amount ?? 0
+        }
+        return temp
+    }
+    
+    func getTrans(_ index: Int) -> Transaction {
         return transactions[index]
     }
     
-    func addTrans(amount: Double) {
-        transactions.append(Transaction(amount: amount))
+    func addTrans(label: String, amount: Double, type: TransType) {
+        let num = transactions.count + 1
+        transactions.append(Transaction(label: label+String(num), amount: amount, type: type))
     }
     
-    func deleteTrans(index: Int) {
+    func deleteTransBy(index: Int) {
         transactions.remove(at: index)
     }
     
+    func deleteTransBy(id: UUID) {
+        if let index = transactions.firstIndex(where: { item in
+            return item.id == id
+        }) {
+            transactions.remove(at: index)
+        }
+        
+    }
+    
     func editTrans(_ index: Int, label: String?, type: TransType?, desc: String?) {
-        transactions[index].label = label
-        transactions[index].type = type
-        transactions[index].desc = desc
+        if let _label = label {
+            transactions[index].label = _label
+        }
+        if let _type = type {
+            transactions[index].type = _type
+        }
+        if let _desc = desc {
+            transactions[index].desc = _desc
+        }
     }
 }

@@ -25,6 +25,8 @@ class HomeTableViewCell3: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollection()
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -66,6 +68,9 @@ extension HomeTableViewCell3: UICollectionViewDelegate, UICollectionViewDataSour
             
             cell.card.backgroundView.kf.setImage(with: TmdbApi.getImageURL(path), placeholder: UIImage(named: "imagenotfound"))
         }
+        
+        cell.isSkeletonable = true
+        cell.skeletonCornerRadius = 24
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
