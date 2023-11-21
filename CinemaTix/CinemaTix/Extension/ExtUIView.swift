@@ -15,6 +15,11 @@ extension UIView {
         clipsToBounds = true
     }
     
+    func makeCornerRadiusRounded() {
+        let heigth = self.frame.height
+        layer.cornerRadius = heigth/2
+    }
+    
     
     func addBorderLine(width: CGFloat = 1,
                        color: UIColor = .blue) {

@@ -43,10 +43,12 @@ class RecomCollectionViewCell: UICollectionViewCell {
         title.text = "Avengers Endgame"
         title.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         title.textColor = .white
+        title.numberOfLines = 1
         boxBlur.addSubview(title)
         title.snp.makeConstraints { make in
             make.top.equalTo(boxBlur).offset(16)
             make.left.equalTo(boxBlur).offset(16)
+            make.right.equalTo(boxBlur).inset(16)
         }
         
         subtitle.text = "13+ | Rating: 4.8"

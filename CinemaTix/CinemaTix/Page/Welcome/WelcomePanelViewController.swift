@@ -39,6 +39,7 @@ class WelcomePanelViewController: UIViewController {
 extension WelcomePanelViewController {
     func setupAppleButton() {
         appleButton.setTitle("Sign In with Apple", for: .normal)
+        appleButton.makeCornerRadius(8)
         appleButton.setTitleColor(.label, for: .normal)
         if let appleLogo = SVGIcon.apple.getImage() {
             let view = UIImageView(image: appleLogo)
@@ -59,6 +60,7 @@ extension WelcomePanelViewController {
 extension WelcomePanelViewController {
     func setupGoogleButton() {
         googleButton.setTitle("Sign In with Google", for: .normal)
+        googleButton.makeCornerRadius(8)
         googleButton.setTitleColor(.label, for: .normal)
         if let googleLogo = SVGIcon.google.getImage() {
             let view = UIImageView(image: googleLogo)
@@ -79,6 +81,7 @@ extension WelcomePanelViewController {
 extension WelcomePanelViewController {
     func setupEmailButton() {
         emailButton.setTitle("Sign In with Email", for: .normal)
+        emailButton.makeCornerRadius(8)
         emailButton.setTitleColor(.label, for: .normal)
         if let emailLogo = SVGIcon.email.getImage() {
             let view = UIImageView(image: emailLogo)
@@ -100,6 +103,7 @@ extension WelcomePanelViewController {
 extension WelcomePanelViewController {
     
     func setupCloseButton() {
+        closeButton.makeCornerRadiusRounded()
         closeButton.addAction(UIAction(handler: didTapCloseButton), for: .touchUpInside)
     }
     

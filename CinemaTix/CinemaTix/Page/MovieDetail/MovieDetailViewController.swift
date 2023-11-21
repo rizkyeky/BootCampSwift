@@ -9,6 +9,7 @@ import UIKit
 import Kingfisher
 import UIKitLivePreview
 import SkeletonView
+import Hero
 
 class MovieDetailViewController: BaseViewController {
     
@@ -32,13 +33,16 @@ class MovieDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bookButton.configuration = .filled()
         bookButton.setTitle("Book Now", for: .normal)
-        bookButton.tintColor = .white
+        bookButton.setTitleColor(.black, for: .normal)
+        bookButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        bookButton.makeCornerRadius(12)
         bookButton.setAnimateBounce()
-        bookButton.setTitleColor(.label, for: .normal)
         
         gradientBackdropTop.direction = .verticalReverse
+        
+        self.hero.isEnabled = true
+        backDropImage.hero.id = movie?.id?.formatted() ?? "CarouselHome1"
         
         if let backdropPath = movie?.backdropPath {
             let path = String(backdropPath.dropFirst())
@@ -50,11 +54,12 @@ class MovieDetailViewController: BaseViewController {
             overviewText.text = desc
         }
         if let idMovie = movie?.id {
-            self.castSection.collection.showAnimatedSkeleton()
+            self.castSection.isShowSkeleton = true
             movieViewModel.getCredit(id: idMovie) { _peoples in
                 self.castSection.peoples = _peoples
-                self.castSection.collection.hideSkeleton()
                 self.castSection.collection.reloadData()
+                
+                self.castSection.isShowSkeleton = false
             }
         }
         
@@ -65,13 +70,11 @@ class MovieDetailViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        scrollView.contentInset = UIEdgeInsets(top: -100, left: 0, bottom: 0, right: 0)
+        scrollView.contentInset = UIEdgeInsets(top: -80, left: 0, bottom: 0, right: 0)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        navigationController?.navigationBar.prefersLargeTitles = false
-//        navigationController?.navigationBar.overrideUserInterfaceStyle = .light
     }
 }
 

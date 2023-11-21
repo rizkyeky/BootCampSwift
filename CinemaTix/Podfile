@@ -22,6 +22,7 @@ target 'CinemaTix' do
   pod 'KeyboardObserver', :git => 'https://github.com/morizotter/KeyboardObserver.git'
   pod 'IQKeyboardManagerSwift', :git => 'https://github.com/hackiftekhar/IQKeyboardManager.git'
   pod 'PKHUD', :git => 'https://github.com/pkluz/PKHUD.git'
+  pod 'Hero', :git => 'https://github.com/HeroTransitions/Hero.git'
 
 #  pod 'EFNavigationBar', :git => 'https://github.com/EFPrefix/EFNavigationBar.git'
 #  pod 'CryptoSwift', :git => 'https://github.com/krzyzanowskim/CryptoSwift.git'

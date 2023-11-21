@@ -65,7 +65,7 @@ class WalletViewController: BaseViewController {
         
         topUpButton.setImage(SFIcon.up, for: .normal)
         topUpButton.setTitle("Top Up", for: .normal)
-        topUpButton.backgroundColor = .systemGroupedBackground
+        topUpButton.backgroundColor = .quaternarySystemFill
         topUpButton.configuration?.imagePlacement = .trailing
         topUpButton.contentHorizontalAlignment = .fill
         topUpButton.setAnimateBounce()
@@ -76,7 +76,7 @@ class WalletViewController: BaseViewController {
         
         payButton.setImage(SFIcon.down, for: .normal)
         payButton.setTitle("Pay", for: .normal)
-        payButton.backgroundColor = .systemGroupedBackground
+        payButton.backgroundColor = .quaternarySystemFill
         payButton.configuration?.imagePlacement = .trailing
         payButton.contentHorizontalAlignment = .fill
         payButton.setAnimateBounce()
@@ -196,27 +196,31 @@ class TopUpPanelViewController: UIViewController {
     }
     
     func setupContent() {
-        let base = UIView()
-        view.addSubview(base)
-        base.snp.makeConstraints { make in
-            make.left.equalTo(self.view).offset(16)
-            make.right.equalTo(self.view).offset(-16)
-            make.bottom.equalTo(self.view).offset(-16)
-            make.top.equalTo(self.boxTopBar.snp.bottom).offset(16)
-        }
+        
+        view.backgroundColor = .systemBackground
+    
         var amountTemp: String?
         let amountField = UITextField()
-        amountField.backgroundColor = .systemBackground
-        amountField.makeCornerRadius(8)
-        amountField.addBorderLine(width: 1, color: .separator)
+        amountField.backgroundColor = .clear
         amountField.keyboardType = .numberPad
         amountField.placeholder = "Rp 0"
-        base.addSubview(amountField)
+        
+        let baseAmountField = UIView()
+        view.addSubview(baseAmountField)
+        baseAmountField.snp.makeConstraints { make in
+            make.height.equalTo(56)
+            make.left.equalToSuperview().inset(16)
+            make.right.equalToSuperview().inset(16)
+            make.top.equalTo(self.boxTopBar.snp.bottom).offset(16)
+        }
+        baseAmountField.backgroundColor = .quaternarySystemFill
+        baseAmountField.makeCornerRadius(8)
+        
+        baseAmountField.addSubview(amountField)
         amountField.snp.makeConstraints { make in
-            make.height.equalTo(50)
-            make.left.equalTo(base).offset(16)
-            make.right.equalTo(base).offset(-16)
-            make.top.equalTo(base).offset(16)
+            make.left.equalTo(baseAmountField).inset(8)
+            make.right.equalTo(baseAmountField).inset(8)
+            make.top.bottom.equalTo(baseAmountField)
         }
         amountField.rx.text
             .compactMap { $0 }
@@ -225,8 +229,12 @@ class TopUpPanelViewController: UIViewController {
             }
             .map { text in
                 amountTemp = text
-                let num = NSNumber(value: Double(text) ?? 0.0)
-                return currencyFormatter.string(from: num) ?? ""
+                if let double = Double(text) {
+                    let num = NSNumber(value: double)
+                    return currencyFormatter.string(from: num)
+                } else {
+                    return ""
+                }
             }
             .bind(to: amountField.rx.text)
             .disposed(by: disposeBag)
@@ -235,12 +243,12 @@ class TopUpPanelViewController: UIViewController {
         addBtn.setTitle("Top Up", for: .normal)
         addBtn.setAnimateBounce()
         
-        base.addSubview(addBtn)
+        view.addSubview(addBtn)
         addBtn.snp.makeConstraints { make in
             make.height.equalTo(50)
-            make.top.equalTo(amountField.snp.bottom).offset(16)
-            make.left.equalTo(base).offset(16)
-            make.right.equalTo(base).offset(-16)
+            make.top.equalTo(baseAmountField.snp.bottom).offset(16)
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
         }
         addBtn.addAction(UIAction { _ in
             print(amountTemp ?? "-")
@@ -256,9 +264,8 @@ class TopUpPanelViewController: UIViewController {
     }
     
     func setupTopBar() {
-        view.backgroundColor = .systemGroupedBackground
         view.addSubview(boxTopBar)
-        boxTopBar.backgroundColor = .systemBackground
+        boxTopBar.backgroundColor = .secondarySystemBackground
         boxTopBar.addBorderLine(width: 1, color: .separator)
         boxTopBar.snp.makeConstraints { make in
             make.height.equalTo(48)

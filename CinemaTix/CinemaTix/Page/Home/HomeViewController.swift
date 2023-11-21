@@ -11,6 +11,9 @@ import Swinject
 import UIKitLivePreview
 import ViewAnimator
 import SkeletonView
+import SPAlert
+import PKHUD
+import Hero
 
 class HomeViewController: BaseViewController {
     
@@ -34,8 +37,10 @@ class HomeViewController: BaseViewController {
         
         mainTable.addSubview(refreshControl)
         
-        let animationDir = AnimationType.from(direction: .left, offset: 30.0)
-        mainTable.animate(animations: [animationDir], initialAlpha: 0.48, finalAlpha: 1, duration: TimeInterval(0.64))
+//        let animationDir = AnimationType.from(direction: .bottom, offset: 40)
+//        mainTable.animate(animations: [animationDir], initialAlpha: 0.48, finalAlpha: 1, duration: TimeInterval(0.64))
+//        
+//        self.hero.isEnabled = true
     }
     
     func getDataFromService(completion: (() -> Void)? = nil) {
@@ -122,13 +127,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell
             cell.animate(animations: [animationDir], initialAlpha: 0.64, finalAlpha: 1, duration: TimeInterval(1))
-            cell.carousel.showAnimatedSkeleton()
+            
+            cell.isShowSkeleton = true
+            
             self.movieViewModel.getPlayingNowMovies {
                 cell.onTap = self.onTapPlayingNowCarouselCell
-                cell.carousel.hideSkeleton()
                 debugPrint("Reload Playing Now Carousel")
                 cell.carousel.reloadData()
+                
+                cell.isShowSkeleton = false
+            } onError: { error in
+                AlertKitAPI.present(
+                    title: error.asAFError?.errorDescription ?? "Error",
+                    icon: AlertIcon.error,
+                    style: .iOS17AppleMusic
+                )
             }
+            
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell<HomeTableViewCell2>(forIndexPath: indexPath) as HomeTableViewCell2
@@ -147,14 +162,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell3
             let animationDir = AnimationType.from(direction: .right, offset: 30.0)
             cell.animate(animations: [animationDir], initialAlpha: 0.64, finalAlpha: 1, duration: TimeInterval(1))
-            cell.collection.showAnimatedSkeleton()
+            
+            cell.isShowSkeleton = true
             self.movieViewModel.getTopRatedMovies {
                 debugPrint("Reload Top Rated Carousel")
-                cell.collection.hideSkeleton()
                 cell.onTap = self.onTapTopRatedCarouselCell
                 cell.movies = self.movieViewModel.topRatedMovies
                 cell.collection.reloadData()
+                
+                cell.isShowSkeleton = false
+            } onError: { error in
+                AlertKitAPI.present(
+                    title: error.asAFError?.errorDescription ?? "Error",
+                    icon: AlertIcon.error,
+                    style: .iOS17AppleMusic
+                )
             }
+            
+            
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell<HomeTableViewCell2>(forIndexPath: indexPath) as HomeTableViewCell2
@@ -174,14 +199,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell3
             cell.animate(animations: [animationDir], initialAlpha: 0.64, finalAlpha: 1, duration: TimeInterval(1))
-            cell.collection.showAnimatedSkeleton()
+            
+            cell.isShowSkeleton = true
             self.movieViewModel.getUpComingMovies {
                 debugPrint("Reload Up Coming Carousel")
-                cell.collection.hideSkeleton()
+                
                 cell.onTap = self.onTapUpComingCarouselCell
                 cell.movies = self.movieViewModel.upComingMovies
                 cell.collection.reloadData()
+                
+                cell.isShowSkeleton = false
+            } onError: { error in
+                AlertKitAPI.present(
+                    title: error.asAFError?.errorDescription ?? "Error",
+                    icon: AlertIcon.error,
+                    style: .iOS17AppleMusic
+                )
             }
+            
             return cell
         }
     }
@@ -189,8 +224,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func onTapPlayingNowCarouselCell(index: Int) {
         if let detail = self.movieViewModel.playingNowMovies?[index] {
             let movieDetailVC = MovieDetailViewController()
+            
             movieDetailVC.movie = detail
             movieDetailVC.hidesBottomBarWhenPushed = true
+
+            self.navigationController?.hero.isEnabled = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
         }
     }
@@ -200,6 +238,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let movieDetailVC = MovieDetailViewController()
             movieDetailVC.movie = detail
             movieDetailVC.hidesBottomBarWhenPushed = true
+            
+            self.navigationController?.hero.isEnabled = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
         }
     }
@@ -207,8 +247,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func onTapUpComingCarouselCell(index: Int) {
         if let detail = self.movieViewModel.upComingMovies?[index] {
             let movieDetailVC = MovieDetailViewController()
+            
             movieDetailVC.movie = detail
             movieDetailVC.hidesBottomBarWhenPushed = true
+            
+            self.navigationController?.hero.isEnabled = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
         }
     }

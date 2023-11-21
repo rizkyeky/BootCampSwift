@@ -43,12 +43,14 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZl-2y-9QU">
                             <rect key="frame" x="65" y="418" width="300" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="EA0-zm-Pzd"/>
                                 <constraint firstAttribute="width" constant="300" id="SwI-S5-kWs"/>
                             </constraints>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whe-Hv-c5D">
                             <rect key="frame" x="16" y="532" width="200" height="24"/>
@@ -60,25 +62,22 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSA-v1-JZR" userLabel="OverviewText">
-                            <rect key="frame" x="16" y="572" width="398" height="120"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="120" id="ygD-Q5-aMv"/>
-                            </constraints>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSA-v1-JZR" userLabel="OverviewText">
+                            <rect key="frame" x="16" y="572" width="398" height="162.33333333333337"/>
                             <string key="text">LongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLongLong</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1z-5l-48j" customClass="CastSection" customModule="CinemaTix" customModuleProvider="target">
-                            <rect key="frame" x="16" y="756" width="414" height="200"/>
+                            <rect key="frame" x="16" y="798.33333333333337" width="414" height="200"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="200" id="3di-NU-Xoz"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKg-cT-F7x">
-                            <rect key="frame" x="16" y="716" width="200" height="24"/>
+                            <rect key="frame" x="16" y="758.33333333333337" width="200" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="3Y9-sq-vQv"/>
                                 <constraint firstAttribute="height" constant="24" id="gE6-nt-LyC"/>
@@ -136,7 +135,7 @@
         </view>
     </objects>
     <resources>
-        <image name="imagenotfound" width="400" height="489"/>
+        <image name="imagenotfound" width="400" height="266.66665649414062"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.8.1)
   - CenteredCollectionView (2.2.2)
   - FloatingPanel (2.8.1)
+  - Hero (1.6.2)
   - IQKeyboardManagerSwift (7.0.0)
   - KeyboardObserver (2.1.0)
   - Kingfisher (7.10.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - Alamofire
   - CenteredCollectionView
   - FloatingPanel
+  - Hero (from `https://github.com/HeroTransitions/Hero.git`)
   - IQKeyboardManagerSwift (from `https://github.com/hackiftekhar/IQKeyboardManager.git`)
   - KeyboardObserver (from `https://github.com/morizotter/KeyboardObserver.git`)
   - Kingfisher
@@ -55,6 +57,8 @@ SPEC REPOS:
     - Swinject
 
 EXTERNAL SOURCES:
+  Hero:
+    :git: https://github.com/HeroTransitions/Hero.git
   IQKeyboardManagerSwift:
     :git: https://github.com/hackiftekhar/IQKeyboardManager.git
   KeyboardObserver:
@@ -71,6 +75,9 @@ EXTERNAL SOURCES:
     :git: https://github.com/marcosgriselli/ViewAnimator.git
 
 CHECKOUT OPTIONS:
+  Hero:
+    :commit: 45aed927b66348738fd81ab599898e7b47cfdc6e
+    :git: https://github.com/HeroTransitions/Hero.git
   IQKeyboardManagerSwift:
     :commit: 6f357ea18e0da4e089368da3b2b278d09102df65
     :git: https://github.com/hackiftekhar/IQKeyboardManager.git
@@ -97,6 +104,7 @@ SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
   CenteredCollectionView: a9217908a698c386cbb98af11b596da48900b908
   FloatingPanel: 0c32d8c97e52cf6913833af573506f5d86451465
+  Hero: c69009dbc9e2f0472e081adc644dba05fcedae72
   IQKeyboardManagerSwift: 0d76a0f0420fe51d5fb28ca6a308c2effdf6c5c0
   KeyboardObserver: 07610b23782ca6ec417a5a8eef5f93c3d97755f1
   Kingfisher: a18f05d3b6d37d8650ee4a3e61d57a28fc6207f6
@@ -113,6 +121,6 @@ SPEC CHECKSUMS:
   UIKitLivePreview: d2e3c23381d1e043adfd3b522ecd77583169e52d
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
 
-PODFILE CHECKSUM: 446e54827099ce8e7691c8872e24c0f87c377fc7
+PODFILE CHECKSUM: a3c783400dcb550bacacea293144ada646a11cca
 
 COCOAPODS: 1.14.2

@@ -13,6 +13,8 @@ class CastSection: UIView {
     
     var peoples: [People]?
     
+    var isShowSkeleton = true
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -42,12 +44,6 @@ extension CastSection: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     func setupCell(_ cell: CastCell, _ index: Int) {
         cell.onTap = {
-//            if let movie = self.movies?[index] {
-//                let movieDetailVC = MovieDetailViewController()
-//                movieDetailVC.movie = movie
-//                movieDetailVC.hidesBottomBarWhenPushed = true
-//                self.navigationController?.pushViewController(movieDetailVC, animated: true)
-//            }
         }
         
         cell.title.text = peoples?[index].name ?? "-"
@@ -57,8 +53,15 @@ extension CastSection: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             cell.card.backgroundView.kf.setImage(with: TmdbApi.getImageURL(path), placeholder: UIImage(named: "imagenotfound"))
         }
         
-        cell.isSkeletonable = true
-        cell.skeletonCornerRadius = 16
+        if isShowSkeleton {
+            cell.isSkeletonable = true
+            cell.skeletonCornerRadius = 16
+            cell.showAnimatedSkeleton()
+        } else {
+            cell.hideSkeleton()
+        }
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

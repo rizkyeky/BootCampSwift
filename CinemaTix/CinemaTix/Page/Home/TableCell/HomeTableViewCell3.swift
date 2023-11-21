@@ -19,14 +19,15 @@ class HomeTableViewCell3: UITableViewCell {
     
     var onTap: ((Int) -> Void)?
     
+    var isShowSkeleton = true
+    
     static let height = 300
     static let heightItem = 300
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollection()
-        
-        
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -57,20 +58,26 @@ extension HomeTableViewCell3: UICollectionViewDelegate, UICollectionViewDataSour
         cell.onTap = { self.onTap?(index) }
         
         cell.title.text = movies?[index].title ?? "-"
-        cell.card.backgroundColor = .systemGroupedBackground
+        cell.card.backgroundColor = .clear
         
         let rating = movies?[index].voteAverage
         let strRating = String(format: "%.2f", rating ?? 0)
         cell.subtitle.text = rating != nil ? "Rating: \(strRating)" : "-"
         
+        cell.card.hero.id = movies?[index].id?.formatted() ?? "CarouselHome1"
+        
         if let backdropPath = movies?[index].backdropPath {
             let path = String(backdropPath.dropFirst())
-            
             cell.card.backgroundView.kf.setImage(with: TmdbApi.getImageURL(path), placeholder: UIImage(named: "imagenotfound"))
         }
         
-        cell.isSkeletonable = true
-        cell.skeletonCornerRadius = 24
+        if isShowSkeleton {
+            cell.isSkeletonable = true
+            cell.skeletonCornerRadius = 16
+            cell.showAnimatedSkeleton()
+        } else {
+            cell.hideSkeleton()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

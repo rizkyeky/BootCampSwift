@@ -90,7 +90,7 @@
 		258C58DE2B061A9000951A3A /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58DD2B061A9000951A3A /* WalletViewModel.swift */; };
 		258C58E02B061B1400951A3A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58DF2B061B1400951A3A /* Transaction.swift */; };
 		258C58E22B070FB700951A3A /* ExtNSNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E12B070FB700951A3A /* ExtNSNumber.swift */; };
-		258C58E52B0719D600951A3A /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E42B0719D600951A3A /* QRScanner.swift */; };
+		258C58E52B0719D600951A3A /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E42B0719D600951A3A /* Scanner.swift */; };
 		258C58EA2B074FEE00951A3A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E92B074FEE00951A3A /* Constant.swift */; };
 		25A070A32B0095EB0074118D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A22B0095EB0074118D /* DataController.swift */; };
 		25A070A62B01C4F20074118D /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A52B01C4F20074118D /* ExtString.swift */; };
@@ -115,6 +115,7 @@
 		25A070DC2B0362820074118D /* CastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A070DA2B0362820074118D /* CastCell.xib */; };
 		25A070DE2B036DEF0074118D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070DD2B036DEF0074118D /* GradientView.swift */; };
 		25B0F8802B0B5417004A2056 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0F87F2B0B5417004A2056 /* NavBar.swift */; };
+		25B0F8822B0C983F004A2056 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0F8812B0C983F004A2056 /* Loading.swift */; };
 		25BA44AB2B0AFE1F00C74AB6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA44AA2B0AFE1F00C74AB6 /* UserModel.swift */; };
 		25BA44AE2B0B0DD200C74AB6 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 25BA44AD2B0B0DD200C74AB6 /* en.json */; };
 		25BA44B02B0B12B800C74AB6 /* id.json in Resources */ = {isa = PBXBuildFile; fileRef = 25BA44AF2B0B12B800C74AB6 /* id.json */; };
@@ -225,7 +226,7 @@
 		258C58DD2B061A9000951A3A /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
 		258C58DF2B061B1400951A3A /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		258C58E12B070FB700951A3A /* ExtNSNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtNSNumber.swift; sourceTree = "<group>"; };
-		258C58E42B0719D600951A3A /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
+		258C58E42B0719D600951A3A /* Scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
 		258C58E92B074FEE00951A3A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		25A070A22B0095EB0074118D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		25A070A52B01C4F20074118D /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
@@ -250,6 +251,7 @@
 		25A070DA2B0362820074118D /* CastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCell.xib; sourceTree = "<group>"; };
 		25A070DD2B036DEF0074118D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		25B0F87F2B0B5417004A2056 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		25B0F8812B0C983F004A2056 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		25BA44AA2B0AFE1F00C74AB6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		25BA44AD2B0B0DD200C74AB6 /* en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
 		25BA44AF2B0B12B800C74AB6 /* id.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = id.json; sourceTree = "<group>"; };
@@ -361,7 +363,7 @@
 		254149DE2AF8829600DFA4C9 /* Page */ = {
 			isa = PBXGroup;
 			children = (
-				258C58E32B0719AB00951A3A /* QRScanner */,
+				258C58E32B0719AB00951A3A /* Scanner */,
 				25A070A72B01CE2A0074118D /* Setting */,
 				254DF11F2AFB6CB800B99EFC /* Search */,
 				254149E72AF8831E00DFA4C9 /* MovieDetail */,
@@ -505,6 +507,7 @@
 				254DF11A2AFB4D8500B99EFC /* Card.xib */,
 				25A070DD2B036DEF0074118D /* GradientView.swift */,
 				25B0F87F2B0B5417004A2056 /* NavBar.swift */,
+				25B0F8812B0C983F004A2056 /* Loading.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -647,12 +650,12 @@
 			path = RegisterTextField;
 			sourceTree = "<group>";
 		};
-		258C58E32B0719AB00951A3A /* QRScanner */ = {
+		258C58E32B0719AB00951A3A /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
-				258C58E42B0719D600951A3A /* QRScanner.swift */,
+				258C58E42B0719D600951A3A /* Scanner.swift */,
 			);
-			path = QRScanner;
+			path = Scanner;
 			sourceTree = "<group>";
 		};
 		25A070A12B0095DB0074118D /* Data */ = {
@@ -1046,6 +1049,7 @@
 				254DF1222AFB6CE300B99EFC /* SearchViewController.swift in Sources */,
 				254149FE2AF88F4700DFA4C9 /* Endpoint.swift in Sources */,
 				254DF12C2AFB8BCB00B99EFC /* HomeTableViewCell.swift in Sources */,
+				25B0F8822B0C983F004A2056 /* Loading.swift in Sources */,
 				25A070DE2B036DEF0074118D /* GradientView.swift in Sources */,
 				25478DE12B04992100F26BE9 /* TransSection.swift in Sources */,
 				254DF1142AFB20E000B99EFC /* CarouselCell.swift in Sources */,
@@ -1079,7 +1083,7 @@
 				254149AC2AF87EBA00DFA4C9 /* AppDelegate.swift in Sources */,
 				2577E7612AF9DCCF002D6AF6 /* SVGIcon.swift in Sources */,
 				254149F32AF8844700DFA4C9 /* TabBarViewController.swift in Sources */,
-				258C58E52B0719D600951A3A /* QRScanner.swift in Sources */,
+				258C58E52B0719D600951A3A /* Scanner.swift in Sources */,
 				25A070D52B0360920074118D /* CastSection.swift in Sources */,
 				2578D4932B00692400EC8D59 /* ContainerDI.swift in Sources */,
 				25A070C22B0331510074118D /* SmallCarousel.swift in Sources */,

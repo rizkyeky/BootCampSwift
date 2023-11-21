@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,16 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
 
-        let nav = UINavigationController(rootViewController: WelcomeViewController())
+        let navigationController = UINavigationController(rootViewController: WelcomeViewController())
         
         ContainerDI.shared.register(UINavigationController.self) { r in
-            return nav
+            return navigationController
         }.inObjectScope(.container)
         
         let darkMode = ContainerDI.shared.resolve(DarkMode.self)
         darkMode?.setup(window: window)
         
-        window.rootViewController = nav
+        window.rootViewController = navigationController
 
         self.window = window
         self.window?.makeKeyAndVisible()

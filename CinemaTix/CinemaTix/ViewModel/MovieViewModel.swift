@@ -22,54 +22,53 @@ class MovieViewModel: BaseViewModel {
     
     let querySearchText = PublishSubject<String>()
     
-    var onCompleteGetPlayingNowMovies: [(() -> Void)] = []
-    var onCompleteGetUpComingMovies: [(() -> Void)] = []
-    var onCompleteGetPopularMovies: [(() -> Void)] = []
-    var onCompleteGetTopRatedMovies: [(() -> Void)] = []
-    var onCompleteGetQuerySearch: [(() -> Void)] = []
-    
-    func getAllGenres(completion: (() -> Void)? = nil) {
+    func getAllGenres(completion: (() -> Void)? = nil, onError: ((Error) -> Void)? = nil) {
         loadingState = .start
         movieService.getAllGenres() { result in
             switch result {
             case .success(let models):
                 self.genres = models.genres
                 self.loadingState = .done
-            case .failure(_):
+                completion?()
+            case .failure(let error):
                 self.loadingState = .done
+                onError?(error)
             }
-            completion?()
+            
         }
     }
     
-    func getCredit(id: Int, completion: @escaping (([People]?) -> Void)) {
+    func getCredit(id: Int, completion: @escaping (([People]) -> Void), onError: ((Error) -> Void)? = nil) {
         loadingState = .start
         movieService.getCredit(id: id) { result in
             switch result {
             case .success(let models):
                 self.loadingState = .done
-                completion(models.cast)
-            case .failure(_):
+                if let casts = models.cast {
+                    completion(casts)
+                }
+            case .failure(let error):
                 self.loadingState = .done
-                completion(nil)
+                onError?(error)
             }
         }
     }
     
-    func getDetailMovie(id: Int, completion: @escaping ((MovieDetailModel) -> Void)) {
+    func getDetailMovie(id: Int, completion: @escaping ((MovieDetailModel) -> Void), onError: ((Error) -> Void)? = nil) {
         loadingState = .start
         movieService.getDetail(id: id) { result in
             switch result {
             case .success(let model):
                 self.loadingState = .done
                 completion(model)
-            case .failure(_):
+            case .failure(let error):
                 self.loadingState = .done
+                onError?(error)
             }
         }
     }
 
-    func getPlayingNowMovies(completion: @escaping () -> Void) {
+    func getPlayingNowMovies(completion: @escaping () -> Void, onError: ((Error) -> Void)? = nil) {
         loadingState = .start
         movieService.getPlayingNow() { result in
             switch result {
@@ -77,17 +76,14 @@ class MovieViewModel: BaseViewModel {
                 self.playingNowMovies = models
                 self.loadingState = .done
                 completion()
-                for onComplete in self.onCompleteGetPlayingNowMovies {
-                    onComplete()
-                }
-            case .failure(_):
+            case .failure(let error):
                 self.loadingState = .done
+                onError?(error)
             }
         }
     }
     
-    
-    func getPopularMovies(completion: @escaping () -> Void) {
+    func getPopularMovies(completion: @escaping () -> Void, onError: ((Error) -> Void)? = nil) {
         loadingState = .start
         movieService.getPopular() { result in
             switch result {
@@ -95,17 +91,15 @@ class MovieViewModel: BaseViewModel {
                 self.popularMovies = models
                 self.loadingState = .done
                 completion()
-                for onComplete in self.onCompleteGetPopularMovies {
-                    onComplete()
-                }
-            case .failure(_):
+            case .failure(let error):
                 self.loadingState = .done
+                onError?(error)
             }
         }
     }
     
     
-    func getTopRatedMovies(completion: @escaping () -> Void) {
+    func getTopRatedMovies(completion: @escaping () -> Void, onError: ((Error) -> Void)? = nil) {
         loadingState = .start
         movieService.getTopRated() { result in
             switch result {
@@ -113,16 +107,14 @@ class MovieViewModel: BaseViewModel {
                 self.topRatedMovies = models
                 self.loadingState = .done
                 completion()
-                for onComplete in self.onCompleteGetTopRatedMovies {
-                    onComplete()
-                }
-            case .failure(_):
+            case .failure(let error):
                 self.loadingState = .done
+                onError?(error)
             }
         }
     }
     
-    func getUpComingMovies(completion: @escaping () -> Void) {
+    func getUpComingMovies(completion: @escaping () -> Void, onError: ((Error) -> Void)? = nil) {
         loadingState = .start
         movieService.getUpComing() { result in
             switch result {
@@ -130,16 +122,14 @@ class MovieViewModel: BaseViewModel {
                 self.upComingMovies = models
                 self.loadingState = .done
                 completion()
-                for onComplete in self.onCompleteGetUpComingMovies {
-                    onComplete()
-                }
-            case .failure(_):
+            case .failure(let error):
                 self.loadingState = .done
+                onError?(error)
             }
         }
     }
     
-    func getQuerySearch(completion: @escaping () -> Void) {
+    func getQuerySearch(completion: @escaping () -> Void, onError: ((Error) -> Void)? = nil) {
         querySearchText.subscribe() { text in
             self.loadingState = .start
             self.movieService.getBySearch(query: text) { result in
@@ -148,11 +138,9 @@ class MovieViewModel: BaseViewModel {
                     self.resultsSearchMovies = models
                     self.loadingState = .done
                     completion()
-                    for onComplete in self.onCompleteGetQuerySearch {
-                        onComplete()
-                    }
-                case .failure(_):
+                case .failure(let error):
                     self.loadingState = .done
+                    onError?(error)
                 }
             }
         }.disposed(by: disposeBag)

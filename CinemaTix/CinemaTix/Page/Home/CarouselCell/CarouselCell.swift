@@ -17,6 +17,7 @@ class CarouselCell: UICollectionViewCell {
     let bookButton = UIButton(configuration: .filled())
     
     var onTap: (() -> Void)?
+    var onTapBookBtn: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -68,6 +69,9 @@ class CarouselCell: UICollectionViewCell {
             make.right.equalTo(boxBlur).offset(-16)
             make.centerY.equalTo(boxBlur.snp.centerY)
         }
+        bookButton.addAction(UIAction { _ in
+            self.onTapBookBtn?()
+        }, for: .touchUpInside)
         
         title.snp.makeConstraints { make in
             make.right.equalTo(bookButton.snp.left).offset(-8)

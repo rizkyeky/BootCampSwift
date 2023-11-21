@@ -17,6 +17,8 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
         setupNavBar()
     }
@@ -29,12 +31,17 @@ class BaseViewController: UIViewController {
     fileprivate func setupNavBar() {
         view.addSubview(navBar)
         navBar.snp.makeConstraints { make in
-            make.left.right.top.equalTo(0)
+            make.left.right.top.equalToSuperview()
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(NavBar.height)
         }
+        
         navBar.isHidden = true
         navBar.onTapBackButton = {
-            self.navigationController?.popViewController(animated: true)
+            if self.navigationController?.children.isEmpty == false {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                self.dismiss(animated: true)
+            }
         }
     }
 }

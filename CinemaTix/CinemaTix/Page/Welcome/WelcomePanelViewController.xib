@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
@@ -30,33 +30,36 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35L-Tr-FW0" userLabel="SignInApple">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                            <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Y5C-IA-WsD"/>
                                 <constraint firstAttribute="width" constant="300" id="xYH-YZ-reT"/>
                             </constraints>
-                            <color key="tintColor" systemColor="systemBackgroundColor"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3OR-Cu-X76" userLabel="SignInGoogle">
                             <rect key="frame" x="0.0" y="66" width="300" height="50"/>
+                            <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="300" id="4Hr-ox-Ahv"/>
                                 <constraint firstAttribute="height" constant="50" id="76h-3t-ybj"/>
                             </constraints>
-                            <color key="tintColor" systemColor="systemBackgroundColor"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OdA-8M-BZH" userLabel="SignInEmail">
                             <rect key="frame" x="0.0" y="132" width="300" height="50"/>
+                            <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="300" id="4MA-YU-TqG"/>
                                 <constraint firstAttribute="height" constant="50" id="gkw-FP-SfS"/>
                             </constraints>
-                            <color key="tintColor" systemColor="systemBackgroundColor"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
                         </button>
                     </subviews>
                 </stackView>
@@ -65,19 +68,20 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akh-fX-qtG">
                             <rect key="frame" x="347" y="9" width="30" height="30"/>
+                            <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="3Ye-Pf-xpW"/>
                                 <constraint firstAttribute="width" constant="30" id="fjm-H6-uub"/>
                             </constraints>
                             <color key="tintColor" systemColor="secondaryLabelColor"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="gray" cornerStyle="capsule">
+                            <buttonConfiguration key="configuration" style="plain">
                                 <imageReference key="image" image="xmark" catalog="system" symbolScale="small"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
                             </buttonConfiguration>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="2tx-TH-r25"/>
                         <constraint firstItem="akh-fX-qtG" firstAttribute="centerY" secondItem="YiI-jx-WSg" secondAttribute="centerY" id="8TQ-29-T3c"/>
@@ -86,7 +90,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="YiI-jx-WSg" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8DS-v6-tiL"/>
                 <constraint firstItem="YiI-jx-WSg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="O2j-jX-qHe"/>
@@ -100,14 +104,20 @@
     </objects>
     <resources>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

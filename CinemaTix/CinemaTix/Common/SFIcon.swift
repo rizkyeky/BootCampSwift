@@ -16,6 +16,12 @@ enum SFIcon {
     
     static let forward = UIImage(systemName: "chevron.right")
     static let back = UIImage(systemName: "chevron.left")
+    static let backBlue = {
+        let originalImage = UIImage(systemName: "chevron.left")
+        let tintedImage = originalImage?.withRenderingMode(.alwaysTemplate)
+        let coloredImage = tintedImage?.withTintColor(UIColor.blue)
+        return coloredImage
+    }()
     
     static let search = UIImage(systemName: "magnifyingglass")
     static let setting = UIImage(systemName: "gear")

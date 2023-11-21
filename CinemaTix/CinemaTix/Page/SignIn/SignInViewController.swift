@@ -38,8 +38,11 @@ class SignInViewController: BaseViewController {
         faceIdButton.addAction(UIAction() { _ in
             self.authViewModel.biometric?.authenticateUser() { isSuccess in
                 if isSuccess {
+                    let loading = Loading()
+                    loading.show()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+                        loading.hide()
                         AlertKitAPI.present(
                             title: "Success Sign In with Face ID",
                             icon: AlertIcon.done,
@@ -59,11 +62,12 @@ class SignInViewController: BaseViewController {
         }, for: .touchUpInside)
         
         submitButton.addAction(UIAction() { _ in
-            HUD.show(.progress)
+            let loading = Loading()
+            loading.show()
             self.authViewModel.signIn() { [weak self] user in
                 guard let self = self else {return}
                 self.navigationController?.pushViewController(TabBarViewController(), animated: true)
-                HUD.flash(.success, delay: 1.0)
+                loading.hide()
                 AlertKitAPI.present(
                     title: "Success Sign In",
                     icon: AlertIcon.done,
