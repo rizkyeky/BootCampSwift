@@ -23,6 +23,8 @@ class RecomCollectionViewCell: UICollectionViewCell {
             self.onTap?()
         }
         
+        card.backgroundView = UIImageView(image: UIImage(named: "imagenotfound"))
+        
         let boxBlur = UIView()
         boxBlur.backgroundColor = .clear
         card.addSubview(boxBlur)

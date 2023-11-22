@@ -27,4 +27,10 @@ extension UIImage {
             return self
         }
     }
+    
+    func reColor(_ color: UIColor) -> UIImage? {
+        let tintedImage = self.withRenderingMode(.alwaysTemplate)
+        let coloredImage = tintedImage.withTintColor(color)
+        return coloredImage
+    }
 }

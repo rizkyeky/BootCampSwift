@@ -36,11 +36,6 @@ class HomeViewController: BaseViewController {
         }, for: .primaryActionTriggered)
         
         mainTable.addSubview(refreshControl)
-        
-//        let animationDir = AnimationType.from(direction: .bottom, offset: 40)
-//        mainTable.animate(animations: [animationDir], initialAlpha: 0.48, finalAlpha: 1, duration: TimeInterval(0.64))
-//        
-//        self.hero.isEnabled = true
     }
     
     func getDataFromService(completion: (() -> Void)? = nil) {
@@ -59,34 +54,35 @@ class HomeViewController: BaseViewController {
     }
     
     func setupNavigation() {
-        navigationItem.title = "Playing Now"
+        navBar.isHidden = false
+        navBar.isHasBlurBox = true
+        navBar.backButton.isHidden = true
+        navBar.title.text = "Home"
+        navBar.title.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         
-        let searchButton = UIButton(configuration: .plain(), primaryAction: UIAction() { _ in
-            self.navigationController?.pushViewController(SearchViewController(), animated: true)
-        })
-        searchButton.setTitle("Search", for: .normal)
-        searchButton.setImage(SFIcon.search, for: .normal)
-        let searchBarItem = UIBarButtonItem(customView: searchButton)
+        let searchBtn = UIButton(frame: .init(x: 0, y: 0, width: 40, height: 40))
+        navBar.addSubview(searchBtn)
+        searchBtn.snp.makeConstraints { make in
+            make.height.width.equalTo(40)
+            make.right.equalTo(navBar).inset(16)
+            make.centerY.equalTo(navBar.contain)
+        }
+        searchBtn.configuration = .plain()
+        searchBtn.makeCornerRadiusRounded()
+        searchBtn.setAnimateBounce()
+        searchBtn.setImage(SFIcon.search?.resizeWith(size: CGSize(width: 24, height: 24)).reColor(.accent), for: .normal)
+        searchBtn.setTitleColor(.accent, for: .normal)
+        searchBtn.backgroundColor = .white
+        searchBtn.addAction(UIAction { _ in
+            let searchVC = SearchViewController()
+            self.navigationController?.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(searchVC, animated: true)
+        }, for: .touchUpInside)
         
-        let settingButton = UIButton(configuration: .plain(), primaryAction: UIAction() { _ in
-            self.navigationController?.pushViewController(SettingViewController(), animated: true)
-        })
-        
-        settingButton.setImage(SFIcon.setting, for: .normal)
-        let settingBarItem = UIBarButtonItem(customView: settingButton)
-        
-        let profileButton = UIButton(configuration: .plain(), primaryAction: UIAction() { _ in
-            
-        })
-        profileButton.setImage(SFIcon.profile, for: .normal)
-        let profileBarItem = UIBarButtonItem(customView: profileButton)
-        
-        navigationItem.rightBarButtonItems = [searchBarItem]
-        navigationItem.leftBarButtonItems = [settingBarItem, profileBarItem]
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func setupMainTable() {
         mainTable.delegate = self
@@ -153,7 +149,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     let movieListVC = MovieListViewController()
                     movieListVC.titlePage = "Recommanded for You"
                     movieListVC.movies = movies
-                    movieListVC.hidesBottomBarWhenPushed = true
+                    self.navigationController?.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(movieListVC, animated: true)
                 }
             }
@@ -191,7 +187,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     let movieListVC = MovieListViewController()
                     movieListVC.titlePage = "Upcoming Movies"
                     movieListVC.movies = movies
-                    movieListVC.hidesBottomBarWhenPushed = true
+                    
+                    self.navigationController?.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(movieListVC, animated: true)
                 }
             }
@@ -226,9 +223,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let movieDetailVC = MovieDetailViewController()
             
             movieDetailVC.movie = detail
-            movieDetailVC.hidesBottomBarWhenPushed = true
 
             self.navigationController?.hero.isEnabled = true
+            self.navigationController?.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
         }
     }
@@ -237,9 +234,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if let detail = self.movieViewModel.topRatedMovies?[index] {
             let movieDetailVC = MovieDetailViewController()
             movieDetailVC.movie = detail
-            movieDetailVC.hidesBottomBarWhenPushed = true
-            
             self.navigationController?.hero.isEnabled = true
+            self.navigationController?.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
         }
     }
@@ -249,11 +245,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let movieDetailVC = MovieDetailViewController()
             
             movieDetailVC.movie = detail
-            movieDetailVC.hidesBottomBarWhenPushed = true
             
             self.navigationController?.hero.isEnabled = true
+            self.navigationController?.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        navBar.scrollViewDidScroll(scrollView, point: 60)
     }
 }
 

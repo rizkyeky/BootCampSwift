@@ -8,6 +8,8 @@
 import Foundation
 import RxSwift
 import CoreData
+import FirebaseAuth
+import FirebaseFirestore
 
 class AuthViewModel: BaseViewModel {
     
@@ -19,6 +21,27 @@ class AuthViewModel: BaseViewModel {
     
     let dataController = ContainerDI.shared.resolve(DataController.self)
     
+    let auth = Auth.auth()
+    
+    let db = Firestore.firestore()
+    
+    var activeUser: UserModel?
+    
+    func signInWithFB(onSuccess: @escaping (() -> Void), onError: ((Error) -> Void)? = nil, onInvalidEmail: (() -> Void)? = nil, onInvalidPassword: (() -> Void)? = nil) {
+        if let correctEmail = email, !correctEmail.isEmpty, correctEmail.isValidEmail(), let correctPass = password, !correctPass.isEmpty {
+            auth.signIn(withEmail: correctEmail, password: correctPass) { result, error in
+                if let _error = error {
+                    onError?(_error)
+                }
+                if let _result = result {
+                    let user = result?.user
+                    self.activeUser = UserModel(email: user?.email)
+                    onSuccess()
+                }
+            }
+        }
+    }
+    
     func signIn(onSuccess: @escaping ((UserModel) -> Void), onDone: (() -> Void)? = nil, onInvalidEmail: (() -> Void)? = nil, onInvalidPassword: (() -> Void)? = nil) {
         
         if let correctEmail = email, !correctEmail.isEmpty, correctEmail.isValidEmail() {
@@ -29,7 +52,6 @@ class AuthViewModel: BaseViewModel {
                     if let user = self.dataController?.getUser(email: correctEmail, password: correctPass, context: context) {
                         let userModel = UserModel(
                             email: user.email ?? correctEmail,
-                            password: user.password ?? correctPass,
                             displayName: user.displayName,
                             birthDate: user.birthDate,
                             username: user.username,
@@ -73,7 +95,6 @@ class AuthViewModel: BaseViewModel {
                             
                             let userModel = UserModel(
                                 email: user.email ?? correctEmail,
-                                password: user.password ?? correctPass,
                                 displayName: user.displayName,
                                 birthDate: user.birthDate,
                                 username: user.username,

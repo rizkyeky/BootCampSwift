@@ -26,6 +26,7 @@
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E7o-YC-3vm" userLabel="TextField">
                             <rect key="frame" x="0.0" y="34" width="375" height="50"/>
+                            <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="2rX-qB-pNX"/>
                             </constraints>
@@ -83,7 +84,10 @@
     <resources>
         <image name="eye.fill" catalog="system" width="128" height="80"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

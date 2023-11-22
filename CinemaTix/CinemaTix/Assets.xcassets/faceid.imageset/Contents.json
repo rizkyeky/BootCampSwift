@@ -1,19 +1,28 @@
 {
   "images" : [
     {
-      "filename" : "faceid.png",
-      "idiom" : "universal",
-      "scale" : "1x"
+      "filename" : "face_id.svg",
+      "idiom" : "universal"
     },
     {
-      "filename" : "faceid2.png",
-      "idiom" : "universal",
-      "scale" : "2x"
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "filename" : "face_id 1.svg",
+      "idiom" : "universal"
     },
     {
-      "filename" : "faceid3.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "face_id_white 1.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

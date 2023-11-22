@@ -37,16 +37,15 @@ extension MovieListViewController: UICollectionViewDelegate, UICollectionViewDat
             if let movie = self.movies?[index] {
                 let movieDetailVC = MovieDetailViewController()
                 movieDetailVC.movie = movie
-                movieDetailVC.hidesBottomBarWhenPushed = true
-                
                 self.navigationController?.hero.isEnabled = true
+                self.navigationController?.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(movieDetailVC, animated: true)
             }
         }
         
         cell.title.text = movies?[index].title ?? "-"
         
-        cell.card.hero.id = movies?[index].id?.formatted() ?? "CarouselHome1"
+        cell.card.hero.id = "\(movies?[index].id?.formatted() ?? "")backdrop"
     
         if let backdropPath = movies?[index].backdropPath {
             let path = String(backdropPath.dropFirst())

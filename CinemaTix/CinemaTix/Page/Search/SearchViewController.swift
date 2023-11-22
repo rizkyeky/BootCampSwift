@@ -21,9 +21,11 @@ class SearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "Search"
-        navigationItem.backButtonDisplayMode = .generic
-        navigationItem.backButtonTitle = "Back"
+        navBar.isHidden = false
+        navBar.title.text = "Search"
+        navBar.title.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        navBar.title.textColor = .label
+        navBar.backgroundColor = .systemBackground
         
         tableQueryList.delegate = self
         tableQueryList.dataSource = self
@@ -32,10 +34,14 @@ class SearchViewController: BaseViewController {
         tableQueryList.separatorStyle = .singleLine
         
         queryInputField.rx.text.orEmpty.bind(to: movieViewModel.querySearchText).disposed(by: disposeBag)
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         movieViewModel.getQuerySearch() {
             self.tableQueryList.reloadData()
         }
+        queryInputField.becomeFirstResponder()
     }
     
     override func viewDidDisappear(_ animated: Bool) {

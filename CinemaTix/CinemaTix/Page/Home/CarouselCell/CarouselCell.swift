@@ -15,6 +15,7 @@ class CarouselCell: UICollectionViewCell {
     let title = UILabel()
     let subtitle = UILabel()
     let bookButton = UIButton(configuration: .filled())
+    let boxBlur = UIView()
     
     var onTap: (() -> Void)?
     var onTapBookBtn: (() -> Void)?
@@ -26,7 +27,8 @@ class CarouselCell: UICollectionViewCell {
             self.onTap?()
         }
         
-        let boxBlur = UIView()
+        card.backgroundView = UIImageView(image: UIImage(named: "imagenotfound"))
+        
         boxBlur.backgroundColor = .clear
         card.addSubview(boxBlur)
         boxBlur.snp.makeConstraints { make in
@@ -39,8 +41,8 @@ class CarouselCell: UICollectionViewCell {
         let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
         boxBlur.addSubview(blurView)
         blurView.snp.makeConstraints { make in
-            make.width.height.equalTo(boxBlur)
-            make.top.left.right.bottom.equalTo(boxBlur)
+            make.width.height.equalTo(self.boxBlur)
+            make.top.left.right.bottom.equalTo(self.boxBlur)
         }
         
         title.text = "-"
@@ -48,8 +50,8 @@ class CarouselCell: UICollectionViewCell {
         title.textColor = .white
         boxBlur.addSubview(title)
         title.snp.makeConstraints { make in
-            make.top.equalTo(boxBlur).offset(16)
-            make.left.equalTo(boxBlur).offset(16)
+            make.top.equalTo(self.boxBlur).offset(16)
+            make.left.equalTo(self.boxBlur).offset(16)
         }
         
         subtitle.text = "-"
@@ -57,8 +59,8 @@ class CarouselCell: UICollectionViewCell {
         subtitle.textColor = .white
         boxBlur.addSubview(subtitle)
         subtitle.snp.makeConstraints { make in
-            make.bottom.equalTo(boxBlur).offset(-16)
-            make.left.equalTo(boxBlur).offset(16)
+            make.bottom.equalTo(self.boxBlur).offset(-16)
+            make.left.equalTo(self.boxBlur).offset(16)
         }
         
         bookButton.setTitle("Book Now", for: .normal)
@@ -66,15 +68,15 @@ class CarouselCell: UICollectionViewCell {
         bookButton.snp.makeConstraints { make in
             make.width.equalTo(120)
             make.height.equalTo(32)
-            make.right.equalTo(boxBlur).offset(-16)
-            make.centerY.equalTo(boxBlur.snp.centerY)
+            make.right.equalTo(self.boxBlur).offset(-16)
+            make.centerY.equalTo(self.boxBlur.snp.centerY)
         }
         bookButton.addAction(UIAction { _ in
             self.onTapBookBtn?()
         }, for: .touchUpInside)
         
         title.snp.makeConstraints { make in
-            make.right.equalTo(bookButton.snp.left).offset(-8)
+            make.right.equalTo(self.bookButton.snp.left).offset(-8)
         }
     }
 }

@@ -19,10 +19,12 @@ class MovieDetailViewController: BaseViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var blurBox: UIView!
+    
+    @IBOutlet weak var spec: UILabel!
     @IBOutlet weak var castSection: CastSection!
     
     @IBOutlet weak var gradientBackdropBottom: GradientView!
-    
     @IBOutlet weak var gradientBackdropTop: GradientView!
     
     var movie: MovieModel?
@@ -33,6 +35,14 @@ class MovieDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.delegate = self
+        
+        let blurEffect = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
+        blurBox.addSubview(blurEffect)
+        blurEffect.snp.makeConstraints { make in
+            make.top.bottom.left.right.equalTo(self.blurBox)
+        }
+        
         bookButton.setTitle("Book Now", for: .normal)
         bookButton.setTitleColor(.black, for: .normal)
         bookButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -40,14 +50,24 @@ class MovieDetailViewController: BaseViewController {
         bookButton.setAnimateBounce()
         
         gradientBackdropTop.direction = .verticalReverse
+        gradientBackdropTop.isHidden = true
+        gradientBackdropBottom.isHidden = true
         
         self.hero.isEnabled = true
-        backDropImage.hero.id = movie?.id?.formatted() ?? "CarouselHome1"
+        backDropImage.hero.id = "\(movie?.id?.formatted() ?? "")backdrop"
+        bookButton.hero.id = "\(movie?.id?.formatted() ?? "")bookbtn"
+        blurBox.hero.id = "\(movie?.id?.formatted() ?? "")blur"
         
         if let backdropPath = movie?.backdropPath {
             let path = String(backdropPath.dropFirst())
             backDropImage.kf.setImage(with: TmdbApi.getImageURL(path), placeholder: UIImage(named: "imagenotfound"))
             backDropImage.contentMode = .scaleAspectFill
+        }
+        
+        spec.text = "13+ | "
+        if let releaseDate = movie?.releaseDate, let rating = movie?.voteAverage {
+            spec.text?.append("\(releaseDate) | ")
+            spec.text?.append("Rating: \(String(format: "%.2f", rating))")
         }
         
         if let desc = movie?.overview {
@@ -64,6 +84,7 @@ class MovieDetailViewController: BaseViewController {
         }
         
         navBar.isHidden = false
+        navBar.backgroundColor = .label
         navBar.title.text = movie?.title ?? "-"
     }
     
@@ -75,6 +96,12 @@ class MovieDetailViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+}
+
+extension MovieDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        navBar.opacityBackgroundDidScroll(scrollView, point: 30)
     }
 }
 

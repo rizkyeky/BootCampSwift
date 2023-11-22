@@ -12,8 +12,15 @@ class NavBar: UIView {
     
     let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
     let title = UILabel()
+    let blurBox = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
+    let contain = UIView()
+    static let height = CGFloat(56)
     
-    static let height = CGFloat(64)
+    var isHasBlurBox = false {
+        didSet {
+            blurBox.isHidden = !isHasBlurBox
+        }
+    }
     
     var onTapBackButton: (() -> Void)?
     
@@ -29,35 +36,40 @@ class NavBar: UIView {
     
     func setup() {
         
-        let base = UIView()
-        addSubview(base)
-        base.snp.makeConstraints { make in
+        blurBox.isHidden = !isHasBlurBox
+        
+        addSubview(blurBox)
+        blurBox.snp.makeConstraints { make in
+            make.top.bottom.left.right.equalTo(self)
+        }
+        
+        addSubview(contain)
+        contain.snp.makeConstraints { make in
             make.height.equalTo(NavBar.height)
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
         }
     
-        base.addSubview(backButton)
+        contain.addSubview(backButton)
         backButton.snp.makeConstraints { make in
             make.height.width.equalTo(30)
-            make.left.equalTo(base).offset(16)
+            make.left.equalTo(self.contain).offset(16)
             make.centerY.equalToSuperview()
         }
         backButton.configuration = .plain()
         backButton.makeCornerRadiusRounded()
         backButton.setAnimateBounce()
-        let image = SFIcon.backBlue
-        backButton.setImage(image?.resizeWith(size: CGSize(width: 12, height: 12)), for: .normal)
+        backButton.setImage(SFIcon.back?.resizeWith(size: CGSize(width: 12, height: 12)).reColor(.accent), for: .normal)
         backButton.setTitleColor(.accent, for: .normal)
         backButton.backgroundColor = .white
         backButton.addAction(UIAction { _ in
             self.onTapBackButton?()
         }, for: .touchUpInside)
         
-        base.addSubview(title)
+        contain.addSubview(title)
         title.snp.makeConstraints { make in
             make.width.equalTo(300)
-            make.centerY.centerX.equalTo(base)
+            make.centerY.centerX.equalTo(self.contain)
         }
         title.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         title.textColor = .white
@@ -65,16 +77,21 @@ class NavBar: UIView {
         title.textAlignment = .center
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let NAVBAR_COLORCHANGE_POINT = CGFloat(400)
+    func scrollViewDidScroll(_ scrollView: UIScrollView, point: CGFloat = 400.0) {
         let offsetY = scrollView.contentOffset.y
-//        if (offsetY > (NAVBAR_COLORCHANGE_POINT)) {
-            let alpha = (offsetY - NAVBAR_COLORCHANGE_POINT) / NavBar.height
+        let alpha = (offsetY - point) / NavBar.height
+        title.textColor = .label.withAlphaComponent(alpha)
+        
+        if isHasBlurBox {
+            blurBox.alpha = alpha
+        } else {
             self.backgroundColor = .systemBackground.withAlphaComponent(alpha)
-            title.textColor = .label.withAlphaComponent(alpha)
-//        } else {
-//            self.backgroundColor = .green
-//            title.textColor = .label
-//        }
+        }
+    }
+    
+        func opacityBackgroundDidScroll(_ scrollView: UIScrollView, point: CGFloat = 400.0, limit: CGFloat = 0.48) {
+        let offsetY = scrollView.contentOffset.y
+        let alpha = (offsetY - point) / NavBar.height
+        self.backgroundColor = self.backgroundColor?.withAlphaComponent(alpha > limit ? limit : alpha)
     }
 }

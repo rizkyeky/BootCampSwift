@@ -10,6 +10,7 @@ import CoreData
 import Swinject
 import netfox
 import IQKeyboardManagerSwift
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NFX.sharedInstance().start()
         IQKeyboardManager.shared.enable = true
+        FirebaseApp.configure()
         
         return true
     }

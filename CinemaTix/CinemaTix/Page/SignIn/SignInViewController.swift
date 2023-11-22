@@ -35,6 +35,8 @@ class SignInViewController: BaseViewController {
         submitButton.setAnimateBounce()
         
         faceIdButton.setAnimateBounce()
+        faceIdButton.makeCornerRadius(12)
+        faceIdButton.setImage(SVGIcon.faceId.getImage()?.resizeWith(size: .init(width: 40, height: 40)), for: .normal)
         faceIdButton.addAction(UIAction() { _ in
             self.authViewModel.biometric?.authenticateUser() { isSuccess in
                 if isSuccess {

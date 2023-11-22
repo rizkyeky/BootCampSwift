@@ -64,7 +64,7 @@ extension HomeTableViewCell3: UICollectionViewDelegate, UICollectionViewDataSour
         let strRating = String(format: "%.2f", rating ?? 0)
         cell.subtitle.text = rating != nil ? "Rating: \(strRating)" : "-"
         
-        cell.card.hero.id = movies?[index].id?.formatted() ?? "CarouselHome1"
+        cell.card.hero.id = "\(movies?[index].id?.formatted() ?? "")backdrop"
         
         if let backdropPath = movies?[index].backdropPath {
             let path = String(backdropPath.dropFirst())

@@ -12,10 +12,15 @@ class TabBarViewController: UITabBarController {
 
     let home = UINavigationController(rootViewController: HomeViewController())
     let wallet = UINavigationController(rootViewController: WalletViewController())
-    let transac = UINavigationController(rootViewController: TransacViewController())
+    let profile = UINavigationController(rootViewController: SettingViewController())
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        home.hidesBottomBarWhenPushed = true
+//        wallet.hidesBottomBarWhenPushed = true
+//        profile.hidesBottomBarWhenPushed = true
+//        navigationController?.hidesBottomBarWhenPushed = true
         
         configureTabBar()
         configureUITabBarItems()
@@ -32,9 +37,9 @@ class TabBarViewController: UITabBarController {
             wallet.tabBarItem = UITabBarItem(title: "Wallet", image: img, tag: 1)
         }
         
-        if let transacImage = SVGIcon.bag.getImage() {
+        if let transacImage = SVGIcon.person.getImage() {
             let img = transacImage.resizeWith(size: CGSize(width: 30, height: 30))
-            transac.tabBarItem = UITabBarItem(title: "Transaction", image: img, tag: 2)
+            profile.tabBarItem = UITabBarItem(title: "Profile", image: img, tag: 2)
         }
         
 //        let tabBarAppearance = UITabBarItem.appearance()
@@ -44,6 +49,7 @@ class TabBarViewController: UITabBarController {
     }
         
     func configureTabBar() {
-        setViewControllers([home, wallet, transac], animated: true)
+        
+        setViewControllers([home, wallet, profile], animated: true)
     }
 }

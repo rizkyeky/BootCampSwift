@@ -57,6 +57,7 @@ class RegisterTextField: UIView {
             secureButton.imageView?.image = UIImage(named: "eye.fill")
             textField.isSecureTextEntry = false
         }
+        secureButton.updateConfiguration()
     }
     
 }
