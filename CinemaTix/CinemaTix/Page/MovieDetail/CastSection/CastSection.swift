@@ -13,7 +13,7 @@ class CastSection: UIView {
     
     var peoples: [People]?
     
-    var isShowSkeleton = true
+    var isShowSkeleton: Bool?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,8 +53,7 @@ extension CastSection: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             cell.card.backgroundView.kf.setImage(with: TmdbApi.getImageURL(path), placeholder: UIImage(named: "imagenotfound"))
         }
         
-        if isShowSkeleton {
-            cell.isSkeletonable = true
+        if isShowSkeleton ?? false {
             cell.skeletonCornerRadius = 16
             cell.showAnimatedSkeleton()
         } else {

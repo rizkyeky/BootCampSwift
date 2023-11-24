@@ -19,7 +19,7 @@ class HomeTableViewCell3: UITableViewCell {
     
     var onTap: ((Int) -> Void)?
     
-    var isShowSkeleton = true
+    var isShowSkeleton: Bool?
     
     static let height = 300
     static let heightItem = 300
@@ -71,8 +71,7 @@ extension HomeTableViewCell3: UICollectionViewDelegate, UICollectionViewDataSour
             cell.card.backgroundView.kf.setImage(with: TmdbApi.getImageURL(path), placeholder: UIImage(named: "imagenotfound"))
         }
         
-        if isShowSkeleton {
-            cell.isSkeletonable = true
+        if isShowSkeleton ?? false {
             cell.skeletonCornerRadius = 16
             cell.showAnimatedSkeleton()
         } else {

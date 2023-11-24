@@ -9,23 +9,24 @@ import Foundation
 import FirebaseFirestoreInternal
 
 struct UserModel {
-    let id = UUID()
+    let id: UUID?
     
     let email: String?
     
     var username: String?
     var displayName: String?
     var birthDate: Date?
-    var gender: Int?
-    var wallet: UUID?
+    var gender: Gender?
+    var wallet: WalletModel?
     
-    init(email: String?, displayName: String? = nil, birthDate: Date? = nil, username: String? = nil, gender: Int? = nil, wallet: UUID? = nil) {
+    init(id: UUID? = nil, email: String?, displayName: String? = nil, birthDate: Date? = nil, username: String? = nil, gender: Int? = nil, wallet: UUID? = nil) {
+        self.id = id
         self.username = username
         self.displayName = displayName
         self.birthDate = birthDate
         self.email = email
-        self.gender = gender
-        self.wallet = wallet
+        self.gender = Gender.from(gender)
+        self.wallet = WalletModel(id: wallet)
     }
     
     func toDict() -> [String: Any] {
@@ -35,19 +36,51 @@ struct UserModel {
             "birthDate": Timestamp(date: self.birthDate ?? Date()),
             "username": self.username ?? "",
             "gender": self.gender ?? 0,
-            "wallet": self.wallet?.uuidString ?? ""
+            "wallet": self.wallet?.id ?? ""
         ]
     }
     
     static func fromDict(_ dict: [String: Any?]) -> UserModel {
-        let walletUUID = dict["wallet"] as? String
+        
+        var walletUUID: UUID?
+//        print(dict["walletId"]as? String)
+//        print(dict["email"] as? String)
+        if let walletId = (dict["walletId"] as? String) {
+            walletUUID = UUID(uuidString: walletId)
+        } else {
+            walletUUID = nil
+        }
+        print(walletUUID)
+        
         return UserModel(
             email: dict["email"] as? String,
             displayName: dict["displayName"] as? String,
             birthDate: (dict["birthDate"] as? Timestamp)?.dateValue(),
             username: dict["username"] as? String,
             gender: dict["gender"] as? Int,
-            wallet: walletUUID != nil ? UUID(uuidString: walletUUID!) : nil
+            wallet: walletUUID
         )
+    }
+}
+
+enum Gender: Int {
+    case male
+    case female
+    
+    static func from(_ index: Int?) -> Gender? {
+        if let _index = index {
+            return Gender.init(rawValue: _index)
+        } else {
+            return nil
+        }
+    }
+    
+    func toStr() -> String {
+        switch self {
+        case .male:
+            return "Male"
+        case .female:
+            return "Female"
+        }
     }
 }

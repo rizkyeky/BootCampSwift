@@ -36,28 +36,24 @@ class SignInViewController: BaseViewController {
         faceIdButton.makeCornerRadius(12)
         faceIdButton.setImage(SVGIcon.faceId.getImage()?.resizeWith(size: .init(width: 40, height: 40)), for: .normal)
         faceIdButton.addAction(UIAction() { _ in
-            self.authViewModel.biometric?.authenticateUser() { isSuccess in
-                if isSuccess {
-                    let loading = Loading()
-                    loading.show()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.navigationController?.pushViewController(TabBarViewController(), animated: true)
-                        loading.hide()
-                        AlertKitAPI.present(
-                            title: "Success Sign In with Face ID",
-                            icon: AlertIcon.done,
-                            style: .iOS17AppleMusic,
-                            haptic: .success
-                        )
-                    }
-                } else {
-                    AlertKitAPI.present(
-                        title: "Failed Sign In with Face ID",
-                        icon: AlertIcon.error,
-                        style: .iOS17AppleMusic,
-                        haptic: .error
-                    )
-                }
+            self.authViewModel.biometric?.authenticateUser() {
+                let loading = Loading()
+                loading.show()
+                self.navigationController?.pushViewController(TabBarViewController(), animated: true)
+                loading.hide()
+                AlertKitAPI.present(
+                    title: "Success Sign In with Face ID",
+                    icon: AlertIcon.done,
+                    style: .iOS17AppleMusic,
+                    haptic: .success
+                )
+            } onError: { error in
+                AlertKitAPI.present(
+                    title: "Failed Sign In with Face ID",
+                    icon: AlertIcon.error,
+                    style: .iOS17AppleMusic,
+                    haptic: .error
+                )
             }
         }, for: .touchUpInside)
         

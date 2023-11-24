@@ -12,7 +12,7 @@ class NavBar: UIView {
     
     let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
     let title = UILabel()
-    let blurBox = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
+    let blurBox = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
     let contain = UIView()
     static let height = CGFloat(56)
     

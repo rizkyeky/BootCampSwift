@@ -125,7 +125,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
             cell.animate(animations: [animationDir], initialAlpha: 0.64, finalAlpha: 1, duration: TimeInterval(1))
             
             cell.isShowSkeleton = true
-            
             self.movieViewModel.getPlayingNowMovies {
                 cell.onTap = self.onTapPlayingNowCarouselCell
                 debugPrint("Reload Playing Now Carousel")

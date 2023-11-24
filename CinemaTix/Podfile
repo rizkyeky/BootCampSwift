@@ -29,6 +29,7 @@ target 'CinemaTix' do
 #  pod 'GoogleMLKit/BarcodeScanning'
 #  pod 'GoogleMLKit/ObjectDetection'
 
+  pod 'SideMenu' => 'https://github.com/kukushi/SideMenu'
 #  pod 'FirebaseCore', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
 #  pod 'EFNavigationBar', :git => 'https://github.com/EFPrefix/EFNavigationBar.git'
 #  pod 'CryptoSwift', :git => 'https://github.com/krzyzanowskim/CryptoSwift.git'

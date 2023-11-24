@@ -9,6 +9,7 @@ import Foundation
 import FirebaseFirestore
 
 class FireDatabase {
+    
     let db = Firestore.firestore()
     
     func addUser(user: UserModel, onSuccess: @escaping (() -> Void), onError: ((Error) -> Void)? = nil) {
@@ -24,7 +25,6 @@ class FireDatabase {
     
     func getUserBy(email: String, onSuccess: @escaping ((UserModel) -> Void), onError: ((Error) -> Void)? = nil) {
         let usersCollection = db.collection("users")
-        
         usersCollection.whereField("email", isEqualTo: email).getDocuments { snapshot, error in
             if let _error = error {
                 onError?(_error)
@@ -34,6 +34,25 @@ class FireDatabase {
                 if let data = user?.data() {
                     let user = UserModel.fromDict(data)
                     onSuccess(user)
+                } else {
+                    onError?(NSError())
+                }
+            } else {
+                onError?(NSError())
+            }
+        }
+    }
+    
+    func getWalletBy(id: String, onSuccess: @escaping ((WalletModel) -> Void), onError: ((Error) -> Void)? = nil) {
+        let walletsCollection = db.collection("wallets")
+        walletsCollection.document(id).getDocument { document, error in
+            if let _error = error {
+                onError?(_error)
+            }
+            if let _document = document, _document.exists {
+                if let data = _document.data() {
+                    let wallet = WalletModel.fromDict(data)
+                    onSuccess(wallet)
                 } else {
                     onError?(NSError())
                 }

@@ -7,21 +7,29 @@
 
 import Foundation
 
-enum TransType: String {
+enum TransType: Int {
     case income, outcome
+    
+    static func from(_ ind: Int?) -> TransType? {
+        if let index = ind {
+            return TransType.init(rawValue: index)
+        } else {
+            return nil
+        }
+    }
 }
 
-class Transaction {
+struct Transaction {
     let id = UUID()
     var label: String?
     let amount: Double?
     var desc: String?
     var type: TransType?
     
-    init(label: String, amount: Double? = nil, desc: String? = nil, type: TransType? = nil) {
+    init(label: String, amount: Double? = nil, desc: String? = nil, type: Int? = nil) {
         self.label = label
         self.amount = amount
         self.desc = desc
-        self.type = type
+        self.type = TransType.from(type)
     }
 }

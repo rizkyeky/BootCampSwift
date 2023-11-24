@@ -11,6 +11,7 @@ import FloatingPanel
 import KeyboardObserver
 import RxSwift
 import RxCocoa
+import SPAlert
 
 class WalletViewController: BaseViewController {
 
@@ -30,6 +31,7 @@ class WalletViewController: BaseViewController {
     let keyboardObserver = KeyboardObserver()
     
     let walletViewModel = ContainerDI.shared.resolve(WalletViewModel.self)!
+    let authViewModel = ContainerDI.shared.resolve(AuthViewModel.self)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +102,19 @@ class WalletViewController: BaseViewController {
         transSection.onRemoveItem = { index in
             self.updateAmount()
         }
+        
+        walletViewModel.getWalletFB {
+            if let amount = self.authViewModel.activeUser?.wallet?.amount {
+                self.amountText.rx.text.onNext("Rp\(NSNumber(value:amount).formatAsDecimalString())")
+            }
+        } onError: { error in
+            AlertKitAPI.present(
+                title: "Error load User Wallet",
+                icon: AlertIcon.error,
+                style: .iOS17AppleMusic,
+                haptic: .error
+            )
+        }
     }
     
     func runAnim() {
@@ -113,7 +128,12 @@ class WalletViewController: BaseViewController {
     
     func updateAmount() {
         let total = self.walletViewModel.getTotalAmount()
-        self.amountText.rx.text.onNext("Rp\(NSNumber(value:total).formatAsDecimalString())")
+        if let amount = self.authViewModel.activeUser?.wallet?.amount {
+            let number = total + amount
+            self.authViewModel.activeUser?.wallet?.amount = number
+            self.amountText.rx.text.onNext("Rp\(NSNumber(value:number).formatAsDecimalString())")
+        }
+        
     }
 }
 

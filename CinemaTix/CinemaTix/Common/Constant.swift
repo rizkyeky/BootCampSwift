@@ -15,3 +15,9 @@ let currencyFormatter: NumberFormatter = {
     formatter.maximumFractionDigits = 3
     return formatter
 }()
+
+let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd, MMMM yyyy"
+    return formatter
+}()

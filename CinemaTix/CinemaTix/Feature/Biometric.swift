@@ -12,36 +12,33 @@ class BiometricAuth {
     
     let context = LAContext()
     
-    func authenticateUser(completion: @escaping (Bool) -> Void) {
+    func authenticateUser(onSuccess: @escaping () -> Void, onError: ((Error?) -> Void)?) {
     
         var error: NSError?
-
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let reason = "Authentication required to access your data"
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, evaluateError in
-                if success {
-                    print("Biometric authentication successful")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        completion(true)
+        
+        if let usernameDef = UserDefaults.standard.value(forKey: "username") as? String {
+            if KeychainManager.isKeychainEmptyForUsername(username: usernameDef) {
+                if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                    let reason = "Authentication required to open app"
+                    context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, evaluateError in
+                        if success {
+                            onSuccess()
+                        } else {
+                            if let error = evaluateError {
+                                onError?(error)
+                            } else {
+                                onError?(NSError())
+                            }
+                        }
                     }
                 } else {
-                    if let error = evaluateError {
-                        print("Biometric authentication error: \(error.localizedDescription)")
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            completion(false)
-                        }
-                    } else {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            completion(false)
-                        }
-                    }
+                    onError?(NSError())
                 }
+            } else {
+                onError?(NSError())
             }
         } else {
-            print("Biometric authentication not available")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                completion(false)
-            }
+            onError?(NSError())
         }
     }
 

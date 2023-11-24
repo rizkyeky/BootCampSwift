@@ -24,14 +24,14 @@ class DataController {
         user.id = UUID()
         user.username = username
         user.email = email
-        user.password = password
+//        user.password = password
         
-        let wallet = Wallet(context: context)
-        wallet.id = UUID()
-        wallet.transactions = NSSet(array: [
+//        let wallet = Wallet(context: context)
+//        wallet.id = UUID()
+//        wallet.transactions = NSSet(array: [
 //            Transac(context: context)
-        ])
-        user.wallet = wallet.id
+//        ])
+//        user.wallet = wallet.id
         
         do {
             try context.save()

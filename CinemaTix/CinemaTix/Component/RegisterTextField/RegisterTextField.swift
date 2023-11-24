@@ -50,14 +50,8 @@ class RegisterTextField: UIView {
     
     func didTapSecureButton(_ action: UIAction) {
         isHideInput.toggle()
-        if isHideInput {
-            secureButton.imageView?.image = UIImage(named: "eye.slash.fill")
-            textField.isSecureTextEntry = true
-        } else {
-            secureButton.imageView?.image = UIImage(named: "eye.fill")
-            textField.isSecureTextEntry = false
-        }
-        secureButton.updateConfiguration()
+        let iconName = isHideInput ? "eye.slash.fill" : "eye.fill"
+        secureButton.setImage(UIImage(systemName: iconName), for: .normal)
+        textField.isSecureTextEntry = isHideInput
     }
-    
 }
