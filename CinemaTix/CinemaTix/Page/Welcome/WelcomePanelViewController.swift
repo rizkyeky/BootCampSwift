@@ -41,7 +41,7 @@ extension WelcomePanelViewController {
         appleButton.setTitle("Sign In with Apple", for: .normal)
         appleButton.makeCornerRadius(8)
         appleButton.setTitleColor(.label, for: .normal)
-        if let appleLogo = SVGIcon.apple.getImage() {
+        if let appleLogo = SVGIcon.apple.getImage()?.reColor(.label) {
             let view = UIImageView(image: appleLogo)
             appleButton.addSubview(view)
             view.snp.makeConstraints { make in
@@ -62,7 +62,7 @@ extension WelcomePanelViewController {
         googleButton.setTitle("Sign In with Google", for: .normal)
         googleButton.makeCornerRadius(8)
         googleButton.setTitleColor(.label, for: .normal)
-        if let googleLogo = SVGIcon.google.getImage() {
+        if let googleLogo = SVGIcon.google.getImage()?.reColor(.label) {
             let view = UIImageView(image: googleLogo)
             googleButton.addSubview(view)
             view.snp.makeConstraints { make in
@@ -83,7 +83,7 @@ extension WelcomePanelViewController {
         emailButton.setTitle("Sign In with Email", for: .normal)
         emailButton.makeCornerRadius(8)
         emailButton.setTitleColor(.label, for: .normal)
-        if let emailLogo = SVGIcon.email.getImage() {
+        if let emailLogo = SVGIcon.email.getImage()?.reColor(.label) {
             let view = UIImageView(image: emailLogo)
             emailButton.addSubview(view)
             view.snp.makeConstraints { make in

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="CinemaTix" customModuleProvider="target">
             <connections>
+                <outlet property="birthDatePicker" destination="Bhm-oL-fTv" id="xKj-uq-geE"/>
                 <outlet property="emailTextField" destination="auo-Ma-2A8" id="XsF-Bj-8Cc"/>
                 <outlet property="passwordTextField" destination="HwO-rV-bOy" id="meT-Gv-6h3"/>
                 <outlet property="registerBtn" destination="jwb-N5-Zm7" id="D7a-rx-fx4"/>
@@ -53,11 +54,10 @@
                     <buttonConfiguration key="configuration" style="filled" title="Register"/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhm-oL-fTv" customClass="BrithDateView" customModule="CinemaTix" customModuleProvider="target">
-                    <rect key="frame" x="46.666666666666657" y="423" width="300" height="140"/>
+                    <rect key="frame" x="32" y="423" width="329" height="140"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="140" id="nnm-1X-i36"/>
-                        <constraint firstAttribute="width" constant="300" id="tAF-oX-Vmk"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bg-sv-NqV">
@@ -86,6 +86,8 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HwO-rV-bOy" secondAttribute="trailing" constant="16" id="ZES-Ud-Cil"/>
                 <constraint firstItem="auo-Ma-2A8" firstAttribute="top" secondItem="LQM-2a-02O" secondAttribute="bottom" constant="16" id="chR-QS-QhV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="auo-Ma-2A8" secondAttribute="trailing" constant="16" id="ean-dz-kPg"/>
+                <constraint firstItem="Bhm-oL-fTv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="kvm-IR-h78"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bhm-oL-fTv" secondAttribute="trailing" constant="32" id="nkl-BG-KFd"/>
                 <constraint firstItem="6bg-sv-NqV" firstAttribute="top" secondItem="HwO-rV-bOy" secondAttribute="bottom" constant="16" id="oRU-1j-zAp"/>
                 <constraint firstItem="HwO-rV-bOy" firstAttribute="top" secondItem="auo-Ma-2A8" secondAttribute="bottom" constant="16" id="qXr-lT-Tdg"/>
                 <constraint firstItem="LQM-2a-02O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="rzH-bf-eY5"/>

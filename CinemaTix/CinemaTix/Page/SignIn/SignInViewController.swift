@@ -24,8 +24,6 @@ class SignInViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Sign In with Email"
-        
         emailInput.mainLabel.text = "Email"
         passwordInput.mainLabel.text = "Password"
         
@@ -66,8 +64,7 @@ class SignInViewController: BaseViewController {
         submitButton.addAction(UIAction() { _ in
             let loading = Loading()
             loading.show()
-            self.authViewModel.signIn() { [weak self] user in
-                guard let self = self else {return}
+            self.authViewModel.signInWithFB {
                 self.navigationController?.pushViewController(TabBarViewController(), animated: true)
                 loading.hide()
                 AlertKitAPI.present(
@@ -76,13 +73,19 @@ class SignInViewController: BaseViewController {
                     style: .iOS17AppleMusic,
                     haptic: .success
                 )
-            } onDone: {
-
+            } onError: { error in
+                loading.hide()
+                AlertKitAPI.present(
+                    title: "Error Sign In: \(error.localizedDescription)",
+                    icon: AlertIcon.error,
+                    style: .iOS17AppleMusic,
+                    haptic: .error
+                )
             } onInvalidEmail: {
-                HUD.flash(.error, delay: 1.0)
+                loading.hide()
                 self.showAlertOK(title: "Invalid Email", message: "Please input correct email")
             } onInvalidPassword: {
-                HUD.flash(.error, delay: 1.0)
+                loading.hide()
                 self.showAlertOK(title: "Invalid Password", message: "Please input correct password")
             }
         }, for: .touchUpInside)

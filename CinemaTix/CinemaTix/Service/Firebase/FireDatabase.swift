@@ -11,6 +11,17 @@ import FirebaseFirestore
 class FireDatabase {
     let db = Firestore.firestore()
     
+    func addUser(user: UserModel, onSuccess: @escaping (() -> Void), onError: ((Error) -> Void)? = nil) {
+        let usersCollection = db.collection("users")
+        usersCollection.addDocument(data: user.toDict()) { error in
+            if let _error = error {
+                onError?(_error)
+            } else {
+                onSuccess()
+            }
+        }
+    }
+    
     func getUserBy(email: String, onSuccess: @escaping ((UserModel) -> Void), onError: ((Error) -> Void)? = nil) {
         let usersCollection = db.collection("users")
         
@@ -21,10 +32,13 @@ class FireDatabase {
             if let _documents = snapshot?.documents {
                 let user = _documents.first
                 if let data = user?.data() {
-                    let user = UserModel(data[""])
+                    let user = UserModel.fromDict(data)
                     onSuccess(user)
+                } else {
+                    onError?(NSError())
                 }
-                onSuccess()
+            } else {
+                onError?(NSError())
             }
         }
     }

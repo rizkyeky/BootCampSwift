@@ -21,6 +21,8 @@ class RegisterViewController: BaseViewController {
     
     @IBOutlet weak var registerBtn: UIButton!
     
+    @IBOutlet weak var birthDatePicker: BrithDateView!
+    
     var onTapRegisterButton: (() -> Void)?
     
     let authViewModel = ContainerDI.shared.resolve(AuthViewModel.self)!
@@ -35,18 +37,22 @@ class RegisterViewController: BaseViewController {
         setupPasswordTextField()
         
         setupRegisterButton()
+        
+        birthDatePicker.onDateSelected = { day, month, year in
+            self.authViewModel.birthDateTemp = Date.from(day: day, month: month, year: year) ?? Date()
+        }
     }
     
     func setupCancelButton() {
-        navigationItem.title = "Register"
-        
-        let cancelButton = UIButton(configuration: .plain(), primaryAction: UIAction() { _ in
-            self.dismiss(animated: true)
-        })
-        cancelButton.setTitle("Cancel", for: .normal)
-        let cancelBarItem = UIBarButtonItem(customView: cancelButton)
-        
-        navigationItem.leftBarButtonItems = [cancelBarItem]
+//        navigationItem.title = "Register"
+//        
+//        let cancelButton = UIButton(configuration: .plain(), primaryAction: UIAction() { _ in
+//            self.dismiss(animated: true)
+//        })
+//        cancelButton.setTitle("Cancel", for: .normal)
+//        let cancelBarItem = UIBarButtonItem(customView: cancelButton)
+//        
+//        navigationItem.leftBarButtonItems = [cancelBarItem]
     }
     
     func setupUsernameTextField() {
@@ -94,31 +100,43 @@ class RegisterViewController: BaseViewController {
     
     func setupRegisterButton() {
         registerBtn.setAnimateBounce()
-        
+        let loading = Loading()
         registerBtn.rx.tap.subscribe { [weak self] _ in
             guard let self = self else {return}
-            HUD.show(.progress)
-            authViewModel.register() { user in
+            loading.show()
+            authViewModel.registerWithFB {
+                loading.hide()
                 self.onTapRegisterButton?()
-                HUD.flash(.success, delay: 1.0)
-                AlertKitAPI.present(
-                    title: "Success Register",
-                    icon: AlertIcon.done,
-                    style: .iOS17AppleMusic,
-                    haptic: .success
-                )
-            }onDone: {
+            } onError: { error in
                 
             } onInvalidEmail: {
-                HUD.hide()
+                loading.hide()
                 self.showAlertOK(title: "Invalid Email", message: "Please input correct email")
-            } onInvalidUsername: {
-                HUD.hide()
-                self.showAlertOK(title: "Invalid Username", message: "Please input correct username")
             } onInvalidPassword: {
-                HUD.hide()
+                loading.hide()
                 self.showAlertOK(title: "Invalid Password", message: "Please input correct password")
             }
+//            authViewModel.registerWith() { user in
+//                self.onTapRegisterButton?()
+//                HUD.flash(.success, delay: 1.0)
+//                AlertKitAPI.present(
+//                    title: "Success Register",
+//                    icon: AlertIcon.done,
+//                    style: .iOS17AppleMusic,
+//                    haptic: .success
+//                )
+//            }onDone: {
+//                
+//            } onInvalidEmail: {
+//                HUD.hide()
+//                self.showAlertOK(title: "Invalid Email", message: "Please input correct email")
+//            } onInvalidUsername: {
+//                HUD.hide()
+//                self.showAlertOK(title: "Invalid Username", message: "Please input correct username")
+//            } onInvalidPassword: {
+//                HUD.hide()
+//                self.showAlertOK(title: "Invalid Password", message: "Please input correct password")
+//            }
         }.disposed(by: disposeBag)
     }
 }
@@ -129,6 +147,8 @@ class BrithDateView: UIView {
     let years = Array(1900...2100)
     
     let pickerView = UIPickerView()
+    
+    var onDateSelected: ((Int, Int, Int) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -146,8 +166,8 @@ class BrithDateView: UIView {
         
         addSubview(pickerView)
         pickerView.snp.makeConstraints { make in
-            make.top.left.right.bottom.equalTo(self)
-            make.centerX.centerY.equalTo(self)
+            make.top.left.right.bottom.equalTo(0)
+            make.centerX.centerY.equalToSuperview()
         }
     }
 }
@@ -185,11 +205,13 @@ extension BrithDateView: UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        let selectedDay = days[pickerView.selectedRow(inComponent: 0)]
-//        let selectedMonth = months[pickerView.selectedRow(inComponent: 1)]
-//        let selectedYear = years[pickerView.selectedRow(inComponent: 2)]
-//    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedDay = days[pickerView.selectedRow(inComponent: 0)]
+        let selectedMonth = pickerView.selectedRow(inComponent: 1)
+        let selectedYear = years[pickerView.selectedRow(inComponent: 2)]
+        
+        onDateSelected?(selectedDay, selectedMonth, selectedYear)
+    }
 }
 
 

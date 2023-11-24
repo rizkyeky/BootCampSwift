@@ -13,8 +13,7 @@ class WelcomeViewController: BaseViewController {
 
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
-    
-    @IBOutlet weak var lottie: LottieAnimationView!
+
     
     var floatingPanelController: FloatingPanelController!
     
@@ -25,10 +24,6 @@ class WelcomeViewController: BaseViewController {
         
         setupRegisterButton()
         setupSignInButton()
-        
-        lottie.frame = CGRect(x: 0, y: 0, width: 320, height: 200)
-        lottie.loopMode = .loop
-        lottie.play()
     }
 }
 

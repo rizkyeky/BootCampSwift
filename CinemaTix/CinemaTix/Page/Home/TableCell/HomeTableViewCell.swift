@@ -67,8 +67,8 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         cell.card.backgroundColor = .clear
         
         cell.card.hero.id = "\(details?[index].id?.formatted() ?? "")backdrop"
-        cell.bookButton.hero.id = "\(details?[index].id?.formatted() ?? "")bookbtn"
-        cell.boxBlur.hero.id = "\(details?[index].id?.formatted() ?? "")blur"
+//        cell.bookButton.hero.id = "\(details?[index].id?.formatted() ?? "")bookbtn"
+//        cell.boxBlur.hero.id = "\(details?[index].id?.formatted() ?? "")blur"
         
         let rating = details?[index].voteAverage
         let strRating = String(format: "%.2f", rating ?? 0)

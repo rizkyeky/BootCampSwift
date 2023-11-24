@@ -6,21 +6,20 @@
 //
 
 import UIKit
+import SwiftUI
 import Swinject
 
 class TabBarViewController: UITabBarController {
 
-    let home = UINavigationController(rootViewController: HomeViewController())
-    let wallet = UINavigationController(rootViewController: WalletViewController())
-    let profile = UINavigationController(rootViewController: SettingViewController())
+    let home = HomeViewController()
+    let wallet = WalletViewController()
+//    let profile = SettingViewController()
+    let profile = UIHostingController(rootView: ProfileView())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        home.hidesBottomBarWhenPushed = true
-//        wallet.hidesBottomBarWhenPushed = true
-//        profile.hidesBottomBarWhenPushed = true
-//        navigationController?.hidesBottomBarWhenPushed = true
+    
+        self.heroTabBarAnimationType = .pull(direction: .right)
         
         configureTabBar()
         configureUITabBarItems()

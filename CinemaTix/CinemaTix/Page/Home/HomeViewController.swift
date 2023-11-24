@@ -248,6 +248,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
             
             self.navigationController?.hero.isEnabled = true
             self.navigationController?.hidesBottomBarWhenPushed = true
+            self.navigationController?.heroNavigationAnimationType = .zoomSlide(direction: .down)
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
         }
     }

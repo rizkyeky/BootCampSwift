@@ -18,18 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-
-        let navigationController = UINavigationController(rootViewController: WelcomeViewController())
         
-        ContainerDI.shared.register(UINavigationController.self) { r in
-            return navigationController
-        }.inObjectScope(.container)
+        window.rootViewController = UINavigationController(rootViewController: LaunchViewController())
         
         let darkMode = ContainerDI.shared.resolve(DarkMode.self)
         darkMode?.setup(window: window)
         
-        window.rootViewController = navigationController
-
         self.window = window
         self.window?.makeKeyAndVisible()
     }

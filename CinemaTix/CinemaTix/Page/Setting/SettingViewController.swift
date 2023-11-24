@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SPAlert
 
 struct SettingOption {
     let label: String
@@ -23,10 +24,10 @@ class SettingViewController: BaseViewController {
     
     var settingOptions: [[SettingOption]] = []
     
+    let authViewModel = ContainerDI.shared.resolve(AuthViewModel.self)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.title = "Setting"
         
         table.delegate = self
         table.dataSource = self
@@ -38,16 +39,7 @@ class SettingViewController: BaseViewController {
                 SettingOption("Dark mode"),
                 SettingOption("Account"),
                 SettingOption("Logout") {
-                    if let tabNavController = ContainerDI.shared.resolve(UINavigationController.self) {
-                        self.showAlertOKCancel(title: "Logout", message: "Are you sure want to logout ?") {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                tabNavController.setViewControllers([WelcomeViewController()], animated: true)
-                            }
-                        } onTapCancel: {
-                            self.dismiss(animated: true)
-                        }
-                    }
-                    
+                    self.signOut()
                 },
             ],
             [
@@ -64,6 +56,36 @@ class SettingViewController: BaseViewController {
         ])
     }
     
+    
+    func signOut() {
+        self.showAlertOKCancel(title: "Logout", message: "Are you sure want to logout ?") {
+            self.dismiss(animated: true)
+            let loading = Loading()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                loading.show()
+                self.authViewModel.signOut {
+                    loading.hide()
+                    AlertKitAPI.present(
+                        title: "Success Sign Out",
+                        icon: AlertIcon.done,
+                        style: .iOS17AppleMusic,
+                        haptic: .success
+                    )
+                    self.navigationController?.setViewControllers([WelcomeViewController()], animated: true)
+                } onError: { error in
+                    loading.hide()
+                    AlertKitAPI.present(
+                        title: "Error Sign Out: \(error.localizedDescription)",
+                        icon: AlertIcon.error,
+                        style: .iOS17AppleMusic,
+                        haptic: .error
+                    )
+                }
+            }
+        } onTapCancel: {
+            self.dismiss(animated: true)
+        }
+    }
 }
  
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {

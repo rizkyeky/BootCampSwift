@@ -55,8 +55,11 @@ class MovieDetailViewController: BaseViewController {
         
         self.hero.isEnabled = true
         backDropImage.hero.id = "\(movie?.id?.formatted() ?? "")backdrop"
-        bookButton.hero.id = "\(movie?.id?.formatted() ?? "")bookbtn"
-        blurBox.hero.id = "\(movie?.id?.formatted() ?? "")blur"
+//        bookButton.hero.id = "\(movie?.id?.formatted() ?? "")bookbtn"
+//        blurBox.hero.id = "\(movie?.id?.formatted() ?? "")blur"
+        bookButton.hero.modifiers = [.translate(y:48), .fade]
+        blurBox.hero.modifiers = [.fade, .arc]
+        navBar.hero.modifiers = [.cascade, .translate(x:100)]
         
         if let backdropPath = movie?.backdropPath {
             let path = String(backdropPath.dropFirst())
@@ -91,7 +94,7 @@ class MovieDetailViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        scrollView.contentInset = UIEdgeInsets(top: -80, left: 0, bottom: 0, right: 0)
+        scrollView.contentInset = UIEdgeInsets(top: -100, left: 0, bottom: 0, right: 0)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

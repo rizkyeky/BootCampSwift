@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestoreInternal
 
 struct UserModel {
     let id = UUID()
@@ -27,14 +28,25 @@ struct UserModel {
         self.wallet = wallet
     }
     
-    static func fromDict(_ dict: [String: Any]) -> UserModel {
-        let walletUUID = dict["wallet"]
+    func toDict() -> [String: Any] {
+        return [
+            "email": self.email ?? "",
+            "displayName": self.displayName ?? "",
+            "birthDate": Timestamp(date: self.birthDate ?? Date()),
+            "username": self.username ?? "",
+            "gender": self.gender ?? 0,
+            "wallet": self.wallet?.uuidString ?? ""
+        ]
+    }
+    
+    static func fromDict(_ dict: [String: Any?]) -> UserModel {
+        let walletUUID = dict["wallet"] as? String
         return UserModel(
-            email: dict?["email"],
-            displayName: dict?["displayName"],
-            birthDate: Date.now,
-            username: dict?["username"],
-            gender: dict?["gender"],
+            email: dict["email"] as? String,
+            displayName: dict["displayName"] as? String,
+            birthDate: (dict["birthDate"] as? Timestamp)?.dateValue(),
+            username: dict["username"] as? String,
+            gender: dict["gender"] as? Int,
             wallet: walletUUID != nil ? UUID(uuidString: walletUUID!) : nil
         )
     }
