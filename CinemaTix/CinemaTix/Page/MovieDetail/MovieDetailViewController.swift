@@ -57,6 +57,7 @@ class MovieDetailViewController: BaseViewController {
         backDropImage.hero.id = "\(movie?.id?.formatted() ?? "")backdrop"
 //        bookButton.hero.id = "\(movie?.id?.formatted() ?? "")bookbtn"
 //        blurBox.hero.id = "\(movie?.id?.formatted() ?? "")blur"
+        
         bookButton.hero.modifiers = [.translate(y:48), .fade]
         blurBox.hero.modifiers = [.fade, .arc]
         navBar.hero.modifiers = [.cascade, .translate(x:100)]
@@ -81,14 +82,37 @@ class MovieDetailViewController: BaseViewController {
             movieViewModel.getCredit(id: idMovie) { _peoples in
                 self.castSection.peoples = _peoples
                 self.castSection.collection.reloadData()
-                
                 self.castSection.isShowSkeleton = false
+            }
+            
+            movieViewModel.getDetailMovie(id: idMovie) { _movieDetail in
+                self.movieDetail = _movieDetail
+                self.spec.text?.append(" | \(formatMinutesToHoursAndMinutes(_movieDetail.runtime ?? 0))")
+                let specText = self.spec.text
+                self.spec.rx.text.onNext(specText)
             }
         }
         
         navBar.isHidden = false
         navBar.backgroundColor = .label
         navBar.title.text = movie?.title ?? "-"
+        
+        let shareBtn = UIButton(frame: .init(x: 0, y: 0, width: 30, height: 30))
+        navBar.addSubview(shareBtn)
+        shareBtn.snp.makeConstraints { make in
+            make.height.width.equalTo(32)
+            make.right.equalTo(navBar).inset(16)
+            make.centerY.equalTo(navBar.contain)
+        }
+        shareBtn.configuration = .plain()
+        shareBtn.makeCornerRadiusRounded()
+        shareBtn.setAnimateBounce()
+        shareBtn.setImage(SFIcon.up?.resizeWith(size: CGSize(width: 24, height: 24)).reColor(.accent), for: .normal)
+        shareBtn.setTitleColor(.accent, for: .normal)
+        shareBtn.backgroundColor = .white
+        shareBtn.addAction(UIAction { _ in
+            
+        }, for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {

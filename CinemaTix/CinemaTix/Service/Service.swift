@@ -10,7 +10,7 @@ import Alamofire
 
 class Service {
     
-    func request<T: Codable>(url: URLRequestConvertible, expecting type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+    func request<T: Codable>(url: URLRequestConvertible, expecting type: T.Type, completion: @escaping (Result<T, ErrorService>) -> Void) {
         AF.request(url)
             .validate()
             .responseDecodable(of: type.self) { response in
@@ -18,14 +18,13 @@ class Service {
                 case .success(let model):
                     completion(.success(model))
                 case .failure(let error):
-                    if let err = response.error {
-                        debugPrint(err.errorDescription ?? "Null Error")
-                        if let data = response.data {
-                            let jsonString = String(data: data, encoding: .utf8)
-                            print("Response JSON: \(jsonString ?? "")")
-                        }
+                    let errorService = ErrorService(message: error.errorDescription)
+                    debugPrint(error.errorDescription ?? "Null Error")
+                    if let data = response.data {
+                        let jsonString = String(data: data, encoding: .utf8)
+                        debugPrint("Response JSON: \(jsonString ?? "")")
                     }
-                    completion(.failure(error))
+                    completion(.failure(errorService))
                 }
             }
     }

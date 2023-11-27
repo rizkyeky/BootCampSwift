@@ -5,17 +5,17 @@ target 'CinemaTix' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire'
-  pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher'
-  pod 'FloatingPanel', :git => 'https://github.com/scenee/FloatingPanel'
-  pod 'lottie-ios'
-  pod 'SnapKit'
+  pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git'
+  pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git'
+  pod 'FloatingPanel', :git => 'https://github.com/scenee/FloatingPanel.git'
+  pod 'lottie-ios', :git => 'https://github.com/airbnb/lottie-ios.git'
+  pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git'
   pod 'SkeletonView', :git => 'https://github.com/Juanpe/SkeletonView.git'
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'Swinject'
-  pod 'CenteredCollectionView'
-  pod 'netfox', :configurations => ['Debug']
+  pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git'
+  pod 'RxCocoa', :git => 'https://github.com/ReactiveX/RxSwift.git'
+  pod 'Swinject', :git => 'https://github.com/Swinject/Swinject.git'
+  pod 'CenteredCollectionView', :git => 'https://github.com/BenEmdon/CenteredCollectionView.git'
+  pod 'netfox', :configurations => ['Debug'], :git => 'https://github.com/kasketis/netfox.git'
   pod 'ViewAnimator', :git => 'https://github.com/marcosgriselli/ViewAnimator.git'
   pod 'SPAlert', :git => 'https://github.com/sparrowcode/AlertKit.git'
   pod 'UIKitLivePreview', :git => 'https://github.com/nicoelayda/UIKitLivePreview.git'
@@ -26,10 +26,12 @@ target 'CinemaTix' do
 
   pod 'FirebaseAuth', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
   pod 'FirebaseFirestore', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
+  pod 'FirebaseMessaging', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
+  
 #  pod 'GoogleMLKit/BarcodeScanning'
 #  pod 'GoogleMLKit/ObjectDetection'
 
-  pod 'SideMenu' => 'https://github.com/kukushi/SideMenu'
+  pod 'SideMenuSwift', :git => 'https://github.com/kukushi/SideMenu'
 #  pod 'FirebaseCore', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
 #  pod 'EFNavigationBar', :git => 'https://github.com/EFPrefix/EFNavigationBar.git'
 #  pod 'CryptoSwift', :git => 'https://github.com/krzyzanowskim/CryptoSwift.git'

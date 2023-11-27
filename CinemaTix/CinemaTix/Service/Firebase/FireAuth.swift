@@ -13,7 +13,7 @@ class FireAuth {
     private let auth = Auth.auth()
     private let database = FireDatabase()
     
-    func getCurrUser(onSuccess: @escaping ((UserModel?) -> Void), onError: ((Error) -> Void)? = nil) {
+    func getCurrUser(onSuccess: @escaping ((UserModel?) -> Void), onError: ((ErrorService) -> Void)? = nil) {
         if let user = auth.currentUser {
             if let userEmail = user.email {
                 self.database.getUserBy(email: userEmail) { user in
@@ -29,10 +29,10 @@ class FireAuth {
         }
     }
     
-    func signIn(email: String, password: String, onSuccess: @escaping ((UserModel) -> Void), onError: ((Error) -> Void)? = nil) {
+    func signIn(email: String, password: String, onSuccess: @escaping ((UserModel) -> Void), onError: ((ErrorService) -> Void)? = nil) {
         auth.signIn(withEmail: email, password: password) { result, error in
             if let _error = error {
-                onError?(_error)
+                onError?(ErrorService(message: _error.localizedDescription))
             }
             if let fireUser = result?.user {
                 if let userEmail = fireUser.email {
@@ -42,35 +42,37 @@ class FireAuth {
                         onError?(error)
                     }
                 }
+            } else {
+                onError?(ErrorService(message: "User is not found"))
             }
         }
     }
     
-    func register(user: UserModel, password: String, onSuccess: @escaping ((FirebaseAuth.User) -> Void), onError: ((Error) -> Void)? = nil) {
+    func register(user: UserModel, password: String, onSuccess: @escaping ((FirebaseAuth.User, String?) -> Void), onError: ((ErrorService) -> Void)? = nil) {
         if let email = user.email {
             auth.createUser(withEmail: email, password: password) { result, error in
                 if let _error = error {
-                    onError?(_error)
+                    onError?(ErrorService(message: _error.localizedDescription))
                 }
                 if let _result = result {
-                    self.database.addUser(user: user) {
-                        onSuccess(_result.user)
+                    self.database.addUser(user: user) { id in
+                        onSuccess(_result.user, id)
                     } onError: { error in
                         onError?(error)
                     }
                 } else {
-                    onError?(NSError())
+                    onError?(ErrorService(message: "User is not found"))
                 }
             }
         }
     }
     
-    func signOut(onSuccess: @escaping (() -> Void), onError: ((Error) -> Void)? = nil) {
+    func signOut(onSuccess: @escaping (() -> Void), onError: ((ErrorService) -> Void)? = nil) {
         do {
             try auth.signOut()
             onSuccess()
         } catch let signOutError as NSError {
-            onError?(signOutError)
+            onError?(ErrorService(message: signOutError.localizedDescription))
         }
     }
 }

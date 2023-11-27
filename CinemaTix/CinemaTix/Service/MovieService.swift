@@ -11,22 +11,22 @@ class MovieService: Service {
     
     private let movieApi = MovieApi()
     
-    func getDetail(id: Int, completion: @escaping (Result<MovieDetailModel, Error>) -> Void) -> Void {
+    func getDetail(id: Int, completion: @escaping (Result<MovieDetailModel, ErrorService>) -> Void) -> Void {
         let url = movieApi.detailById(id)
         request(url: url, expecting: MovieDetailModel.self, completion: completion)
     }
     
-    func getCredit(id: Int, completion: @escaping (Result<ResultCredit, Error>) -> Void) -> Void {
+    func getCredit(id: Int, completion: @escaping (Result<ResultCredit, ErrorService>) -> Void) -> Void {
         let url = movieApi.credit(id)
         request(url: url, expecting: ResultCredit.self, completion: completion)
     }
     
-    func getAllGenres(completion: @escaping (Result<ResultGenre, Error>) -> Void) -> Void {
+    func getAllGenres(completion: @escaping (Result<ResultGenre, ErrorService>) -> Void) -> Void {
         let url = movieApi.genres
         request(url: url, expecting: ResultGenre.self, completion: completion)
     }
     
-    func getPopular(completion: @escaping (Result<[MovieModel]?, Error>) -> Void) -> Void {
+    func getPopular(completion: @escaping (Result<[MovieModel]?, ErrorService>) -> Void) -> Void {
         let url = movieApi.popular
         request(url: url, expecting: BaseResultModel<MovieModel>.self) { result in
             switch result {
@@ -39,7 +39,7 @@ class MovieService: Service {
         }
     }
     
-    func getPlayingNow(completion: @escaping (Result<[MovieModel]?, Error>) -> Void) -> Void {
+    func getPlayingNow(completion: @escaping (Result<[MovieModel]?, ErrorService>) -> Void) -> Void {
         let url = movieApi.playingNow
         request(url: url, expecting: BaseResultModel<MovieModel>.self) { result in
             switch result {
@@ -52,7 +52,7 @@ class MovieService: Service {
         }
     }
     
-    func getUpComing(completion: @escaping (Result<[MovieModel]?, Error>) -> Void) -> Void {
+    func getUpComing(completion: @escaping (Result<[MovieModel]?, ErrorService>) -> Void) -> Void {
         let url = movieApi.upComing
         request(url: url, expecting: BaseResultModel<MovieModel>.self) { result in
             switch result {
@@ -65,7 +65,7 @@ class MovieService: Service {
         }
     }
     
-    func getTopRated(completion: @escaping (Result<[MovieModel]?, Error>) -> Void) -> Void {
+    func getTopRated(completion: @escaping (Result<[MovieModel]?, ErrorService>) -> Void) -> Void {
         let url = movieApi.topRated
         request(url: url, expecting: BaseResultModel<MovieModel>.self) { result in
             switch result {
@@ -78,7 +78,7 @@ class MovieService: Service {
         }
     }
     
-    func getBySearch(query: String, completion: @escaping (Result<[MovieModel]?, Error>) -> Void) -> Void {
+    func getBySearch(query: String, completion: @escaping (Result<[MovieModel]?, ErrorService>) -> Void) -> Void {
         let url = movieApi.searchByKeywords(query)
         request(url: url, expecting: BaseResultModel<MovieModel>.self) { result in
             switch result {
@@ -91,7 +91,7 @@ class MovieService: Service {
         }
     }
     
-    func getDiscover(query: String, completion: @escaping (Result<[MovieModel]?, Error>) -> Void) -> Void {
+    func getDiscover(query: String, completion: @escaping (Result<[MovieModel]?, ErrorService>) -> Void) -> Void {
         let url = movieApi.discover
         request(url: url, expecting: BaseResultModel<MovieModel>.self) { result in
             switch result {

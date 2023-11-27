@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestoreInternal
 
 struct UserModel {
-    let id: UUID?
+    var id: String?
     
     let email: String?
     
@@ -19,7 +19,7 @@ struct UserModel {
     var gender: Gender?
     var wallet: WalletModel?
     
-    init(id: UUID? = nil, email: String?, displayName: String? = nil, birthDate: Date? = nil, username: String? = nil, gender: Int? = nil, wallet: UUID? = nil) {
+    init(id: String? = nil, email: String?, displayName: String? = nil, birthDate: Date? = nil, username: String? = nil, gender: Int? = nil, wallet: String? = nil) {
         self.id = id
         self.username = username
         self.displayName = displayName
@@ -41,24 +41,13 @@ struct UserModel {
     }
     
     static func fromDict(_ dict: [String: Any?]) -> UserModel {
-        
-        var walletUUID: UUID?
-//        print(dict["walletId"]as? String)
-//        print(dict["email"] as? String)
-        if let walletId = (dict["walletId"] as? String) {
-            walletUUID = UUID(uuidString: walletId)
-        } else {
-            walletUUID = nil
-        }
-        print(walletUUID)
-        
         return UserModel(
             email: dict["email"] as? String,
             displayName: dict["displayName"] as? String,
             birthDate: (dict["birthDate"] as? Timestamp)?.dateValue(),
             username: dict["username"] as? String,
             gender: dict["gender"] as? Int,
-            wallet: walletUUID
+            wallet: dict["walletId"] as? String
         )
     }
 }

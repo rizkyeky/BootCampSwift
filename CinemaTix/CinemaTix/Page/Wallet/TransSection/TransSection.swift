@@ -15,6 +15,8 @@ class TransSection: UIView {
     
     var onRemoveItem: ((Int) -> Void)?
     
+    var isLoading: Bool?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -42,7 +44,8 @@ class TransSection: UIView {
 
 extension TransSection: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return walletViewModel.getLenTrans()
+        let len = walletViewModel.getLenTrans()
+        return len > 0 ? len : 3
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -51,17 +54,26 @@ extension TransSection: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(forIndexPath: indexPath) as TransCell
-        let trans = walletViewModel.getTrans(indexPath.row)
-        cell.label.text = "\(trans.label ?? "-")"
-        cell.amount.text = "Rp\(NSNumber(value: trans.amount ?? 0).formatAsDecimalString())"
-        if let type = trans.type {
-            switch type {
-            case .income:
-                cell.icon.image = SFIcon.up
-            case .outcome:
-                cell.icon.image = SFIcon.down
+        
+        if isLoading ?? false {
+            cell.skeletonCornerRadius = 16
+            cell.showAnimatedSkeleton()
+        } else {
+            cell.hideSkeleton()
+            let trans = walletViewModel.getTrans(indexPath.row)
+            cell.label.text = "\(trans.label ?? "-")"
+            cell.amount.text = "Rp\(NSNumber(value: trans.amount ?? 0).formatAsDecimalString())"
+            
+            if let type = trans.type {
+                switch type {
+                case .income:
+                    cell.icon.image = SFIcon.up
+                case .outcome:
+                    cell.icon.image = SFIcon.down
+                }
             }
         }
+        
         return cell
     }
     
@@ -69,7 +81,7 @@ extension TransSection: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             table.beginUpdates()
             let id = walletViewModel.getTrans(indexPath.row).id
-            walletViewModel.deleteTransBy(id: id)
+            walletViewModel.deleteTransBy(id: id ?? "")
             table.deleteRows(at: [indexPath], with: .left)
             table.endUpdates()
             onRemoveItem?(indexPath.row)

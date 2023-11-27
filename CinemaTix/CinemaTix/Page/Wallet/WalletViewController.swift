@@ -31,7 +31,6 @@ class WalletViewController: BaseViewController {
     let keyboardObserver = KeyboardObserver()
     
     let walletViewModel = ContainerDI.shared.resolve(WalletViewModel.self)!
-    let authViewModel = ContainerDI.shared.resolve(AuthViewModel.self)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +54,12 @@ class WalletViewController: BaseViewController {
             make.top.left.right.bottom.equalTo(card)
         }
         
-        amountText.text = "Rp0"
+//        amountText.text = "Rp0"
         amountText.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         amountText.textColor = .white
+        
+        amountText.skeletonCornerRadius = 8
+        amountText.showAnimatedSkeleton()
         
         card.addSubview(amountText)
         amountText.snp.makeConstraints { make in
@@ -102,14 +104,15 @@ class WalletViewController: BaseViewController {
         transSection.onRemoveItem = { index in
             self.updateAmount()
         }
+        transSection.isLoading = true
         
         walletViewModel.getWalletFB {
-            if let amount = self.authViewModel.activeUser?.wallet?.amount {
-                self.amountText.rx.text.onNext("Rp\(NSNumber(value:amount).formatAsDecimalString())")
-            }
+            self.updateAmount()
+            self.transSection.isLoading = false
+            self.transSection.table.reloadData()
         } onError: { error in
             AlertKitAPI.present(
-                title: "Error load User Wallet",
+                title: error.message ?? "Error load User Wallet",
                 icon: AlertIcon.error,
                 style: .iOS17AppleMusic,
                 haptic: .error
@@ -127,13 +130,9 @@ class WalletViewController: BaseViewController {
     }
     
     func updateAmount() {
+        amountText.hideSkeleton()
         let total = self.walletViewModel.getTotalAmount()
-        if let amount = self.authViewModel.activeUser?.wallet?.amount {
-            let number = total + amount
-            self.authViewModel.activeUser?.wallet?.amount = number
-            self.amountText.rx.text.onNext("Rp\(NSNumber(value:number).formatAsDecimalString())")
-        }
-        
+        self.amountText.rx.text.onNext("Rp\(NSNumber(value:total).formatAsDecimalString())")
     }
 }
 
@@ -151,7 +150,15 @@ extension WalletViewController: FloatingPanelControllerDelegate {
     func showTopUpPanel() {
         let panelVC = TopUpPanelViewController()
         panelVC.onTapClose = { self.hidePanel() }
-        panelVC.didFailAdd = { self.hidePanel() }
+        panelVC.didFailAdd = { error in
+            self.hidePanel()
+            AlertKitAPI.present(
+                title: error.message ?? "Error add transactions",
+                icon: AlertIcon.error,
+                style: .iOS17AppleMusic,
+                haptic: .error
+            )
+        }
         panelVC.didSuccessAdd = {
             self.updateAmount()
             self.transSection.table.reloadData()
@@ -184,8 +191,8 @@ class TopUpFloatingPanelLayout: FloatingPanelLayout {
     let initialState: FloatingPanelState = .half
     
     let anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] = [
-        .half: FloatingPanelLayoutAnchor(fractionalInset: 0.32, edge: .bottom, referenceGuide: .safeArea),
-        .full: FloatingPanelLayoutAnchor(fractionalInset: 0.64, edge: .bottom, referenceGuide: .safeArea),
+        .half: FloatingPanelLayoutAnchor(fractionalInset: 0.48, edge: .bottom, referenceGuide: .safeArea),
+        .full: FloatingPanelLayoutAnchor(fractionalInset: 0.72, edge: .bottom, referenceGuide: .safeArea),
     ]
     
     func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
@@ -201,7 +208,7 @@ class TopUpPanelViewController: UIViewController {
     
     var onTapClose: (() -> Void)?
     var didSuccessAdd: (() -> Void)?
-    var didFailAdd: (() -> Void)?
+    var didFailAdd: ((ErrorService) -> Void)?
     
     let boxTopBar = UIView()
     
@@ -259,6 +266,45 @@ class TopUpPanelViewController: UIViewController {
             .bind(to: amountField.rx.text)
             .disposed(by: disposeBag)
         
+        var labelTemp: String?
+        let labelField = UITextField()
+        labelField.backgroundColor = .clear
+        labelField.placeholder = "Nama"
+        
+        let baseLabelField = UIView()
+        view.addSubview(baseLabelField)
+        baseLabelField.snp.makeConstraints { make in
+            make.height.equalTo(56)
+            make.left.equalToSuperview().inset(16)
+            make.right.equalToSuperview().inset(16)
+            make.top.equalTo(amountField.snp.bottom).offset(16)
+        }
+        baseLabelField.backgroundColor = .quaternarySystemFill
+        baseLabelField.makeCornerRadius(8)
+        
+        baseLabelField.addSubview(labelField)
+        labelField.snp.makeConstraints { make in
+            make.left.equalTo(baseLabelField).inset(8)
+            make.right.equalTo(baseLabelField).inset(8)
+            make.top.bottom.equalTo(baseLabelField)
+        }
+        labelField.rx.text
+            .compactMap { $0 }
+            .map { text in
+                return text.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+            }
+            .map { text in
+                labelTemp = text
+                if let double = Double(text) {
+                    let num = NSNumber(value: double)
+                    return currencyFormatter.string(from: num)
+                } else {
+                    return ""
+                }
+            }
+            .bind(to: labelField.rx.text)
+            .disposed(by: disposeBag)
+        
         let addBtn = UIButton(configuration: .filled())
         addBtn.setTitle("Top Up", for: .normal)
         addBtn.setAnimateBounce()
@@ -266,19 +312,22 @@ class TopUpPanelViewController: UIViewController {
         view.addSubview(addBtn)
         addBtn.snp.makeConstraints { make in
             make.height.equalTo(50)
-            make.top.equalTo(baseAmountField.snp.bottom).offset(16)
+            make.top.equalTo(baseLabelField.snp.bottom).offset(16)
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)
         }
         addBtn.addAction(UIAction { _ in
-            print(amountTemp ?? "-")
             if let amount = Double(amountTemp ?? "") {
-                self.walletViewModel.addTrans(label: "Top Up", amount: amount, type: .income)
-                self.didSuccessAdd?()
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.didFailAdd?()
+                let loading = Loading()
+                loading.show()
+                self.walletViewModel.addTrans(label: labelTemp ?? "-", amount: amount, type: .income) {
+                    loading.hide()
+                    self.didSuccessAdd?()
+                } onError: { error in
+                    self.didFailAdd?(error)
                 }
+            } else {
+                self.didFailAdd?(ErrorService(message: "Amount is not found"))
             }
         }, for: .touchUpInside)
     }

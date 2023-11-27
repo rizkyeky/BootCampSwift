@@ -12,22 +12,74 @@ class FireDatabase {
     
     let db = Firestore.firestore()
     
-    func addUser(user: UserModel, onSuccess: @escaping (() -> Void), onError: ((Error) -> Void)? = nil) {
+    func addUser(user: UserModel, onSuccess: @escaping ((String?) -> Void), onError: ((ErrorService) -> Void)? = nil) {
         let usersCollection = db.collection("users")
-        usersCollection.addDocument(data: user.toDict()) { error in
+        var ref: DocumentReference?
+
+        ref = usersCollection.addDocument(data: user.toDict()) { error in
             if let _error = error {
-                onError?(_error)
+                onError?(ErrorService(message: _error.localizedDescription))
             } else {
-                onSuccess()
+                onSuccess(ref?.documentID)
             }
         }
     }
     
-    func getUserBy(email: String, onSuccess: @escaping ((UserModel) -> Void), onError: ((Error) -> Void)? = nil) {
+    func updateWallet(wallet: WalletModel, onSuccess: @escaping (() -> Void), onError: ((ErrorService) -> Void)? = nil) {
+        let walletsCollection = db.collection("wallets")
+        var ref: DocumentReference?
+        
+        if let walletId = wallet.id {
+            ref = walletsCollection.document(walletId)
+            ref?.getDocument { snapshot, error  in
+                if let _error = error {
+                    onError?(ErrorService(message: _error.localizedDescription))
+                } else {
+                    ref?.updateData(wallet.toDict()) { error in
+                        if let _error = error {
+                            onError?(ErrorService(message: _error.localizedDescription))
+                        } else {
+                            onSuccess()
+                        }
+                    }
+                }
+            }
+        } else {
+            onError?(ErrorService(message: "Wallet ID is not found"))
+        }
+    }
+    
+    func addWallet(wallet: WalletModel, onSuccess: @escaping ((String?) -> Void), onError: ((ErrorService) -> Void)? = nil) {
+        let walletsCollection = db.collection("wallets")
+        var ref: DocumentReference?
+        
+        ref = walletsCollection.addDocument(data: wallet.toDict()) { error in
+            if let _error = error {
+                onError?(ErrorService(message: _error.localizedDescription))
+            } else {
+                onSuccess(ref?.documentID)
+            }
+        }
+    }
+    
+    func addTransaction(trans: Transaction, onSuccess: @escaping ((String?) -> Void), onError: ((ErrorService) -> Void)? = nil) {
+        let walletsCollection = db.collection("transactions")
+        var ref: DocumentReference?
+        
+        ref = walletsCollection.addDocument(data: trans.toDict()) { error in
+            if let _error = error {
+                onError?(ErrorService(message: _error.localizedDescription))
+            } else {
+                onSuccess(ref?.documentID)
+            }
+        }
+    }
+    
+    func getUserBy(email: String, onSuccess: @escaping ((UserModel) -> Void), onError: ((ErrorService) -> Void)? = nil) {
         let usersCollection = db.collection("users")
         usersCollection.whereField("email", isEqualTo: email).getDocuments { snapshot, error in
             if let _error = error {
-                onError?(_error)
+                onError?(ErrorService(message: _error.localizedDescription))
             }
             if let _documents = snapshot?.documents {
                 let user = _documents.first
@@ -35,30 +87,69 @@ class FireDatabase {
                     let user = UserModel.fromDict(data)
                     onSuccess(user)
                 } else {
-                    onError?(NSError())
+                    onError?(ErrorService(message: "User data is not found"))
                 }
             } else {
-                onError?(NSError())
+                onError?(ErrorService(message: "Wallet Documents is not found"))
             }
         }
     }
     
-    func getWalletBy(id: String, onSuccess: @escaping ((WalletModel) -> Void), onError: ((Error) -> Void)? = nil) {
+    func getWalletBy(id: String, onSuccess: @escaping ((WalletModel) -> Void), onError: ((ErrorService) -> Void)? = nil) {
         let walletsCollection = db.collection("wallets")
         walletsCollection.document(id).getDocument { document, error in
             if let _error = error {
-                onError?(_error)
+                onError?(ErrorService(message: _error.localizedDescription))
             }
             if let _document = document, _document.exists {
                 if let data = _document.data() {
-                    let wallet = WalletModel.fromDict(data)
+                    var wallet = WalletModel.fromDict(data)
+                    wallet.id = id
                     onSuccess(wallet)
                 } else {
-                    onError?(NSError())
+                    onError?(ErrorService(message: "Wallet data is not found"))
                 }
             } else {
-                onError?(NSError())
+                onError?(ErrorService(message: "Wallet Documents is not found"))
             }
+        }
+    }
+    
+    func getTransactionsBy(wallet: WalletModel, onSuccess: @escaping (([Transaction]) -> Void), onError: ((ErrorService) -> Void)? = nil) {
+        let walletTrans = wallet.transactions
+        let transCollection = db.collection("transactions")
+        
+        let dispatchGroup = DispatchGroup()
+        var newTrans: [Transaction] = []
+        
+        for wallTranId in walletTrans ?? [] {
+            dispatchGroup.enter()
+            
+            transCollection.document(wallTranId).getDocument { document, error in
+                defer {
+                    dispatchGroup.leave()
+                }
+                
+                if let _error = error {
+                    onError?(ErrorService(message: _error.localizedDescription))
+                }
+                if let _document = document, _document.exists {
+                    
+                    if let data = _document.data() {
+                        let trans = Transaction.fromDict(data)
+                        newTrans.append(trans)
+                    } else {
+                        onError?(ErrorService(message: "Transaction data is not found"))
+                        return
+                    }
+                } else {
+                    onError?(ErrorService(message: "Transaction Documents is not found"))
+                    return
+                }
+            }
+        }
+        dispatchGroup.notify(queue: .main) {
+            onSuccess(newTrans)
         }
     }
 }

@@ -21,3 +21,20 @@ let dateFormatter: DateFormatter = {
     formatter.dateFormat = "dd, MMMM yyyy"
     return formatter
 }()
+
+func formatMinutesToHoursAndMinutes(_ totalMinutes: Int) -> String {
+    let hours = totalMinutes / 60
+    let minutes = totalMinutes % 60
+    
+    var formattedTime = ""
+    
+    if hours > 0 {
+        formattedTime += "\(hours)h "
+    }
+    
+    if minutes > 0 || hours == 0 {
+        formattedTime += "\(minutes)m"
+    }
+    
+    return formattedTime
+}

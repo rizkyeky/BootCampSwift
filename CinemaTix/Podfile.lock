@@ -671,8 +671,26 @@ PODS:
     - "gRPC-C++ (~> 1.49.1)"
     - leveldb-library (~> 1.22)
     - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseInstallations (10.18.0):
+    - FirebaseCore (~> 10.0)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/UserDefaults (~> 7.8)
+    - PromisesObjC (~> 2.1)
+  - FirebaseMessaging (10.19.0):
+    - FirebaseCore (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleDataTransport (~> 9.2)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/Reachability (~> 7.8)
+    - GoogleUtilities/UserDefaults (~> 7.8)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
   - FirebaseSharedSwift (10.18.0)
   - FloatingPanel (2.8.1)
+  - GoogleDataTransport (9.2.5):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
   - GoogleUtilities/AppDelegateSwizzler (7.12.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -687,6 +705,8 @@ PODS:
     - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (7.12.0)"
   - GoogleUtilities/Reachability (7.12.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.12.0):
     - GoogleUtilities/Logger
   - "gRPC-C++ (1.49.1)":
     - "gRPC-C++/Implementation (= 1.49.1)"
@@ -771,32 +791,35 @@ PODS:
   - RxRelay (6.6.0):
     - RxSwift (= 6.6.0)
   - RxSwift (6.6.0)
+  - SideMenuSwift (2.0.10)
   - SkeletonView (1.30.4)
   - SnapKit (5.6.0)
   - SPAlert (5.1.8)
-  - Swinject (2.8.3)
+  - Swinject (2.8.4)
   - UIKitLivePreview (1.3.1)
   - ViewAnimator (3.1.0)
 
 DEPENDENCIES:
-  - Alamofire (from `https://github.com/Alamofire/Alamofire`)
-  - CenteredCollectionView
+  - Alamofire (from `https://github.com/Alamofire/Alamofire.git`)
+  - CenteredCollectionView (from `https://github.com/BenEmdon/CenteredCollectionView.git`)
   - FirebaseAuth (from `https://github.com/firebase/firebase-ios-sdk.git`)
   - FirebaseFirestore (from `https://github.com/firebase/firebase-ios-sdk.git`)
-  - FloatingPanel (from `https://github.com/scenee/FloatingPanel`)
+  - FirebaseMessaging (from `https://github.com/firebase/firebase-ios-sdk.git`)
+  - FloatingPanel (from `https://github.com/scenee/FloatingPanel.git`)
   - Hero (from `https://github.com/HeroTransitions/Hero.git`)
   - IQKeyboardManagerSwift (from `https://github.com/hackiftekhar/IQKeyboardManager.git`)
   - KeyboardObserver (from `https://github.com/morizotter/KeyboardObserver.git`)
-  - Kingfisher (from `https://github.com/onevcat/Kingfisher`)
-  - lottie-ios
-  - netfox
+  - Kingfisher (from `https://github.com/onevcat/Kingfisher.git`)
+  - lottie-ios (from `https://github.com/airbnb/lottie-ios.git`)
+  - netfox (from `https://github.com/kasketis/netfox.git`)
   - PKHUD (from `https://github.com/pkluz/PKHUD.git`)
-  - RxCocoa
-  - RxSwift
+  - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`)
+  - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`)
+  - SideMenuSwift (from `https://github.com/kukushi/SideMenu`)
   - SkeletonView (from `https://github.com/Juanpe/SkeletonView.git`)
-  - SnapKit
+  - SnapKit (from `https://github.com/SnapKit/SnapKit.git`)
   - SPAlert (from `https://github.com/sparrowcode/AlertKit.git`)
-  - Swinject
+  - Swinject (from `https://github.com/Swinject/Swinject.git`)
   - UIKitLivePreview (from `https://github.com/nicoelayda/UIKitLivePreview.git`)
   - ViewAnimator (from `https://github.com/marcosgriselli/ViewAnimator.git`)
 
@@ -804,38 +827,37 @@ SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
-    - CenteredCollectionView
     - FirebaseAppCheckInterop
     - FirebaseCore
     - FirebaseCoreExtension
     - FirebaseCoreInternal
     - FirebaseFirestoreInternal
+    - FirebaseInstallations
     - FirebaseSharedSwift
+    - GoogleDataTransport
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
     - leveldb-library
-    - lottie-ios
     - nanopb
-    - netfox
     - PromisesObjC
     - RecaptchaInterop
-    - RxCocoa
     - RxRelay
-    - RxSwift
-    - SnapKit
-    - Swinject
 
 EXTERNAL SOURCES:
   Alamofire:
-    :git: https://github.com/Alamofire/Alamofire
+    :git: https://github.com/Alamofire/Alamofire.git
+  CenteredCollectionView:
+    :git: https://github.com/BenEmdon/CenteredCollectionView.git
   FirebaseAuth:
     :git: https://github.com/firebase/firebase-ios-sdk.git
   FirebaseFirestore:
     :git: https://github.com/firebase/firebase-ios-sdk.git
+  FirebaseMessaging:
+    :git: https://github.com/firebase/firebase-ios-sdk.git
   FloatingPanel:
-    :git: https://github.com/scenee/FloatingPanel
+    :git: https://github.com/scenee/FloatingPanel.git
   Hero:
     :git: https://github.com/HeroTransitions/Hero.git
   IQKeyboardManagerSwift:
@@ -843,13 +865,27 @@ EXTERNAL SOURCES:
   KeyboardObserver:
     :git: https://github.com/morizotter/KeyboardObserver.git
   Kingfisher:
-    :git: https://github.com/onevcat/Kingfisher
+    :git: https://github.com/onevcat/Kingfisher.git
+  lottie-ios:
+    :git: https://github.com/airbnb/lottie-ios.git
+  netfox:
+    :git: https://github.com/kasketis/netfox.git
   PKHUD:
     :git: https://github.com/pkluz/PKHUD.git
+  RxCocoa:
+    :git: https://github.com/ReactiveX/RxSwift.git
+  RxSwift:
+    :git: https://github.com/ReactiveX/RxSwift.git
+  SideMenuSwift:
+    :git: https://github.com/kukushi/SideMenu
   SkeletonView:
     :git: https://github.com/Juanpe/SkeletonView.git
+  SnapKit:
+    :git: https://github.com/SnapKit/SnapKit.git
   SPAlert:
     :git: https://github.com/sparrowcode/AlertKit.git
+  Swinject:
+    :git: https://github.com/Swinject/Swinject.git
   UIKitLivePreview:
     :git: https://github.com/nicoelayda/UIKitLivePreview.git
   ViewAnimator:
@@ -858,42 +894,69 @@ EXTERNAL SOURCES:
 CHECKOUT OPTIONS:
   Alamofire:
     :commit: 827a879ae2dcc473dfcae8ae188b992f66cd07d6
-    :git: https://github.com/Alamofire/Alamofire
+    :git: https://github.com/Alamofire/Alamofire.git
+  CenteredCollectionView:
+    :commit: f2bf371dae314b46f1bc03c222861c9fc40fff32
+    :git: https://github.com/BenEmdon/CenteredCollectionView.git
   FirebaseAuth:
-    :commit: 146dea0b11d4770a0a4287e0045507ec4c362256
+    :commit: 8fe1ddc5f16957da5b2dc8b1dee90e5bd85205ff
     :git: https://github.com/firebase/firebase-ios-sdk.git
   FirebaseFirestore:
-    :commit: 146dea0b11d4770a0a4287e0045507ec4c362256
+    :commit: 8fe1ddc5f16957da5b2dc8b1dee90e5bd85205ff
+    :git: https://github.com/firebase/firebase-ios-sdk.git
+  FirebaseMessaging:
+    :commit: 8fe1ddc5f16957da5b2dc8b1dee90e5bd85205ff
     :git: https://github.com/firebase/firebase-ios-sdk.git
   FloatingPanel:
     :commit: afcf1ced3628bf4845fe30c73dd96d09a93720c8
-    :git: https://github.com/scenee/FloatingPanel
+    :git: https://github.com/scenee/FloatingPanel.git
   Hero:
     :commit: 45aed927b66348738fd81ab599898e7b47cfdc6e
     :git: https://github.com/HeroTransitions/Hero.git
   IQKeyboardManagerSwift:
-    :commit: 6f357ea18e0da4e089368da3b2b278d09102df65
+    :commit: f137f7ffc158c09582574d0abf1ffaf6108ad88e
     :git: https://github.com/hackiftekhar/IQKeyboardManager.git
   KeyboardObserver:
     :commit: ea45fa1d845a8d418658e6bdb44aeb82e7643ae2
     :git: https://github.com/morizotter/KeyboardObserver.git
   Kingfisher:
     :commit: 277f1ab2c6664b19b4a412e32b094b201e2d5757
-    :git: https://github.com/onevcat/Kingfisher
+    :git: https://github.com/onevcat/Kingfisher.git
+  lottie-ios:
+    :commit: 7873c030a2c2b87375a5a8306dcc32feb2c91d8d
+    :git: https://github.com/airbnb/lottie-ios.git
+  netfox:
+    :commit: 150d41ac4e3b49d80bc5508c5c6895ca057e5d8e
+    :git: https://github.com/kasketis/netfox.git
   PKHUD:
     :commit: 8fd26f23057c6bebd6695524b1c3e05e93aba571
     :git: https://github.com/pkluz/PKHUD.git
+  RxCocoa:
+    :commit: 65bec4c253418c46ddc136424f46f333f086be1a
+    :git: https://github.com/ReactiveX/RxSwift.git
+  RxSwift:
+    :commit: 65bec4c253418c46ddc136424f46f333f086be1a
+    :git: https://github.com/ReactiveX/RxSwift.git
+  SideMenuSwift:
+    :commit: e1e2a0e60a52e183d1a327359c8896c7b2066fdf
+    :git: https://github.com/kukushi/SideMenu
   SkeletonView:
     :commit: 0f5eaf82e82441690d38abfc4118c961f113881c
     :git: https://github.com/Juanpe/SkeletonView.git
+  SnapKit:
+    :commit: 4d52cc3768ec5d345827b063dfa59e98a929965d
+    :git: https://github.com/SnapKit/SnapKit.git
   SPAlert:
     :commit: 23e812f8a893202fc4c436193a740a79fd118bd4
     :git: https://github.com/sparrowcode/AlertKit.git
+  Swinject:
+    :commit: 463cb2d659c8ae34899d18057ea5b1bb86fc3178
+    :git: https://github.com/Swinject/Swinject.git
   UIKitLivePreview:
     :commit: e15c8dcc205465e9418408496a97c0b33e431f1d
     :git: https://github.com/nicoelayda/UIKitLivePreview.git
   ViewAnimator:
-    :commit: 55f1c46241b181c3e0b68d70edb6d87926c7d183
+    :commit: 653a71588ecfd81dbbbcc9348b9f3cb0245b0a13
     :git: https://github.com/marcosgriselli/ViewAnimator.git
 
 SPEC CHECKSUMS:
@@ -908,8 +971,11 @@ SPEC CHECKSUMS:
   FirebaseCoreInternal: 8eb002e564b533bdcf1ba011f33f2b5c10e2ed4a
   FirebaseFirestore: 9b9b21120c1a0cb4f2789ffb7fbb9138f94c47eb
   FirebaseFirestoreInternal: 3d5d03f2447caae64311d2cda92abbf4ec5241be
+  FirebaseInstallations: e842042ec6ac1fd2e37d7706363ebe7f662afea4
+  FirebaseMessaging: 412d94dbccf2374d0052c2c147b886c8ce19c3c0
   FirebaseSharedSwift: 62e248642c0582324d0390706cadd314687c116b
   FloatingPanel: 0c32d8c97e52cf6913833af573506f5d86451465
+  GoogleDataTransport: 54dee9d48d14580407f8f5fbf2f496e92437a2f2
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
   "gRPC-C++": 2df8cba576898bdacd29f0266d5236fa0e26ba6a
   gRPC-Core: a21a60aefc08c68c247b439a9ef97174b0c54f96
@@ -919,7 +985,7 @@ SPEC CHECKSUMS:
   KeyboardObserver: 07610b23782ca6ec417a5a8eef5f93c3d97755f1
   Kingfisher: a18f05d3b6d37d8650ee4a3e61d57a28fc6207f6
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
-  lottie-ios: 25e7b2675dad5c3ddad369ac9baab03560c5bfdd
+  lottie-ios: 16e4b4d2d9fa132b6b3c6b7e37aae6fa86da66fd
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
   PKHUD: 026ee10894f7d983cdb585138523a2ae098e4424
@@ -928,13 +994,14 @@ SPEC CHECKSUMS:
   RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
   RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
+  SideMenuSwift: 00941d27f97ab1e1761768ad417dbd47cc8c1e28
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
-  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SnapKit: 9eedce9d0d01ad07c7c75194ee7d39b42c04bb1f
   SPAlert: 7027ed9df9a2ba8202cab39fd05b53e110f48a99
-  Swinject: 893c9a543000ac2f10ee4cbaf0933c6992c935d5
+  Swinject: e92ea52d5391469ab57feeba48551f3331af1732
   UIKitLivePreview: d2e3c23381d1e043adfd3b522ecd77583169e52d
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
 
-PODFILE CHECKSUM: 3afc27accd8fca4c362ec315c07f64647bb8c672
+PODFILE CHECKSUM: 3f24e2c9d2322182bb658e895ab2875e0db5a6ec
 
 COCOAPODS: 1.14.2
