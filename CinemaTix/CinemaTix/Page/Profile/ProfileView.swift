@@ -54,7 +54,7 @@ struct ProfileView: View {
                             .font(.headline)
                             .bold()
                         Spacer()
-                        Text(dateFormatter.string(for: authViewModel.activeUser?.birthDate) ?? "Null")
+                        Text(authViewModel.activeUser?.birthDate?.toString() ?? "Null")
                     }
                     HStack {
                         Text("Gender")

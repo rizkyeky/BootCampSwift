@@ -258,7 +258,7 @@ class TopUpPanelViewController: UIViewController {
                 amountTemp = text
                 if let double = Double(text) {
                     let num = NSNumber(value: double)
-                    return currencyFormatter.string(from: num)
+                    return num.formatAsDecimalString()
                 } else {
                     return ""
                 }
@@ -290,18 +290,6 @@ class TopUpPanelViewController: UIViewController {
         }
         labelField.rx.text
             .compactMap { $0 }
-            .map { text in
-                return text.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-            }
-            .map { text in
-                labelTemp = text
-                if let double = Double(text) {
-                    let num = NSNumber(value: double)
-                    return currencyFormatter.string(from: num)
-                } else {
-                    return ""
-                }
-            }
             .bind(to: labelField.rx.text)
             .disposed(by: disposeBag)
         

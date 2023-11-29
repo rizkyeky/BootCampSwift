@@ -27,6 +27,8 @@ class MovieDetailViewController: BaseViewController {
     @IBOutlet weak var gradientBackdropBottom: GradientView!
     @IBOutlet weak var gradientBackdropTop: GradientView!
     
+    @IBOutlet weak var genreList: UIView!
+    
     var movie: MovieModel?
     var movieDetail: MovieDetailModel?
     
@@ -49,6 +51,13 @@ class MovieDetailViewController: BaseViewController {
         bookButton.makeCornerRadius(12)
         bookButton.setAnimateBounce()
         
+        let attributedString = NSAttributedString(string: "Book Now", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: bookButton.titleLabel?.font.pointSize ?? UIFont.systemFontSize)])
+        
+        bookButton.setAttributedTitle(attributedString, for: .normal)
+        bookButton.addAction(UIAction { _ in
+            self.navigationController?.pushViewController(BookNowViewController(), animated: true)
+        }, for: .touchUpInside)
+        
         gradientBackdropTop.direction = .verticalReverse
         gradientBackdropTop.isHidden = true
         gradientBackdropBottom.isHidden = true
@@ -58,10 +67,6 @@ class MovieDetailViewController: BaseViewController {
 //        bookButton.hero.id = "\(movie?.id?.formatted() ?? "")bookbtn"
 //        blurBox.hero.id = "\(movie?.id?.formatted() ?? "")blur"
         
-        bookButton.hero.modifiers = [.translate(y:48), .fade]
-        blurBox.hero.modifiers = [.fade, .arc]
-        navBar.hero.modifiers = [.cascade, .translate(x:100)]
-        
         if let backdropPath = movie?.backdropPath {
             let path = String(backdropPath.dropFirst())
             backDropImage.kf.setImage(with: TmdbApi.getImageURL(path), placeholder: UIImage(named: "imagenotfound"))
@@ -69,14 +74,66 @@ class MovieDetailViewController: BaseViewController {
         }
         
         spec.text = "13+ | "
-        if let releaseDate = movie?.releaseDate, let rating = movie?.voteAverage {
-            spec.text?.append("\(releaseDate) | ")
+        if let rating = movie?.voteAverage {
             spec.text?.append("Rating: \(String(format: "%.2f", rating))")
         }
         
         if let desc = movie?.overview {
             overviewText.text = desc
         }
+        
+        navBar.isHidden = false
+        navBar.backgroundColor = .systemBackground
+        navBar.title.textColor = .label
+        navBar.title.text = movie?.title ?? "-"
+        
+        let shareBtn = UIButton(frame: .init(x: 0, y: 0, width: 32, height: 32))
+        navBar.addSubview(shareBtn)
+        shareBtn.snp.makeConstraints { make in
+            make.height.width.equalTo(32)
+            make.right.equalTo(navBar).inset(16)
+            make.centerY.equalTo(navBar.contain)
+        }
+        shareBtn.configuration = .plain()
+        shareBtn.makeCornerRadiusRounded()
+        shareBtn.setAnimateBounce()
+        shareBtn.setImage(SFIcon.up?.resizeWith(size: CGSize(width: 24, height: 24)).reColor(.accent), for: .normal)
+        shareBtn.setTitleColor(.accent, for: .normal)
+        shareBtn.backgroundColor = .secondarySystemFill
+        shareBtn.addAction(UIAction { sender in
+            
+            let activityVC = UIActivityViewController(
+                activityItems: [self.movie?.title ?? "-", self.movie?.backdropPath ?? "-"],
+                applicationActivities: nil
+            )
+            
+            activityVC.popoverPresentationController?.sourceView = shareBtn
+
+            self.present(activityVC, animated: true, completion: nil)
+            
+        }, for: .touchUpInside)
+        
+        let rowGenre = UIStackView()
+        rowGenre.axis = .horizontal
+        rowGenre.distribution = .fill
+        rowGenre.spacing = 8.0
+        
+        genreList.addSubview(rowGenre)
+        rowGenre.snp.makeConstraints { make in
+            make.top.bottom.left.equalTo(self.genreList)
+        }
+        
+        for _ in 0..<3 {
+            let genreBox = UIView()
+            genreBox.backgroundColor = .secondarySystemFill
+            genreBox.makeCornerRadius(8)
+            rowGenre.addArrangedSubview(genreBox)
+            genreBox.snp.makeConstraints { make in
+                make.width.equalTo(88)
+                make.height.equalTo(rowGenre.snp.height)
+            }
+        }
+        
         if let idMovie = movie?.id {
             self.castSection.isShowSkeleton = true
             movieViewModel.getCredit(id: idMovie) { _peoples in
@@ -90,29 +147,45 @@ class MovieDetailViewController: BaseViewController {
                 self.spec.text?.append(" | \(formatMinutesToHoursAndMinutes(_movieDetail.runtime ?? 0))")
                 let specText = self.spec.text
                 self.spec.rx.text.onNext(specText)
+                
+                if let releaseDate = self.movieDetail?.releaseDate {
+                    let formatter1 = DateFormatter()
+                    formatter1.dateFormat = "yyyy-MM-dd"
+                    let date = formatter1.date(from: releaseDate)
+                    
+                    let formatter2 = DateFormatter()
+                    formatter2.dateFormat = "dd, MMMM yyyy"
+                    let dateStr = formatter2.string(from: date!)
+                    
+                    self.spec.text?.append("\n\(dateStr)")
+                }
+                
+                rowGenre.arrangedSubviews.forEach { $0.removeFromSuperview() }
+                if let genres = self.movieDetail?.genres {
+                    let len = genres.count > 3 ? 3 : genres.count
+                    for genre in genres[0..<len] {
+                        let genreBox = UIView(frame: .init(x: 0, y: 0, width: 88, height: 32))
+                        genreBox.backgroundColor = .secondarySystemFill
+                        genreBox.makeCornerRadius(8)
+                        
+                        let label = UILabel()
+                        label.text = genre.name ?? "-"
+                        label.textColor = .label
+                        
+                        genreBox.addSubview(label)
+                        label.snp.makeConstraints { make in
+                            make.centerX.centerY.equalTo(genreBox)
+                        }
+                        
+                        rowGenre.addArrangedSubview(genreBox)
+                        genreBox.snp.makeConstraints { make in
+                            make.width.equalTo(88)
+                            make.height.equalTo(rowGenre.snp.height)
+                        }
+                    }
+                }
             }
         }
-        
-        navBar.isHidden = false
-        navBar.backgroundColor = .label
-        navBar.title.text = movie?.title ?? "-"
-        
-        let shareBtn = UIButton(frame: .init(x: 0, y: 0, width: 30, height: 30))
-        navBar.addSubview(shareBtn)
-        shareBtn.snp.makeConstraints { make in
-            make.height.width.equalTo(32)
-            make.right.equalTo(navBar).inset(16)
-            make.centerY.equalTo(navBar.contain)
-        }
-        shareBtn.configuration = .plain()
-        shareBtn.makeCornerRadiusRounded()
-        shareBtn.setAnimateBounce()
-        shareBtn.setImage(SFIcon.up?.resizeWith(size: CGSize(width: 24, height: 24)).reColor(.accent), for: .normal)
-        shareBtn.setTitleColor(.accent, for: .normal)
-        shareBtn.backgroundColor = .white
-        shareBtn.addAction(UIAction { _ in
-            
-        }, for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,7 +204,6 @@ extension MovieDetailViewController: UIScrollViewDelegate {
         navBar.opacityBackgroundDidScroll(scrollView, point: 30)
     }
 }
-
 
 #if DEBUG && canImport(SwiftUI)
 

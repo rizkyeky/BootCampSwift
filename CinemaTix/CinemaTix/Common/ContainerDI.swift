@@ -25,9 +25,9 @@ class ContainerDI {
             return WalletViewModel()
         }.inObjectScope(.container)
         
-        container.register(DataController.self) { r in
-            return DataController()
-        }.inObjectScope(.container)
+//        container.register(DataController.self) { r in
+//            return DataController()
+//        }.inObjectScope(.container)
 
         container.register(DarkMode.self) { r in
             return DarkMode()

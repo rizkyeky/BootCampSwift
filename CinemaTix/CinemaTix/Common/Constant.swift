@@ -7,21 +7,6 @@
 
 import Foundation
 
-let currencyFormatter: NumberFormatter = {
-    let formatter = NumberFormatter()
-    formatter.numberStyle = .decimal
-    formatter.groupingSeparator = "."
-    formatter.minimumFractionDigits = 0
-    formatter.maximumFractionDigits = 3
-    return formatter
-}()
-
-let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "dd, MMMM yyyy"
-    return formatter
-}()
-
 func formatMinutesToHoursAndMinutes(_ totalMinutes: Int) -> String {
     let hours = totalMinutes / 60
     let minutes = totalMinutes % 60
@@ -37,4 +22,18 @@ func formatMinutesToHoursAndMinutes(_ totalMinutes: Int) -> String {
     }
     
     return formattedTime
+}
+
+func getDatesForThisWeek() -> [Date] {
+    var dates = [Date]()
+    let calendar = Calendar.current
+    let currentDate = Date.now
+    
+    for day in 0..<7 {
+        if let date = calendar.date(byAdding: .day, value: day, to: currentDate) {
+            dates.append(date)
+        }
+    }
+    
+    return dates
 }

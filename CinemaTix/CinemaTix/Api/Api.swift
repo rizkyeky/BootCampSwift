@@ -16,48 +16,48 @@ protocol Api {
     
 }
 
-class OmdbApi: Api {
-    
-    static let baseURL: String = "http://www.omdbapi.com/"
-    let key: String = "5324af12"
-    let headers: HTTPHeaders = [
-        "Content-Type": "application/json"
-    ]
-    
-    func movieDetailByTitle(title: String, type: String = "movie", year: String?) -> Endpoint {
-        var parameters = [
-            "apiKey": key,
-            "t": title,
-            "type": type,
-            "y": year,
-        ]
-        parameters = parameters.filter { $0.value != nil }
-        return Endpoint(
-            baseURL: OmdbApi.baseURL,
-            headers: headers,
-            path: "",
-            method: .get,
-            query: parameters as Parameters
-        )
-    }
-    
-    func movieDetailBySearch(keywords: String, type: String = "movie", year: String?) -> Endpoint {
-        var parameters = [
-            "apiKey": key,
-            "s": keywords,
-            "type": type,
-            "y": year,
-        ]
-        parameters = parameters.filter { $0.value != nil }
-        return Endpoint(
-            baseURL: OmdbApi.baseURL,
-            headers: headers,
-            path: "",
-            method: .get,
-            query: parameters as Parameters
-        )
-    }
-}
+//class OmdbApi: Api {
+//    
+//    static let baseURL: String = "http://www.omdbapi.com/"
+//    let key: String = "5324af12"
+//    let headers: HTTPHeaders = [
+//        "Content-Type": "application/json"
+//    ]
+//    
+//    func movieDetailByTitle(title: String, type: String = "movie", year: String?) -> Endpoint {
+//        var parameters = [
+//            "apiKey": key,
+//            "t": title,
+//            "type": type,
+//            "y": year,
+//        ]
+//        parameters = parameters.filter { $0.value != nil }
+//        return Endpoint(
+//            baseURL: OmdbApi.baseURL,
+//            headers: headers,
+//            path: "",
+//            method: .get,
+//            query: parameters as Parameters
+//        )
+//    }
+//    
+//    func movieDetailBySearch(keywords: String, type: String = "movie", year: String?) -> Endpoint {
+//        var parameters = [
+//            "apiKey": key,
+//            "s": keywords,
+//            "type": type,
+//            "y": year,
+//        ]
+//        parameters = parameters.filter { $0.value != nil }
+//        return Endpoint(
+//            baseURL: OmdbApi.baseURL,
+//            headers: headers,
+//            path: "",
+//            method: .get,
+//            query: parameters as Parameters
+//        )
+//    }
+//}
 
 class TmdbApi: Api {
     

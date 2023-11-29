@@ -72,7 +72,7 @@ class HomeViewController: BaseViewController {
         searchBtn.setAnimateBounce()
         searchBtn.setImage(SFIcon.search?.resizeWith(size: CGSize(width: 24, height: 24)).reColor(.accent), for: .normal)
         searchBtn.setTitleColor(.accent, for: .normal)
-        searchBtn.backgroundColor = .white
+        searchBtn.backgroundColor = .secondarySystemFill
         searchBtn.addAction(UIAction { _ in
             let searchVC = SearchViewController()
             self.navigationController?.hidesBottomBarWhenPushed = true
@@ -244,6 +244,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
             let movieDetailVC = MovieDetailViewController()
             
             movieDetailVC.movie = detail
+            
+            movieDetailVC.bookButton.hero.modifiers = [.translate(y:48), .fade]
+            movieDetailVC.blurBox.hero.modifiers = [.fade, .arc]
+            movieDetailVC.navBar.hero.modifiers = [.cascade, .translate(x:100)]
             
             self.navigationController?.hero.isEnabled = true
             self.navigationController?.hidesBottomBarWhenPushed = true

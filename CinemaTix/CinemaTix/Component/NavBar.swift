@@ -10,7 +10,7 @@ import SnapKit
 
 class NavBar: UIView {
     
-    let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+    let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
     let title = UILabel()
     let blurBox = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
     let contain = UIView()
@@ -52,16 +52,16 @@ class NavBar: UIView {
     
         contain.addSubview(backButton)
         backButton.snp.makeConstraints { make in
-            make.height.width.equalTo(30)
+            make.height.width.equalTo(32)
             make.left.equalTo(self.contain).offset(16)
             make.centerY.equalToSuperview()
         }
         backButton.configuration = .plain()
         backButton.makeCornerRadiusRounded()
         backButton.setAnimateBounce()
-        backButton.setImage(SFIcon.back?.resizeWith(size: CGSize(width: 12, height: 12)).reColor(.accent), for: .normal)
+        backButton.setImage(SFIcon.back?.resizeWith(size: CGSize(width: 20, height: 20)).reColor(.accent), for: .normal)
         backButton.setTitleColor(.accent, for: .normal)
-        backButton.backgroundColor = .white
+        backButton.backgroundColor = .secondarySystemFill
         backButton.addAction(UIAction { _ in
             self.onTapBackButton?()
         }, for: .touchUpInside)

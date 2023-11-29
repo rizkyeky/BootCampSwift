@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		103CBFE74E7273ACE7BA7FE1 /* Pods_CinemaTixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909FED32F98E13BDBFED1F76 /* Pods_CinemaTixTests.framework */; };
 		175A2579B01B77983132CB64 /* Pods_CinemaTix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058C184768B311A69D4835CB /* Pods_CinemaTix.framework */; };
+		253926D12B15DFBC00DBC35B /* BookNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253926CF2B15DFBC00DBC35B /* BookNowViewController.swift */; };
+		253926D22B15DFBC00DBC35B /* BookNowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 253926D02B15DFBC00DBC35B /* BookNowViewController.xib */; };
+		253926D62B15E55500DBC35B /* ShareActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253926D52B15E55500DBC35B /* ShareActivity.swift */; };
+		253926E12B15EE9A00DBC35B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253926E02B15EE9A00DBC35B /* WidgetKit.framework */; };
+		253926E32B15EE9A00DBC35B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253926E22B15EE9A00DBC35B /* SwiftUI.framework */; };
+		253926E62B15EE9A00DBC35B /* DynamicIslandBookNowBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253926E52B15EE9A00DBC35B /* DynamicIslandBookNowBundle.swift */; };
+		253926E82B15EE9A00DBC35B /* DynamicIslandBookNowLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253926E72B15EE9A00DBC35B /* DynamicIslandBookNowLiveActivity.swift */; };
+		253926EA2B15EE9A00DBC35B /* DynamicIslandBookNow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253926E92B15EE9A00DBC35B /* DynamicIslandBookNow.swift */; };
+		253926EC2B15EE9A00DBC35B /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253926EB2B15EE9A00DBC35B /* AppIntent.swift */; };
+		253926EE2B15EE9C00DBC35B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 253926ED2B15EE9C00DBC35B /* Assets.xcassets */; };
+		253926F22B15EE9C00DBC35B /* DynamicIslandBookNowExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 253926DF2B15EE9A00DBC35B /* DynamicIslandBookNowExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		254149AC2AF87EBA00DFA4C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254149AB2AF87EBA00DFA4C9 /* AppDelegate.swift */; };
 		254149AE2AF87EBA00DFA4C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254149AD2AF87EBA00DFA4C9 /* SceneDelegate.swift */; };
 		254149B02AF87EBA00DFA4C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254149AF2AF87EBA00DFA4C9 /* ViewController.swift */; };
@@ -77,7 +88,7 @@
 		254DF1462AFE1AEE00B99EFC /* QueryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1442AFE1AEE00B99EFC /* QueryCellTableViewCell.swift */; };
 		254DF1472AFE1AEE00B99EFC /* QueryCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254DF1452AFE1AEE00B99EFC /* QueryCellTableViewCell.xib */; };
 		256F0F762B105B5500D10857 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F0F752B105B5500D10857 /* Keychain.swift */; };
-		256F0F782B107CF600D10857 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F0F772B107CF600D10857 /* Wallet.swift */; };
+		256F0F782B107CF600D10857 /* WalletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F0F772B107CF600D10857 /* WalletModel.swift */; };
 		2577E75F2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */; };
 		2577E7612AF9DCCF002D6AF6 /* SVGIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */; };
 		2577E7632AF9ECDC002D6AF6 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2577E7622AF9ECDC002D6AF6 /* Secret.plist */; };
@@ -88,7 +99,7 @@
 		2578D4912AFFC97D00EC8D59 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2578D48F2AFFC97D00EC8D59 /* SignInViewController.xib */; };
 		2578D4932B00692400EC8D59 /* ContainerDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578D4922B00692400EC8D59 /* ContainerDI.swift */; };
 		258C58DE2B061A9000951A3A /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58DD2B061A9000951A3A /* WalletViewModel.swift */; };
-		258C58E02B061B1400951A3A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58DF2B061B1400951A3A /* Transaction.swift */; };
+		258C58E02B061B1400951A3A /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58DF2B061B1400951A3A /* TransactionModel.swift */; };
 		258C58E22B070FB700951A3A /* ExtNSNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E12B070FB700951A3A /* ExtNSNumber.swift */; };
 		258C58E52B0719D600951A3A /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E42B0719D600951A3A /* Scanner.swift */; };
 		258C58EA2B074FEE00951A3A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E92B074FEE00951A3A /* Constant.swift */; };
@@ -108,14 +119,13 @@
 		25A070CC2B0335290074118D /* SmallCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070CA2B0335290074118D /* SmallCarouselCell.swift */; };
 		25A070CD2B0335290074118D /* SmallCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A070CB2B0335290074118D /* SmallCarouselCell.xib */; };
 		25A070CF2B0355090074118D /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070CE2B0355090074118D /* MovieModel.swift */; };
-		25A070D12B035ECE0074118D /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070D02B035ECE0074118D /* People.swift */; };
+		25A070D12B035ECE0074118D /* PeopleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070D02B035ECE0074118D /* PeopleModel.swift */; };
 		25A070D52B0360920074118D /* CastSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070D42B0360920074118D /* CastSection.swift */; };
 		25A070D72B0360A50074118D /* CastSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A070D62B0360A50074118D /* CastSection.xib */; };
 		25A070DB2B0362820074118D /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070D92B0362820074118D /* CastCell.swift */; };
 		25A070DC2B0362820074118D /* CastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A070DA2B0362820074118D /* CastCell.xib */; };
 		25A070DE2B036DEF0074118D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070DD2B036DEF0074118D /* GradientView.swift */; };
 		25A742532B142A360054B155 /* ErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A742522B142A360054B155 /* ErrorService.swift */; };
-		25A742562B149ED80054B155 /* FPPSharePlusPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A742552B149ED80054B155 /* FPPSharePlusPlugin.m */; };
 		25B0F8802B0B5417004A2056 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0F87F2B0B5417004A2056 /* NavBar.swift */; };
 		25B0F8822B0C983F004A2056 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0F8812B0C983F004A2056 /* Loading.swift */; };
 		25B0F8892B0DA229004A2056 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25B0F8882B0DA228004A2056 /* GoogleService-Info.plist */; };
@@ -128,10 +138,22 @@
 		25BA44AB2B0AFE1F00C74AB6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA44AA2B0AFE1F00C74AB6 /* UserModel.swift */; };
 		25BA44AE2B0B0DD200C74AB6 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 25BA44AD2B0B0DD200C74AB6 /* en.json */; };
 		25BA44B02B0B12B800C74AB6 /* id.json in Resources */ = {isa = PBXBuildFile; fileRef = 25BA44AF2B0B12B800C74AB6 /* id.json */; };
+		25C2805A2B170DFF006D365B /* DayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C280592B170DFF006D365B /* DayPicker.swift */; };
+		25C2805C2B170E69006D365B /* DayPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C2805B2B170E69006D365B /* DayPicker.xib */; };
+		25C2805F2B170FA0006D365B /* DayPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C2805D2B170FA0006D365B /* DayPickerCell.swift */; };
+		25C280602B170FA0006D365B /* DayPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C2805E2B170FA0006D365B /* DayPickerCell.xib */; };
+		25C280622B173072006D365B /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C280612B173072006D365B /* BookViewModel.swift */; };
 		A9702F5F95870B4FD773938B /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		253926F02B15EE9C00DBC35B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 254149A02AF87EBA00DFA4C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 253926DE2B15EE9A00DBC35B;
+			remoteInfo = DynamicIslandBookNowExtension;
+		};
 		254149C22AF87EBC00DFA4C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 254149A02AF87EBA00DFA4C9 /* Project object */;
@@ -148,8 +170,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		253926F62B15EE9C00DBC35B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				253926F22B15EE9C00DBC35B /* DynamicIslandBookNowExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		058C184768B311A69D4835CB /* Pods_CinemaTix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		253926CF2B15DFBC00DBC35B /* BookNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNowViewController.swift; sourceTree = "<group>"; };
+		253926D02B15DFBC00DBC35B /* BookNowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookNowViewController.xib; sourceTree = "<group>"; };
+		253926D52B15E55500DBC35B /* ShareActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareActivity.swift; sourceTree = "<group>"; };
+		253926DF2B15EE9A00DBC35B /* DynamicIslandBookNowExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DynamicIslandBookNowExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		253926E02B15EE9A00DBC35B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		253926E22B15EE9A00DBC35B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		253926E52B15EE9A00DBC35B /* DynamicIslandBookNowBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicIslandBookNowBundle.swift; sourceTree = "<group>"; };
+		253926E72B15EE9A00DBC35B /* DynamicIslandBookNowLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicIslandBookNowLiveActivity.swift; sourceTree = "<group>"; };
+		253926E92B15EE9A00DBC35B /* DynamicIslandBookNow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicIslandBookNow.swift; sourceTree = "<group>"; };
+		253926EB2B15EE9A00DBC35B /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		253926ED2B15EE9C00DBC35B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		253926EF2B15EE9C00DBC35B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		254149A82AF87EBA00DFA4C9 /* CinemaTix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaTix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		254149AB2AF87EBA00DFA4C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		254149AD2AF87EBA00DFA4C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,7 +270,7 @@
 		254DF1442AFE1AEE00B99EFC /* QueryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryCellTableViewCell.swift; sourceTree = "<group>"; };
 		254DF1452AFE1AEE00B99EFC /* QueryCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueryCellTableViewCell.xib; sourceTree = "<group>"; };
 		256F0F752B105B5500D10857 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		256F0F772B107CF600D10857 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		256F0F772B107CF600D10857 /* WalletModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModel.swift; sourceTree = "<group>"; };
 		2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFloatingPanel.swift; sourceTree = "<group>"; };
 		2577E7602AF9DCCF002D6AF6 /* SVGIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGIcon.swift; sourceTree = "<group>"; };
 		2577E7622AF9ECDC002D6AF6 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
@@ -233,7 +281,7 @@
 		2578D48F2AFFC97D00EC8D59 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		2578D4922B00692400EC8D59 /* ContainerDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerDI.swift; sourceTree = "<group>"; };
 		258C58DD2B061A9000951A3A /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
-		258C58DF2B061B1400951A3A /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		258C58DF2B061B1400951A3A /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		258C58E12B070FB700951A3A /* ExtNSNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtNSNumber.swift; sourceTree = "<group>"; };
 		258C58E42B0719D600951A3A /* Scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
 		258C58E92B074FEE00951A3A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -253,7 +301,7 @@
 		25A070CA2B0335290074118D /* SmallCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCarouselCell.swift; sourceTree = "<group>"; };
 		25A070CB2B0335290074118D /* SmallCarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallCarouselCell.xib; sourceTree = "<group>"; };
 		25A070CE2B0355090074118D /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
-		25A070D02B035ECE0074118D /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		25A070D02B035ECE0074118D /* PeopleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleModel.swift; sourceTree = "<group>"; };
 		25A070D42B0360920074118D /* CastSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastSection.swift; sourceTree = "<group>"; };
 		25A070D62B0360A50074118D /* CastSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastSection.xib; sourceTree = "<group>"; };
 		25A070D92B0362820074118D /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
@@ -261,8 +309,6 @@
 		25A070DD2B036DEF0074118D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		25A742522B142A360054B155 /* ErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorService.swift; sourceTree = "<group>"; };
 		25A742542B149ED70054B155 /* CinemaTix-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CinemaTix-Bridging-Header.h"; sourceTree = "<group>"; };
-		25A742552B149ED80054B155 /* FPPSharePlusPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPPSharePlusPlugin.m; sourceTree = "<group>"; };
-		25A742572B149F740054B155 /* FPPSharePlusPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPPSharePlusPlugin.h; sourceTree = "<group>"; };
 		25B0F87F2B0B5417004A2056 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		25B0F8812B0C983F004A2056 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		25B0F8882B0DA228004A2056 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -275,6 +321,11 @@
 		25BA44AA2B0AFE1F00C74AB6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		25BA44AD2B0B0DD200C74AB6 /* en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
 		25BA44AF2B0B12B800C74AB6 /* id.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = id.json; sourceTree = "<group>"; };
+		25C280592B170DFF006D365B /* DayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPicker.swift; sourceTree = "<group>"; };
+		25C2805B2B170E69006D365B /* DayPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayPicker.xib; sourceTree = "<group>"; };
+		25C2805D2B170FA0006D365B /* DayPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerCell.swift; sourceTree = "<group>"; };
+		25C2805E2B170FA0006D365B /* DayPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayPickerCell.xib; sourceTree = "<group>"; };
+		25C280612B173072006D365B /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F308EB817918C1E9BEBC98 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
 		6B601FF28E071254BFB9ADEE /* Pods-CinemaTix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.debug.xcconfig"; sourceTree = "<group>"; };
@@ -286,6 +337,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		253926DC2B15EE9A00DBC35B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				253926E32B15EE9A00DBC35B /* SwiftUI.framework in Frameworks */,
+				253926E12B15EE9A00DBC35B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		254149A52AF87EBA00DFA4C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -313,12 +373,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		253926CE2B15C8A700DBC35B /* BookNow */ = {
+			isa = PBXGroup;
+			children = (
+				25C280582B170DE1006D365B /* DayPicker */,
+				253926CF2B15DFBC00DBC35B /* BookNowViewController.swift */,
+				253926D02B15DFBC00DBC35B /* BookNowViewController.xib */,
+			);
+			path = BookNow;
+			sourceTree = "<group>";
+		};
+		253926D32B15E4FE00DBC35B /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				254DF1182AFB49D300B99EFC /* Card.swift */,
+				254DF11A2AFB4D8500B99EFC /* Card.xib */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		253926E42B15EE9A00DBC35B /* DynamicIslandBookNow */ = {
+			isa = PBXGroup;
+			children = (
+				253926E52B15EE9A00DBC35B /* DynamicIslandBookNowBundle.swift */,
+				253926E72B15EE9A00DBC35B /* DynamicIslandBookNowLiveActivity.swift */,
+				253926E92B15EE9A00DBC35B /* DynamicIslandBookNow.swift */,
+				253926EB2B15EE9A00DBC35B /* AppIntent.swift */,
+				253926ED2B15EE9C00DBC35B /* Assets.xcassets */,
+				253926EF2B15EE9C00DBC35B /* Info.plist */,
+			);
+			path = DynamicIslandBookNow;
+			sourceTree = "<group>";
+		};
 		2541499F2AF87EBA00DFA4C9 = {
 			isa = PBXGroup;
 			children = (
 				254149AA2AF87EBA00DFA4C9 /* CinemaTix */,
 				254149C42AF87EBC00DFA4C9 /* CinemaTixTests */,
 				254149CE2AF87EBC00DFA4C9 /* CinemaTixUITests */,
+				253926E42B15EE9A00DBC35B /* DynamicIslandBookNow */,
 				254149A92AF87EBA00DFA4C9 /* Products */,
 				CC0788802480CE71EA2714D3 /* Pods */,
 				3A1D27266542EE5B398A30C6 /* Frameworks */,
@@ -331,6 +424,7 @@
 				254149A82AF87EBA00DFA4C9 /* CinemaTix.app */,
 				254149C12AF87EBC00DFA4C9 /* CinemaTixTests.xctest */,
 				254149CB2AF87EBC00DFA4C9 /* CinemaTixUITests.xctest */,
+				253926DF2B15EE9A00DBC35B /* DynamicIslandBookNowExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -387,6 +481,7 @@
 		254149DE2AF8829600DFA4C9 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				253926CE2B15C8A700DBC35B /* BookNow */,
 				25B0F8832B0D9632004A2056 /* Profile */,
 				258C58E32B0719AB00951A3A /* Scanner */,
 				25A070A72B01CE2A0074118D /* Setting */,
@@ -516,14 +611,14 @@
 		254149EA2AF8838500DFA4C9 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				253926D32B15E4FE00DBC35B /* Card */,
 				25A070C02B0331230074118D /* SmallCarousel */,
 				2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */,
 				2577E7662AF9F2AC002D6AF6 /* RegisterTextField */,
-				254DF1182AFB49D300B99EFC /* Card.swift */,
-				254DF11A2AFB4D8500B99EFC /* Card.xib */,
 				25A070DD2B036DEF0074118D /* GradientView.swift */,
 				25B0F87F2B0B5417004A2056 /* NavBar.swift */,
 				25B0F8812B0C983F004A2056 /* Loading.swift */,
+				253926D52B15E55500DBC35B /* ShareActivity.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -533,8 +628,6 @@
 			children = (
 				25414A0D2AF8CAE500DFA4C9 /* Biometric.swift */,
 				25414A392AF8D50E00DFA4C9 /* DarkMode.swift */,
-				25A742552B149ED80054B155 /* FPPSharePlusPlugin.m */,
-				25A742572B149F740054B155 /* FPPSharePlusPlugin.h */,
 				25A742542B149ED70054B155 /* CinemaTix-Bridging-Header.h */,
 			);
 			path = Feature;
@@ -567,9 +660,9 @@
 				25A070CE2B0355090074118D /* MovieModel.swift */,
 				25414A082AF8A90400DFA4C9 /* Model.swift */,
 				25A070BE2B0329670074118D /* GenreModel.swift */,
-				25A070D02B035ECE0074118D /* People.swift */,
-				258C58DF2B061B1400951A3A /* Transaction.swift */,
-				256F0F772B107CF600D10857 /* Wallet.swift */,
+				25A070D02B035ECE0074118D /* PeopleModel.swift */,
+				258C58DF2B061B1400951A3A /* TransactionModel.swift */,
+				256F0F772B107CF600D10857 /* WalletModel.swift */,
 				25BA44AA2B0AFE1F00C74AB6 /* UserModel.swift */,
 			);
 			path = Model;
@@ -609,6 +702,7 @@
 				254DF11D2AFB6BA300B99EFC /* MovieViewModel.swift */,
 				254DF1412AFDD44500B99EFC /* AuthViewModel.swift */,
 				258C58DD2B061A9000951A3A /* WalletViewModel.swift */,
+				25C280612B173072006D365B /* BookViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -790,12 +884,25 @@
 			path = L10n;
 			sourceTree = "<group>";
 		};
+		25C280582B170DE1006D365B /* DayPicker */ = {
+			isa = PBXGroup;
+			children = (
+				25C280592B170DFF006D365B /* DayPicker.swift */,
+				25C2805B2B170E69006D365B /* DayPicker.xib */,
+				25C2805D2B170FA0006D365B /* DayPickerCell.swift */,
+				25C2805E2B170FA0006D365B /* DayPickerCell.xib */,
+			);
+			path = DayPicker;
+			sourceTree = "<group>";
+		};
 		3A1D27266542EE5B398A30C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				058C184768B311A69D4835CB /* Pods_CinemaTix.framework */,
 				536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */,
 				909FED32F98E13BDBFED1F76 /* Pods_CinemaTixTests.framework */,
+				253926E02B15EE9A00DBC35B /* WidgetKit.framework */,
+				253926E22B15EE9A00DBC35B /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -816,6 +923,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		253926DE2B15EE9A00DBC35B /* DynamicIslandBookNowExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 253926F32B15EE9C00DBC35B /* Build configuration list for PBXNativeTarget "DynamicIslandBookNowExtension" */;
+			buildPhases = (
+				253926DB2B15EE9A00DBC35B /* Sources */,
+				253926DC2B15EE9A00DBC35B /* Frameworks */,
+				253926DD2B15EE9A00DBC35B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DynamicIslandBookNowExtension;
+			productName = DynamicIslandBookNowExtension;
+			productReference = 253926DF2B15EE9A00DBC35B /* DynamicIslandBookNowExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		254149A72AF87EBA00DFA4C9 /* CinemaTix */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 254149D52AF87EBC00DFA4C9 /* Build configuration list for PBXNativeTarget "CinemaTix" */;
@@ -825,10 +949,12 @@
 				254149A52AF87EBA00DFA4C9 /* Frameworks */,
 				254149A62AF87EBA00DFA4C9 /* Resources */,
 				516097CE3C89D3BABFE544E9 /* [CP] Embed Pods Frameworks */,
+				253926F62B15EE9C00DBC35B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				253926F12B15EE9C00DBC35B /* PBXTargetDependency */,
 			);
 			name = CinemaTix;
 			productName = CinemaTix;
@@ -884,6 +1010,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					253926DE2B15EE9A00DBC35B = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					254149A72AF87EBA00DFA4C9 = {
 						CreatedOnToolsVersion = 15.0.1;
 						LastSwiftMigration = 1500;
@@ -914,11 +1043,20 @@
 				254149A72AF87EBA00DFA4C9 /* CinemaTix */,
 				254149C02AF87EBC00DFA4C9 /* CinemaTixTests */,
 				254149CA2AF87EBC00DFA4C9 /* CinemaTixUITests */,
+				253926DE2B15EE9A00DBC35B /* DynamicIslandBookNowExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		253926DD2B15EE9A00DBC35B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				253926EE2B15EE9C00DBC35B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		254149A62AF87EBA00DFA4C9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -947,10 +1085,12 @@
 				25414A262AF8D00400DFA4C9 /* HomeViewController.xib in Resources */,
 				25414A222AF8CFE100DFA4C9 /* WalletViewController.xib in Resources */,
 				2578D4912AFFC97D00EC8D59 /* SignInViewController.xib in Resources */,
+				253926D22B15DFBC00DBC35B /* BookNowViewController.xib in Resources */,
 				25414A412AF8E78100DFA4C9 /* WelcomePanelViewController.xib in Resources */,
 				25BA44B02B0B12B800C74AB6 /* id.json in Resources */,
 				25A070B82B01DAB10074118D /* SettingDarkModeCell.xib in Resources */,
 				25478DEB2B049DE700F26BE9 /* TransCell.xib in Resources */,
+				25C2805C2B170E69006D365B /* DayPicker.xib in Resources */,
 				254DF1472AFE1AEE00B99EFC /* QueryCellTableViewCell.xib in Resources */,
 				25A070B42B01D0F60074118D /* SettingBaseCell.xib in Resources */,
 				25414A382AF8D0A900DFA4C9 /* MovieDetailViewController.xib in Resources */,
@@ -959,6 +1099,7 @@
 				254DF1282AFB84D300B99EFC /* RecomCollectionViewCell.xib in Resources */,
 				25A070BD2B0214040074118D /* MovieItemCell.xib in Resources */,
 				254DF1232AFB6CE300B99EFC /* SearchViewController.xib in Resources */,
+				25C280602B170FA0006D365B /* DayPickerCell.xib in Resources */,
 				25414A342AF8D07600DFA4C9 /* MovieListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1083,6 +1224,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		253926DB2B15EE9A00DBC35B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				253926E62B15EE9A00DBC35B /* DynamicIslandBookNowBundle.swift in Sources */,
+				253926EC2B15EE9A00DBC35B /* AppIntent.swift in Sources */,
+				253926E82B15EE9A00DBC35B /* DynamicIslandBookNowLiveActivity.swift in Sources */,
+				253926EA2B15EE9A00DBC35B /* DynamicIslandBookNow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		254149A42AF87EBA00DFA4C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1122,11 +1274,10 @@
 				25414A0B2AF8B9A900DFA4C9 /* Service.swift in Sources */,
 				254149B02AF87EBA00DFA4C9 /* ViewController.swift in Sources */,
 				254DF1352AFC6E7300B99EFC /* HomeTableViewCell3.swift in Sources */,
-				25A742562B149ED80054B155 /* FPPSharePlusPlugin.m in Sources */,
 				25BA44AB2B0AFE1F00C74AB6 /* UserModel.swift in Sources */,
-				256F0F782B107CF600D10857 /* Wallet.swift in Sources */,
+				256F0F782B107CF600D10857 /* WalletModel.swift in Sources */,
 				254DF1172AFB26CF00B99EFC /* ExtUIImage.swift in Sources */,
-				25A070D12B035ECE0074118D /* People.swift in Sources */,
+				25A070D12B035ECE0074118D /* PeopleModel.swift in Sources */,
 				25A070A62B01C4F20074118D /* ExtString.swift in Sources */,
 				25414A102AF8CC8E00DFA4C9 /* Color.swift in Sources */,
 				25414A162AF8CE2900DFA4C9 /* ExtUIView.swift in Sources */,
@@ -1139,16 +1290,20 @@
 				25B0F8912B0F04DC004A2056 /* LaunchViewController.swift in Sources */,
 				258C58E52B0719D600951A3A /* Scanner.swift in Sources */,
 				25A742532B142A360054B155 /* ErrorService.swift in Sources */,
+				253926D12B15DFBC00DBC35B /* BookNowViewController.swift in Sources */,
 				256F0F762B105B5500D10857 /* Keychain.swift in Sources */,
 				25A070D52B0360920074118D /* CastSection.swift in Sources */,
 				2578D4932B00692400EC8D59 /* ContainerDI.swift in Sources */,
 				25A070C22B0331510074118D /* SmallCarousel.swift in Sources */,
-				258C58E02B061B1400951A3A /* Transaction.swift in Sources */,
+				258C58E02B061B1400951A3A /* TransactionModel.swift in Sources */,
 				25A070CF2B0355090074118D /* MovieModel.swift in Sources */,
+				25C2805F2B170FA0006D365B /* DayPickerCell.swift in Sources */,
 				25414A2E2AF8D05A00DFA4C9 /* RegisterViewController.swift in Sources */,
 				25A070AA2B01CE3C0074118D /* SettingViewController.swift in Sources */,
+				25C2805A2B170DFF006D365B /* DayPicker.swift in Sources */,
 				25414A182AF8CE9400DFA4C9 /* ExtUICollectionView.swift in Sources */,
 				25414A212AF8CFE100DFA4C9 /* WalletViewController.swift in Sources */,
+				253926D62B15E55500DBC35B /* ShareActivity.swift in Sources */,
 				2578D4902AFFC97D00EC8D59 /* SignInViewController.swift in Sources */,
 				25478DEA2B049DE700F26BE9 /* TransCell.swift in Sources */,
 				25414A012AF89D4100DFA4C9 /* MovieApi.swift in Sources */,
@@ -1160,6 +1315,7 @@
 				25414A3C2AF8DD2E00DFA4C9 /* ExtUIViewController.swift in Sources */,
 				25A070B32B01D0F60074118D /* SettingBaseCell.swift in Sources */,
 				254149AE2AF87EBA00DFA4C9 /* SceneDelegate.swift in Sources */,
+				25C280622B173072006D365B /* BookViewModel.swift in Sources */,
 				25414A1A2AF8CEE300DFA4C9 /* ExtUIButton.swift in Sources */,
 				254DF11E2AFB6BA300B99EFC /* MovieViewModel.swift in Sources */,
 				25A070B72B01DAB10074118D /* SettingDarkModeCell.swift in Sources */,
@@ -1189,6 +1345,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		253926F12B15EE9C00DBC35B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 253926DE2B15EE9A00DBC35B /* DynamicIslandBookNowExtension */;
+			targetProxy = 253926F02B15EE9C00DBC35B /* PBXContainerItemProxy */;
+		};
 		254149C32AF87EBC00DFA4C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 254149A72AF87EBA00DFA4C9 /* CinemaTix */;
@@ -1221,6 +1382,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		253926F42B15EE9C00DBC35B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QHWS6Y2JRB;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DynamicIslandBookNow/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DynamicIslandBookNow;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rizkyeky.CinemaTix.DynamicIslandBookNow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		253926F52B15EE9C00DBC35B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QHWS6Y2JRB;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DynamicIslandBookNow/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DynamicIslandBookNow;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rizkyeky.CinemaTix.DynamicIslandBookNow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		254149D32AF87EBC00DFA4C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1349,6 +1568,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6B601FF28E071254BFB9ADEE /* Pods-CinemaTix.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
@@ -1387,6 +1607,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 57F308EB817918C1E9BEBC98 /* Pods-CinemaTix.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
@@ -1503,6 +1724,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		253926F32B15EE9C00DBC35B /* Build configuration list for PBXNativeTarget "DynamicIslandBookNowExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				253926F42B15EE9C00DBC35B /* Debug */,
+				253926F52B15EE9C00DBC35B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		254149A32AF87EBA00DFA4C9 /* Build configuration list for PBXProject "CinemaTix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
