@@ -27,7 +27,10 @@ target 'CinemaTix' do
   pod 'FirebaseAuth', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
   pod 'FirebaseFirestore', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
   pod 'FirebaseMessaging', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
-  pod 'LinkPresentation'
+  
+  pod 'MTBBarcodeScanner', :git => 'https://github.com/mikebuss/MTBBarcodeScanner'
+  pod 'SwiftProtobuf', :git => 'https://github.com/apple/swift-protobuf'
+  pod 'CryptoSwift', :git => 'https://github.com/krzyzanowskim/CryptoSwift.git'
   
 #  pod 'GoogleMLKit/BarcodeScanning'
 #  pod 'GoogleMLKit/ObjectDetection'
@@ -36,11 +39,9 @@ target 'CinemaTix' do
   
 #  pod 'FirebaseCore', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
 #  pod 'EFNavigationBar', :git => 'https://github.com/EFPrefix/EFNavigationBar.git'
-#  pod 'CryptoSwift', :git => 'https://github.com/krzyzanowskim/CryptoSwift.git'
 #  pod 'L10n-swift', :git => 'https://github.com/Decybel07/L10n-swift.git'
 #  pod 'ToastViewSwift', :git => 'https://github.com/BastiaanJansen/Toast-Swift.git'
 #  pod 'SVProgressHUD'
-
 
 # Pods for CinemaTix
 

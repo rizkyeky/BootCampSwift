@@ -84,6 +84,7 @@ class MovieDetailViewController: BaseViewController {
         
         navBar.isHidden = false
         navBar.backgroundColor = .systemBackground
+        navBar.isHasBlurBox = true
         navBar.title.textColor = .label
         navBar.title.text = movie?.title ?? "-"
         
@@ -144,7 +145,7 @@ class MovieDetailViewController: BaseViewController {
             
             movieViewModel.getDetailMovie(id: idMovie) { _movieDetail in
                 self.movieDetail = _movieDetail
-                self.spec.text?.append(" | \(formatMinutesToHoursAndMinutes(_movieDetail.runtime ?? 0))")
+                self.spec.text?.append(" | \((_movieDetail.runtime ?? 0).formatMinutesToHoursAndMinutes())")
                 let specText = self.spec.text
                 self.spec.rx.text.onNext(specText)
                 
@@ -201,7 +202,7 @@ class MovieDetailViewController: BaseViewController {
 
 extension MovieDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        navBar.opacityBackgroundDidScroll(scrollView, point: 30)
+        navBar.opacityBackgroundDidScroll(scrollView.contentOffset.y, point: 30, limit: 0.32)
     }
 }
 

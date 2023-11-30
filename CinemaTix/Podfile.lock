@@ -636,6 +636,7 @@ PODS:
     - BoringSSL-GRPC/Interface (= 0.0.24)
   - BoringSSL-GRPC/Interface (0.0.24)
   - CenteredCollectionView (2.2.2)
+  - CryptoSwift (1.8.0)
   - FirebaseAppCheckInterop (10.18.0)
   - FirebaseAuth (10.19.0):
     - FirebaseAppCheckInterop (~> 10.17)
@@ -776,6 +777,7 @@ PODS:
   - Kingfisher (7.10.0)
   - leveldb-library (1.22.2)
   - lottie-ios (4.3.3)
+  - MTBBarcodeScanner (5.0.11)
   - nanopb (2.30909.1):
     - nanopb/decode (= 2.30909.1)
     - nanopb/encode (= 2.30909.1)
@@ -791,10 +793,10 @@ PODS:
   - RxRelay (6.6.0):
     - RxSwift (= 6.6.0)
   - RxSwift (6.6.0)
-  - SideMenuSwift (2.0.10)
   - SkeletonView (1.30.4)
   - SnapKit (5.6.0)
   - SPAlert (5.1.8)
+  - SwiftProtobuf (2.0.0)
   - Swinject (2.8.4)
   - UIKitLivePreview (1.3.1)
   - ViewAnimator (3.1.0)
@@ -802,6 +804,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Alamofire/Alamofire.git`)
   - CenteredCollectionView (from `https://github.com/BenEmdon/CenteredCollectionView.git`)
+  - CryptoSwift (from `https://github.com/krzyzanowskim/CryptoSwift.git`)
   - FirebaseAuth (from `https://github.com/firebase/firebase-ios-sdk.git`)
   - FirebaseFirestore (from `https://github.com/firebase/firebase-ios-sdk.git`)
   - FirebaseMessaging (from `https://github.com/firebase/firebase-ios-sdk.git`)
@@ -811,14 +814,15 @@ DEPENDENCIES:
   - KeyboardObserver (from `https://github.com/morizotter/KeyboardObserver.git`)
   - Kingfisher (from `https://github.com/onevcat/Kingfisher.git`)
   - lottie-ios (from `https://github.com/airbnb/lottie-ios.git`)
+  - MTBBarcodeScanner (from `https://github.com/mikebuss/MTBBarcodeScanner`)
   - netfox (from `https://github.com/kasketis/netfox.git`)
   - PKHUD (from `https://github.com/pkluz/PKHUD.git`)
   - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`)
   - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`)
-  - SideMenuSwift (from `https://github.com/kukushi/SideMenu`)
   - SkeletonView (from `https://github.com/Juanpe/SkeletonView.git`)
   - SnapKit (from `https://github.com/SnapKit/SnapKit.git`)
   - SPAlert (from `https://github.com/sparrowcode/AlertKit.git`)
+  - SwiftProtobuf (from `https://github.com/apple/swift-protobuf`)
   - Swinject (from `https://github.com/Swinject/Swinject.git`)
   - UIKitLivePreview (from `https://github.com/nicoelayda/UIKitLivePreview.git`)
   - ViewAnimator (from `https://github.com/marcosgriselli/ViewAnimator.git`)
@@ -850,6 +854,8 @@ EXTERNAL SOURCES:
     :git: https://github.com/Alamofire/Alamofire.git
   CenteredCollectionView:
     :git: https://github.com/BenEmdon/CenteredCollectionView.git
+  CryptoSwift:
+    :git: https://github.com/krzyzanowskim/CryptoSwift.git
   FirebaseAuth:
     :git: https://github.com/firebase/firebase-ios-sdk.git
   FirebaseFirestore:
@@ -868,6 +874,8 @@ EXTERNAL SOURCES:
     :git: https://github.com/onevcat/Kingfisher.git
   lottie-ios:
     :git: https://github.com/airbnb/lottie-ios.git
+  MTBBarcodeScanner:
+    :git: https://github.com/mikebuss/MTBBarcodeScanner
   netfox:
     :git: https://github.com/kasketis/netfox.git
   PKHUD:
@@ -876,14 +884,14 @@ EXTERNAL SOURCES:
     :git: https://github.com/ReactiveX/RxSwift.git
   RxSwift:
     :git: https://github.com/ReactiveX/RxSwift.git
-  SideMenuSwift:
-    :git: https://github.com/kukushi/SideMenu
   SkeletonView:
     :git: https://github.com/Juanpe/SkeletonView.git
   SnapKit:
     :git: https://github.com/SnapKit/SnapKit.git
   SPAlert:
     :git: https://github.com/sparrowcode/AlertKit.git
+  SwiftProtobuf:
+    :git: https://github.com/apple/swift-protobuf
   Swinject:
     :git: https://github.com/Swinject/Swinject.git
   UIKitLivePreview:
@@ -898,6 +906,9 @@ CHECKOUT OPTIONS:
   CenteredCollectionView:
     :commit: f2bf371dae314b46f1bc03c222861c9fc40fff32
     :git: https://github.com/BenEmdon/CenteredCollectionView.git
+  CryptoSwift:
+    :commit: 23bc51a4b810b0eaafe382768d30099420d1a98e
+    :git: https://github.com/krzyzanowskim/CryptoSwift.git
   FirebaseAuth:
     :commit: 8fe1ddc5f16957da5b2dc8b1dee90e5bd85205ff
     :git: https://github.com/firebase/firebase-ios-sdk.git
@@ -925,6 +936,9 @@ CHECKOUT OPTIONS:
   lottie-ios:
     :commit: 7873c030a2c2b87375a5a8306dcc32feb2c91d8d
     :git: https://github.com/airbnb/lottie-ios.git
+  MTBBarcodeScanner:
+    :commit: d941e2594101d6f7cfeeb713ecae3912ad1d2361
+    :git: https://github.com/mikebuss/MTBBarcodeScanner
   netfox:
     :commit: 150d41ac4e3b49d80bc5508c5c6895ca057e5d8e
     :git: https://github.com/kasketis/netfox.git
@@ -937,9 +951,6 @@ CHECKOUT OPTIONS:
   RxSwift:
     :commit: 65bec4c253418c46ddc136424f46f333f086be1a
     :git: https://github.com/ReactiveX/RxSwift.git
-  SideMenuSwift:
-    :commit: e1e2a0e60a52e183d1a327359c8896c7b2066fdf
-    :git: https://github.com/kukushi/SideMenu
   SkeletonView:
     :commit: 0f5eaf82e82441690d38abfc4118c961f113881c
     :git: https://github.com/Juanpe/SkeletonView.git
@@ -949,6 +960,9 @@ CHECKOUT OPTIONS:
   SPAlert:
     :commit: 23e812f8a893202fc4c436193a740a79fd118bd4
     :git: https://github.com/sparrowcode/AlertKit.git
+  SwiftProtobuf:
+    :commit: 6b6b977817084d26e5ee96a4c9591b27fed0ab3c
+    :git: https://github.com/apple/swift-protobuf
   Swinject:
     :commit: 463cb2d659c8ae34899d18057ea5b1bb86fc3178
     :git: https://github.com/Swinject/Swinject.git
@@ -964,6 +978,7 @@ SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   CenteredCollectionView: a9217908a698c386cbb98af11b596da48900b908
+  CryptoSwift: 52aaf3fce7337552863b1d952e408085f0e65030
   FirebaseAppCheckInterop: 3cd914842ba46f4304050874cd284de82f154ffd
   FirebaseAuth: 2492acdcd1245d841fabdf58a050d6aa07dfce3f
   FirebaseCore: 2322423314d92f946219c8791674d2f3345b598f
@@ -986,6 +1001,7 @@ SPEC CHECKSUMS:
   Kingfisher: a18f05d3b6d37d8650ee4a3e61d57a28fc6207f6
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   lottie-ios: 16e4b4d2d9fa132b6b3c6b7e37aae6fa86da66fd
+  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
   PKHUD: 026ee10894f7d983cdb585138523a2ae098e4424
@@ -994,14 +1010,14 @@ SPEC CHECKSUMS:
   RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
   RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
-  SideMenuSwift: 00941d27f97ab1e1761768ad417dbd47cc8c1e28
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   SnapKit: 9eedce9d0d01ad07c7c75194ee7d39b42c04bb1f
   SPAlert: 7027ed9df9a2ba8202cab39fd05b53e110f48a99
+  SwiftProtobuf: 7df5cfb78004bcf81a1e3862117bd859c71157f7
   Swinject: e92ea52d5391469ab57feeba48551f3331af1732
   UIKitLivePreview: d2e3c23381d1e043adfd3b522ecd77583169e52d
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
 
-PODFILE CHECKSUM: 3f24e2c9d2322182bb658e895ab2875e0db5a6ec
+PODFILE CHECKSUM: 8e97fa2a2011a07ba9acb81d9ea4184f28200e45
 
 COCOAPODS: 1.14.2

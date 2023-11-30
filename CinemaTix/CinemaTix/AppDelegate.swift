@@ -22,18 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         FirebaseApp.configure()
         
-        func registerForNotification() {
-            UIApplication.shared.registerForRemoteNotifications()
-            let center : UNUserNotificationCenter = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: [.sound , .alert , .badge ], completionHandler: { (granted, error) in
-                if ((error != nil)) { UIApplication.shared.registerForRemoteNotifications() }
-                else {
-                    
-                }
-            })
-        }
-        
-        registerForNotification()
+        UIApplication.shared.registerForRemoteNotifications()
+        let center : UNUserNotificationCenter = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.sound , .alert , .badge ], completionHandler: { (granted, error) in
+            if ((error != nil)) { UIApplication.shared.registerForRemoteNotifications() }
+            else {
+                
+            }
+        })
         
         return true
     }

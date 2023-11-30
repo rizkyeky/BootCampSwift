@@ -89,9 +89,11 @@ class NavBar: UIView {
         }
     }
     
-        func opacityBackgroundDidScroll(_ scrollView: UIScrollView, point: CGFloat = 400.0, limit: CGFloat = 0.48) {
-        let offsetY = scrollView.contentOffset.y
+    func opacityBackgroundDidScroll(_ offsetY: CGFloat, point: CGFloat = 400.0, limit: CGFloat = 0.48) {
         let alpha = (offsetY - point) / NavBar.height
+        if isHasBlurBox {
+            blurBox.alpha = alpha
+        }
         self.backgroundColor = self.backgroundColor?.withAlphaComponent(alpha > limit ? limit : alpha)
     }
 }

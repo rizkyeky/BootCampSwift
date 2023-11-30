@@ -12,6 +12,7 @@ import KeyboardObserver
 import RxSwift
 import RxCocoa
 import SPAlert
+import CoreNFC
 
 class WalletViewController: BaseViewController {
 
@@ -21,7 +22,7 @@ class WalletViewController: BaseViewController {
     @IBOutlet weak var topUpButton: UIButton!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    @IBOutlet weak var nfcButton: UIButton!
     @IBOutlet weak var transSection: TransSection!
     
     let amountText = UILabel()
@@ -31,6 +32,8 @@ class WalletViewController: BaseViewController {
     let keyboardObserver = KeyboardObserver()
     
     let walletViewModel = ContainerDI.shared.resolve(WalletViewModel.self)!
+    
+    var nfcSession: NFCTagReaderSession?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +89,14 @@ class WalletViewController: BaseViewController {
         payButton.setAnimateBounce()
         payButton.makeCornerRadius(16)
         payButton.addAction(UIAction { _ in
-            self.navigationController?.openBottomSheet(to: ScannerViewController())
+            self.navigationController?.openBottomSheet(to: BarcodeScannerViewController())
+        }, for: .touchUpInside)
+        
+        nfcButton.backgroundColor = .quaternarySystemFill
+        nfcButton.setAnimateBounce()
+        nfcButton.makeCornerRadius(16)
+        nfcButton.addAction(UIAction { _ in
+            self.startNFCSession()
         }, for: .touchUpInside)
         
         keyboardObserver.observe { [weak self] (event) -> Void in
@@ -136,7 +146,7 @@ class WalletViewController: BaseViewController {
     }
 }
 
-extension WalletViewController: FloatingPanelControllerDelegate {
+extension WalletViewController: FloatingPanelControllerDelegate, NFCTagReaderSessionDelegate, BarcodeScannerViewControllerDelegate {
     func setupFloatingPanel() {
         floatingPanelController = FloatingPanelController()
         floatingPanelController.delegate = self
@@ -182,6 +192,53 @@ extension WalletViewController: FloatingPanelControllerDelegate {
     
     func floatingPanel(_ fpc: FloatingPanelController, animatorForDismissingWith velocity: CGVector) -> UIViewPropertyAnimator {
         return UIViewPropertyAnimator(duration: TimeInterval(0.16), curve: .easeOut)
+    }
+    
+    func startNFCSession() {
+        nfcSession = NFCTagReaderSession(pollingOption: [.iso14443], delegate: self)
+        nfcSession?.begin()
+    }
+    
+    // NFCTagReaderSessionDelegate methods
+    func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
+        // Session started
+    }
+    
+    func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
+        // Handle session invalidation or errors
+        print("Error: \(error.localizedDescription)")
+    }
+    
+    func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
+        for tag in tags {
+            switch tag {
+            case .feliCa(let felicaTag):
+                // Assuming the card contains a simple text-based identifier
+                let identifierData = felicaTag.currentIDm
+                let identifierString = String(data: identifierData, encoding: .utf8)
+                print("Card Identifier: \(identifierString ?? "Unknown")")
+                
+            case .miFare(let miFareTag):
+                // Assuming the card contains a simple text-based identifier
+                let identifierData = miFareTag.identifier
+                let identifierString = String(data: identifierData, encoding: .utf8)
+                print("Card Identifier: \(identifierString ?? "Unknown")")
+                
+            default:
+                // Handle other types of NFC tags if needed
+                print("Detected NFC tag of unknown type")
+            }
+        }
+    }
+    
+    func didScanBarcodeWithResult(_ controller: BarcodeScannerViewController?, scanResult: ScanResult) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.showAlertOK(title: "QR Success", message: scanResult.rawContent)
+        }
+    }
+    
+    func didFailWithErrorCode(_ controller: BarcodeScannerViewController?, errorCode: String) {
+        
     }
 }
 

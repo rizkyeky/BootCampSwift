@@ -11,7 +11,6 @@
 		175A2579B01B77983132CB64 /* Pods_CinemaTix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058C184768B311A69D4835CB /* Pods_CinemaTix.framework */; };
 		253926D12B15DFBC00DBC35B /* BookNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253926CF2B15DFBC00DBC35B /* BookNowViewController.swift */; };
 		253926D22B15DFBC00DBC35B /* BookNowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 253926D02B15DFBC00DBC35B /* BookNowViewController.xib */; };
-		253926D62B15E55500DBC35B /* ShareActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253926D52B15E55500DBC35B /* ShareActivity.swift */; };
 		253926E12B15EE9A00DBC35B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253926E02B15EE9A00DBC35B /* WidgetKit.framework */; };
 		253926E32B15EE9A00DBC35B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253926E22B15EE9A00DBC35B /* SwiftUI.framework */; };
 		253926E62B15EE9A00DBC35B /* DynamicIslandBookNowBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253926E52B15EE9A00DBC35B /* DynamicIslandBookNowBundle.swift */; };
@@ -20,6 +19,8 @@
 		253926EC2B15EE9A00DBC35B /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253926EB2B15EE9A00DBC35B /* AppIntent.swift */; };
 		253926EE2B15EE9C00DBC35B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 253926ED2B15EE9C00DBC35B /* Assets.xcassets */; };
 		253926F22B15EE9C00DBC35B /* DynamicIslandBookNowExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 253926DF2B15EE9A00DBC35B /* DynamicIslandBookNowExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		254149822B182356008BF5FA /* ExtInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254149812B182356008BF5FA /* ExtInt.swift */; };
+		254149842B1863E1008BF5FA /* Scanner2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254149832B1863E1008BF5FA /* Scanner2ViewController.swift */; };
 		254149AC2AF87EBA00DFA4C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254149AB2AF87EBA00DFA4C9 /* AppDelegate.swift */; };
 		254149AE2AF87EBA00DFA4C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254149AD2AF87EBA00DFA4C9 /* SceneDelegate.swift */; };
 		254149B02AF87EBA00DFA4C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254149AF2AF87EBA00DFA4C9 /* ViewController.swift */; };
@@ -87,6 +88,7 @@
 		254DF1422AFDD44500B99EFC /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1412AFDD44500B99EFC /* AuthViewModel.swift */; };
 		254DF1462AFE1AEE00B99EFC /* QueryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1442AFE1AEE00B99EFC /* QueryCellTableViewCell.swift */; };
 		254DF1472AFE1AEE00B99EFC /* QueryCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254DF1452AFE1AEE00B99EFC /* QueryCellTableViewCell.xib */; };
+		255EA5C52B188D6800B75D52 /* protos.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255EA5C42B188D6800B75D52 /* protos.pb.swift */; };
 		256F0F762B105B5500D10857 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F0F752B105B5500D10857 /* Keychain.swift */; };
 		256F0F782B107CF600D10857 /* WalletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F0F772B107CF600D10857 /* WalletModel.swift */; };
 		2577E75F2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */; };
@@ -101,8 +103,7 @@
 		258C58DE2B061A9000951A3A /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58DD2B061A9000951A3A /* WalletViewModel.swift */; };
 		258C58E02B061B1400951A3A /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58DF2B061B1400951A3A /* TransactionModel.swift */; };
 		258C58E22B070FB700951A3A /* ExtNSNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E12B070FB700951A3A /* ExtNSNumber.swift */; };
-		258C58E52B0719D600951A3A /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E42B0719D600951A3A /* Scanner.swift */; };
-		258C58EA2B074FEE00951A3A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E92B074FEE00951A3A /* Constant.swift */; };
+		258C58E52B0719D600951A3A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C58E42B0719D600951A3A /* ScannerViewController.swift */; };
 		25A070A32B0095EB0074118D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A22B0095EB0074118D /* DataController.swift */; };
 		25A070A62B01C4F20074118D /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A52B01C4F20074118D /* ExtString.swift */; };
 		25A070AA2B01CE3C0074118D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A070A82B01CE3C0074118D /* SettingViewController.swift */; };
@@ -188,7 +189,6 @@
 		058C184768B311A69D4835CB /* Pods_CinemaTix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		253926CF2B15DFBC00DBC35B /* BookNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNowViewController.swift; sourceTree = "<group>"; };
 		253926D02B15DFBC00DBC35B /* BookNowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookNowViewController.xib; sourceTree = "<group>"; };
-		253926D52B15E55500DBC35B /* ShareActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareActivity.swift; sourceTree = "<group>"; };
 		253926DF2B15EE9A00DBC35B /* DynamicIslandBookNowExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DynamicIslandBookNowExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		253926E02B15EE9A00DBC35B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		253926E22B15EE9A00DBC35B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -198,6 +198,8 @@
 		253926EB2B15EE9A00DBC35B /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		253926ED2B15EE9C00DBC35B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		253926EF2B15EE9C00DBC35B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		254149812B182356008BF5FA /* ExtInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtInt.swift; sourceTree = "<group>"; };
+		254149832B1863E1008BF5FA /* Scanner2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner2ViewController.swift; sourceTree = "<group>"; };
 		254149A82AF87EBA00DFA4C9 /* CinemaTix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaTix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		254149AB2AF87EBA00DFA4C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		254149AD2AF87EBA00DFA4C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -269,6 +271,8 @@
 		254DF1412AFDD44500B99EFC /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		254DF1442AFE1AEE00B99EFC /* QueryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryCellTableViewCell.swift; sourceTree = "<group>"; };
 		254DF1452AFE1AEE00B99EFC /* QueryCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueryCellTableViewCell.xib; sourceTree = "<group>"; };
+		255EA5C02B18849400B75D52 /* CinemaTix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CinemaTix.entitlements; sourceTree = "<group>"; };
+		255EA5C42B188D6800B75D52 /* protos.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protos.pb.swift; sourceTree = "<group>"; };
 		256F0F752B105B5500D10857 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		256F0F772B107CF600D10857 /* WalletModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModel.swift; sourceTree = "<group>"; };
 		2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFloatingPanel.swift; sourceTree = "<group>"; };
@@ -283,8 +287,7 @@
 		258C58DD2B061A9000951A3A /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
 		258C58DF2B061B1400951A3A /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		258C58E12B070FB700951A3A /* ExtNSNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtNSNumber.swift; sourceTree = "<group>"; };
-		258C58E42B0719D600951A3A /* Scanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
-		258C58E92B074FEE00951A3A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		258C58E42B0719D600951A3A /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		25A070A22B0095EB0074118D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		25A070A52B01C4F20074118D /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
 		25A070A82B01CE3C0074118D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -432,6 +435,7 @@
 		254149AA2AF87EBA00DFA4C9 /* CinemaTix */ = {
 			isa = PBXGroup;
 			children = (
+				255EA5C02B18849400B75D52 /* CinemaTix.entitlements */,
 				256F0F742B105B4200D10857 /* Security */,
 				25BA44AC2B0B0DAD00C74AB6 /* L10n */,
 				25A070A12B0095DB0074118D /* Data */,
@@ -587,7 +591,6 @@
 				2577E7692AFA2066002D6AF6 /* BaseViewController.swift */,
 				254DF1372AFCCDA000B99EFC /* BaseViewModel.swift */,
 				2578D4922B00692400EC8D59 /* ContainerDI.swift */,
-				258C58E92B074FEE00951A3A /* Constant.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				254DF1162AFB26CF00B99EFC /* ExtUIImage.swift */,
 				25414A3B2AF8DD2E00DFA4C9 /* ExtUIViewController.swift */,
 				25A070A52B01C4F20074118D /* ExtString.swift */,
+				254149812B182356008BF5FA /* ExtInt.swift */,
 				258C58E12B070FB700951A3A /* ExtNSNumber.swift */,
 			);
 			path = Extension;
@@ -613,12 +617,11 @@
 			children = (
 				253926D32B15E4FE00DBC35B /* Card */,
 				25A070C02B0331230074118D /* SmallCarousel */,
-				2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */,
 				2577E7662AF9F2AC002D6AF6 /* RegisterTextField */,
+				2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */,
 				25A070DD2B036DEF0074118D /* GradientView.swift */,
 				25B0F87F2B0B5417004A2056 /* NavBar.swift */,
 				25B0F8812B0C983F004A2056 /* Loading.swift */,
-				253926D52B15E55500DBC35B /* ShareActivity.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -757,6 +760,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		255EA5C32B188D5300B75D52 /* protos */ = {
+			isa = PBXGroup;
+			children = (
+				255EA5C42B188D6800B75D52 /* protos.pb.swift */,
+			);
+			path = protos;
+			sourceTree = "<group>";
+		};
 		256F0F742B105B4200D10857 /* Security */ = {
 			isa = PBXGroup;
 			children = (
@@ -777,7 +788,9 @@
 		258C58E32B0719AB00951A3A /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
-				258C58E42B0719D600951A3A /* Scanner.swift */,
+				255EA5C32B188D5300B75D52 /* protos */,
+				258C58E42B0719D600951A3A /* ScannerViewController.swift */,
+				254149832B1863E1008BF5FA /* Scanner2ViewController.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -1242,6 +1255,7 @@
 				2577E7652AF9F27F002D6AF6 /* RegisterTextField.swift in Sources */,
 				254DF1312AFC698700B99EFC /* HomeTableViewCell2.swift in Sources */,
 				254DF1462AFE1AEE00B99EFC /* QueryCellTableViewCell.swift in Sources */,
+				254149822B182356008BF5FA /* ExtInt.swift in Sources */,
 				25414A3A2AF8D50E00DFA4C9 /* DarkMode.swift in Sources */,
 				25A070DB2B0362820074118D /* CastCell.swift in Sources */,
 				2577E76A2AFA2066002D6AF6 /* BaseViewController.swift in Sources */,
@@ -1271,6 +1285,7 @@
 				25A070BC2B0214040074118D /* MovieItemCell.swift in Sources */,
 				25A070BF2B0329670074118D /* GenreModel.swift in Sources */,
 				25414A402AF8E78100DFA4C9 /* WelcomePanelViewController.swift in Sources */,
+				255EA5C52B188D6800B75D52 /* protos.pb.swift in Sources */,
 				25414A0B2AF8B9A900DFA4C9 /* Service.swift in Sources */,
 				254149B02AF87EBA00DFA4C9 /* ViewController.swift in Sources */,
 				254DF1352AFC6E7300B99EFC /* HomeTableViewCell3.swift in Sources */,
@@ -1288,8 +1303,9 @@
 				2577E7612AF9DCCF002D6AF6 /* SVGIcon.swift in Sources */,
 				254149F32AF8844700DFA4C9 /* TabBarViewController.swift in Sources */,
 				25B0F8912B0F04DC004A2056 /* LaunchViewController.swift in Sources */,
-				258C58E52B0719D600951A3A /* Scanner.swift in Sources */,
+				258C58E52B0719D600951A3A /* ScannerViewController.swift in Sources */,
 				25A742532B142A360054B155 /* ErrorService.swift in Sources */,
+				254149842B1863E1008BF5FA /* Scanner2ViewController.swift in Sources */,
 				253926D12B15DFBC00DBC35B /* BookNowViewController.swift in Sources */,
 				256F0F762B105B5500D10857 /* Keychain.swift in Sources */,
 				25A070D52B0360920074118D /* CastSection.swift in Sources */,
@@ -1303,11 +1319,9 @@
 				25C2805A2B170DFF006D365B /* DayPicker.swift in Sources */,
 				25414A182AF8CE9400DFA4C9 /* ExtUICollectionView.swift in Sources */,
 				25414A212AF8CFE100DFA4C9 /* WalletViewController.swift in Sources */,
-				253926D62B15E55500DBC35B /* ShareActivity.swift in Sources */,
 				2578D4902AFFC97D00EC8D59 /* SignInViewController.swift in Sources */,
 				25478DEA2B049DE700F26BE9 /* TransCell.swift in Sources */,
 				25414A012AF89D4100DFA4C9 /* MovieApi.swift in Sources */,
-				258C58EA2B074FEE00951A3A /* Constant.swift in Sources */,
 				254DF1422AFDD44500B99EFC /* AuthViewModel.swift in Sources */,
 				25414A072AF8A7BA00DFA4C9 /* MovieDetailModel.swift in Sources */,
 				25414A122AF8CD8F00DFA4C9 /* SFIcon.swift in Sources */,
@@ -1572,6 +1586,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CinemaTix/CinemaTix.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QHWS6Y2JRB;
@@ -1582,6 +1597,11 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CinemaTix/Info.plist;
+				INFOPLIST_KEY_NFCReaderUsageDescription = "We use NFC for read card";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We use Camera for scan QR Code";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use Face ID for secure authentication";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location for cinema location";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1611,6 +1631,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CinemaTix/CinemaTix.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QHWS6Y2JRB;
@@ -1621,6 +1642,11 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CinemaTix/Info.plist;
+				INFOPLIST_KEY_NFCReaderUsageDescription = "We use NFC for read card";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We use Camera for scan QR Code";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use Face ID for secure authentication";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location for cinema location";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

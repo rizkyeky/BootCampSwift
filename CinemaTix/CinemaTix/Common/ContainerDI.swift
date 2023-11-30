@@ -24,10 +24,6 @@ class ContainerDI {
         container.register(WalletViewModel.self) { r in
             return WalletViewModel()
         }.inObjectScope(.container)
-        
-//        container.register(DataController.self) { r in
-//            return DataController()
-//        }.inObjectScope(.container)
 
         container.register(DarkMode.self) { r in
             return DarkMode()
@@ -35,6 +31,10 @@ class ContainerDI {
         
         container.register(BiometricAuth.self) { r in
             return BiometricAuth()
+        }.inObjectScope(.container)
+        
+        container.register(BookViewModel.self) { _ in
+            return BookViewModel()
         }.inObjectScope(.container)
         
         return container
