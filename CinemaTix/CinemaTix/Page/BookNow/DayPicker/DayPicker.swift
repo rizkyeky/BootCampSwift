@@ -15,7 +15,7 @@ class DayPicker: UIView {
     
     private let bookViewModel = ContainerDI.shared.resolve(BookViewModel.self)
     
-    var indexSelected: Int?
+//    var indexSelected: Int?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -65,10 +65,12 @@ extension DayPicker: UICollectionViewDelegate, UICollectionViewDataSource, UICol
             }
             
             cell.onTap = {
-                if let indexSelected = self.indexSelected {
-                    cell.isSelected = indexSelected == i
-                }
+                self.bookViewModel?.selectedDateRelay.accept(i)
             }
+            
+            bookViewModel?.selectedDateRelay.bind(onNext: { index in
+                cell.didSelectedCell(index == i)
+            }).disposed(by: bookViewModel?.disposeBag ?? DisposeBag())
         }
     
         return cell
@@ -82,7 +84,7 @@ extension DayPicker: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return .init(top: 0, left: 16, bottom: 0, right: 16)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.indexSelected = indexPath.row
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        self.indexSelected = indexPath.row
+//    }
 }

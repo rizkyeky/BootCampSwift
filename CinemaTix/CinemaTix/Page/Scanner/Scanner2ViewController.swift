@@ -124,9 +124,7 @@ class BarcodeScannerViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        setupScanRect(CGRect(origin: CGPoint(x: 0, y:0),
-                             size: size
-                            ))
+        setupScanRect(CGRect(origin: CGPoint(x: 0, y:0), size: size))
     }
     
     private func setupScanRect(_ bounds: CGRect) {
@@ -222,8 +220,8 @@ class BarcodeScannerViewController: UIViewController {
     }
     
     private func scanResult(_ scanResult: ScanResult){
+        dismiss(animated: true)
         self.delegate?.didScanBarcodeWithResult(self, scanResult: scanResult)
-        dismiss(animated: false)
     }
     
     private func mapRestrictedBarcodeTypes() -> [String] {
@@ -292,44 +290,44 @@ class ScannerOverlay: UIView {
 //        line.frame = lineRect
         
         // draw the green corners
-        let cornerSize: CGFloat = 30
-        let path = UIBezierPath()
+//        let cornerSize: CGFloat = 30
+//        let path = UIBezierPath()
         
         //top left corner
-        path.move(to: CGPoint(x: holeRect.origin.x, y: holeRect.origin.y + cornerSize))
-        path.addLine(to: CGPoint(x: holeRect.origin.x, y: holeRect.origin.y))
-        path.addLine(to: CGPoint(x: holeRect.origin.x + cornerSize, y: holeRect.origin.y))
+//        path.move(to: CGPoint(x: holeRect.origin.x, y: holeRect.origin.y + cornerSize))
+//        path.addLine(to: CGPoint(x: holeRect.origin.x, y: holeRect.origin.y))
+//        path.addLine(to: CGPoint(x: holeRect.origin.x + cornerSize, y: holeRect.origin.y))
         
         //top right corner
-        let rightHoleX = holeRect.origin.x + holeRect.size.width
-        path.move(to: CGPoint(x: rightHoleX - cornerSize, y: holeRect.origin.y))
-        path.addLine(to: CGPoint(x: rightHoleX, y: holeRect.origin.y))
-        path.addLine(to: CGPoint(x: rightHoleX, y: holeRect.origin.y + cornerSize))
+//        let rightHoleX = holeRect.origin.x + holeRect.size.width
+//        path.move(to: CGPoint(x: rightHoleX - cornerSize, y: holeRect.origin.y))
+//        path.addLine(to: CGPoint(x: rightHoleX, y: holeRect.origin.y))
+//        path.addLine(to: CGPoint(x: rightHoleX, y: holeRect.origin.y + cornerSize))
         
         // bottom right corner
-        let bottomHoleY = holeRect.origin.y + holeRect.size.height
-        path.move(to: CGPoint(x: rightHoleX, y: bottomHoleY - cornerSize))
-        path.addLine(to: CGPoint(x: rightHoleX, y: bottomHoleY))
-        path.addLine(to: CGPoint(x: rightHoleX - cornerSize, y: bottomHoleY))
+//        let bottomHoleY = holeRect.origin.y + holeRect.size.height
+//        path.move(to: CGPoint(x: rightHoleX, y: bottomHoleY - cornerSize))
+//        path.addLine(to: CGPoint(x: rightHoleX, y: bottomHoleY))
+//        path.addLine(to: CGPoint(x: rightHoleX - cornerSize, y: bottomHoleY))
         
         // bottom left corner
-        path.move(to: CGPoint(x: holeRect.origin.x + cornerSize, y: bottomHoleY))
-        path.addLine(to: CGPoint(x: holeRect.origin.x, y: bottomHoleY))
-        path.addLine(to: CGPoint(x: holeRect.origin.x, y: bottomHoleY - cornerSize))
+//        path.move(to: CGPoint(x: holeRect.origin.x + cornerSize, y: bottomHoleY))
+//        path.addLine(to: CGPoint(x: holeRect.origin.x, y: bottomHoleY))
+//        path.addLine(to: CGPoint(x: holeRect.origin.x, y: bottomHoleY - cornerSize))
         
-        path.lineWidth = 2
-        UIColor.green.setStroke()
-        path.stroke()
+//        path.lineWidth = 2
+//        UIColor.green.setStroke()
+//        path.stroke()
     }
     
     public func startAnimating() {
-        layer.removeAnimation(forKey: "flashAnimation")
-        let flash = CABasicAnimation(keyPath: "opacity")
-        flash.fromValue = NSNumber(value: 0.0)
-        flash.toValue = NSNumber(value: 1.0)
-        flash.duration = 0.25
-        flash.autoreverses = true
-        flash.repeatCount = HUGE
+//        layer.removeAnimation(forKey: "flashAnimation")
+//        let flash = CABasicAnimation(keyPath: "opacity")
+//        flash.fromValue = NSNumber(value: 0.0)
+//        flash.toValue = NSNumber(value: 1.0)
+//        flash.duration = 0.25
+//        flash.autoreverses = true
+//        flash.repeatCount = HUGE
 //        line.layer.add(flash, forKey: "flashAnimation")
     }
     
@@ -346,7 +344,7 @@ class ScannerOverlay: UIView {
         let isLandscape = frameWidth > frameHeight
         let widthOnPortrait = isLandscape ? frameHeight : frameWidth
         let scanRectWidth = widthOnPortrait * 0.8
-        let aspectRatio: CGFloat = 3.0 / 4.0
+        let aspectRatio: CGFloat = 1
         let scanRectHeight = scanRectWidth * aspectRatio
         
         if isLandscape {

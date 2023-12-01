@@ -21,6 +21,7 @@ class BookNowViewController: BaseViewController {
     private let bookViewModel = ContainerDI.shared.resolve(BookViewModel.self)
     
     private var movie: MovieModel?
+    private var currLocation: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +38,17 @@ class BookNowViewController: BaseViewController {
         
         changeLocButton.setAnimateBounce()
         changeLocButton.makeCornerRadius(8)
+        changeLocButton.addAction(UIAction { _ in
+            let mapVC = MapViewController()
+            mapVC.currLocation = self.currLocation
+            self.navigationController?.pushViewController(mapVC, animated: true)
+        }, for: .touchUpInside)
         
         locationLabel.skeletonTextNumberOfLines = .init(integerLiteral: 2)
         locationLabel.showAnimatedSkeleton()
         
         cinemaStack.spacing = 8
-        cinemaStack.distribution = .fillEqually
+        cinemaStack.distribution = .fillProportionally
         cinemaStack.alignment = .top
         
         let cinemaList = [
@@ -55,7 +61,7 @@ class BookNowViewController: BaseViewController {
             cinemaStack.addArrangedSubview(cin)
             cin.snp.makeConstraints { make in
                 make.left.right.equalTo(self.cinemaStack)
-                make.height.equalTo(160)
+//                make.height.equalTo(200)
             }
         }
     }
@@ -77,6 +83,9 @@ extension BookNowViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
+            
+            self.currLocation = location
+            
             let geocoder = CLGeocoder()
             geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
                 if error != nil {
@@ -116,7 +125,7 @@ class CinemaSection: UIView {
     }
     
     private func setup() {
-        backgroundColor = .secondarySystemFill
+        backgroundColor = .secondarySystemBackground
         makeCornerRadius(16)
         
         let cinemaLabel = UILabel()
@@ -138,13 +147,79 @@ class CinemaSection: UIView {
         }
         
         let boxSchedule = UIView()
-        boxSchedule.backgroundColor = .darkGray
+//        boxSchedule.backgroundColor = .blue
         addSubview(boxSchedule)
         boxSchedule.snp.makeConstraints { make in
             make.left.equalTo(self).offset(16)
             make.right.equalTo(self).inset(16)
             make.top.equalTo(cinemaLabel.snp.bottom).offset(16)
             make.bottom.equalTo(self).inset(16)
+        }
+        
+        let typeLabel = UILabel()
+        typeLabel.text = "Regular | Rp50.000 | Audi 6"
+        typeLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        typeLabel.textColor = .lightGray
+        
+        boxSchedule.addSubview(typeLabel)
+        typeLabel.snp.makeConstraints { make in
+            make.top.left.equalTo(boxSchedule)
+        }
+        
+        let scheduleStack = UIStackView()
+//        scheduleStack.backgroundColor = .gray
+        boxSchedule.addSubview(scheduleStack)
+        scheduleStack.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.top.equalTo(typeLabel.snp.bottom).offset(8)
+            make.left.right.equalTo(boxSchedule)
+        }
+        
+        scheduleStack.spacing = 4.0
+        scheduleStack.alignment = .fill
+        scheduleStack.distribution = .fillEqually
+            
+        let schedules = [
+            ScheduleBox(time: "15:00", seats: "200/300"),
+            ScheduleBox(time: "16:30", seats: "100/300"),
+            ScheduleBox(time: "17:30", seats: "80/300"),
+            ScheduleBox(time: "18:00", seats: "50/300")
+        ]
+        for sch in schedules {
+            scheduleStack.addArrangedSubview(sch)
+        }
+    }
+}
+
+class ScheduleBox: UIView {
+    
+    var time: String
+    var seats: String
+    
+    init(time: String, seats: String) {
+        self.time = time
+        self.seats = time
+        super.init(frame: .zero)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setup() {
+        makeCornerRadius(8)
+        addBorderLine(width: 1, color: .accent)
+        snp.makeConstraints { make in
+//            make.height.equalTo(24)
+//            make.width.equalTo(90)
+        }
+        
+        let timeLabel = UILabel()
+        timeLabel.text = time
+        addSubview(timeLabel)
+        timeLabel.snp.makeConstraints { make in
+            make.centerX.centerY.equalTo(self)
         }
     }
 }

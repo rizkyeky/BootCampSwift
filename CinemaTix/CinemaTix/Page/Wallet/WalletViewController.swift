@@ -89,7 +89,9 @@ class WalletViewController: BaseViewController {
         payButton.setAnimateBounce()
         payButton.makeCornerRadius(16)
         payButton.addAction(UIAction { _ in
-            self.navigationController?.openBottomSheet(to: BarcodeScannerViewController())
+            let qrCodeVC = BarcodeScannerViewController()
+            qrCodeVC.delegate = self
+            self.navigationController?.openBottomSheet(to: qrCodeVC)
         }, for: .touchUpInside)
         
         nfcButton.backgroundColor = .quaternarySystemFill
@@ -232,7 +234,7 @@ extension WalletViewController: FloatingPanelControllerDelegate, NFCTagReaderSes
     }
     
     func didScanBarcodeWithResult(_ controller: BarcodeScannerViewController?, scanResult: ScanResult) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             self.showAlertOK(title: "QR Success", message: scanResult.rawContent)
         }
     }

@@ -96,9 +96,9 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6Pp-CV-BRd">
-                                    <rect key="frame" x="16" y="60" width="361" height="500"/>
+                                    <rect key="frame" x="16" y="60" width="361" height="720"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="500" id="jjE-t6-QhA"/>
+                                        <constraint firstAttribute="height" constant="720" id="jjE-t6-QhA"/>
                                     </constraints>
                                 </stackView>
                             </subviews>
@@ -142,13 +142,13 @@
     <resources>
         <image name="mappin.and.ellipse" catalog="system" width="110" height="128"/>
         <systemColor name="secondarySystemFillColor">
-            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

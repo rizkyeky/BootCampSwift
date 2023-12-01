@@ -21,8 +21,7 @@ extension UIView {
     }
     
     
-    func addBorderLine(width: CGFloat = 1,
-                       color: UIColor = .blue) {
+    func addBorderLine(width: CGFloat = 1, color: UIColor = .blue) {
         layer.borderWidth = width
         layer.borderColor = color.cgColor
     }

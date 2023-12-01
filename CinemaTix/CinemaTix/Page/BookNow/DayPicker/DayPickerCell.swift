@@ -16,19 +16,17 @@ class DayPickerCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
     
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                UIView.animate(withDuration: 0.12, delay: 0.0, options: .curveEaseOut, animations: {
-                    self.box.addBorderLine(width: 2.4, color: .accent)
-                })
-            } else {
-                UIView.animate(withDuration: 0.12, delay: 0.0, options: .curveEaseOut, animations: {
-                    self.box.layer.borderWidth = 0
-                    self.box.layer.borderColor = nil
-                })
-                
-            }
+    func didSelectedCell(_ isSelected: Bool) {
+        if isSelected {
+            UIView.animate(withDuration: 0.12, delay: 0.0, options: .curveEaseOut, animations: {
+                self.box.addBorderLine(width: 2.4, color: .accent)
+            })
+        } else {
+            UIView.animate(withDuration: 0.12, delay: 0.0, options: .curveEaseOut, animations: {
+                self.box.layer.borderWidth = 0
+                self.box.layer.borderColor = nil
+            })
+            
         }
     }
     

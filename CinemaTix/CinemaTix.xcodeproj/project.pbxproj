@@ -89,6 +89,8 @@
 		254DF1462AFE1AEE00B99EFC /* QueryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254DF1442AFE1AEE00B99EFC /* QueryCellTableViewCell.swift */; };
 		254DF1472AFE1AEE00B99EFC /* QueryCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254DF1452AFE1AEE00B99EFC /* QueryCellTableViewCell.xib */; };
 		255EA5C52B188D6800B75D52 /* protos.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255EA5C42B188D6800B75D52 /* protos.pb.swift */; };
+		255EA5C92B19767200B75D52 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255EA5C72B19767200B75D52 /* MapViewController.swift */; };
+		255EA5CA2B19767200B75D52 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 255EA5C82B19767200B75D52 /* MapViewController.xib */; };
 		256F0F762B105B5500D10857 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F0F752B105B5500D10857 /* Keychain.swift */; };
 		256F0F782B107CF600D10857 /* WalletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F0F772B107CF600D10857 /* WalletModel.swift */; };
 		2577E75F2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */; };
@@ -273,6 +275,8 @@
 		254DF1452AFE1AEE00B99EFC /* QueryCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueryCellTableViewCell.xib; sourceTree = "<group>"; };
 		255EA5C02B18849400B75D52 /* CinemaTix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CinemaTix.entitlements; sourceTree = "<group>"; };
 		255EA5C42B188D6800B75D52 /* protos.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protos.pb.swift; sourceTree = "<group>"; };
+		255EA5C72B19767200B75D52 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		255EA5C82B19767200B75D52 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		256F0F752B105B5500D10857 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		256F0F772B107CF600D10857 /* WalletModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModel.swift; sourceTree = "<group>"; };
 		2577E75E2AF9CEA8002D6AF6 /* SignInFloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInFloatingPanel.swift; sourceTree = "<group>"; };
@@ -437,7 +441,7 @@
 			children = (
 				255EA5C02B18849400B75D52 /* CinemaTix.entitlements */,
 				256F0F742B105B4200D10857 /* Security */,
-				25BA44AC2B0B0DAD00C74AB6 /* L10n */,
+				25BA44AC2B0B0DAD00C74AB6 /* Localization */,
 				25A070A12B0095DB0074118D /* Data */,
 				254DF13C2AFDC7BB00B99EFC /* Fonts */,
 				254149EB2AF8838C00DFA4C9 /* Feature */,
@@ -485,6 +489,7 @@
 		254149DE2AF8829600DFA4C9 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				255EA5C62B19764B00B75D52 /* Map */,
 				253926CE2B15C8A700DBC35B /* BookNow */,
 				25B0F8832B0D9632004A2056 /* Profile */,
 				258C58E32B0719AB00951A3A /* Scanner */,
@@ -768,6 +773,15 @@
 			path = protos;
 			sourceTree = "<group>";
 		};
+		255EA5C62B19764B00B75D52 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				255EA5C72B19767200B75D52 /* MapViewController.swift */,
+				255EA5C82B19767200B75D52 /* MapViewController.xib */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		256F0F742B105B4200D10857 /* Security */ = {
 			isa = PBXGroup;
 			children = (
@@ -888,13 +902,13 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
-		25BA44AC2B0B0DAD00C74AB6 /* L10n */ = {
+		25BA44AC2B0B0DAD00C74AB6 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
 				25BA44AD2B0B0DD200C74AB6 /* en.json */,
 				25BA44AF2B0B12B800C74AB6 /* id.json */,
 			);
-			path = L10n;
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		25C280582B170DE1006D365B /* DayPicker */ = {
@@ -1105,6 +1119,7 @@
 				25478DEB2B049DE700F26BE9 /* TransCell.xib in Resources */,
 				25C2805C2B170E69006D365B /* DayPicker.xib in Resources */,
 				254DF1472AFE1AEE00B99EFC /* QueryCellTableViewCell.xib in Resources */,
+				255EA5CA2B19767200B75D52 /* MapViewController.xib in Resources */,
 				25A070B42B01D0F60074118D /* SettingBaseCell.xib in Resources */,
 				25414A382AF8D0A900DFA4C9 /* MovieDetailViewController.xib in Resources */,
 				2577E7632AF9ECDC002D6AF6 /* Secret.plist in Resources */,
@@ -1285,6 +1300,7 @@
 				25A070BC2B0214040074118D /* MovieItemCell.swift in Sources */,
 				25A070BF2B0329670074118D /* GenreModel.swift in Sources */,
 				25414A402AF8E78100DFA4C9 /* WelcomePanelViewController.swift in Sources */,
+				255EA5C92B19767200B75D52 /* MapViewController.swift in Sources */,
 				255EA5C52B188D6800B75D52 /* protos.pb.swift in Sources */,
 				25414A0B2AF8B9A900DFA4C9 /* Service.swift in Sources */,
 				254149B02AF87EBA00DFA4C9 /* ViewController.swift in Sources */,

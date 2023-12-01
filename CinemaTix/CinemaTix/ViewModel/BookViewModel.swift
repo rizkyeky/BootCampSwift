@@ -10,10 +10,10 @@ import RxSwift
 import RxCocoa
 
 class BookViewModel: BaseViewModel {
-    var movie: MovieModel?
-    var movieDetail: MovieDetailModel?
+    open var movie: MovieModel?
+    open var movieDetail: MovieDetailModel?
     
-    var selectedDateRelay = PublishRelay<Date>()
+    open var selectedDateRelay = PublishRelay<Int>()
     
     open var sevenDays: [Date] = []
     
