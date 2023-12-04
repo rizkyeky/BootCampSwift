@@ -5,49 +5,43 @@ target 'CinemaTix' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'GoogleDataTransport', '~> 9.3'
+  pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
+  pod 'FirebaseMessaging'
 
-  pod 'MLKitVision', :podspec => 'MLKitVision.podspec.json'
-  pod 'MLKitCommon', :podspec => 'MLKitCommon.podspec.json'
+  pod 'Alamofire'
+  pod 'Kingfisher'
+  pod 'FloatingPanel'
+  pod 'lottie-ios'
+  pod 'SnapKit'
+  pod 'SkeletonView'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Swinject'
+  pod 'CenteredCollectionView'
+  pod 'netfox', :configurations => ['Debug']
+  pod 'ViewAnimator'
+  pod 'SPAlert'
+  pod 'UIKitLivePreview'
+  pod 'KeyboardObserver'
+  pod 'IQKeyboardManagerSwift'
+  pod 'PKHUD'
+  pod 'Hero'
   
-  pod 'GoogleMLKit/FaceDetection', '3.2.0'
-  pod 'TensorFlowLiteSwift/CoreML', '2.4.0'
+  pod 'MTBBarcodeScanner'
+  pod 'SwiftProtobuf'
+  pod 'CryptoSwift'
 
-  pod 'FirebaseAuth', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
-  pod 'FirebaseFirestore', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
-  pod 'FirebaseMessaging', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
-
-  pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git'
-  pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git'
-  pod 'FloatingPanel', :git => 'https://github.com/scenee/FloatingPanel.git'
-  pod 'lottie-ios', :git => 'https://github.com/airbnb/lottie-ios.git'
-  pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git'
-  pod 'SkeletonView', :git => 'https://github.com/Juanpe/SkeletonView.git'
-  pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git'
-  pod 'RxCocoa', :git => 'https://github.com/ReactiveX/RxSwift.git'
-  pod 'Swinject', :git => 'https://github.com/Swinject/Swinject.git'
-  pod 'CenteredCollectionView', :git => 'https://github.com/BenEmdon/CenteredCollectionView.git'
-  pod 'netfox', :configurations => ['Debug'], :git => 'https://github.com/kasketis/netfox.git'
-  pod 'ViewAnimator', :git => 'https://github.com/marcosgriselli/ViewAnimator.git'
-  pod 'SPAlert', :git => 'https://github.com/sparrowcode/AlertKit.git'
-  pod 'UIKitLivePreview', :git => 'https://github.com/nicoelayda/UIKitLivePreview.git'
-  pod 'KeyboardObserver', :git => 'https://github.com/morizotter/KeyboardObserver.git'
-  pod 'IQKeyboardManagerSwift', :git => 'https://github.com/hackiftekhar/IQKeyboardManager.git'
-  pod 'PKHUD', :git => 'https://github.com/pkluz/PKHUD.git'
-  pod 'Hero', :git => 'https://github.com/HeroTransitions/Hero.git'
-  
-  pod 'MTBBarcodeScanner', :git => 'https://github.com/mikebuss/MTBBarcodeScanner'
-  pod 'SwiftProtobuf', :git => 'https://github.com/apple/swift-protobuf'
-  pod 'CryptoSwift', :git => 'https://github.com/krzyzanowskim/CryptoSwift.git'
+  pod 'GoogleDataTransport', '~> 9.0'
   
   pod 'MLKitVision', :podspec => 'MLKitVision.podspec.json'
   pod 'MLKitCommon', :podspec => 'MLKitCommon.podspec.json'
   
-  pod 'GoogleMLKit/FaceDetection', '3.2.0'
-  pod 'TensorFlowLiteSwift/CoreML', '2.4.0'
+  pod 'GoogleMLKit/FaceDetection'
+  pod 'TensorFlowLiteSwift/CoreML'
   
-  #  pod 'GoogleMLKit/BarcodeScanning'
-  #  pod 'GoogleMLKit/ObjectDetection'
+  pod 'GoogleMLKit/BarcodeScanning'
+  pod 'GoogleMLKit/ObjectDetection'
   
 #  pod 'SideMenuSwift', :git => 'https://github.com/kukushi/SideMenu'
   

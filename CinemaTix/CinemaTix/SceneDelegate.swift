@@ -24,6 +24,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let darkMode = ContainerDI.shared.resolve(DarkMode.self)
         darkMode?.setup(window: window)
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.24) {
+            let audio = Audio()
+            audio.loadNotification()
+            audio.playAudio()
+        }
+        
         self.window = window
         self.window?.makeKeyAndVisible()
     }

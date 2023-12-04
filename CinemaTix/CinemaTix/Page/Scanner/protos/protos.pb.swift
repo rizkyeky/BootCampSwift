@@ -21,8 +21,8 @@ import SwiftProtobuf
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
     
-    struct _3: SwiftProtobuf.ProtobufAPIVersion_3 {}
-    typealias Version = _3
+    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+    typealias Version = _2
 }
 
 /// protos/barcode_format.proto

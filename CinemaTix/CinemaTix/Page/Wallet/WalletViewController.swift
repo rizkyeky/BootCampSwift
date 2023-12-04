@@ -22,7 +22,7 @@ class WalletViewController: BaseViewController {
     @IBOutlet weak var topUpButton: UIButton!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var nfcButton: UIButton!
+    
     @IBOutlet weak var transSection: TransSection!
     
     let amountText = UILabel()
@@ -92,13 +92,6 @@ class WalletViewController: BaseViewController {
             let qrCodeVC = BarcodeScannerViewController()
             qrCodeVC.delegate = self
             self.navigationController?.openBottomSheet(to: qrCodeVC)
-        }, for: .touchUpInside)
-        
-        nfcButton.backgroundColor = .quaternarySystemFill
-        nfcButton.setAnimateBounce()
-        nfcButton.makeCornerRadius(16)
-        nfcButton.addAction(UIAction { _ in
-            self.startNFCSession()
         }, for: .touchUpInside)
         
         keyboardObserver.observe { [weak self] (event) -> Void in

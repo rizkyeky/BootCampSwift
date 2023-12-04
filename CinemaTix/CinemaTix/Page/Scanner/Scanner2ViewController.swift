@@ -59,6 +59,28 @@ class BarcodeScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let videoCaptureDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else {
+            
+            self.view.backgroundColor = .systemGroupedBackground
+            let label = UILabel()
+            let icon = UIImageView(image: UIImage(systemName: "camera.fill"))
+            icon.tintColor = .label
+            label.text = "No Camera"
+            label.textAlignment = .center
+            self.view.addSubview(label)
+            self.view.addSubview(icon)
+            label.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+            }
+            icon.snp.makeConstraints { make in
+                make.height.equalTo(32)
+                make.width.equalTo(40)
+                make.centerX.equalToSuperview()
+                make.bottom.equalTo(label.snp.top).offset(-16)
+            }
+            return
+        }
+        
         UIDevice.current.endGeneratingDeviceOrientationNotifications()
         
 #if targetEnvironment(simulator)
@@ -91,8 +113,8 @@ class BarcodeScannerViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if scanner!.isScanning() {
-            scanner!.stopScanning()
+        if scanner?.isScanning() == true {
+            scanner?.stopScanning()
         }
         
         UIDevice.current.endGeneratingDeviceOrientationNotifications()

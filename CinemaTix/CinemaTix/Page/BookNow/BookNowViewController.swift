@@ -146,39 +146,67 @@ class CinemaSection: UIView {
             make.top.equalTo(self).offset(16)
         }
         
-        let boxSchedule = UIView()
-//        boxSchedule.backgroundColor = .blue
-        addSubview(boxSchedule)
-        boxSchedule.snp.makeConstraints { make in
+        let stackScheduleSection = UIStackView()
+        addSubview(stackScheduleSection)
+        stackScheduleSection.snp.makeConstraints { make in
             make.left.equalTo(self).offset(16)
             make.right.equalTo(self).inset(16)
-            make.top.equalTo(cinemaLabel.snp.bottom).offset(16)
+            make.top.equalTo(cinemaLabel.snp.bottom).offset(8)
             make.bottom.equalTo(self).inset(16)
         }
         
+        stackScheduleSection.axis = .vertical
+        stackScheduleSection.spacing = 4.0
+        stackScheduleSection.alignment = .fill
+        stackScheduleSection.distribution = .fillEqually
+        
+        let scheduleSections = [
+            ScheduleSection(name: "Regular | Rp50.000 | Audi 6"),
+            ScheduleSection(name: "VVIP | Rp200.000 | Audi 7"),
+        ]
+        for sec in scheduleSections {
+            stackScheduleSection.addArrangedSubview(sec)
+        }
+    }
+}
+
+class ScheduleSection: UIView {
+    
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+        super.init(frame: .zero)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setup() {
         let typeLabel = UILabel()
-        typeLabel.text = "Regular | Rp50.000 | Audi 6"
+        typeLabel.text = name
         typeLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         typeLabel.textColor = .lightGray
         
-        boxSchedule.addSubview(typeLabel)
+        addSubview(typeLabel)
         typeLabel.snp.makeConstraints { make in
-            make.top.left.equalTo(boxSchedule)
+            make.top.left.equalTo(self)
         }
         
         let scheduleStack = UIStackView()
-//        scheduleStack.backgroundColor = .gray
-        boxSchedule.addSubview(scheduleStack)
+        addSubview(scheduleStack)
         scheduleStack.snp.makeConstraints { make in
             make.height.equalTo(40)
             make.top.equalTo(typeLabel.snp.bottom).offset(8)
-            make.left.right.equalTo(boxSchedule)
+            make.left.right.equalTo(self)
         }
         
         scheduleStack.spacing = 4.0
         scheduleStack.alignment = .fill
         scheduleStack.distribution = .fillEqually
-            
+        
         let schedules = [
             ScheduleBox(time: "15:00", seats: "200/300"),
             ScheduleBox(time: "16:30", seats: "100/300"),

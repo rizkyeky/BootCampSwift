@@ -10,10 +10,11 @@ import SnapKit
 
 class NavBar: UIView {
     
-    let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
-    let title = UILabel()
-    let blurBox = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
-    let contain = UIView()
+    private(set) lazy var backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+    private(set) lazy var title = UILabel()
+    private(set) lazy var blurBox = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
+    private(set) lazy var contain = UIView()
+    
     static let height = CGFloat(56)
     
     var isHasBlurBox = false {

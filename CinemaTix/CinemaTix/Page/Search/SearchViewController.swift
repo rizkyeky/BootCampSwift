@@ -68,8 +68,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         if let result = movieViewModel.resultsSearchMovies {
             cell.label.text = "\(result[indexPath.row].title ?? "-")"
             cell.onTap = {
-                let movieVC = MovieDetailViewController()
-                movieVC.movie = result[indexPath.row]
+                let movieVC = MovieDetailViewController(movie: result[indexPath.row])
                 self.navigationController?.pushViewController(movieVC, animated: true)
             }
         }

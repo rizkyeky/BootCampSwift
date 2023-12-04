@@ -19,7 +19,6 @@ class AuthViewModel: BaseViewModel {
     var birthDateTemp: Date = Date()
     
     let biometric = ContainerDI.shared.resolve(BiometricAuth.self)
-//    let dataController = ContainerDI.shared.resolve(DataController.self)
     
     let fireAuth = FireAuth()
     

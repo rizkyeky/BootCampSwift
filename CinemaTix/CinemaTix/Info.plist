@@ -59,5 +59,10 @@
     <array>
         <string>A00000000386980701</string>
     </array>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>id</string>
+    </array>
 </dict>
 </plist>

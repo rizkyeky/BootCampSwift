@@ -21,6 +21,7 @@ struct ProfileView: View {
     init(onLogOut: @escaping () -> Void) {
         self.onLogOut = onLogOut
         self.isDarkMode = darkMode.isActive
+        print(darkMode.isActive)
     }
     
     var body: some View {
@@ -79,6 +80,11 @@ struct ProfileView: View {
                         .navigationTitle("Change Language")
                     } label: {
                         Text("Change Language")
+                    }
+                    NavigationLink {
+                        CameraFaceView()
+                    } label: {
+                        Text("Activate FaceID")
                     }
                     Button(action: {
                         isPresentingActionSheet.toggle()
@@ -160,6 +166,17 @@ struct LanguageOptionSection: View {
 struct SettingView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
         let viewController = SettingViewController()
+        return viewController
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+    }
+}
+
+struct CameraFaceView: UIViewControllerRepresentable {
+    
+    func makeUIViewController(context: Context) -> UIViewController {
+        let viewController = CameraFaceViewController()
         return viewController
     }
     

@@ -29,10 +29,21 @@ class MovieDetailViewController: BaseViewController {
     
     @IBOutlet weak var genreList: UIView!
     
-    var movie: MovieModel?
+   
     var movieDetail: MovieDetailModel?
     
     let movieViewModel = ContainerDI.shared.resolve(MovieViewModel.self)!
+    
+    let movie: MovieModel
+    
+    init(movie: MovieModel) {
+        self.movie = movie
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,22 +74,26 @@ class MovieDetailViewController: BaseViewController {
         gradientBackdropBottom.isHidden = true
         
         self.hero.isEnabled = true
-        backDropImage.hero.id = "\(movie?.id?.formatted() ?? "")backdrop"
+        backDropImage.hero.id = "\(movie.id?.formatted() ?? "")backdrop"
 //        bookButton.hero.id = "\(movie?.id?.formatted() ?? "")bookbtn"
 //        blurBox.hero.id = "\(movie?.id?.formatted() ?? "")blur"
         
-        if let backdropPath = movie?.backdropPath {
+        bookButton?.hero.modifiers = [.translate(y:48), .fade]
+        blurBox?.hero.modifiers = [.fade, .arc]
+        navBar.hero.modifiers = [.cascade, .translate(x:100)]
+        
+        if let backdropPath = movie.backdropPath {
             let path = String(backdropPath.dropFirst())
             backDropImage.kf.setImage(with: TmdbApi.getImageURL(path), placeholder: UIImage(named: "imagenotfound"))
             backDropImage.contentMode = .scaleAspectFill
         }
         
         spec.text = "13+ | "
-        if let rating = movie?.voteAverage {
+        if let rating = movie.voteAverage {
             spec.text?.append("Rating: \(String(format: "%.2f", rating))")
         }
         
-        if let desc = movie?.overview {
+        if let desc = movie.overview {
             overviewText.text = desc
         }
         
@@ -86,7 +101,7 @@ class MovieDetailViewController: BaseViewController {
         navBar.backgroundColor = .systemBackground
         navBar.isHasBlurBox = true
         navBar.title.textColor = .label
-        navBar.title.text = movie?.title ?? "-"
+        navBar.title.text = movie.title ?? "-"
         
         let shareBtn = UIButton(frame: .init(x: 0, y: 0, width: 32, height: 32))
         navBar.addSubview(shareBtn)
@@ -104,7 +119,7 @@ class MovieDetailViewController: BaseViewController {
         shareBtn.addAction(UIAction { sender in
             
             let activityVC = UIActivityViewController(
-                activityItems: [self.movie?.title ?? "-", self.movie?.backdropPath ?? "-"],
+                activityItems: [self.movie.title ?? "-", self.movie.backdropPath ?? "-"],
                 applicationActivities: nil
             )
             
@@ -135,7 +150,7 @@ class MovieDetailViewController: BaseViewController {
             }
         }
         
-        if let idMovie = movie?.id {
+        if let idMovie = movie.id {
             self.castSection.isShowSkeleton = true
             movieViewModel.getCredit(id: idMovie) { _peoples in
                 self.castSection.peoples = _peoples
@@ -213,7 +228,7 @@ import SwiftUI
 @available(iOS 13.0, *)
 struct MovieDetailViewController_Preview: PreviewProvider {
     static var previews: some View {
-        MovieDetailViewController()
+        MovieDetailViewController(movie: .init(adult: nil, backdropPath: nil, genreIDS: nil, id: nil, originalLanguage: nil, originalTitle: nil, overview: nil, popularity: nil, posterPath: nil, releaseDate: nil, title: nil, video: nil, voteAverage: nil, voteCount: nil))
             .preview()
             .device(.iPhone11)
     }

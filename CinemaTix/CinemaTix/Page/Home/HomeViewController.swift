@@ -116,18 +116,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell<HomeTableViewCell2>(forIndexPath: indexPath) as HomeTableViewCell2
-            cell.label.text = "Playing Now"
+            cell.label.text = LanguageStrings.playingNow.localized
             cell.label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
             cell.button.isHidden = true
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell
             cell.animate(animations: [animationDir], initialAlpha: 0.64, finalAlpha: 1, duration: TimeInterval(1))
+            cell.onTapBookBtn = { i in
+                self.onTapPlayingNowCarouselCell(index: i)
+            }
             
             cell.isShowSkeleton = true
             self.movieViewModel.getPlayingNowMovies {
                 cell.onTap = self.onTapPlayingNowCarouselCell
-                debugPrint("Reload Playing Now Carousel")
+//                debugPrint("Reload Playing Now Carousel")
                 cell.carousel.reloadData()
                 
                 cell.isShowSkeleton = false
@@ -142,11 +145,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell<HomeTableViewCell2>(forIndexPath: indexPath) as HomeTableViewCell2
-            cell.label.text = "Recommanded for You"
+            cell.label.text = LanguageStrings.recommendedForYou.localized
             cell.onTap = {
                 if let movies = self.movieViewModel.topRatedMovies {
                     let movieListVC = MovieListViewController()
-                    movieListVC.titlePage = "Recommanded for You"
+                    movieListVC.titlePage = LanguageStrings.recommendedForYou.localized
                     movieListVC.movies = movies
                     self.navigationController?.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(movieListVC, animated: true)
@@ -160,7 +163,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
             
             cell.isShowSkeleton = true
             self.movieViewModel.getTopRatedMovies {
-                debugPrint("Reload Top Rated Carousel")
+//                debugPrint("Reload Top Rated Carousel")
                 cell.onTap = self.onTapTopRatedCarouselCell
                 cell.movies = self.movieViewModel.topRatedMovies
                 cell.collection.reloadData()
@@ -180,11 +183,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
             let cell = tableView.dequeueReusableCell<HomeTableViewCell2>(forIndexPath: indexPath) as HomeTableViewCell2
             let animationDir = AnimationType.from(direction: .right, offset: 30.0)
             cell.animate(animations: [animationDir], initialAlpha: 0.64, finalAlpha: 1, duration: TimeInterval(1))
-            cell.label.text = "Upcoming Movies"
+            cell.label.text = LanguageStrings.upcoming.localized
             cell.onTap = {
                 if let movies = self.movieViewModel.upComingMovies {
                     let movieListVC = MovieListViewController()
-                    movieListVC.titlePage = "Upcoming Movies"
+                    movieListVC.titlePage = LanguageStrings.upcoming.localized
                     movieListVC.movies = movies
                     
                     self.navigationController?.hidesBottomBarWhenPushed = true
@@ -198,7 +201,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
             
             cell.isShowSkeleton = true
             self.movieViewModel.getUpComingMovies {
-                debugPrint("Reload Up Coming Carousel")
+//                debugPrint("Reload Up Coming Carousel")
                 
                 cell.onTap = self.onTapUpComingCarouselCell
                 cell.movies = self.movieViewModel.upComingMovies
@@ -219,9 +222,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
     
     func onTapPlayingNowCarouselCell(index: Int) {
         if let detail = self.movieViewModel.playingNowMovies?[index] {
-            let movieDetailVC = MovieDetailViewController()
-            
-            movieDetailVC.movie = detail
+            let movieDetailVC = MovieDetailViewController(movie: detail)
 
             self.navigationController?.hero.isEnabled = true
             self.navigationController?.hidesBottomBarWhenPushed = true
@@ -231,8 +232,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
     
     func onTapTopRatedCarouselCell(index: Int) {
         if let detail = self.movieViewModel.topRatedMovies?[index] {
-            let movieDetailVC = MovieDetailViewController()
-            movieDetailVC.movie = detail
+            let movieDetailVC = MovieDetailViewController(movie: detail)
+            
             self.navigationController?.hero.isEnabled = true
             self.navigationController?.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)
@@ -241,14 +242,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
     
     func onTapUpComingCarouselCell(index: Int) {
         if let detail = self.movieViewModel.upComingMovies?[index] {
-            let movieDetailVC = MovieDetailViewController()
-            
-            movieDetailVC.movie = detail
-            
-            movieDetailVC.bookButton.hero.modifiers = [.translate(y:48), .fade]
-            movieDetailVC.blurBox.hero.modifiers = [.fade, .arc]
-            movieDetailVC.navBar.hero.modifiers = [.cascade, .translate(x:100)]
-            
+            let movieDetailVC = MovieDetailViewController(movie: detail)
+        
             self.navigationController?.hero.isEnabled = true
             self.navigationController?.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(movieDetailVC, animated: true)

@@ -21,6 +21,7 @@ class HomeTableViewCell: UITableViewCell {
     let movieViewModel = ContainerDI.shared.resolve(MovieViewModel.self)!
     
     var onTap: ((Int) -> Void)?
+    var onTapBookBtn: ((Int) -> Void)?
     
     var isShowSkeleton: Bool?
     
@@ -60,7 +61,7 @@ extension HomeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     func setupCell(_ cell: CarouselCell, _ index: Int) {
         cell.onTap = { self.onTap?(index) }
         
-        cell.onTapBookBtn = {}
+        cell.onTapBookBtn = { self.onTapBookBtn?(index) }
         
         let details = movieViewModel.playingNowMovies
         cell.title.text = details?[index].title ?? "-"

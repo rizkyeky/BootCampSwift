@@ -26,17 +26,17 @@ class TabBarViewController: UITabBarController {
         
         if let homeImage = SVGIcon.home.getImage() {
             let img = homeImage.resizeWith(size: CGSize(width: 30, height: 30))
-            home.tabBarItem = UITabBarItem(title: "Home", image: img, tag: 0)
+            home.tabBarItem = UITabBarItem(title: LanguageStrings.home.localized, image: img, tag: 0)
         }
         
         if let walletImage = SVGIcon.wallet.getImage() {
             let img = walletImage.resizeWith(size: CGSize(width: 30, height: 30))
-            wallet.tabBarItem = UITabBarItem(title: "Wallet", image: img, tag: 1)
+            wallet.tabBarItem = UITabBarItem(title: LanguageStrings.wallet.localized, image: img, tag: 1)
         }
         
         if let transacImage = SVGIcon.person.getImage() {
             let img = transacImage.resizeWith(size: CGSize(width: 30, height: 30))
-            profile.tabBarItem = UITabBarItem(title: "Profile", image: img, tag: 2)
+            profile.tabBarItem = UITabBarItem(title: LanguageStrings.profile.localized, image: img, tag: 2)
         }
         
         setViewControllers([home, wallet, profile], animated: true)

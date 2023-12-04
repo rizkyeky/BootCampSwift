@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		103CBFE74E7273ACE7BA7FE1 /* Pods_CinemaTixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909FED32F98E13BDBFED1F76 /* Pods_CinemaTixTests.framework */; };
 		175A2579B01B77983132CB64 /* Pods_CinemaTix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058C184768B311A69D4835CB /* Pods_CinemaTix.framework */; };
+		25303EB82B1DBDB400D4AE15 /* CameraFaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25303EB72B1DBDB400D4AE15 /* CameraFaceViewController.swift */; };
+		25303EBA2B1DC46C00D4AE15 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25303EB92B1DC46C00D4AE15 /* UIUtilities.swift */; };
 		253926D12B15DFBC00DBC35B /* BookNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253926CF2B15DFBC00DBC35B /* BookNowViewController.swift */; };
 		253926D22B15DFBC00DBC35B /* BookNowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 253926D02B15DFBC00DBC35B /* BookNowViewController.xib */; };
 		253926E12B15EE9A00DBC35B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253926E02B15EE9A00DBC35B /* WidgetKit.framework */; };
@@ -139,13 +141,14 @@
 		25B0F8942B0F2DFD004A2056 /* ExtDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0F8932B0F2DFD004A2056 /* ExtDate.swift */; };
 		25B0F8962B0F31E9004A2056 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B0F8952B0F31E9004A2056 /* ProfileView.swift */; };
 		25BA44AB2B0AFE1F00C74AB6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA44AA2B0AFE1F00C74AB6 /* UserModel.swift */; };
-		25BA44AE2B0B0DD200C74AB6 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 25BA44AD2B0B0DD200C74AB6 /* en.json */; };
-		25BA44B02B0B12B800C74AB6 /* id.json in Resources */ = {isa = PBXBuildFile; fileRef = 25BA44AF2B0B12B800C74AB6 /* id.json */; };
 		25C2805A2B170DFF006D365B /* DayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C280592B170DFF006D365B /* DayPicker.swift */; };
 		25C2805C2B170E69006D365B /* DayPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C2805B2B170E69006D365B /* DayPicker.xib */; };
 		25C2805F2B170FA0006D365B /* DayPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C2805D2B170FA0006D365B /* DayPickerCell.swift */; };
 		25C280602B170FA0006D365B /* DayPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C2805E2B170FA0006D365B /* DayPickerCell.xib */; };
 		25C280622B173072006D365B /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C280612B173072006D365B /* BookViewModel.swift */; };
+		25E805532B1D749C0087ACB5 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E805522B1D749B0087ACB5 /* Audio.swift */; };
+		25E805552B1D8D2A0087ACB5 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E805542B1D8D2A0087ACB5 /* LanguageManager.swift */; };
+		25E8055C2B1D91C00087ACB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25E8055E2B1D91C00087ACB5 /* Localizable.strings */; };
 		A9702F5F95870B4FD773938B /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -189,6 +192,8 @@
 
 /* Begin PBXFileReference section */
 		058C184768B311A69D4835CB /* Pods_CinemaTix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		25303EB72B1DBDB400D4AE15 /* CameraFaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFaceViewController.swift; sourceTree = "<group>"; };
+		25303EB92B1DC46C00D4AE15 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		253926CF2B15DFBC00DBC35B /* BookNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNowViewController.swift; sourceTree = "<group>"; };
 		253926D02B15DFBC00DBC35B /* BookNowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookNowViewController.xib; sourceTree = "<group>"; };
 		253926DF2B15EE9A00DBC35B /* DynamicIslandBookNowExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DynamicIslandBookNowExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -326,13 +331,15 @@
 		25B0F8932B0F2DFD004A2056 /* ExtDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDate.swift; sourceTree = "<group>"; };
 		25B0F8952B0F31E9004A2056 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		25BA44AA2B0AFE1F00C74AB6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		25BA44AD2B0B0DD200C74AB6 /* en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
-		25BA44AF2B0B12B800C74AB6 /* id.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = id.json; sourceTree = "<group>"; };
 		25C280592B170DFF006D365B /* DayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPicker.swift; sourceTree = "<group>"; };
 		25C2805B2B170E69006D365B /* DayPicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayPicker.xib; sourceTree = "<group>"; };
 		25C2805D2B170FA0006D365B /* DayPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerCell.swift; sourceTree = "<group>"; };
 		25C2805E2B170FA0006D365B /* DayPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayPickerCell.xib; sourceTree = "<group>"; };
 		25C280612B173072006D365B /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		25E805522B1D749B0087ACB5 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
+		25E805542B1D8D2A0087ACB5 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		25E8055D2B1D91C00087ACB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		25E8055F2B1D91D20087ACB5 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		536B7CA7812CE796D777099D /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F308EB817918C1E9BEBC98 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
 		6B601FF28E071254BFB9ADEE /* Pods-CinemaTix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.debug.xcconfig"; sourceTree = "<group>"; };
@@ -380,6 +387,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25303EB62B1DBDA100D4AE15 /* CameraFace */ = {
+			isa = PBXGroup;
+			children = (
+				25303EB72B1DBDB400D4AE15 /* CameraFaceViewController.swift */,
+			);
+			path = CameraFace;
+			sourceTree = "<group>";
+		};
 		253926CE2B15C8A700DBC35B /* BookNow */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +504,7 @@
 		254149DE2AF8829600DFA4C9 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				25303EB62B1DBDA100D4AE15 /* CameraFace */,
 				255EA5C62B19764B00B75D52 /* Map */,
 				253926CE2B15C8A700DBC35B /* BookNow */,
 				25B0F8832B0D9632004A2056 /* Profile */,
@@ -596,6 +612,7 @@
 				2577E7692AFA2066002D6AF6 /* BaseViewController.swift */,
 				254DF1372AFCCDA000B99EFC /* BaseViewModel.swift */,
 				2578D4922B00692400EC8D59 /* ContainerDI.swift */,
+				25303EB92B1DC46C00D4AE15 /* UIUtilities.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -636,6 +653,7 @@
 			children = (
 				25414A0D2AF8CAE500DFA4C9 /* Biometric.swift */,
 				25414A392AF8D50E00DFA4C9 /* DarkMode.swift */,
+				25E805522B1D749B0087ACB5 /* Audio.swift */,
 				25A742542B149ED70054B155 /* CinemaTix-Bridging-Header.h */,
 			);
 			path = Feature;
@@ -905,8 +923,8 @@
 		25BA44AC2B0B0DAD00C74AB6 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				25BA44AD2B0B0DD200C74AB6 /* en.json */,
-				25BA44AF2B0B12B800C74AB6 /* id.json */,
+				25E805542B1D8D2A0087ACB5 /* LanguageManager.swift */,
+				25E8055E2B1D91C00087ACB5 /* Localizable.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -977,6 +995,7 @@
 				254149A62AF87EBA00DFA4C9 /* Resources */,
 				516097CE3C89D3BABFE544E9 /* [CP] Embed Pods Frameworks */,
 				253926F62B15EE9C00DBC35B /* Embed Foundation Extensions */,
+				64CEE7BD92454B3B5CBB382E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1016,6 +1035,7 @@
 				254149C82AF87EBC00DFA4C9 /* Frameworks */,
 				254149C92AF87EBC00DFA4C9 /* Resources */,
 				B5365ED0AE70B4DAC3DA79A0 /* [CP] Embed Pods Frameworks */,
+				D2D33A8ED8F2D26AA964A881 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1061,6 +1081,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = 2541499F2AF87EBA00DFA4C9;
 			productRefGroup = 254149A92AF87EBA00DFA4C9 /* Products */;
@@ -1092,8 +1113,8 @@
 				25B0F8922B0F04DC004A2056 /* LaunchViewController.xib in Resources */,
 				254DF11B2AFB4D8500B99EFC /* Card.xib in Resources */,
 				254DF1362AFC6E7300B99EFC /* HomeTableViewCell3.xib in Resources */,
-				25BA44AE2B0B0DD200C74AB6 /* en.json in Resources */,
 				254149BB2AF87EBC00DFA4C9 /* LaunchScreen.storyboard in Resources */,
+				25E8055C2B1D91C00087ACB5 /* Localizable.strings in Resources */,
 				254DF13F2AFDC7E000B99EFC /* Lato-Regular.ttf in Resources */,
 				25B0F8892B0DA229004A2056 /* GoogleService-Info.plist in Resources */,
 				254149FC2AF88A5700DFA4C9 /* WelcomeViewController.xib in Resources */,
@@ -1114,7 +1135,6 @@
 				2578D4912AFFC97D00EC8D59 /* SignInViewController.xib in Resources */,
 				253926D22B15DFBC00DBC35B /* BookNowViewController.xib in Resources */,
 				25414A412AF8E78100DFA4C9 /* WelcomePanelViewController.xib in Resources */,
-				25BA44B02B0B12B800C74AB6 /* id.json in Resources */,
 				25A070B82B01DAB10074118D /* SettingDarkModeCell.xib in Resources */,
 				25478DEB2B049DE700F26BE9 /* TransCell.xib in Resources */,
 				25C2805C2B170E69006D365B /* DayPicker.xib in Resources */,
@@ -1188,6 +1208,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		64CEE7BD92454B3B5CBB382E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CinemaTix/Pods-CinemaTix-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CinemaTix/Pods-CinemaTix-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CinemaTix/Pods-CinemaTix-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		67E06D6404F67F91578B313D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1249,6 +1286,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D2D33A8ED8F2D26AA964A881 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CinemaTix-CinemaTixUITests/Pods-CinemaTix-CinemaTixUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CinemaTix-CinemaTixUITests/Pods-CinemaTix-CinemaTixUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CinemaTix-CinemaTixUITests/Pods-CinemaTix-CinemaTixUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1267,6 +1321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25303EB82B1DBDB400D4AE15 /* CameraFaceViewController.swift in Sources */,
 				2577E7652AF9F27F002D6AF6 /* RegisterTextField.swift in Sources */,
 				254DF1312AFC698700B99EFC /* HomeTableViewCell2.swift in Sources */,
 				254DF1462AFE1AEE00B99EFC /* QueryCellTableViewCell.swift in Sources */,
@@ -1278,6 +1333,7 @@
 				254DF1382AFCCDA000B99EFC /* BaseViewModel.swift in Sources */,
 				254DF1222AFB6CE300B99EFC /* SearchViewController.swift in Sources */,
 				254149FE2AF88F4700DFA4C9 /* Endpoint.swift in Sources */,
+				25E805552B1D8D2A0087ACB5 /* LanguageManager.swift in Sources */,
 				254DF12C2AFB8BCB00B99EFC /* HomeTableViewCell.swift in Sources */,
 				25B0F8822B0C983F004A2056 /* Loading.swift in Sources */,
 				25A070DE2B036DEF0074118D /* GradientView.swift in Sources */,
@@ -1301,6 +1357,7 @@
 				25A070BF2B0329670074118D /* GenreModel.swift in Sources */,
 				25414A402AF8E78100DFA4C9 /* WelcomePanelViewController.swift in Sources */,
 				255EA5C92B19767200B75D52 /* MapViewController.swift in Sources */,
+				25E805532B1D749C0087ACB5 /* Audio.swift in Sources */,
 				255EA5C52B188D6800B75D52 /* protos.pb.swift in Sources */,
 				25414A0B2AF8B9A900DFA4C9 /* Service.swift in Sources */,
 				254149B02AF87EBA00DFA4C9 /* ViewController.swift in Sources */,
@@ -1336,6 +1393,7 @@
 				25414A182AF8CE9400DFA4C9 /* ExtUICollectionView.swift in Sources */,
 				25414A212AF8CFE100DFA4C9 /* WalletViewController.swift in Sources */,
 				2578D4902AFFC97D00EC8D59 /* SignInViewController.swift in Sources */,
+				25303EBA2B1DC46C00D4AE15 /* UIUtilities.swift in Sources */,
 				25478DEA2B049DE700F26BE9 /* TransCell.swift in Sources */,
 				25414A012AF89D4100DFA4C9 /* MovieApi.swift in Sources */,
 				254DF1422AFDD44500B99EFC /* AuthViewModel.swift in Sources */,
@@ -1409,6 +1467,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		25E8055E2B1D91C00087ACB5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				25E8055D2B1D91C00087ACB5 /* en */,
+				25E8055F2B1D91D20087ACB5 /* id */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1475,6 +1542,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1542,6 +1610,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

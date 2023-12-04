@@ -25,6 +25,9 @@ class DarkMode {
         if (_isActive) {
             window.overrideUserInterfaceStyle = .dark
         }
+        if (window.overrideUserInterfaceStyle == .dark && !_isActive) {
+            _isActive = true
+        }
         completion(_isActive)
     }
     

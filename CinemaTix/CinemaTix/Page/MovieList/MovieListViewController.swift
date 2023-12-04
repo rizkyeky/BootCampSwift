@@ -35,8 +35,8 @@ extension MovieListViewController: UICollectionViewDelegate, UICollectionViewDat
     func setupCell(_ cell: MovieItemCell, _ index: Int) {
         cell.onTap = {
             if let movie = self.movies?[index] {
-                let movieDetailVC = MovieDetailViewController()
-                movieDetailVC.movie = movie
+                let movieDetailVC = MovieDetailViewController(movie: movie)
+                
                 self.navigationController?.hero.isEnabled = true
                 self.navigationController?.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(movieDetailVC, animated: true)
