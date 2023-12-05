@@ -51,14 +51,11 @@ class CameraFaceViewController: UIViewController {
             }
             
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            
             setUpPreviewOverlayView()
             setUpAnnotationOverlayView()
             setUpCaptureSessionOutput()
             setUpCaptureSessionInput()
-            
-            previewLayer.frame = view.layer.bounds
-            previewLayer.videoGravity = .resizeAspectFill
-            view.layer.addSublayer(previewLayer)
             
             startSession()
             
@@ -83,22 +80,17 @@ class CameraFaceViewController: UIViewController {
             }
         }
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        startSession()
-//    }
-    
+#if !targetEnvironment(simulator)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        previewLayer.frame = cameraView.frame
+    }
+#endif
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         stopSession()
     }
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//    }
     
     private func startSession() {
         weak var weakSelf = self
@@ -177,8 +169,6 @@ class CameraFaceViewController: UIViewController {
                 return
             }
             strongSelf.captureSession.beginConfiguration()
-            // When performing latency tests to determine ideal capture settings,
-            // run the app in 'release' mode to get accurate performance metrics
             strongSelf.captureSession.sessionPreset = AVCaptureSession.Preset.medium
             
             let output = AVCaptureVideoDataOutput()
@@ -188,6 +178,7 @@ class CameraFaceViewController: UIViewController {
             output.alwaysDiscardsLateVideoFrames = true
             let outputQueue = DispatchQueue(label: Constant.videoDataOutputQueueLabel)
             output.setSampleBufferDelegate(strongSelf, queue: outputQueue)
+            
             guard strongSelf.captureSession.canAddOutput(output) else {
                 print("Failed to add capture session output.")
                 return
@@ -208,9 +199,53 @@ class CameraFaceViewController: UIViewController {
         }
         return nil
     }
+    
+    private func rotate(_ view: UIView, orientation: UIImage.Orientation) {
+        var degree: CGFloat = 0.0
+        switch orientation {
+        case .up, .upMirrored:
+            degree = 90.0
+        case .rightMirrored, .left:
+            degree = 180.0
+        case .down, .downMirrored:
+            degree = 270.0
+        case .leftMirrored, .right:
+            degree = 0.0
+        default:
+            degree = 0.0
+        }
+        
+        view.transform = CGAffineTransform.init(rotationAngle: degree * 3.141592654 / 180)
+    }
 }
 
 extension CameraFaceViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+        guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+            print("Failed to get image buffer from sample buffer.")
+            return
+        }
+        
+        lastFrame = sampleBuffer
+        let visionImage = VisionImage(buffer: sampleBuffer)
+        let orientation = UIUtilities.imageOrientation(
+            fromDevicePosition: isUsingFrontCamera ? .front : .back
+        )
+        visionImage.orientation = orientation
+        
+        guard let inputImage = MLImage(sampleBuffer: sampleBuffer) else {
+            print("Failed to create MLImage from sample buffer.")
+            return
+        }
+        inputImage.orientation = orientation
+        
+        let imageWidth = CGFloat(CVPixelBufferGetWidth(imageBuffer))
+        let imageHeight = CGFloat(CVPixelBufferGetHeight(imageBuffer))
+        
+        detectFacesOnDevice(in: visionImage, width: imageWidth, height: imageHeight)
+    }
     
     private func removeDetectionAnnotations() {
         for annotationView in annotationOverlayView.subviews {
@@ -246,45 +281,34 @@ extension CameraFaceViewController: AVCaptureVideoDataOutputSampleBufferDelegate
         options.classificationMode = .none
         options.performanceMode = .fast
         let faceDetector = FaceDetector.faceDetector(options: options)
-        var faces: [Face] = []
-        var detectionError: Error?
-        do {
-            faces = try faceDetector.results(in: image)
-        } catch let error {
-            detectionError = error
-        }
         weak var weakSelf = self
-        DispatchQueue.main.sync {
+        faceDetector.process(image) { faces, error in
             guard let strongSelf = weakSelf else {
                 print("Self is nil!")
                 return
             }
             strongSelf.updatePreviewOverlayViewWithLastFrame()
-            if let detectionError = detectionError {
+            if let detectionError = error {
                 print("Failed to detect faces with error: \(detectionError.localizedDescription).")
                 return
             }
-            guard !faces.isEmpty else {
-                print("On-Device face detector returned no results.")
-                return
-            }
             
-            for face in faces {
-                let normalizedRect = CGRect(
-                    x: face.frame.origin.x / width,
-                    y: face.frame.origin.y / height,
-                    width: face.frame.size.width / width,
-                    height: face.frame.size.height / height
-                )
-                let standardizedRect = strongSelf.previewLayer.layerRectConverted(
-                    fromMetadataOutputRect: normalizedRect
-                ).standardized
-                UIUtilities.addRectangle(
-                    standardizedRect,
-                    to: strongSelf.annotationOverlayView,
-                    color: UIColor.green
-                )
-                strongSelf.addContours(for: face, width: width, height: height)
+            if let faces = faces {
+                for face in faces {
+//                    let normalizedRect = CGRect(
+//                        x: face.frame.origin.x / width,
+//                        y: face.frame.origin.y / height,
+//                        width: face.frame.size.width / width,
+//                        height: face.frame.size.height / height
+//                    )
+//                    let standardizedRect = strongSelf.previewLayer.layerRectConverted(fromMetadataOutputRect: normalizedRect).standardized
+//                    UIUtilities.addRectangle(
+//                        standardizedRect,
+//                        to: strongSelf.annotationOverlayView,
+//                        color: UIColor.green
+//                    )
+                    strongSelf.addContours(for: face, width: width, height: height)
+                }
             }
         }
     }

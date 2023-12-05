@@ -60,7 +60,10 @@ extension TransSection: UITableViewDelegate, UITableViewDataSource {
             cell.showAnimatedSkeleton()
         } else {
             cell.hideSkeleton()
+        }
+        if walletViewModel.getLenTrans() > 0 {
             let trans = walletViewModel.getTrans(indexPath.row)
+            
             cell.label.text = "\(trans.label ?? "-")"
             cell.amount.text = "Rp\(NSNumber(value: trans.amount ?? 0).formatAsDecimalString())"
             

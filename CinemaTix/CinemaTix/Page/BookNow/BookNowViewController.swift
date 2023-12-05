@@ -20,7 +20,7 @@ class BookNowViewController: BaseViewController {
     
     private let bookViewModel = ContainerDI.shared.resolve(BookViewModel.self)
     
-    private var movie: MovieModel?
+    var movie: MovieModel?
     private var currLocation: CLLocation?
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class BookNowViewController: BaseViewController {
         navBar.isHidden = false
         navBar.backgroundColor = .systemBackground
         navBar.title.textColor = .label
-        navBar.title.text = "Book"
+        navBar.title.text = bookViewModel?.movie?.title ?? "Book"
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()

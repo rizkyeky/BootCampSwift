@@ -124,7 +124,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIScro
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath ) as HomeTableViewCell
             cell.animate(animations: [animationDir], initialAlpha: 0.64, finalAlpha: 1, duration: TimeInterval(1))
             cell.onTapBookBtn = { i in
-                self.onTapPlayingNowCarouselCell(index: i)
+                if let detail = self.movieViewModel.playingNowMovies?[i] {
+                    let bookNowVC = BookNowViewController()
+                    bookNowVC.movie = detail
+                    
+                    self.navigationController?.hero.isEnabled = true
+                    self.navigationController?.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(bookNowVC, animated: true)
+                }
             }
             
             cell.isShowSkeleton = true
