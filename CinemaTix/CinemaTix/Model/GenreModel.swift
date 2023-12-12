@@ -7,13 +7,8 @@
 
 import Foundation
 
-// MARK: - ResultGenre
-struct ResultGenre: Codable {
-    let genres: [Genre]?
-}
-
 // MARK: - Genre
-struct Genre: Codable {
+struct GenreModel: Codable {
     let id: Int?
     let name: String?
 }

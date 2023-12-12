@@ -2,27 +2,25 @@
 //  Audio.swift
 //  CinemaTix
 //
-//  Created by Eky on 04/12/23.
+//  Created by Eky on 12/12/23.
 //
 
 import Foundation
 import AVFoundation
 
 class Audio {
+    
     private var audioPlayer: AVAudioPlayer?
     
-    init() {
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print("Error setting up audio session: \(error.localizedDescription)")
-        }
-    }
-    
     func loadNotification() {
-        if let path = Bundle.main.path(forResource: "notification", ofType: "mp3") {
+        if let path = Bundle.main.path(forResource: "NotifSound", ofType: "mp3") {
             let url = URL(fileURLWithPath: path)
+            do {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch {
+                print("Error setting up audio session: \(error.localizedDescription)")
+            }
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: url)
             } catch {
@@ -34,6 +32,4 @@ class Audio {
     func playAudio() {
         audioPlayer?.play()
     }
-
-
 }

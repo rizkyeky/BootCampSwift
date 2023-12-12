@@ -2,7 +2,7 @@
 //  MovieDetailModel.swift
 //  CinemaTix
 //
-//  Created by Eky on 06/11/23.
+//  Created by Eky on 12/12/23.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ struct MovieDetailModel: Codable {
     let adult: Bool?
     let backdropPath: String?
     let budget: Int?
-    let genres: [Genre]?
+    let genres: [GenreModel]?
     let homepage: String?
     let id: Int?
     let imdbID, originalLanguage, originalTitle, overview: String?

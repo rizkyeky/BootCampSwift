@@ -1,8 +1,8 @@
 //
-//  Wallet.swift
+//  WalletModel.swift
 //  CinemaTix
 //
-//  Created by Eky on 24/11/23.
+//  Created by Eky on 12/12/23.
 //
 
 import Foundation
@@ -36,5 +36,5 @@ struct WalletModel {
             transactions: dict["transactions"] as? [String]
         )
     }
-
+    
 }

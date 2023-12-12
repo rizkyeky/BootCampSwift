@@ -18,46 +18,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cMM-qr-NlX">
-                                <rect key="frame" x="46.666666666666657" y="319" width="300" height="214"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="wlK-ei-52O">
-                                        <rect key="frame" x="72" y="0.0" width="156" height="158"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="156" id="FXm-OZ-cAx"/>
-                                            <constraint firstAttribute="height" constant="158" id="qnx-ng-im3"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy your movies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4A-Aw-SMT">
-                                        <rect key="frame" x="0.0" y="174" width="300" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Cbo-XS-dNI"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="I5G-JY-ph7"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                                        <color key="textColor" name="AccentColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="WYE-eJ-hm4">
+                                <rect key="frame" x="116.66666666666669" y="326" width="160" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="T9t-yP-gmm"/>
+                                    <constraint firstAttribute="width" constant="160" id="xrx-qj-fhD"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy your movies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21v-i0-v29">
+                                <rect key="frame" x="62" y="506" width="269" height="39"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cMM-qr-NlX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Cgw-xO-4np"/>
-                            <constraint firstItem="cMM-qr-NlX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="IZh-Wn-liK"/>
+                            <constraint firstItem="WYE-eJ-hm4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="7dG-rm-6WC"/>
+                            <constraint firstItem="21v-i0-v29" firstAttribute="top" secondItem="WYE-eJ-hm4" secondAttribute="bottom" constant="20" id="Muu-FU-NfV"/>
+                            <constraint firstItem="21v-i0-v29" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Wyc-yW-MGP"/>
+                            <constraint firstItem="WYE-eJ-hm4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-20" id="ers-Hk-BKH"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+            <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
     <resources>
         <image name="Icon" width="155" height="158"/>
         <namedColor name="AccentColor">
-            <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

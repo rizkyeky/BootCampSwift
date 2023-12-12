@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "254149A72AF87EBA00DFA4C9"
+               BlueprintIdentifier = "256A74712B27F57E00B8EF50"
                BuildableName = "CinemaTix.app"
                BlueprintName = "CinemaTix"
                ReferencedContainer = "container:CinemaTix.xcodeproj">
@@ -28,6 +28,30 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "256A74872B27F58000B8EF50"
+               BuildableName = "CinemaTixTests.xctest"
+               BlueprintName = "CinemaTixTests"
+               ReferencedContainer = "container:CinemaTix.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "256A74912B27F58000B8EF50"
+               BuildableName = "CinemaTixUITests.xctest"
+               BlueprintName = "CinemaTixUITests"
+               ReferencedContainer = "container:CinemaTix.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -43,7 +67,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "254149A72AF87EBA00DFA4C9"
+            BlueprintIdentifier = "256A74712B27F57E00B8EF50"
             BuildableName = "CinemaTix.app"
             BlueprintName = "CinemaTix"
             ReferencedContainer = "container:CinemaTix.xcodeproj">
@@ -60,7 +84,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "254149A72AF87EBA00DFA4C9"
+            BlueprintIdentifier = "256A74712B27F57E00B8EF50"
             BuildableName = "CinemaTix.app"
             BlueprintName = "CinemaTix"
             ReferencedContainer = "container:CinemaTix.xcodeproj">

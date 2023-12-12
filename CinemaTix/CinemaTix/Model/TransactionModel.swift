@@ -1,8 +1,8 @@
 //
-//  Transaction.swift
+//  TransactionModel.swift
 //  CinemaTix
 //
-//  Created by Eky on 16/11/23.
+//  Created by Eky on 12/12/23.
 //
 
 import Foundation

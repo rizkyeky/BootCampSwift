@@ -1,57 +1,23 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '13.0'
+# platform :ios, '9.0'
 
 target 'CinemaTix' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
-  pod 'FirebaseAuth'
-  pod 'FirebaseFirestore'
-  pod 'FirebaseMessaging'
-
+  
   pod 'Alamofire'
   pod 'Kingfisher'
-  pod 'FloatingPanel'
+  pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
   pod 'lottie-ios'
   pod 'SnapKit'
-  pod 'SkeletonView'
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'Swinject'
-  pod 'CenteredCollectionView'
-  pod 'netfox', :configurations => ['Debug']
-  pod 'ViewAnimator'
-  pod 'SPAlert'
-  pod 'UIKitLivePreview'
-  pod 'KeyboardObserver'
   pod 'IQKeyboardManagerSwift'
-  pod 'PKHUD'
-  pod 'Hero'
-  
-  pod 'MTBBarcodeScanner'
-  pod 'SwiftProtobuf'
   pod 'CryptoSwift'
+  pod 'netfox', :configurations => ['Debug']
 
-  pod 'GoogleDataTransport', '~> 9.0'
-  
-  pod 'MLKitVision', :podspec => 'MLKitVision.podspec.json'
-  pod 'MLKitCommon', :podspec => 'MLKitCommon.podspec.json'
-  
-  pod 'GoogleMLKit/FaceDetection'
-  pod 'TensorFlowLiteSwift/CoreML'
-  
-  pod 'GoogleMLKit/BarcodeScanning'
-  pod 'GoogleMLKit/ObjectDetection'
-  
-#  pod 'SideMenuSwift', :git => 'https://github.com/kukushi/SideMenu'
-  
-#  pod 'FirebaseCore', :git => 'https://github.com/firebase/firebase-ios-sdk.git'
-#  pod 'EFNavigationBar', :git => 'https://github.com/EFPrefix/EFNavigationBar.git'
-#  pod 'L10n-swift', :git => 'https://github.com/Decybel07/L10n-swift.git'
-#  pod 'ToastViewSwift', :git => 'https://github.com/BastiaanJansen/Toast-Swift.git'
-#  pod 'SVProgressHUD'
-
-# Pods for CinemaTix
+  # Pods for CinemaTix
 
   target 'CinemaTixTests' do
     inherit! :search_paths

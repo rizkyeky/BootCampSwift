@@ -1,8 +1,8 @@
 //
-//  UserModel.swift
+//  UserMode.swift
 //  CinemaTix
 //
-//  Created by Eky on 20/11/23.
+//  Created by Eky on 12/12/23.
 //
 
 import Foundation
@@ -11,7 +11,7 @@ import FirebaseFirestoreInternal
 struct UserModel {
     var id: String?
     
-    let email: String?
+    var email: String?
     
     var username: String?
     var displayName: String?

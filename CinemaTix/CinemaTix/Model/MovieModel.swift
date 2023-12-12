@@ -35,3 +35,4 @@ struct MovieModel: Codable {
         case voteCount = "vote_count"
     }
 }
+
