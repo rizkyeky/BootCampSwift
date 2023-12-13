@@ -15,13 +15,13 @@ class WelcomeViewController: BaseViewController {
         return image
     }()
     
-    private let signInButton: UIButton = {
-        let button = UIButton(title: "SIGN IN", isBold: true, foregroundColor: .white, backgroundColor: AppColor.accent)
+    private let signInButton = {
+        let button = OutlinedButton(title: "Sign In")
         return button
     }()
     
-    private let registerButton: UIButton = {
-        let button = UIButton(title: "REGISTER", isBold: true, foregroundColor: .white, backgroundColor: AppColor.accent?.withAlphaComponent(0.6))
+    private let registerButton = {
+        let button = FilledButton(title: "Register")
         return button
     }()
 
@@ -29,7 +29,9 @@ class WelcomeViewController: BaseViewController {
         super.viewDidLoad()
         
         signInButton.addAction(UIAction { _ in
-            self.showBottomSheet(to: SignInOptionsSheetViewController(navigationController: self.navigationController), level: [.medium()])
+            self.showBottomSheet(to: SignInOptionsSheetViewController {
+                self.navigationController?.setViewControllers([HomeViewController()], animated: true)
+            }, level: [.medium()])
         }, for: .touchUpInside)
     }
     
@@ -42,19 +44,20 @@ class WelcomeViewController: BaseViewController {
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(64)
             make.height.width.equalTo(160)
         }
-        
-        signInButton.snp.makeConstraints { make in
+                
+        registerButton.snp.makeConstraints { make in
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.logoIconImage.snp.bottom).offset(32)
             make.width.equalTo(300)
             make.height.equalTo(48)
         }
         
-        registerButton.snp.makeConstraints { make in
+        signInButton.snp.makeConstraints { make in
             make.centerX.equalTo(self.view)
-            make.top.equalTo(self.signInButton.snp.bottom).offset(16)
+            make.top.equalTo(self.registerButton.snp.bottom).offset(16)
             make.width.equalTo(300)
             make.height.equalTo(48)
         }
+
     }
 }

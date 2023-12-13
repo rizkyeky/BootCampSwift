@@ -32,7 +32,7 @@ enum AppSVGIcon: String {
     case apple = "logo-apple"
     case google = "logo-google"
     case email = "mail"
-    case faceId = "faceid"
+    case faceId = "face-id"
     
     case bag = "bag-check"
     case bagOutline = "bag-check-outline"

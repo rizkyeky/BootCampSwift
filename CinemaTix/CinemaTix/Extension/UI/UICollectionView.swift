@@ -27,7 +27,6 @@ extension UICollectionView {
         register(T.self, forCellWithReuseIdentifier: String(describing: name))
     }
     
-    
     func register<T: UICollectionReusableView>(supplementaryViewOfKind kind: String, withClass name: T.Type) {
         register(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: name))
     }

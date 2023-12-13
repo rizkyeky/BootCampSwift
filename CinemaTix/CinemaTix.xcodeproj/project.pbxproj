@@ -62,6 +62,17 @@
 		256A751B2B284D0600B8EF50 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A751A2B284D0600B8EF50 /* UIImage.swift */; };
 		256A751F2B2857A000B8EF50 /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A751E2B2857A000B8EF50 /* FilledButton.swift */; };
 		256A75212B285B1700B8EF50 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75202B285B1700B8EF50 /* SignInViewController.swift */; };
+		256A75232B293E1F00B8EF50 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75222B293E1F00B8EF50 /* UINavigationBar.swift */; };
+		256A75252B2949D000B8EF50 /* OutlinedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75242B2949D000B8EF50 /* OutlinedButton.swift */; };
+		256A75272B2949F700B8EF50 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75262B2949F700B8EF50 /* TextButton.swift */; };
+		256A75292B294A6700B8EF50 /* TintedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75282B294A6700B8EF50 /* TintedButton.swift */; };
+		256A752C2B294E5F00B8EF50 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A752B2B294E5F00B8EF50 /* FormTextField.swift */; };
+		256A75312B29553000B8EF50 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75302B29553000B8EF50 /* IconButton.swift */; };
+		256A75342B295E8000B8EF50 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75332B295E8000B8EF50 /* HomeViewController.swift */; };
+		256A75362B2960A900B8EF50 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75352B2960A900B8EF50 /* UITableViewCell.swift */; };
+		256A75382B29611500B8EF50 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75372B29611400B8EF50 /* UITableView.swift */; };
+		256A753B2B29637200B8EF50 /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A753A2B29637200B8EF50 /* BaseTableCell.swift */; };
+		256A753D2B2964D300B8EF50 /* HomeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A753C2B2964D300B8EF50 /* HomeTableCell.swift */; };
 		784C0D593C1B16405459CF9C /* Pods_CinemaTixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6265F766F2EEB683A9EF50 /* Pods_CinemaTixTests.framework */; };
 		E5F828EB5DC737497C697FA4 /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAA3917EFDBBFBC42407A2A /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
@@ -112,7 +123,7 @@
 		256A74C72B27FEAF00B8EF50 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		256A74C92B27FEB900B8EF50 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		256A74CB2B27FF0100B8EF50 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		256A74CE2B2806EE00B8EF50 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = "../New Group/WelcomeViewController.swift"; sourceTree = "<group>"; };
+		256A74CE2B2806EE00B8EF50 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		256A74D72B28129D00B8EF50 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		256A74DA2B2812F600B8EF50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		256A74DC2B28130A00B8EF50 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -145,6 +156,17 @@
 		256A751A2B284D0600B8EF50 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		256A751E2B2857A000B8EF50 /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
 		256A75202B285B1700B8EF50 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		256A75222B293E1F00B8EF50 /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
+		256A75242B2949D000B8EF50 /* OutlinedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedButton.swift; sourceTree = "<group>"; };
+		256A75262B2949F700B8EF50 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
+		256A75282B294A6700B8EF50 /* TintedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintedButton.swift; sourceTree = "<group>"; };
+		256A752B2B294E5F00B8EF50 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		256A75302B29553000B8EF50 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		256A75332B295E8000B8EF50 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		256A75352B2960A900B8EF50 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		256A75372B29611400B8EF50 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		256A753A2B29637200B8EF50 /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
+		256A753C2B2964D300B8EF50 /* HomeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableCell.swift; sourceTree = "<group>"; };
 		3EAA3917EFDBBFBC42407A2A /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6265F766F2EEB683A9EF50 /* Pods_CinemaTixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B7A01339612670CFD6D262 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,7 +252,7 @@
 		256A74742B27F57E00B8EF50 /* CinemaTix */ = {
 			isa = PBXGroup;
 			children = (
-				256A751C2B28576C00B8EF50 /* VIew */,
+				256A751C2B28576C00B8EF50 /* View */,
 				256A75052B28386E00B8EF50 /* Feature */,
 				256A74E42B28264D00B8EF50 /* Common */,
 				256A74D32B28105000B8EF50 /* Language */,
@@ -278,19 +300,8 @@
 		256A74A62B27F7B600B8EF50 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				256A74A72B27F7D900B8EF50 /* UIColor.swift */,
-				256A74A92B27F85100B8EF50 /* UICollectionViewCell.swift */,
-				256A74AB2B27F87E00B8EF50 /* UICollectionView.swift */,
-				256A74AD2B27F8F200B8EF50 /* UIFont.swift */,
-				256A74AF2B27F91800B8EF50 /* UIView.swift */,
-				256A74BB2B27FBEC00B8EF50 /* UILabel.swift */,
-				256A75182B28437F00B8EF50 /* UIBarButtonItem.swift */,
-				256A74B32B27FA1E00B8EF50 /* UIButton.swift */,
-				256A751A2B284D0600B8EF50 /* UIImage.swift */,
-				256A74BD2B27FC2E00B8EF50 /* UIStackView.swift */,
-				256A74B52B27FA2500B8EF50 /* String.swift */,
-				256A74B72B27FA2C00B8EF50 /* NSNumber.swift */,
-				256A74B92B27FB0400B8EF50 /* Date.swift */,
+				256A752F2B29537200B8EF50 /* Object */,
+				256A752D2B29535C00B8EF50 /* UI */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -298,6 +309,7 @@
 		256A74C12B27FD7700B8EF50 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				256A75322B295E2E00B8EF50 /* Home */,
 				256A75152B283F6500B8EF50 /* SignIn */,
 				256A74D12B28087D00B8EF50 /* Welcome */,
 				256A74D02B28086F00B8EF50 /* Launch */,
@@ -431,20 +443,81 @@
 			path = SignIn;
 			sourceTree = "<group>";
 		};
-		256A751C2B28576C00B8EF50 /* VIew */ = {
+		256A751C2B28576C00B8EF50 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				256A75392B29635A00B8EF50 /* TableCell */,
+				256A752A2B294E4E00B8EF50 /* TextField */,
 				256A751D2B28577200B8EF50 /* Button */,
 			);
-			path = VIew;
+			path = View;
 			sourceTree = "<group>";
 		};
 		256A751D2B28577200B8EF50 /* Button */ = {
 			isa = PBXGroup;
 			children = (
 				256A751E2B2857A000B8EF50 /* FilledButton.swift */,
+				256A75262B2949F700B8EF50 /* TextButton.swift */,
+				256A75302B29553000B8EF50 /* IconButton.swift */,
+				256A75242B2949D000B8EF50 /* OutlinedButton.swift */,
+				256A75282B294A6700B8EF50 /* TintedButton.swift */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		256A752A2B294E4E00B8EF50 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				256A752B2B294E5F00B8EF50 /* FormTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		256A752D2B29535C00B8EF50 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				256A74A72B27F7D900B8EF50 /* UIColor.swift */,
+				256A74A92B27F85100B8EF50 /* UICollectionViewCell.swift */,
+				256A75352B2960A900B8EF50 /* UITableViewCell.swift */,
+				256A74AB2B27F87E00B8EF50 /* UICollectionView.swift */,
+				256A75372B29611400B8EF50 /* UITableView.swift */,
+				256A74AD2B27F8F200B8EF50 /* UIFont.swift */,
+				256A74AF2B27F91800B8EF50 /* UIView.swift */,
+				256A74BB2B27FBEC00B8EF50 /* UILabel.swift */,
+				256A75182B28437F00B8EF50 /* UIBarButtonItem.swift */,
+				256A74B32B27FA1E00B8EF50 /* UIButton.swift */,
+				256A751A2B284D0600B8EF50 /* UIImage.swift */,
+				256A74BD2B27FC2E00B8EF50 /* UIStackView.swift */,
+				256A75222B293E1F00B8EF50 /* UINavigationBar.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		256A752F2B29537200B8EF50 /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				256A74B52B27FA2500B8EF50 /* String.swift */,
+				256A74B72B27FA2C00B8EF50 /* NSNumber.swift */,
+				256A74B92B27FB0400B8EF50 /* Date.swift */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
+		256A75322B295E2E00B8EF50 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				256A75332B295E8000B8EF50 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		256A75392B29635A00B8EF50 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				256A753A2B29637200B8EF50 /* BaseTableCell.swift */,
+				256A753C2B2964D300B8EF50 /* HomeTableCell.swift */,
+			);
+			path = TableCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -695,22 +768,30 @@
 				256A74CC2B27FF0100B8EF50 /* LaunchViewController.swift in Sources */,
 				256A74AC2B27F87E00B8EF50 /* UICollectionView.swift in Sources */,
 				256A75192B28437F00B8EF50 /* UIBarButtonItem.swift in Sources */,
+				256A75382B29611500B8EF50 /* UITableView.swift in Sources */,
 				256A750F2B283B5600B8EF50 /* AppIcon.swift in Sources */,
 				256A74B62B27FA2500B8EF50 /* String.swift in Sources */,
 				256A74B02B27F91800B8EF50 /* UIView.swift in Sources */,
 				256A74EB2B282E7C00B8EF50 /* MovieApi.swift in Sources */,
 				256A74F02B28300100B8EF50 /* MovieService.swift in Sources */,
+				256A75362B2960A900B8EF50 /* UITableViewCell.swift in Sources */,
 				256A74D82B28129D00B8EF50 /* Language.swift in Sources */,
+				256A75342B295E8000B8EF50 /* HomeViewController.swift in Sources */,
 				256A74BA2B27FB0500B8EF50 /* Date.swift in Sources */,
 				256A74762B27F57E00B8EF50 /* AppDelegate.swift in Sources */,
 				256A75042B2837B000B8EF50 /* WalletModel.swift in Sources */,
+				256A75292B294A6700B8EF50 /* TintedButton.swift in Sources */,
 				256A74AE2B27F8F200B8EF50 /* UIFont.swift in Sources */,
 				256A74A82B27F7D900B8EF50 /* UIColor.swift in Sources */,
 				256A750D2B2838BB00B8EF50 /* Biometric.swift in Sources */,
+				256A75232B293E1F00B8EF50 /* UINavigationBar.swift in Sources */,
 				256A75092B28389700B8EF50 /* Keychain.swift in Sources */,
+				256A753D2B2964D300B8EF50 /* HomeTableCell.swift in Sources */,
 				256A74CF2B2806EE00B8EF50 /* WelcomeViewController.swift in Sources */,
+				256A752C2B294E5F00B8EF50 /* FormTextField.swift in Sources */,
 				256A75022B28378300B8EF50 /* UserModel.swift in Sources */,
 				256A74FA2B2831B600B8EF50 /* MovieDetailModel.swift in Sources */,
+				256A753B2B29637200B8EF50 /* BaseTableCell.swift in Sources */,
 				256A74FE2B2832F300B8EF50 /* CastModel.swift in Sources */,
 				256A74AA2B27F85100B8EF50 /* UICollectionViewCell.swift in Sources */,
 				256A75212B285B1700B8EF50 /* SignInViewController.swift in Sources */,
@@ -727,12 +808,15 @@
 				256A751B2B284D0600B8EF50 /* UIImage.swift in Sources */,
 				256A751F2B2857A000B8EF50 /* FilledButton.swift in Sources */,
 				256A74BC2B27FBEC00B8EF50 /* UILabel.swift in Sources */,
+				256A75252B2949D000B8EF50 /* OutlinedButton.swift in Sources */,
+				256A75272B2949F700B8EF50 /* TextButton.swift in Sources */,
 				256A75072B28387A00B8EF50 /* QRCode.swift in Sources */,
 				256A74BE2B27FC2E00B8EF50 /* UIStackView.swift in Sources */,
 				256A75002B28374300B8EF50 /* TransactionModel.swift in Sources */,
 				256A74C82B27FEAF00B8EF50 /* BaseViewModel.swift in Sources */,
 				256A74C32B27FD8200B8EF50 /* BaseViewController.swift in Sources */,
 				256A74B42B27FA1E00B8EF50 /* UIButton.swift in Sources */,
+				256A75312B29553000B8EF50 /* IconButton.swift in Sources */,
 				256A75142B283D1A00B8EF50 /* Database.swift in Sources */,
 				256A74F62B28311C00B8EF50 /* ResultTMDBModel.swift in Sources */,
 			);

@@ -34,7 +34,6 @@ class MovieViewModel: BaseViewModel {
                 self.loadingState = .done
                 onError?(error)
             }
-            
         }
     }
     

@@ -13,20 +13,11 @@ extension UIView {
         self.init(frame: frame)
         backgroundColor = color
     }
-
     
     func addSubviews(_ views: UIView...) {
         views.forEach { subView in
             self.addSubview(subView)
         }
-    }
-    
-    func addBottomBorder(with color: UIColor, height: CGFloat) {
-        let separator = UIView()
-        separator.backgroundColor = color
-        separator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        separator.frame = CGRect(x: 0, y: frame.height - height, width: frame.width, height: height)
-        addSubview(separator)
     }
     
     func makeCornerRadius(_ radius: CGFloat, maskedCorner: CACornerMask? = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]) {
@@ -39,5 +30,15 @@ extension UIView {
         let heigth = self.frame.height
         layer.cornerRadius = heigth/2
         clipsToBounds = true
+    }
+    
+    func makeBorder(width: Double = 1.0, color: UIColor = AppColor.separator) {
+        layer.borderWidth = width
+        layer.borderColor = color.cgColor
+    }
+    
+    func makeBorder(color: UIColor = AppColor.separator) {
+        layer.borderWidth = 1.0
+        layer.borderColor = color.cgColor
     }
 }

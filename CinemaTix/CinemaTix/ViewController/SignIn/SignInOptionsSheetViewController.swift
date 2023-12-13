@@ -9,10 +9,10 @@ import UIKit
 
 class SignInOptionsSheetViewController: BaseViewController {
     
-    let mainNavigationController: UINavigationController?
+    let onTapSubmit: (() -> Void)?
     
-    init(navigationController mainNavigationController: UINavigationController?) {
-        self.mainNavigationController = mainNavigationController
+    init(onTapSubmit: (() -> Void)? = nil) {
+        self.onTapSubmit = onTapSubmit
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -20,37 +20,24 @@ class SignInOptionsSheetViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let appleButton: UIButton = {
-        let button = FilledButton(title: "Sign In with Apple", icon: AppSVGIcon.apple.getImage())
-        return button
-    }()
+    private let appleButton = FilledButton(title: "Sign In with Apple", icon: AppSVGIcon.apple.getImage())
+    private let googleButton = FilledButton(title: "Sign In with Google", icon: AppSVGIcon.google.getImage())
+    private let emailButton = FilledButton(title: "Sign In with Email", icon: AppSVGIcon.email.getImage())
     
-    private let googleButton: UIButton = {
-        let button = FilledButton(title: "Sign In with Google", isBold: true, icon: AppSVGIcon.google.getImage())
-        return button
-    }()
-    
-    private let emailButton: UIButton = {
-        let button = FilledButton(title: "Sign In with Email", isBold: true, icon: AppSVGIcon.email.getImage())
-        return button
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         emailButton.addAction(UIAction { _ in
-            self.present(UINavigationController(rootViewController: SignInViewController()), animated: true, completion: nil)
+            self.present(UINavigationController(rootViewController: SignInViewController {
+                self.dismiss(animated: true)
+                self.onTapSubmit?()
+            }), animated: true, completion: nil)
         }, for: .touchUpInside)
     }
     
     override func setupNavBar() {
         if let navigationBar = navigationController?.navigationBar {
-            navigationBar.backgroundColor = .secondarySystemBackground
-            navigationBar.addBottomBorder(with: AppColor.separator, height: 1)
-            
-            let indicator = UIView(frame: .init(x: (navigationBar.bounds.width/2)-24, y: 8, width: 48, height: 4), color: AppColor.separator)
-            indicator.makeCornerRadiusRounded()
-            navigationBar.addSubview(indicator)
+            navigationBar.addHeader()
         }
     }
     

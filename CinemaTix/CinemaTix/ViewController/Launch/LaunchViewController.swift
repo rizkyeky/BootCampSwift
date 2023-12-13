@@ -43,6 +43,12 @@ class LaunchViewController: BaseViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        animLottie.stop()
+    }
+    
     override func setupConstraints() {
         
         view.addSubviews(logoIconImage, animLottie)
@@ -79,9 +85,7 @@ class LaunchViewController: BaseViewController {
 //            } onError: { error in
             self.showAlertOK(title: "Error", message: "Message some error with longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong text", onTapOK: {
                 self.navigationController?.setViewControllers([WelcomeViewController()], animated: true)
-            }) {
-                self.animLottie.stop()
-            }
+            })
 //            }
         }
     }
