@@ -11,7 +11,7 @@ import SnapKit
 
 class HomeTableCell: BaseTableCell {
     
-    private let customSubview = UIView()
+    private let base = UIView()
     
     override var isHighlighted: Bool {
         didSet {
@@ -30,9 +30,9 @@ class HomeTableCell: BaseTableCell {
     override func setup() {
         
         contentView.backgroundColor = .systemBlue
-        contentView.addSubview(customSubview)
+        contentView.addSubview(base)
         
-        customSubview.snp.makeConstraints { make in
+        base.snp.makeConstraints { make in
             make.top.bottom.right.left.equalTo(contentView)
 //            make.height.equalTo(200)
         }

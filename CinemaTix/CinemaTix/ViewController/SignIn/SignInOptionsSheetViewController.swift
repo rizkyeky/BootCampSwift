@@ -20,9 +20,9 @@ class SignInOptionsSheetViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let appleButton = FilledButton(title: "Sign In with Apple", icon: AppSVGIcon.apple.getImage())
-    private let googleButton = FilledButton(title: "Sign In with Google", icon: AppSVGIcon.google.getImage())
-    private let emailButton = FilledButton(title: "Sign In with Email", icon: AppSVGIcon.email.getImage())
+    private let appleButton = FilledButton(title: "Sign In with Apple", icon: AppSVGIcon.apple.getImage(), iconSize: CGSize(width: 32, height: 32))
+    private let googleButton = FilledButton(title: "Sign In with Google", icon: AppSVGIcon.google.getImage(), iconSize: CGSize(width: 32, height: 32))
+    private let emailButton = FilledButton(title: "Sign In with Email", icon: AppSVGIcon.email.getImage(), iconSize: CGSize(width: 32, height: 32))
     
     override func viewDidLoad() {
         super.viewDidLoad()

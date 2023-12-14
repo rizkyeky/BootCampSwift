@@ -9,8 +9,18 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     
-    private let mainTable = UITableView()
+    private let mainTable = {
+        let table = UITableView()
+        table.allowsSelection = false
+        table.separatorStyle = .none
+        table.sectionHeaderTopPadding = 0.0
+        table.showsVerticalScrollIndicator = false
+        return table
+    }()
+    
     private let refreshControl = UIRefreshControl()
+    
+    private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +33,13 @@ class HomeViewController: BaseViewController {
     }
     
     override func setupNavBar() {
+        navigationItem.title = "CinemaTix"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: UIImage(named: "Icon")?.resize(CGSize(width: 36, height: 36))))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: IconButton(icon: AppIcon.search))
         if let navBar = navigationController?.navigationBar {
-            navBar.transform = CGAffineTransform(translationX: 0, y: -100)
+            navBar.isTranslucent = false
+            navBar.backgroundColor = .systemBackground
+            navBar.transform = CGAffineTransform(translationX: 0, y: -navBarSafeAreaHeight())
         }
     }
     
@@ -32,8 +47,8 @@ class HomeViewController: BaseViewController {
         view.addSubview(mainTable)
         mainTable.addSubview(refreshControl)
         mainTable.snp.makeConstraints { make in
-            make.left.right.bottom.equalTo(0)
-            make.top.equalToSuperview().inset(-100)
+            make.left.right.bottom.equalTo(view)
+            make.top.equalTo(view.snp.top).offset(-navBarSafeAreaHeight())
         }
     }
 }
@@ -41,14 +56,16 @@ class HomeViewController: BaseViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func setupMainTable() {
+        
         mainTable.delegate = self
         mainTable.dataSource = self
-        mainTable.allowsSelection = false
-        mainTable.separatorStyle = .none
-        
-        mainTable.tableHeaderView = HomeCarousel(size: CGSize(width: view.bounds.width, height: 480))
-        mainTable.showsVerticalScrollIndicator = false
         mainTable.register(HomeTableCell.self)
+        
+        let homeCarousel =  HomeCarousel(viewModel: viewModel, size: CGSize(width: view.bounds.width, height: 480))
+        mainTable.tableHeaderView = homeCarousel
+        viewModel.getPlayingNowMovies {
+            homeCarousel.updateCarousel()
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -75,7 +92,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let base = UIView()
         let tile = UIStackView(frame: .init(x: 0, y: 0, width: view.bounds.width, height: 52))
         let label = UILabel()
-        let forwardBtn = TextButton(withTitle: "", icon: AppIcon.forward, size: CGSize(width: 40, height: 40), iconSize: CGSize(width: 20, height: 20))
+        let forwardBtn = IconButton(icon: AppIcon.forward, size: CGSize(width:24, height: 24), iconSize: CGSize(width: 12, height: 12))
     
         tile.axis = .horizontal
         tile.distribution = .fillProportionally
@@ -84,10 +101,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         tile.addArrangedSubview(forwardBtn)
         
         forwardBtn.snp.makeConstraints { make in
-            make.height.width.equalTo(40)
+            make.height.width.equalTo(24)
         }
         
-        base.backgroundColor = .secondarySystemBackground
         base.addSubview(tile)
         tile.snp.makeConstraints { make in
             make.top.bottom.equalTo(base)
@@ -117,80 +133,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as HomeTableCell
         return cell
     }
-}
-
-class HomeCarousel: UIView {
     
-    private let pageControl = {
-        let pageControl = UIPageControl()
-        pageControl.currentPage = 0
-        pageControl.pageIndicatorTintColor = .systemBlue.withAlphaComponent(0.2)
-        pageControl.currentPageIndicatorTintColor = .white
-        return pageControl
-    }()
-    
-    private let scrollView = {
-        let scrollView = UIScrollView()
-        scrollView.isPagingEnabled = true
-        scrollView.backgroundColor = .systemGray
-        scrollView.showsHorizontalScrollIndicator = false
-        return scrollView
-    }()
-    
-    init(size: CGSize) {
-        
-        super.init(frame: .init(origin: CGPoint(x: 0, y: 0), size: size))
-        
-        scrollView.delegate = self
-        
-        pageControl.numberOfPages = 3
-        
-        addSubviews(scrollView, pageControl)
-        scrollView.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
-            make.height.equalTo(480)
-        }
-        pageControl.snp.makeConstraints { make in
-            make.centerX.equalTo(self.scrollView)
-            make.height.equalTo(40)
-            make.width.equalTo(300)
-            make.bottom.equalTo(self.scrollView.snp.bottom)
-        }
-        
-        configureScrolIView()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func configureScrolIView() {
-        scrollView.contentSize = CGSize(width: frame.width*CGFloat(3), height: scrollView.frame.height)
-        scrollView.isPagingEnabled = true
-        for x in 0..<3 {
-            let child = UIView(frame: CGRect(x: CGFloat(x) * frame.width, y: 0, width: frame.width, height: scrollView.frame.height))
-            child.backgroundColor = [
-                UIColor.systemRed,
-                UIColor.systemBlue,
-                UIColor.systemGreen,
-            ][x]
-            scrollView.addSubview(child)
-//            child.snp.makeConstraints { make in
-//                make.top.left.right.bottom.equalTo(scrollView)
-//            }
-        }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let defaultOffset = navBarSafeAreaHeight()
+        let offset = (scrollView.contentOffset.y*0.2 - defaultOffset)
+        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, offset))
     }
 }
 
-extension HomeCarousel: UIScrollViewDelegate {
-    
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let pageIndex = round(scrollView.contentOffset.x / scrollView.frame.width)
-//        pageControl.currentPage = Int(pageIndex)
-//    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
-        pageControl.currentPage = Int(pageNumber)
-    }
-}
+
+

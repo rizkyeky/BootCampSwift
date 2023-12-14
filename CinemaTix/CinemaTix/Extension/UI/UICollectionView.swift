@@ -9,6 +9,14 @@ import UIKit
 
 extension UICollectionView {
     
+    func dequeueReusableCell<Cell: UICollectionViewCell>(forIndexPath indexPath: IndexPath) -> Cell {
+        let identifier = String(describing: Cell.self)
+        guard let cell = self.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? Cell else {
+            fatalError("Error for cell if: \(identifier) at \(indexPath)")
+        }
+        return cell
+    }
+    
     func dequeueReusableCell<T: UICollectionViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
         guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: name), for: indexPath) as? T else {
             fatalError("Couldn't find UICollectionViewCell for \(String(describing: name)), make sure the cell is registered with collection view")
