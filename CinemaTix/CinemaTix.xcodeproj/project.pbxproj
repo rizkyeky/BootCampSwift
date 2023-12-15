@@ -78,6 +78,14 @@
 		256A75442B2AF8C000B8EF50 /* HomeCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75432B2AF8C000B8EF50 /* HomeCarousel.swift */; };
 		256A75462B2AFFE300B8EF50 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75452B2AFFE200B8EF50 /* Array.swift */; };
 		256A75482B2B02D800B8EF50 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75472B2B02D800B8EF50 /* UIImageView.swift */; };
+		256A754B2B2BEC8000B8EF50 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A754A2B2BEC8000B8EF50 /* Indicator.swift */; };
+		256A75522B2BF5E300B8EF50 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75512B2BF5E300B8EF50 /* GradientView.swift */; };
+		256A75552B2BFDA200B8EF50 /* BaseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75542B2BFDA200B8EF50 /* BaseCollectionCell.swift */; };
+		256A75582B2C078500B8EF50 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75572B2C078500B8EF50 /* MainTabBarViewController.swift */; };
+		256A755C2B2C08AE00B8EF50 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A755B2B2C08AE00B8EF50 /* WalletViewController.swift */; };
+		256A755F2B2C423200B8EF50 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A755E2B2C423200B8EF50 /* SearchViewController.swift */; };
+		256A75612B2C448500B8EF50 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75602B2C448500B8EF50 /* SearchViewModel.swift */; };
+		256A75632B2C4AB500B8EF50 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75622B2C4AB500B8EF50 /* SearchTableCell.swift */; };
 		784C0D593C1B16405459CF9C /* Pods_CinemaTixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6265F766F2EEB683A9EF50 /* Pods_CinemaTixTests.framework */; };
 		E5F828EB5DC737497C697FA4 /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAA3917EFDBBFBC42407A2A /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
@@ -177,6 +185,14 @@
 		256A75432B2AF8C000B8EF50 /* HomeCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCarousel.swift; sourceTree = "<group>"; };
 		256A75452B2AFFE200B8EF50 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		256A75472B2B02D800B8EF50 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		256A754A2B2BEC8000B8EF50 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
+		256A75512B2BF5E300B8EF50 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		256A75542B2BFDA200B8EF50 /* BaseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionCell.swift; sourceTree = "<group>"; };
+		256A75572B2C078500B8EF50 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		256A755B2B2C08AE00B8EF50 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		256A755E2B2C423200B8EF50 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		256A75602B2C448500B8EF50 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		256A75622B2C4AB500B8EF50 /* SearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
 		3EAA3917EFDBBFBC42407A2A /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6265F766F2EEB683A9EF50 /* Pods_CinemaTixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B7A01339612670CFD6D262 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
@@ -319,6 +335,9 @@
 		256A74C12B27FD7700B8EF50 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				256A755D2B2C41C000B8EF50 /* Search */,
+				256A755A2B2C08A300B8EF50 /* Wallet */,
+				256A75592B2C079200B8EF50 /* TabBar */,
 				256A75322B295E2E00B8EF50 /* Home */,
 				256A75152B283F6500B8EF50 /* SignIn */,
 				256A74D12B28087D00B8EF50 /* Welcome */,
@@ -344,6 +363,7 @@
 			children = (
 				256A74C72B27FEAF00B8EF50 /* BaseViewModel.swift */,
 				256A75402B2ADC5200B8EF50 /* HomeViewModel.swift */,
+				256A75602B2C448500B8EF50 /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -457,6 +477,9 @@
 		256A751C2B28576C00B8EF50 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				256A75532B2BFD9100B8EF50 /* CollectionCell */,
+				256A75502B2BF5D800B8EF50 /* Gradient */,
+				256A75492B2BEC6F00B8EF50 /* Indicator */,
 				256A75392B29635A00B8EF50 /* TableCell */,
 				256A752A2B294E4E00B8EF50 /* TextField */,
 				256A751D2B28577200B8EF50 /* Button */,
@@ -531,6 +554,7 @@
 			children = (
 				256A753A2B29637200B8EF50 /* BaseTableCell.swift */,
 				256A753C2B2964D300B8EF50 /* HomeTableCell.swift */,
+				256A75622B2C4AB500B8EF50 /* SearchTableCell.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -541,6 +565,54 @@
 				256A75432B2AF8C000B8EF50 /* HomeCarousel.swift */,
 			);
 			path = HomeCarousel;
+			sourceTree = "<group>";
+		};
+		256A75492B2BEC6F00B8EF50 /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				256A754A2B2BEC8000B8EF50 /* Indicator.swift */,
+			);
+			path = Indicator;
+			sourceTree = "<group>";
+		};
+		256A75502B2BF5D800B8EF50 /* Gradient */ = {
+			isa = PBXGroup;
+			children = (
+				256A75512B2BF5E300B8EF50 /* GradientView.swift */,
+			);
+			path = Gradient;
+			sourceTree = "<group>";
+		};
+		256A75532B2BFD9100B8EF50 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				256A75542B2BFDA200B8EF50 /* BaseCollectionCell.swift */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		256A75592B2C079200B8EF50 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				256A75572B2C078500B8EF50 /* MainTabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		256A755A2B2C08A300B8EF50 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				256A755B2B2C08AE00B8EF50 /* WalletViewController.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		256A755D2B2C41C000B8EF50 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				256A755E2B2C423200B8EF50 /* SearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -800,12 +872,14 @@
 				256A74F02B28300100B8EF50 /* MovieService.swift in Sources */,
 				256A75362B2960A900B8EF50 /* UITableViewCell.swift in Sources */,
 				256A74D82B28129D00B8EF50 /* Language.swift in Sources */,
+				256A75612B2C448500B8EF50 /* SearchViewModel.swift in Sources */,
 				256A75342B295E8000B8EF50 /* HomeViewController.swift in Sources */,
 				256A74BA2B27FB0500B8EF50 /* Date.swift in Sources */,
 				256A75412B2ADC5200B8EF50 /* HomeViewModel.swift in Sources */,
 				256A74762B27F57E00B8EF50 /* AppDelegate.swift in Sources */,
 				256A75042B2837B000B8EF50 /* WalletModel.swift in Sources */,
 				256A75292B294A6700B8EF50 /* TintedButton.swift in Sources */,
+				256A75582B2C078500B8EF50 /* MainTabBarViewController.swift in Sources */,
 				256A74AE2B27F8F200B8EF50 /* UIFont.swift in Sources */,
 				256A74A82B27F7D900B8EF50 /* UIColor.swift in Sources */,
 				256A75462B2AFFE300B8EF50 /* Array.swift in Sources */,
@@ -825,8 +899,10 @@
 				256A74E82B282E2C00B8EF50 /* Api.swift in Sources */,
 				256A74FC2B28320000B8EF50 /* GenreModel.swift in Sources */,
 				256A74B82B27FA2C00B8EF50 /* NSNumber.swift in Sources */,
+				256A755F2B2C423200B8EF50 /* SearchViewController.swift in Sources */,
 				256A74F42B2830C400B8EF50 /* AppError.swift in Sources */,
 				256A75122B283CFD00B8EF50 /* Auth.swift in Sources */,
+				256A75632B2C4AB500B8EF50 /* SearchTableCell.swift in Sources */,
 				256A74E62B28266900B8EF50 /* AppColor.swift in Sources */,
 				256A74F82B28317700B8EF50 /* MovieModel.swift in Sources */,
 				256A74782B27F57E00B8EF50 /* SceneDelegate.swift in Sources */,
@@ -835,13 +911,17 @@
 				256A74ED2B282FB900B8EF50 /* Endpoint.swift in Sources */,
 				256A751B2B284D0600B8EF50 /* UIImage.swift in Sources */,
 				256A751F2B2857A000B8EF50 /* FilledButton.swift in Sources */,
+				256A754B2B2BEC8000B8EF50 /* Indicator.swift in Sources */,
 				256A74BC2B27FBEC00B8EF50 /* UILabel.swift in Sources */,
 				256A75252B2949D000B8EF50 /* OutlinedButton.swift in Sources */,
 				256A75272B2949F700B8EF50 /* TextButton.swift in Sources */,
+				256A75522B2BF5E300B8EF50 /* GradientView.swift in Sources */,
 				256A75072B28387A00B8EF50 /* QRCode.swift in Sources */,
 				256A74BE2B27FC2E00B8EF50 /* UIStackView.swift in Sources */,
 				256A75002B28374300B8EF50 /* TransactionModel.swift in Sources */,
 				256A74C82B27FEAF00B8EF50 /* BaseViewModel.swift in Sources */,
+				256A755C2B2C08AE00B8EF50 /* WalletViewController.swift in Sources */,
+				256A75552B2BFDA200B8EF50 /* BaseCollectionCell.swift in Sources */,
 				256A74C32B27FD8200B8EF50 /* BaseViewController.swift in Sources */,
 				256A74B42B27FA1E00B8EF50 /* UIButton.swift in Sources */,
 				256A75312B29553000B8EF50 /* IconButton.swift in Sources */,

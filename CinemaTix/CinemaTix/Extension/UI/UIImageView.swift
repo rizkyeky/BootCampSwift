@@ -10,8 +10,11 @@ import Kingfisher
 
 extension UIImageView {
     
-    func loadFromUrl(url: URL?) {
-        self.kf.setImage(with: url, placeholder: UIImage(named: "imagenotfound"),
+    func loadFromUrl(url: URL?, placeholder: UIImage? = nil) {
+        self.kf.indicatorType = .custom(indicator: ImageActivityIndicator())
+//        self.kf.indicatorType = .activity
+        self.kf.setImage(with: url,
+            placeholder: placeholder,
             options: [
                 .processor(compressImage()),
                 .transition(.fade(0.48)),

@@ -10,7 +10,7 @@ import Foundation
 
 class HomeViewModel: BaseViewModel {
     
-    let movieService = MovieService()
+    private let movieService = MovieService()
     
     var playingNowMovies: [MovieModel]?
     var popularMovies: [MovieModel]?
@@ -130,18 +130,4 @@ class HomeViewModel: BaseViewModel {
             completion?()
         }
     }
-    
-//    func getQuerySearch(completion: @escaping () -> Void, onError: ((Error) -> Void)? = nil) {
-//        querySearchText.subscribe() { text in
-//            self.movieService.getBySearch(query: text) { result in
-//                switch result {
-//                case .success(let models):
-//                    self.resultsSearchMovies = models
-//                    completion()
-//                case .failure(let error):
-//                    onError?(error)
-//                }
-//            }
-//        }.disposed(by: disposeBag)
-//    }
 }

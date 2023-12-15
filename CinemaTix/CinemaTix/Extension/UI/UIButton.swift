@@ -59,10 +59,6 @@ extension UIButton {
             if let tintBackgroundColor = tintBackgroundColor {
                 self.backgroundColor = tintBackgroundColor
             }
-//            if let tintForegroundColor = tintForegroundColor {
-//                self.tintColor = tintForegroundColor
-//                self.setTitleColor(tintForegroundColor, for: .normal)
-//            }
         })
     }
     
@@ -72,10 +68,6 @@ extension UIButton {
             if let oriBackColor = oriBackColor {
                 self.backgroundColor = oriBackColor
             }
-//            if let oriForeColor = oriForeColor {
-//                self.tintColor = oriForeColor
-//                self.setTitleColor(oriForeColor, for: .normal)
-//            }
         })
     }
 }

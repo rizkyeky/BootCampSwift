@@ -30,7 +30,7 @@ class WelcomeViewController: BaseViewController {
         
         signInButton.addAction(UIAction { _ in
             self.showBottomSheet(to: SignInOptionsSheetViewController {
-                self.navigationController?.setViewControllers([HomeViewController()], animated: true)
+                self.navigationController?.setViewControllers([MainTabBarViewController()], animated: true)
             }, level: [.medium()])
         }, for: .touchUpInside)
     }

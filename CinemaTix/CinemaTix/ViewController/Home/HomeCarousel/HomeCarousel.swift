@@ -24,6 +24,8 @@ class HomeCarousel: UIView {
         return coll
     }()
     
+    private let label = UILabel(text: LanguageStrings.playingNow.localized, font: .bold(32), textColor: .white)
+    
     private let viewModel: HomeViewModel
     
     init(viewModel: HomeViewModel, size: CGSize) {
@@ -44,7 +46,7 @@ class HomeCarousel: UIView {
         
         pageControl.numberOfPages = 3
         
-        addSubviews(collection, pageControl)
+        addSubviews(collection, pageControl, label)
         collection.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
             make.height.equalTo(480)
@@ -81,10 +83,21 @@ extension HomeCarousel: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as HomeCarouselCell
         
         if let movie = viewModel.playingNowMovies?[indexPath.row] {
+            cell.isLoading = false
             if let poster = movie.posterPath {
-                cell.baseImage.loadFromUrl(url: TmdbApi.getImageURL(String(poster.dropFirst()), type: .w500))
+                cell.baseImage.loadFromUrl(url: TmdbApi.getImageURL(String(poster.dropFirst()), type: .w500), placeholder: UIImage(named: "imagenotfound2"))
             }
-            cell.labelMovie = UILabel(text: movie.title ?? "__")
+            if let title = movie.title {
+                cell.labelTitle.text = title
+            }
+            if let rate = movie.voteAverage, let date = movie.releaseDate {
+                cell.labelSubtitle.text = movie.genres().joined(separator: ", ") + " • " + String(format: "%.1f", rate) + " • " + date
+            }
+            if let overview = movie.overview {
+                cell.labelOverview.text = overview
+            }
+        } else {
+            cell.isLoading = true
         }
         
         return cell
@@ -98,42 +111,79 @@ extension HomeCarousel: UICollectionViewDelegate, UICollectionViewDataSource {
 
 class HomeCarouselCell: BaseCollectionCell {
     
-    public var baseImage = UIImageView() {
-        didSet {
-            baseImage.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            baseImage.contentMode = .scaleAspectFit
-        }
-    }
+    public let baseImage = {
+        let base = UIImageView()
+        base.contentMode = .scaleToFill
+        return base
+    }()
     
-    public var labelMovie = UILabel() {
+    public let labelTitle = {
+        let label = UILabel()
+        label.font = .bold(24)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = .white
+        return label
+    }()
+    
+    public let labelSubtitle = {
+        let label = UILabel()
+        label.font = .bold(16)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = .white.withAlphaComponent(0.8)
+        return label
+    }()
+
+    public let labelOverview = {
+        let label = UILabel()
+        label.font = .medium(14)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = .white.withAlphaComponent(0.6)
+        return label
+    }()
+    
+    public var isLoading: Bool = false {
         didSet {
-            labelMovie.font = .bold(32)
-            labelMovie.textAlignment = .center
-            labelMovie.numberOfLines = 0
+            baseGradient.isHidden = isLoading
         }
     }
+
+    private let baseGradient = GradientView(colors: [.blue, .red], direction: .bottomToTop)
     
     override func setup() {
         
-        contentView.backgroundColor = .secondarySystemFill
         contentView.addSubview(baseImage)
-        
-        let baseLabel = UIView()
-        baseImage.addSubview(baseLabel)
-        baseLabel.snp.makeConstraints { make in
-            make.centerX.centerY.equalTo(baseImage)
-            make.width.equalTo(200)
-            make.height.equalTo(100)
-//            make.bottom.equalTo(contentView.snp.bottom)
-        }
-        
-        baseLabel.addSubview(labelMovie)
-        labelMovie.snp.makeConstraints { make in
-            make.top.left.right.bottom.equalTo(baseLabel)
-        }
-        
         baseImage.snp.makeConstraints { make in
             make.top.bottom.right.left.equalTo(contentView)
         }
+        
+//        baseGradient.backgroundColor = .black.withAlphaComponent(0.4)
+        baseImage.addSubview(baseGradient)
+        baseGradient.snp.makeConstraints { make in
+            make.height.equalTo(180)
+            make.bottom.equalTo(self.baseImage.snp.bottom)
+            make.left.right.equalTo(self)
+        }
+
+        baseGradient.addSubview(labelTitle)
+        labelTitle.snp.makeConstraints { make in
+            make.top.equalTo(self.baseGradient.snp.top).offset(24)
+            make.centerX.equalTo(self.baseGradient)
+        }
+        baseGradient.addSubview(labelSubtitle)
+        labelSubtitle.snp.makeConstraints { make in
+            make.centerX.equalTo(self.baseGradient)
+            make.top.equalTo(labelTitle.snp.bottom).offset(4)
+        }
+        baseGradient.addSubview(labelOverview)
+        labelOverview.snp.makeConstraints { make in
+            make.centerX.equalTo(self.baseGradient)
+            make.top.equalTo(labelSubtitle.snp.bottom).offset(4)
+            make.width.equalTo(360)
+            make.height.equalTo(60)
+        }
+        
     }
 }
