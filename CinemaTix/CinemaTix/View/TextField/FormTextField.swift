@@ -9,10 +9,11 @@ import UIKit
 
 class FormTextField: UIView {
     
+    public let field = UITextField()
+    
     convenience init(placeholder: String? = nil, keyboardType: UIKeyboardType = .default, isPassword: Bool = false) {
         self.init(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
         
-        let field = UITextField()
         field.placeholder = placeholder
         field.keyboardType = keyboardType
         field.isSecureTextEntry = isPassword

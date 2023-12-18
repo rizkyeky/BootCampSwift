@@ -18,7 +18,7 @@ class HomeCarousel: UIView {
     }()
     
     private let collection = {
-        let coll = UICollectionView(frame: CGRect(x: 0, y: 0, width: 360, height: 480), collectionViewLayout: UICollectionViewFlowLayout())
+        let coll = UICollectionView(frame: CGRect(x: 0, y: 0, width: 360, height: 500), collectionViewLayout: UICollectionViewFlowLayout())
         coll.isPagingEnabled = true
         coll.showsHorizontalScrollIndicator = false
         return coll
@@ -27,6 +27,8 @@ class HomeCarousel: UIView {
     private let label = UILabel(text: LanguageStrings.playingNow.localized, font: .bold(32), textColor: .white)
     
     private let viewModel: HomeViewModel
+    
+    public var onTapCell: ((Int) -> Void)?
     
     init(viewModel: HomeViewModel, size: CGSize) {
         self.viewModel = viewModel
@@ -49,7 +51,7 @@ class HomeCarousel: UIView {
         addSubviews(collection, pageControl, label)
         collection.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
-            make.height.equalTo(480)
+            make.height.equalTo(500)
         }
         pageControl.snp.makeConstraints { make in
             make.centerX.equalTo(self.collection)
@@ -84,8 +86,13 @@ extension HomeCarousel: UICollectionViewDelegate, UICollectionViewDataSource {
         
         if let movie = viewModel.playingNowMovies?[indexPath.row] {
             cell.isLoading = false
+            
+            cell.onTap = {
+                self.onTapCell?(indexPath.row)
+            }
+            
             if let poster = movie.posterPath {
-                cell.baseImage.loadFromUrl(url: TmdbApi.getImageURL(String(poster.dropFirst()), type: .w500), placeholder: UIImage(named: "imagenotfound2"))
+                cell.baseImage.loadFromUrl(url: TmdbApi.getImageURL(String(poster.dropFirst()), type: .w500), usePlaceholder: true)
             }
             if let title = movie.title {
                 cell.labelTitle.text = title
@@ -150,7 +157,7 @@ class HomeCarouselCell: BaseCollectionCell {
         }
     }
 
-    private let baseGradient = GradientView(colors: [.blue, .red], direction: .bottomToTop)
+    private let baseGradient = GradientView()
     
     override func setup() {
         
@@ -159,7 +166,6 @@ class HomeCarouselCell: BaseCollectionCell {
             make.top.bottom.right.left.equalTo(contentView)
         }
         
-//        baseGradient.backgroundColor = .black.withAlphaComponent(0.4)
         baseImage.addSubview(baseGradient)
         baseGradient.snp.makeConstraints { make in
             make.height.equalTo(180)

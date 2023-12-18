@@ -1,15 +1,14 @@
 //
-//  SignInViewController.swift
+//  RegisterViewController.swift
 //  CinemaTix
 //
-//  Created by Eky on 12/12/23.
+//  Created by Eky on 18/12/23.
 //
 
 import UIKit
 import RxSwift
-import RxCocoa
 
-class SignInViewController: BaseViewController {
+class RegisterViewController: BaseViewController {
     
     let onSuccessSignIn: (() -> Void)?
     
@@ -21,16 +20,15 @@ class SignInViewController: BaseViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private let submitButton = FilledButton(title: "Submit")
-    private let faceIDButton = TintedButton(title: "", icon: AppSVGIcon.faceId.getImage())
     
     private let emailField = FormTextField(placeholder: "Email", keyboardType: .emailAddress)
+    private let usernameField = FormTextField(placeholder: "Username", keyboardType: .alphabet)
     private let passwordField = FormTextField(placeholder: "Password", keyboardType: .emailAddress, isPassword: true)
     
     private let viewModel = AuthViewModel()
-    private let disposeBag = DisposeBag()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,21 +38,10 @@ class SignInViewController: BaseViewController {
                 self.onSuccessSignIn?()
             } onError: { error in
                 self.showAlertOK(title: "Error Sign In", message: "Error message: \(error.localizedDescription)")
-            } onInvalidEmail: {
-                self.showAlertOK(title: "Error Sign In", message: "Enter valid email")
-            } onInvalidPassword: {
-                self.showAlertOK(title: "Error Sign In", message: "Enter valid password")
             }
         }, for: .touchUpInside)
         
-        faceIDButton.addAction(UIAction { _ in
-            self.viewModel.biometric.authenticate() {
-                self.dismiss(animated: true)
-                self.onSuccessSignIn?()
-            } onError: { error in
-                self.showAlertOK(title: "Error Sign In with FaceID", message: "Error message:")
-            }
-        }, for: .touchUpInside)
+        let disposeBag = DisposeBag()
         
         emailField.field.rx.text
             .compactMap { $0 }
@@ -76,7 +63,7 @@ class SignInViewController: BaseViewController {
     }
     
     override func setupNavBar() {
-        navigationItem.title = "Sign In"
+        navigationItem.title = "Register"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: TextButton(withTitle: "Cancel", size: .init(width: 60, height: 40)) {
             self.dismiss(animated: true)
         })
@@ -87,7 +74,7 @@ class SignInViewController: BaseViewController {
     }
     
     override func setupConstraints() {
-        view.addSubviews(emailField, passwordField, submitButton, faceIDButton)
+        view.addSubviews(emailField, passwordField, submitButton)
         
         emailField.snp.makeConstraints { make in
             make.centerX.equalTo(self.view)
@@ -109,12 +96,6 @@ class SignInViewController: BaseViewController {
             make.width.equalTo(300)
             make.height.equalTo(48)
         }
-        
-        faceIDButton.snp.makeConstraints { make in
-            make.centerX.equalTo(self.view)
-            make.top.equalTo(self.submitButton.snp.bottom).offset(32)
-            make.width.height.equalTo(60)
-        }
-
     }
+
 }

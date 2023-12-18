@@ -16,22 +16,6 @@ class HomeViewModel: BaseViewModel {
     var popularMovies: [MovieModel]?
     var topRatedMovies: [MovieModel]?
     var upComingMovies: [MovieModel]?
-//    var resultsSearchMovies: [MovieModel]?
-    var genres: [GenreModel]?
-    
-//    let querySearchText = PublishSubject<String>()
-    
-    func getAllGenres(completion: (() -> Void)? = nil, onError: ((Error) -> Void)? = nil) {
-        movieService.getAllGenres() { result in
-            switch result {
-            case .success(let models):
-                self.genres = models.genres?.sliceArrayWithMax(5)
-                completion?()
-            case .failure(let error):
-                onError?(error)
-            }
-        }
-    }
     
     func getCredit(id: Int, completion: @escaping (([CastModel]) -> Void), onError: ((Error) -> Void)? = nil) {
         movieService.getCredit(id: id) { result in
@@ -109,10 +93,6 @@ class HomeViewModel: BaseViewModel {
     func getAllMovies(completion: (() -> Void)? = nil) {
         let dispatchGroup = DispatchGroup()
         
-        dispatchGroup.enter()
-        getAllGenres {
-            dispatchGroup.leave()
-        }
         dispatchGroup.enter()
         getPlayingNowMovies {
             dispatchGroup.leave()

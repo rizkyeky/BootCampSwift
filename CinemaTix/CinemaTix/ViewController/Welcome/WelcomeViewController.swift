@@ -33,6 +33,11 @@ class WelcomeViewController: BaseViewController {
                 self.navigationController?.setViewControllers([MainTabBarViewController()], animated: true)
             }, level: [.medium()])
         }, for: .touchUpInside)
+        
+        registerButton.addAction(UIAction { _ in
+            self.showBottomSheet(to: RegisterViewController())
+        }, for: .touchUpInside)
+
     }
     
     override func setupConstraints() {

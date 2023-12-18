@@ -19,5 +19,21 @@
 			</array>
 		</dict>
 	</dict>
+    
+    <key>FirebaseAppDelegateProxyEnabled</key>
+    <false/>
+    
+    <key>NSFaceIDUsageDescription</key>
+    <string>We use Face ID for secure authentication</string>
+    
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We use your location for cinema location</string>
+    
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>id</string>
+    </array>
+    
 </dict>
 </plist>

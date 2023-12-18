@@ -7,17 +7,17 @@
 
 import UIKit
 
-class MainTabBarViewController: UITabBarController {
+class MainTabBarViewController: CardTabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.delegate = self
         
-//        let home = UINavigationController(rootViewController: HomeViewController())
-//        let wallet = UINavigationController(rootViewController: WalletViewController())
-        let home = HomeViewController()
-        let wallet = WalletViewController()
+        let home = UINavigationController(rootViewController: HomeViewController())
+        let wallet = UINavigationController(rootViewController: WalletViewController())
+//        let home = HomeViewController()
+//        let wallet = WalletViewController()
         
         let homeImage = AppSVGIcon.homeOutline.getImage().resize(CGSize(width: 24, height: 24))
         home.tabBarItem = UITabBarItem(title: LanguageStrings.home.localized, image: homeImage, tag: 0)
@@ -27,19 +27,17 @@ class MainTabBarViewController: UITabBarController {
         wallet.tabBarItem = UITabBarItem(title: LanguageStrings.wallet.localized, image: walletImage, tag: 1)
         wallet.tabBarItem.selectedImage = AppSVGIcon.wallet.getImage().resize(CGSize(width: 30, height: 30))
         
-        tabBar.isTranslucent = false
-        tabBar.barTintColor = .systemBackground
-        tabBar.backgroundColor = .systemBackground
-        tabBar.tintColor = UIColor.accent
+//        tabBar.isTranslucent = false
+//        tabBar.barTintColor = .systemBackground
+//        tabBar.backgroundColor = .systemBackground
+//        tabBar.tintColor = UIColor.accent
         
         setViewControllers([home, wallet], animated: true)
-        
-        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }
 

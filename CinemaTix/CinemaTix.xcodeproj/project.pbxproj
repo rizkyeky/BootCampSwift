@@ -86,6 +86,23 @@
 		256A755F2B2C423200B8EF50 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A755E2B2C423200B8EF50 /* SearchViewController.swift */; };
 		256A75612B2C448500B8EF50 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75602B2C448500B8EF50 /* SearchViewModel.swift */; };
 		256A75632B2C4AB500B8EF50 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A75622B2C4AB500B8EF50 /* SearchTableCell.swift */; };
+		25AE3FE62B2FD83000C57C1A /* CardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FD52B2FD83000C57C1A /* CardTabBarController.swift */; };
+		25AE3FE72B2FD83000C57C1A /* SemiCardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FD62B2FD83000C57C1A /* SemiCardTabBarController.swift */; };
+		25AE3FE82B2FD83000C57C1A /* SpecialTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FD72B2FD83000C57C1A /* SpecialTabBarController.swift */; };
+		25AE3FE92B2FD83000C57C1A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FD82B2FD83000C57C1A /* TabBarController.swift */; };
+		25AE3FEA2B2FD83000C57C1A /* LightTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FD92B2FD83000C57C1A /* LightTabBarController.swift */; };
+		25AE3FEB2B2FD83000C57C1A /* SemiCardTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FDB2B2FD83000C57C1A /* SemiCardTabBar.swift */; };
+		25AE3FEC2B2FD83000C57C1A /* LightTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FDC2B2FD83000C57C1A /* LightTabBar.swift */; };
+		25AE3FED2B2FD83000C57C1A /* BaseCardTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FDD2B2FD83000C57C1A /* BaseCardTabBar.swift */; };
+		25AE3FEE2B2FD83000C57C1A /* CardTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FDE2B2FD83000C57C1A /* CardTabBar.swift */; };
+		25AE3FEF2B2FD83000C57C1A /* SpecialCardTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FDF2B2FD83000C57C1A /* SpecialCardTabBar.swift */; };
+		25AE3FF02B2FD83000C57C1A /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FE12B2FD83000C57C1A /* UIView+Additions.swift */; };
+		25AE3FF42B2FE00A00C57C1A /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FF32B2FE00A00C57C1A /* DetailMovieViewController.swift */; };
+		25AE3FF62B2FE0F400C57C1A /* DetailMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FF52B2FE0F400C57C1A /* DetailMovieViewModel.swift */; };
+		25AE3FF92B2FEED300C57C1A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FF82B2FEED300C57C1A /* Card.swift */; };
+		25AE3FFB2B2FF9C200C57C1A /* DetailMovieTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FFA2B2FF9C200C57C1A /* DetailMovieTableCell.swift */; };
+		25AE3FFD2B3020D100C57C1A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FFC2B3020D100C57C1A /* AuthViewModel.swift */; };
+		25AE40002B3024F100C57C1A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FFF2B3024F100C57C1A /* RegisterViewController.swift */; };
 		784C0D593C1B16405459CF9C /* Pods_CinemaTixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6265F766F2EEB683A9EF50 /* Pods_CinemaTixTests.framework */; };
 		E5F828EB5DC737497C697FA4 /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAA3917EFDBBFBC42407A2A /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
@@ -193,6 +210,23 @@
 		256A755E2B2C423200B8EF50 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		256A75602B2C448500B8EF50 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		256A75622B2C4AB500B8EF50 /* SearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
+		25AE3FD52B2FD83000C57C1A /* CardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTabBarController.swift; sourceTree = "<group>"; };
+		25AE3FD62B2FD83000C57C1A /* SemiCardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiCardTabBarController.swift; sourceTree = "<group>"; };
+		25AE3FD72B2FD83000C57C1A /* SpecialTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialTabBarController.swift; sourceTree = "<group>"; };
+		25AE3FD82B2FD83000C57C1A /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		25AE3FD92B2FD83000C57C1A /* LightTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTabBarController.swift; sourceTree = "<group>"; };
+		25AE3FDB2B2FD83000C57C1A /* SemiCardTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiCardTabBar.swift; sourceTree = "<group>"; };
+		25AE3FDC2B2FD83000C57C1A /* LightTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightTabBar.swift; sourceTree = "<group>"; };
+		25AE3FDD2B2FD83000C57C1A /* BaseCardTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCardTabBar.swift; sourceTree = "<group>"; };
+		25AE3FDE2B2FD83000C57C1A /* CardTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTabBar.swift; sourceTree = "<group>"; };
+		25AE3FDF2B2FD83000C57C1A /* SpecialCardTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialCardTabBar.swift; sourceTree = "<group>"; };
+		25AE3FE12B2FD83000C57C1A /* UIView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
+		25AE3FF32B2FE00A00C57C1A /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
+		25AE3FF52B2FE0F400C57C1A /* DetailMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewModel.swift; sourceTree = "<group>"; };
+		25AE3FF82B2FEED300C57C1A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		25AE3FFA2B2FF9C200C57C1A /* DetailMovieTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieTableCell.swift; sourceTree = "<group>"; };
+		25AE3FFC2B3020D100C57C1A /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		25AE3FFF2B3024F100C57C1A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3EAA3917EFDBBFBC42407A2A /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6265F766F2EEB683A9EF50 /* Pods_CinemaTixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B7A01339612670CFD6D262 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
@@ -335,6 +369,9 @@
 		256A74C12B27FD7700B8EF50 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				25AE3FFE2B3024DB00C57C1A /* Register */,
+				25AE3FF22B2FDFD700C57C1A /* ListMovie */,
+				25AE3FF12B2FDFCD00C57C1A /* DetailMovie */,
 				256A755D2B2C41C000B8EF50 /* Search */,
 				256A755A2B2C08A300B8EF50 /* Wallet */,
 				256A75592B2C079200B8EF50 /* TabBar */,
@@ -363,7 +400,9 @@
 			children = (
 				256A74C72B27FEAF00B8EF50 /* BaseViewModel.swift */,
 				256A75402B2ADC5200B8EF50 /* HomeViewModel.swift */,
+				25AE3FF52B2FE0F400C57C1A /* DetailMovieViewModel.swift */,
 				256A75602B2C448500B8EF50 /* SearchViewModel.swift */,
+				25AE3FFC2B3020D100C57C1A /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -477,6 +516,8 @@
 		256A751C2B28576C00B8EF50 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				25AE3FF72B2FEE9900C57C1A /* Card */,
+				25AE3FCC2B2FD81E00C57C1A /* LightCardTabBar */,
 				256A75532B2BFD9100B8EF50 /* CollectionCell */,
 				256A75502B2BF5D800B8EF50 /* Gradient */,
 				256A75492B2BEC6F00B8EF50 /* Indicator */,
@@ -554,6 +595,7 @@
 			children = (
 				256A753A2B29637200B8EF50 /* BaseTableCell.swift */,
 				256A753C2B2964D300B8EF50 /* HomeTableCell.swift */,
+				25AE3FFA2B2FF9C200C57C1A /* DetailMovieTableCell.swift */,
 				256A75622B2C4AB500B8EF50 /* SearchTableCell.swift */,
 			);
 			path = TableCell;
@@ -613,6 +655,79 @@
 				256A755E2B2C423200B8EF50 /* SearchViewController.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		25AE3FCC2B2FD81E00C57C1A /* LightCardTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				25AE3FD42B2FD83000C57C1A /* Controllers */,
+				25AE3FE02B2FD83000C57C1A /* Extensions */,
+				25AE3FDA2B2FD83000C57C1A /* Tab Bar */,
+			);
+			path = LightCardTabBar;
+			sourceTree = "<group>";
+		};
+		25AE3FD42B2FD83000C57C1A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				25AE3FD52B2FD83000C57C1A /* CardTabBarController.swift */,
+				25AE3FD62B2FD83000C57C1A /* SemiCardTabBarController.swift */,
+				25AE3FD72B2FD83000C57C1A /* SpecialTabBarController.swift */,
+				25AE3FD82B2FD83000C57C1A /* TabBarController.swift */,
+				25AE3FD92B2FD83000C57C1A /* LightTabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		25AE3FDA2B2FD83000C57C1A /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				25AE3FDB2B2FD83000C57C1A /* SemiCardTabBar.swift */,
+				25AE3FDC2B2FD83000C57C1A /* LightTabBar.swift */,
+				25AE3FDD2B2FD83000C57C1A /* BaseCardTabBar.swift */,
+				25AE3FDE2B2FD83000C57C1A /* CardTabBar.swift */,
+				25AE3FDF2B2FD83000C57C1A /* SpecialCardTabBar.swift */,
+			);
+			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		25AE3FE02B2FD83000C57C1A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				25AE3FE12B2FD83000C57C1A /* UIView+Additions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		25AE3FF12B2FDFCD00C57C1A /* DetailMovie */ = {
+			isa = PBXGroup;
+			children = (
+				25AE3FF32B2FE00A00C57C1A /* DetailMovieViewController.swift */,
+			);
+			path = DetailMovie;
+			sourceTree = "<group>";
+		};
+		25AE3FF22B2FDFD700C57C1A /* ListMovie */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ListMovie;
+			sourceTree = "<group>";
+		};
+		25AE3FF72B2FEE9900C57C1A /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				25AE3FF82B2FEED300C57C1A /* Card.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		25AE3FFE2B3024DB00C57C1A /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				25AE3FFF2B3024F100C57C1A /* RegisterViewController.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -859,26 +974,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				256A750B2B2838AF00B8EF50 /* Audio.swift in Sources */,
+				25AE40002B3024F100C57C1A /* RegisterViewController.swift in Sources */,
 				256A74CA2B27FEB900B8EF50 /* BaseService.swift in Sources */,
+				25AE3FF62B2FE0F400C57C1A /* DetailMovieViewModel.swift in Sources */,
 				256A74CC2B27FF0100B8EF50 /* LaunchViewController.swift in Sources */,
 				256A74AC2B27F87E00B8EF50 /* UICollectionView.swift in Sources */,
 				256A75192B28437F00B8EF50 /* UIBarButtonItem.swift in Sources */,
 				256A75382B29611500B8EF50 /* UITableView.swift in Sources */,
 				256A750F2B283B5600B8EF50 /* AppIcon.swift in Sources */,
+				25AE3FEF2B2FD83000C57C1A /* SpecialCardTabBar.swift in Sources */,
 				256A74B62B27FA2500B8EF50 /* String.swift in Sources */,
 				256A74B02B27F91800B8EF50 /* UIView.swift in Sources */,
 				256A74EB2B282E7C00B8EF50 /* MovieApi.swift in Sources */,
+				25AE3FEA2B2FD83000C57C1A /* LightTabBarController.swift in Sources */,
+				25AE3FEE2B2FD83000C57C1A /* CardTabBar.swift in Sources */,
+				25AE3FEB2B2FD83000C57C1A /* SemiCardTabBar.swift in Sources */,
 				256A75482B2B02D800B8EF50 /* UIImageView.swift in Sources */,
 				256A74F02B28300100B8EF50 /* MovieService.swift in Sources */,
 				256A75362B2960A900B8EF50 /* UITableViewCell.swift in Sources */,
 				256A74D82B28129D00B8EF50 /* Language.swift in Sources */,
 				256A75612B2C448500B8EF50 /* SearchViewModel.swift in Sources */,
+				25AE3FF42B2FE00A00C57C1A /* DetailMovieViewController.swift in Sources */,
+				25AE3FE92B2FD83000C57C1A /* TabBarController.swift in Sources */,
+				25AE3FF02B2FD83000C57C1A /* UIView+Additions.swift in Sources */,
 				256A75342B295E8000B8EF50 /* HomeViewController.swift in Sources */,
 				256A74BA2B27FB0500B8EF50 /* Date.swift in Sources */,
+				25AE3FE82B2FD83000C57C1A /* SpecialTabBarController.swift in Sources */,
 				256A75412B2ADC5200B8EF50 /* HomeViewModel.swift in Sources */,
 				256A74762B27F57E00B8EF50 /* AppDelegate.swift in Sources */,
 				256A75042B2837B000B8EF50 /* WalletModel.swift in Sources */,
 				256A75292B294A6700B8EF50 /* TintedButton.swift in Sources */,
+				25AE3FED2B2FD83000C57C1A /* BaseCardTabBar.swift in Sources */,
 				256A75582B2C078500B8EF50 /* MainTabBarViewController.swift in Sources */,
 				256A74AE2B27F8F200B8EF50 /* UIFont.swift in Sources */,
 				256A74A82B27F7D900B8EF50 /* UIColor.swift in Sources */,
@@ -898,11 +1024,15 @@
 				256A75212B285B1700B8EF50 /* SignInViewController.swift in Sources */,
 				256A74E82B282E2C00B8EF50 /* Api.swift in Sources */,
 				256A74FC2B28320000B8EF50 /* GenreModel.swift in Sources */,
+				25AE3FF92B2FEED300C57C1A /* Card.swift in Sources */,
 				256A74B82B27FA2C00B8EF50 /* NSNumber.swift in Sources */,
 				256A755F2B2C423200B8EF50 /* SearchViewController.swift in Sources */,
 				256A74F42B2830C400B8EF50 /* AppError.swift in Sources */,
 				256A75122B283CFD00B8EF50 /* Auth.swift in Sources */,
+				25AE3FEC2B2FD83000C57C1A /* LightTabBar.swift in Sources */,
+				25AE3FFB2B2FF9C200C57C1A /* DetailMovieTableCell.swift in Sources */,
 				256A75632B2C4AB500B8EF50 /* SearchTableCell.swift in Sources */,
+				25AE3FE62B2FD83000C57C1A /* CardTabBarController.swift in Sources */,
 				256A74E62B28266900B8EF50 /* AppColor.swift in Sources */,
 				256A74F82B28317700B8EF50 /* MovieModel.swift in Sources */,
 				256A74782B27F57E00B8EF50 /* SceneDelegate.swift in Sources */,
@@ -916,8 +1046,10 @@
 				256A75252B2949D000B8EF50 /* OutlinedButton.swift in Sources */,
 				256A75272B2949F700B8EF50 /* TextButton.swift in Sources */,
 				256A75522B2BF5E300B8EF50 /* GradientView.swift in Sources */,
+				25AE3FE72B2FD83000C57C1A /* SemiCardTabBarController.swift in Sources */,
 				256A75072B28387A00B8EF50 /* QRCode.swift in Sources */,
 				256A74BE2B27FC2E00B8EF50 /* UIStackView.swift in Sources */,
+				25AE3FFD2B3020D100C57C1A /* AuthViewModel.swift in Sources */,
 				256A75002B28374300B8EF50 /* TransactionModel.swift in Sources */,
 				256A74C82B27FEAF00B8EF50 /* BaseViewModel.swift in Sources */,
 				256A755C2B2C08AE00B8EF50 /* WalletViewController.swift in Sources */,

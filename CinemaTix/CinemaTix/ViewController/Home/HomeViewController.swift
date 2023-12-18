@@ -33,30 +33,30 @@ class HomeViewController: BaseViewController {
     }
     
     override func setupNavBar() {
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        
         navigationItem.title = "CinemaTix"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: UIImage(named: "Icon")?.resize(CGSize(width: 36, height: 36))))
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: IconButton(icon: AppIcon.search) {
             self.navigationController?.pushViewController(SearchViewController(), animated: true)
         })
         if let navBar = navigationController?.navigationBar {
-//            navBar.isTranslucent = false
-//            navBar.backgroundColor = .systemBackground
-//            navBar.transform = CGAffineTransform(translationX: 0, y: -navBarSafeAreaHeight())
+            navBar.isTranslucent = false
+            navBar.backgroundColor = .systemBackground
+            navBar.transform = CGAffineTransform(translationX: 0, y: -100)
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
 //        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
+//    }
     
     override func setupConstraints() {
         view.addSubview(mainTable)
         mainTable.addSubview(refreshControl)
         mainTable.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(view)
-            make.top.equalTo(view.snp.top).offset(-navBarSafeAreaHeight())
+            make.top.equalTo(view.snp.top).offset(-100)
         }
     }
 }
@@ -69,8 +69,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         mainTable.dataSource = self
         mainTable.register(HomeTableCell.self)
         
-        let homeCarousel =  HomeCarousel(viewModel: viewModel, size: CGSize(width: view.bounds.width, height: 480))
+        let homeCarousel =  HomeCarousel(viewModel: viewModel, size: CGSize(width: view.bounds.width, height: 500))
+        
+        homeCarousel.onTapCell = { index in
+            if let movie = self.viewModel.playingNowMovies?[index] {
+                self.navigationController?.pushViewController(DetailMovieViewController(movie: movie), animated: true)
+            }
+        }
+        
         mainTable.tableHeaderView = homeCarousel
+        
         viewModel.getPlayingNowMovies {
             homeCarousel.updateCarousel()
         }
@@ -85,7 +93,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return [360, 160, 160,][indexPath.section]
+        return [360, 160, 160][indexPath.section]
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -118,7 +126,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case 0:
             label.text = LanguageStrings.recommendedForYou.localized
-            label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+            label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
             forwardBtn.isHidden = true
         case 1:
             label.text = LanguageStrings.upcoming.localized
@@ -141,7 +149,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let defaultOffset = navBarSafeAreaHeight()
         let offset = (scrollView.contentOffset.y*0.2 - defaultOffset)
-//        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, offset))
+        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, offset))
     }
 }
 

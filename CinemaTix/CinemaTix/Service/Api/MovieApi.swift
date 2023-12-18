@@ -69,6 +69,10 @@ class MovieApi: TmdbApi {
         return createEndpoint(path: "movie/\(id)/credits", method: .get)
     }
     
+    func images(_ id: Int) -> Endpoint {
+        return createEndpoint(path: "movie/\(id)/images", method: .get)
+    }
+    
     func searchByKeywords(_ query: String) -> Endpoint {
         return createEndpoint(path: "search/movie", method: .get, query: [
             "query": query,

@@ -34,7 +34,6 @@ class HomeTableCell: BaseTableCell {
         
         base.snp.makeConstraints { make in
             make.top.bottom.right.left.equalTo(contentView)
-//            make.height.equalTo(200)
         }
     }
     

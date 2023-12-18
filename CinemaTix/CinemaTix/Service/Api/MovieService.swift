@@ -21,6 +21,11 @@ class MovieService: BaseService {
         request(url: url, expecting: ResultCreditTMDBModel.self, completion: completion)
     }
     
+    func getImages(id: Int, completion: @escaping (Result<ResultImageTMDBModel, AppError>) -> Void) -> Void {
+        let url = movieApi.images(id)
+        request(url: url, expecting: ResultImageTMDBModel.self, completion: completion)
+    }
+    
     func getAllGenres(completion: @escaping (Result<ResultGenreTMBDModel, AppError>) -> Void) -> Void {
         let url = movieApi.genres
         request(url: url, expecting: ResultGenreTMBDModel.self, completion: completion)
