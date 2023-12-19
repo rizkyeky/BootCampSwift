@@ -12,9 +12,11 @@ class SearchViewModel: BaseViewModel {
     
     private let movieService = MovieService()
     
-    var resultsSearchMovies: [MovieModel]?
+    public var resultsSearchMovies: [MovieModel]?
     
-    let searchQuerySubject = PublishSubject<String>()
+    public let searchQuerySubject = PublishSubject<String>()
+    
+    public let disposeBag = DisposeBag()
     
     func getMoviesByQuery(completion: @escaping () -> Void, onError: ((Error) -> Void)? = nil) {
         searchQuerySubject.subscribe() { text in
@@ -27,6 +29,6 @@ class SearchViewModel: BaseViewModel {
                     onError?(error)
                 }
             }
-        }.disposed(by: DisposeBag())
+        }.disposed(by: disposeBag)
     }
 }

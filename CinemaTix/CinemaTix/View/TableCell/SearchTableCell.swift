@@ -31,12 +31,11 @@ class SearchTableCell: BaseTableCell {
     
     override func setup() {
         
-//        contentView.backgroundColor = .systemBlue
         contentView.addSubview(base)
         
         base.snp.makeConstraints { make in
             make.top.bottom.right.left.equalTo(contentView)
-//            make.height.equalTo(200)
+            make.height.equalTo(40)
         }
         base.addSubview(label)
         label.snp.makeConstraints { make in

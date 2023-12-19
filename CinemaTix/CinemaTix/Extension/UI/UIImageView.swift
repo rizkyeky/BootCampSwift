@@ -10,10 +10,10 @@ import Kingfisher
 
 extension UIImageView {
     
-    func loadFromUrl(url: URL?, usePlaceholder: Bool = false, isCompressed: Bool = true) -> UIImageView {
+    func loadFromUrl(url: URL?, usePlaceholder: Bool = false, isCompressed: Bool = true) {
 //        self.kf.indicatorType = .custom(indicator: ImageActivityIndicator())
-        let placeholder = usePlaceholder ? isPotrait() ? UIImage(named: "imagenotfound") : UIImage(named: "imagenotfound") : nil
 //        self.kf.indicatorType = .activity
+        let placeholder = usePlaceholder ? isPotrait() ? UIImage(named: "imagenotfound2") : UIImage(named: "imagenotfound1") : nil
         var options: KingfisherOptionsInfo = [
             .transition(.fade(0.48))
         ]
@@ -24,7 +24,6 @@ extension UIImageView {
             placeholder: placeholder,
             options: options
         )
-        return self
     }
     
     private func compressImage(_ percentage: CGFloat = 0.8) -> DownsamplingImageProcessor {

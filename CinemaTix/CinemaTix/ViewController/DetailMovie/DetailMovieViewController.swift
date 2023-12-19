@@ -10,10 +10,11 @@ import UIKit
 class DetailMovieViewController: BaseViewController {
 
     private let mainTable = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: .plain)
         table.allowsSelection = false
         table.separatorStyle = .none
         table.sectionHeaderTopPadding = 0.0
+        table.contentMode = .scaleToFill
         table.showsVerticalScrollIndicator = false
         return table
     }()
@@ -34,6 +35,7 @@ class DetailMovieViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavBar()
         
         if let movieId = movie.id {
             viewModel.getDetailMovie(id: movieId) { detail in
@@ -49,12 +51,21 @@ class DetailMovieViewController: BaseViewController {
     override func setupConstraints() {
         view.addSubview(mainTable)
         mainTable.snp.makeConstraints { make in
-            make.top.left.right.bottom.equalTo(view)
+            make.left.right.bottom.equalTo(view)
+            make.top.equalToSuperview()
         }
     }
     
-    override func setupNavBar() {
+    func setupNavBar() {
         navigationItem.title = movie.title ?? "-"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let navBar = navigationController?.navigationBar {
+            navBar.transform = CGAffineTransform(translationX: 0, y: 0)
+        }
+        mainTable.setContentOffset(CGPoint(x: 0, y: -100), animated: animated)
     }
 }
 
@@ -91,6 +102,7 @@ extension DetailMovieViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:

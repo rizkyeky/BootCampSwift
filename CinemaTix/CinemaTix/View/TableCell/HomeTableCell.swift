@@ -29,11 +29,15 @@ class HomeTableCell: BaseTableCell {
     
     override func setup() {
         
+        isSelected = false
+        isHighlighted = false
+        
         contentView.backgroundColor = .systemBlue
         contentView.addSubview(base)
         
         base.snp.makeConstraints { make in
             make.top.bottom.right.left.equalTo(contentView)
+            make.height.equalTo(200)
         }
     }
     
@@ -44,4 +48,250 @@ class HomeTableCell: BaseTableCell {
         layer.shadowColor = UIColor.systemGray.cgColor
     }
 
+}
+
+class RecomendedTableCell: BaseTableCell {
+    
+    private let collection = {
+        let coll = UICollectionView(frame: CGRect(x: 0, y: 0, width: 360, height: 360), collectionViewLayout: UICollectionViewFlowLayout())
+        coll.showsHorizontalScrollIndicator = false
+        coll.isPagingEnabled = true
+        return coll
+    }()
+    
+    private var movies: [MovieModel]?
+    
+    public var size: CGSize = CGSize(width: 360, height: 360)
+    
+    override func setup() {
+        
+        collection.delegate = self
+        collection.dataSource = self
+        collection.register(cell: RecommendedItemCell.self)
+        contentView.addSubview(collection)
+        collection.snp.makeConstraints { make in
+            make.top.bottom.right.left.equalTo(contentView)
+            make.height.equalTo(360)
+        }
+        
+        if let collFlowLayout = collection.collectionViewLayout as? UICollectionViewFlowLayout {
+            collFlowLayout.scrollDirection = .horizontal
+            collFlowLayout.itemSize = CGSize(width: size.width+16, height: size.height)
+            collFlowLayout.minimumLineSpacing = 0
+            collFlowLayout.minimumInteritemSpacing = 0
+            collFlowLayout.sectionInset = .zero
+        }
+    }
+    
+    func updateMovies(_ movies: [MovieModel]) {
+        self.movies = movies
+        collection.reloadData()
+    }
+}
+
+extension RecomendedTableCell: UICollectionViewDelegate, UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return min(4, movies?.count ?? 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as RecommendedItemCell
+        setupCell(cell, indexPath.row)
+        return cell
+    }
+    
+    func setupCell(_ cell: RecommendedItemCell, _ index: Int) {
+        if let movie = movies?[index] {
+            cell.title.text = movie.title ?? "-"
+            if let rate = movie.voteAverage {
+                cell.subtitle.text = movie.genres().joined(separator: ", ") + " • " + String(format: "%.1f", rate)
+            }
+            if let backdropPath = movie.backdropPath {
+                let path = String(backdropPath.dropFirst())
+                cell.backgroundImage.loadFromUrl(url: TmdbApi.getImageURL(path, type: .w500), usePlaceholder: true, isCompressed: true)
+            }
+        }
+    }
+}
+
+class RecommendedItemCell: BaseCollectionCell {
+    
+    private let base = UIView()
+    public let backgroundImage = UIImageView()
+    
+    public let title = UILabel()
+    public let subtitle = UILabel()
+    private let boxBlur = UIView()
+    
+    var onTapBookBtn: (() -> Void)?
+    
+    override func setup() {
+        
+        isSelected = false
+        isHighlighted = false
+        
+        contentView.clipsToBounds = true
+        contentView.addSubview(base)
+        base.snp.makeConstraints { make in
+            make.top.bottom.left.right.equalTo(contentView)
+            make.height.equalTo(360)
+        }
+        
+        backgroundImage.makeCornerRadius(16)
+        backgroundImage.clipsToBounds = true
+        base.addSubview(backgroundImage)
+        backgroundImage.snp.makeConstraints { make in
+            make.height.width.equalTo(320)
+            make.center.equalTo(base)
+        }
+        
+        backgroundImage.image = UIImage(named: "imagenotfound")
+        
+        boxBlur.backgroundColor = .clear
+        backgroundImage.addSubview(boxBlur)
+        boxBlur.snp.makeConstraints { make in
+            make.height.equalTo(80)
+            make.width.equalTo(self.backgroundImage)
+            make.bottom.equalTo(self.backgroundImage)
+            make.centerX.equalTo(self.backgroundImage)
+        }
+        
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
+        boxBlur.addSubview(blurView)
+        blurView.snp.makeConstraints { make in
+            make.width.height.equalTo(self.boxBlur)
+            make.top.left.right.bottom.equalTo(self.boxBlur)
+        }
+        
+        title.text = ""
+        title.font = .medium(24)
+        title.textColor = .white
+        boxBlur.addSubview(title)
+        title.snp.makeConstraints { make in
+            make.top.equalTo(self.boxBlur).offset(16)
+            make.left.equalTo(self.boxBlur).offset(16)
+        }
+        
+        subtitle.text = ""
+        subtitle.font = .regular(16)
+        subtitle.textColor = .white
+        boxBlur.addSubview(subtitle)
+        subtitle.snp.makeConstraints { make in
+            make.bottom.equalTo(self.boxBlur).offset(-16)
+            make.left.equalTo(self.boxBlur).offset(16)
+        }
+    }
+}
+
+class UpComingTableCell: BaseTableCell {
+    
+    private let collection = {
+        let coll = UICollectionView(frame: CGRect(x: 0, y: 0, width: 360, height: 200), collectionViewLayout: UICollectionViewFlowLayout())
+        coll.showsHorizontalScrollIndicator = false
+        return coll
+    }()
+    
+    private var movies: [MovieModel]?
+    
+    override func setup() {
+        
+        collection.delegate = self
+        collection.dataSource = self
+        collection.register(cell: UpComingItemCell.self)
+        contentView.addSubview(collection)
+        collection.snp.makeConstraints { make in
+            make.top.bottom.right.left.equalTo(contentView)
+            make.height.equalTo(200)
+        }
+        
+        if let collFlowLayout = collection.collectionViewLayout as? UICollectionViewFlowLayout {
+            collFlowLayout.scrollDirection = .horizontal
+            collFlowLayout.itemSize = CGSize(width: 300, height: 200)
+            collFlowLayout.minimumLineSpacing = 8
+            collFlowLayout.minimumInteritemSpacing = 8
+            collFlowLayout.sectionInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+        }
+    }
+    
+    func updateMovies(_ movies: [MovieModel]) {
+        self.movies = movies
+        collection.reloadData()
+    }
+}
+
+extension UpComingTableCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return min(4, movies?.count ?? 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as UpComingItemCell
+        setupCell(cell, indexPath.row)
+        return cell
+    }
+    
+    func setupCell(_ cell: UpComingItemCell, _ index: Int) {
+        if let movie = movies?[index] {
+            cell.title.text = movie.title ?? "-"
+            if let backdropPath = movie.backdropPath {
+                let path = String(backdropPath.dropFirst())
+                cell.backgroundImage.loadFromUrl(url: TmdbApi.getImageURL(path, type: .w500), usePlaceholder: true, isCompressed: true)
+            }
+        }
+    }
+}
+
+class UpComingItemCell: BaseCollectionCell {
+    
+    public let backgroundImage = UIImageView()
+    
+    public let title = UILabel()
+    private let boxBlur = UIView()
+    
+    override func setup() {
+        
+        isSelected = false
+        isHighlighted = false
+        
+        backgroundImage.contentMode = .scaleAspectFill
+        backgroundImage.clipsToBounds = true
+        contentView.clipsToBounds = true
+        contentView.makeCornerRadius(16)
+        
+        contentView.addSubview(backgroundImage)
+        backgroundImage.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalTo(self.contentView)
+            make.height.equalTo(200)
+            make.width.equalTo(300)
+        }
+        
+        backgroundImage.image = UIImage(named: "imagenotfound")
+        
+        boxBlur.backgroundColor = .clear
+        backgroundImage.addSubview(boxBlur)
+        boxBlur.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.width.equalTo(self.backgroundImage)
+            make.bottom.equalTo(self.backgroundImage)
+            make.centerX.equalTo(self.backgroundImage)
+        }
+        
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
+        boxBlur.addSubview(blurView)
+        blurView.snp.makeConstraints { make in
+            make.width.height.equalTo(self.boxBlur)
+            make.top.left.right.bottom.equalTo(self.boxBlur)
+        }
+        
+        title.text = ""
+        title.font = .medium(24)
+        title.textColor = .white
+        boxBlur.addSubview(title)
+        title.snp.makeConstraints { make in
+            make.top.equalTo(self.boxBlur).offset(16)
+            make.left.equalTo(self.boxBlur).offset(16)
+        }
+    }
 }

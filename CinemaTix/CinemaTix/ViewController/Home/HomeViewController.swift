@@ -24,6 +24,7 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavBar()
         
         refreshControl.addAction(UIAction() { _ in
             self.refreshControl.endRefreshing()
@@ -32,24 +33,35 @@ class HomeViewController: BaseViewController {
         setupMainTable()
     }
     
-    override func setupNavBar() {
-        
+    func setupNavBar() {
         navigationItem.title = "CinemaTix"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: UIImage(named: "Icon")?.resize(CGSize(width: 36, height: 36))))
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: IconButton(icon: AppIcon.search) {
             self.navigationController?.pushViewController(SearchViewController(), animated: true)
         })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if let navBar = navigationController?.navigationBar {
-            navBar.isTranslucent = false
-            navBar.backgroundColor = .systemBackground
             navBar.transform = CGAffineTransform(translationX: 0, y: -100)
         }
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        navigationController?.setNavigationBarHidden(false, animated: true)
-//    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let navBar = navigationController?.navigationBar {
+            navBar.transform = CGAffineTransform(translationX: 0, y: 0)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let navBar = navigationController?.navigationBar {
+            navBar.transform = CGAffineTransform(translationX: 0, y: 0)
+        }
+    }
+
     
     override func setupConstraints() {
         view.addSubview(mainTable)
@@ -68,12 +80,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         mainTable.delegate = self
         mainTable.dataSource = self
         mainTable.register(HomeTableCell.self)
+        mainTable.register(RecomendedTableCell.self)
+        mainTable.register(UpComingTableCell.self)
         
         let homeCarousel =  HomeCarousel(viewModel: viewModel, size: CGSize(width: view.bounds.width, height: 500))
         
         homeCarousel.onTapCell = { index in
             if let movie = self.viewModel.playingNowMovies?[index] {
-                self.navigationController?.pushViewController(DetailMovieViewController(movie: movie), animated: true)
+                let vc = DetailMovieViewController(movie: movie)
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
         
@@ -93,7 +108,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return [360, 160, 160][indexPath.section]
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -142,8 +157,34 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as HomeTableCell
-        return cell
+        
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as RecomendedTableCell
+            cell.size = CGSize(width: view.bounds.width, height: 360)
+            viewModel.getPopularMovies {
+                if let movies = self.viewModel.popularMovies {
+                    cell.updateMovies(movies)
+                }
+            }
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as UpComingTableCell
+            viewModel.getUpComingMovies {
+                if let movies = self.viewModel.upComingMovies {
+                    cell.updateMovies(movies)
+                }
+            }
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as UpComingTableCell
+            viewModel.getTopRatedMovies {
+                if let movies = self.viewModel.topRatedMovies {
+                    cell.updateMovies(movies)
+                }
+            }
+            return cell
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -31,7 +31,7 @@ class RegisterViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupNavBar()
         submitButton.addAction(UIAction { _ in
             self.viewModel.signInWithFB {
                 self.dismiss(animated: true)
@@ -62,7 +62,7 @@ class RegisterViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    override func setupNavBar() {
+    func setupNavBar() {
         navigationItem.title = "Register"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: TextButton(withTitle: "Cancel", size: .init(width: 60, height: 40)) {
             self.dismiss(animated: true)

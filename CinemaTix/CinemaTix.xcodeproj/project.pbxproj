@@ -99,10 +99,10 @@
 		25AE3FF02B2FD83000C57C1A /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FE12B2FD83000C57C1A /* UIView+Additions.swift */; };
 		25AE3FF42B2FE00A00C57C1A /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FF32B2FE00A00C57C1A /* DetailMovieViewController.swift */; };
 		25AE3FF62B2FE0F400C57C1A /* DetailMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FF52B2FE0F400C57C1A /* DetailMovieViewModel.swift */; };
-		25AE3FF92B2FEED300C57C1A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FF82B2FEED300C57C1A /* Card.swift */; };
 		25AE3FFB2B2FF9C200C57C1A /* DetailMovieTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FFA2B2FF9C200C57C1A /* DetailMovieTableCell.swift */; };
 		25AE3FFD2B3020D100C57C1A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FFC2B3020D100C57C1A /* AuthViewModel.swift */; };
 		25AE40002B3024F100C57C1A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FFF2B3024F100C57C1A /* RegisterViewController.swift */; };
+		25AE40082B31689000C57C1A /* SlidePageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE40072B31689000C57C1A /* SlidePageTransition.swift */; };
 		784C0D593C1B16405459CF9C /* Pods_CinemaTixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6265F766F2EEB683A9EF50 /* Pods_CinemaTixTests.framework */; };
 		E5F828EB5DC737497C697FA4 /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAA3917EFDBBFBC42407A2A /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
@@ -223,10 +223,10 @@
 		25AE3FE12B2FD83000C57C1A /* UIView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
 		25AE3FF32B2FE00A00C57C1A /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		25AE3FF52B2FE0F400C57C1A /* DetailMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewModel.swift; sourceTree = "<group>"; };
-		25AE3FF82B2FEED300C57C1A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		25AE3FFA2B2FF9C200C57C1A /* DetailMovieTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieTableCell.swift; sourceTree = "<group>"; };
 		25AE3FFC2B3020D100C57C1A /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		25AE3FFF2B3024F100C57C1A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		25AE40072B31689000C57C1A /* SlidePageTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidePageTransition.swift; sourceTree = "<group>"; };
 		3EAA3917EFDBBFBC42407A2A /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6265F766F2EEB683A9EF50 /* Pods_CinemaTixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B7A01339612670CFD6D262 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
@@ -516,7 +516,8 @@
 		256A751C2B28576C00B8EF50 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				25AE3FF72B2FEE9900C57C1A /* Card */,
+				25AE40062B31687B00C57C1A /* Animation */,
+				25AE40012B3135BA00C57C1A /* Carousel */,
 				25AE3FCC2B2FD81E00C57C1A /* LightCardTabBar */,
 				256A75532B2BFD9100B8EF50 /* CollectionCell */,
 				256A75502B2BF5D800B8EF50 /* Gradient */,
@@ -604,7 +605,6 @@
 		256A75422B2AF8AF00B8EF50 /* HomeCarousel */ = {
 			isa = PBXGroup;
 			children = (
-				256A75432B2AF8C000B8EF50 /* HomeCarousel.swift */,
 			);
 			path = HomeCarousel;
 			sourceTree = "<group>";
@@ -714,20 +714,28 @@
 			path = ListMovie;
 			sourceTree = "<group>";
 		};
-		25AE3FF72B2FEE9900C57C1A /* Card */ = {
-			isa = PBXGroup;
-			children = (
-				25AE3FF82B2FEED300C57C1A /* Card.swift */,
-			);
-			path = Card;
-			sourceTree = "<group>";
-		};
 		25AE3FFE2B3024DB00C57C1A /* Register */ = {
 			isa = PBXGroup;
 			children = (
 				25AE3FFF2B3024F100C57C1A /* RegisterViewController.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		25AE40012B3135BA00C57C1A /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				256A75432B2AF8C000B8EF50 /* HomeCarousel.swift */,
+			);
+			path = Carousel;
+			sourceTree = "<group>";
+		};
+		25AE40062B31687B00C57C1A /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				25AE40072B31689000C57C1A /* SlidePageTransition.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1022,9 +1030,9 @@
 				256A74FE2B2832F300B8EF50 /* CastModel.swift in Sources */,
 				256A74AA2B27F85100B8EF50 /* UICollectionViewCell.swift in Sources */,
 				256A75212B285B1700B8EF50 /* SignInViewController.swift in Sources */,
+				25AE40082B31689000C57C1A /* SlidePageTransition.swift in Sources */,
 				256A74E82B282E2C00B8EF50 /* Api.swift in Sources */,
 				256A74FC2B28320000B8EF50 /* GenreModel.swift in Sources */,
-				25AE3FF92B2FEED300C57C1A /* Card.swift in Sources */,
 				256A74B82B27FA2C00B8EF50 /* NSNumber.swift in Sources */,
 				256A755F2B2C423200B8EF50 /* SearchViewController.swift in Sources */,
 				256A74F42B2830C400B8EF50 /* AppError.swift in Sources */,

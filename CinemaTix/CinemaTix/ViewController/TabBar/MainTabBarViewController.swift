@@ -41,6 +41,36 @@ class MainTabBarViewController: CardTabBarController {
     }
 }
 
-extension MainTabBarViewController: UITabBarControllerDelegate {
+extension MainTabBarViewController: UITabBarControllerDelegate, UIViewControllerTransitioningDelegate {
     
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        guard let fromVC = selectedViewController, let toVCIndex = tabBarController.viewControllers?.firstIndex(of: viewController) else {
+            return false
+        }
+        
+        let toVC = tabBarController.viewControllers?[toVCIndex]
+        let transition = SlideTransitionAnimator()
+        
+        if toVCIndex > tabBarController.selectedIndex {
+            transition.transitionDirection = .leftToRight
+        } else {
+            transition.transitionDirection = .rightToLeft
+        }
+        
+        toVC?.transitioningDelegate = self
+        present(toVC!, animated: true, completion: nil)
+        return true
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let transition = SlideTransitionAnimator()
+        transition.transitionDirection = .leftToRight
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let transition = SlideTransitionAnimator()
+        transition.transitionDirection = .rightToLeft
+        return transition
+    }
 }

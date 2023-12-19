@@ -23,7 +23,7 @@ class SignInViewController: BaseViewController {
     }
 
     private let submitButton = FilledButton(title: "Submit")
-    private let faceIDButton = TintedButton(title: "", icon: AppSVGIcon.faceId.getImage())
+    private let faceIDButton = IconButton(icon: AppSVGIcon.faceId.getImage(), size: .init(width: 60, height: 60), iconSize: CGSize(width: 48, height: 48))
     
     private let emailField = FormTextField(placeholder: "Email", keyboardType: .emailAddress)
     private let passwordField = FormTextField(placeholder: "Password", keyboardType: .emailAddress, isPassword: true)
@@ -31,9 +31,11 @@ class SignInViewController: BaseViewController {
     private let viewModel = AuthViewModel()
     private let disposeBag = DisposeBag()
     
+    private var isButtonFaceIDEnabled = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupNavBar()
         submitButton.addAction(UIAction { _ in
             self.viewModel.signInWithFB {
                 self.dismiss(animated: true)
@@ -48,11 +50,16 @@ class SignInViewController: BaseViewController {
         }, for: .touchUpInside)
         
         faceIDButton.addAction(UIAction { _ in
+            guard self.isButtonFaceIDEnabled else {
+                return
+            }
+            self.isButtonFaceIDEnabled = false
             self.viewModel.biometric.authenticate() {
+                self.isButtonFaceIDEnabled = true
                 self.dismiss(animated: true)
                 self.onSuccessSignIn?()
             } onError: { error in
-                self.showAlertOK(title: "Error Sign In with FaceID", message: "Error message:")
+//                self.showAlertOK(title: "Error Sign In with FaceID", message: "Error message:")
             }
         }, for: .touchUpInside)
         
@@ -75,7 +82,7 @@ class SignInViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    override func setupNavBar() {
+    func setupNavBar() {
         navigationItem.title = "Sign In"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: TextButton(withTitle: "Cancel", size: .init(width: 60, height: 40)) {
             self.dismiss(animated: true)

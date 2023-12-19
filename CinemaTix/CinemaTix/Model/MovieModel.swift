@@ -37,7 +37,7 @@ struct MovieModel: Codable {
     
     func genres() -> [String] {
         var temp: [String] = []
-        genreIDS?.forEach { id in
+        genreIDS?.sliceArrayWithMax(3).forEach { id in
             temp.append(getGenre(id: id))
         }
         return temp

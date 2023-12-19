@@ -26,7 +26,6 @@ class DetailMovieOverviewTableCell: BaseTableCell {
             make.top.bottom.equalTo(contentView)
             make.right.equalTo(contentView).inset(16)
             make.left.equalTo(contentView).inset(16)
-            make.height.equalTo(140)
         }
         
         base.addSubview(overview)
@@ -39,7 +38,7 @@ class DetailMovieOverviewTableCell: BaseTableCell {
 class DetailMovieCastTableCell: BaseTableCell {
     
     private let collection = {
-        let coll = UICollectionView(frame: CGRect(x: 0, y: 0, width: 360, height: 140), collectionViewLayout: UICollectionViewFlowLayout())
+        let coll = UICollectionView(frame: CGRect(x: 0, y: 0, width: 360, height: 180), collectionViewLayout: UICollectionViewFlowLayout())
         coll.showsHorizontalScrollIndicator = false
         return coll
     }()
@@ -55,12 +54,12 @@ class DetailMovieCastTableCell: BaseTableCell {
         contentView.addSubview(collection)
         collection.snp.makeConstraints { make in
             make.top.bottom.right.left.equalTo(contentView)
-            make.height.equalTo(140)
+            make.height.equalTo(180)
         }
         
         if let collFlowLayout = collection.collectionViewLayout as? UICollectionViewFlowLayout {
             collFlowLayout.scrollDirection = .horizontal
-            collFlowLayout.itemSize = CGSize(width: 140, height: 140)
+            collFlowLayout.itemSize = CGSize(width: 180, height: 180)
             collFlowLayout.minimumLineSpacing = 8
             collFlowLayout.minimumInteritemSpacing = 8
             collFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
@@ -86,14 +85,11 @@ extension DetailMovieCastTableCell: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func setupCell(_ cell: CastItemCell, _ index: Int) {
-            
         if let cast = casts?[index] {
             cell.title.text = cast.name ?? "-"
             if let backdropPath = cast.profilePath {
                 let path = String(backdropPath.dropFirst())
-//                let imageView = UIImageView()
-//                imageView.loadFromUrl(url: TmdbApi.getImageURL(path, type: .w500), usePlaceholder: true)
-                cell.card.backgroundView = UIImageView().loadFromUrl(url: TmdbApi.getImageURL(path, type: .w500), usePlaceholder: true, isCompressed: true)
+                cell.backgroundImage.loadFromUrl(url: TmdbApi.getImageURL(path, type: .w500), usePlaceholder: true, isCompressed: true)
             }
         }
     }
@@ -101,24 +97,31 @@ extension DetailMovieCastTableCell: UICollectionViewDelegate, UICollectionViewDa
 
 class CastItemCell: BaseCollectionCell {
     
-    public let card = Card()
+    public let backgroundImage = UIImageView(image: UIImage(named: "imagenotfound"))
     public let title = UILabel()
     
     override func setup() {
         
-        contentView.addSubview(card)
-        card.snp.makeConstraints { make in
-            make.width.height.equalTo(140)
+        isSelected = false
+        isHighlighted = false
+        
+        backgroundImage.contentMode = .scaleAspectFill
+        backgroundImage.clipsToBounds = true
+        contentView.clipsToBounds = true
+        contentView.makeCornerRadius(16)
+        contentView.addSubview(backgroundImage)
+        backgroundImage.snp.makeConstraints { make in
+            make.width.height.equalTo(180)
         }
         
         let boxBlur = UIView()
         boxBlur.backgroundColor = .clear
-        card.addSubview(boxBlur)
+        backgroundImage.addSubview(boxBlur)
         boxBlur.snp.makeConstraints { make in
             make.height.equalTo(60)
-            make.width.equalTo(self.card)
-            make.bottom.equalTo(self.card)
-            make.centerX.equalTo(self.card)
+            make.width.equalTo(self.backgroundImage)
+            make.bottom.equalTo(self.backgroundImage)
+            make.centerX.equalTo(self.backgroundImage)
         }
         
         let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
@@ -143,7 +146,7 @@ class CastItemCell: BaseCollectionCell {
 class DetailMovieClipsTableCell: BaseTableCell {
     
     private let collection = {
-        let coll = UICollectionView(frame: CGRect(x: 0, y: 0, width: 360, height: 140), collectionViewLayout: UICollectionViewFlowLayout())
+        let coll = UICollectionView(frame: CGRect(x: 0, y: 0, width: 360, height: 160), collectionViewLayout: UICollectionViewFlowLayout())
         coll.showsHorizontalScrollIndicator = false
         return coll
     }()
@@ -159,12 +162,12 @@ class DetailMovieClipsTableCell: BaseTableCell {
         contentView.addSubview(collection)
         collection.snp.makeConstraints { make in
             make.top.bottom.right.left.equalTo(contentView)
-            make.height.equalTo(120)
+            make.height.equalTo(160)
         }
         
         if let collFlowLayout = collection.collectionViewLayout as? UICollectionViewFlowLayout {
             collFlowLayout.scrollDirection = .horizontal
-            collFlowLayout.itemSize = CGSize(width: 200, height: 120)
+            collFlowLayout.itemSize = CGSize(width: 240, height: 160)
             collFlowLayout.minimumLineSpacing = 8
             collFlowLayout.minimumInteritemSpacing = 8
             collFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
@@ -193,9 +196,7 @@ extension DetailMovieClipsTableCell: UICollectionViewDelegate, UICollectionViewD
         if let cast = images?[index] {
             if let filePath = cast.filePath {
                 let path = String(filePath.dropFirst())
-//                let imageView = UIImageView()
-//                imageView.loadFromUrl(url: TmdbApi.getImageURL(path, type: .w500), usePlaceholder: true)
-                cell.card.backgroundView = UIImageView().loadFromUrl(url: TmdbApi.getImageURL(path, type: .w500), usePlaceholder: true, isCompressed: true)
+                cell.backgroundImage.loadFromUrl(url: TmdbApi.getImageURL(path, type: .w500), usePlaceholder: true, isCompressed: true)
             }
         }
     }
@@ -203,14 +204,21 @@ extension DetailMovieClipsTableCell: UICollectionViewDelegate, UICollectionViewD
 
 class ClipItemCell: BaseCollectionCell {
     
-    public let card = Card()
+    public let backgroundImage = UIImageView(image: UIImage(named: "imagenotfound"))
     
     override func setup() {
-        card.radius = 8
-        contentView.addSubview(card)
-        card.snp.makeConstraints { make in
-            make.width.equalTo(200)
-            make.height.equalTo(120)
+        
+        isSelected = false
+        isHighlighted = false
+        
+        backgroundImage.contentMode = .scaleAspectFill
+        backgroundImage.clipsToBounds = true
+        contentView.clipsToBounds = true
+        contentView.makeCornerRadius(16)
+        contentView.addSubview(backgroundImage)
+        backgroundImage.snp.makeConstraints { make in
+            make.width.equalTo(240)
+            make.height.equalTo(160)
         }
     }
 }
