@@ -73,20 +73,20 @@ class LaunchViewController: BaseViewController {
     
     private func didCompleteAnim() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            let auth = ContainerDI.shared.resolve(AuthViewModel.self)!
-//            auth.checkActiveUser { user in
-//                let firstVC: UIViewController
-//                if let _ = user {
-//                    firstVC = TabBarViewController()
-//                } else {
-//                    firstVC = WelcomeViewController()
-//                }
-//                self.navigationController?.setViewControllers([firstVC], animated: true)
-//            } onError: { error in
-            self.showAlertOK(title: "Error", message: "Message some error with longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong text", onTapOK: {
-                self.navigationController?.setViewControllers([WelcomeViewController()], animated: true)
-            })
-//            }
+            let authVM = AuthViewModel()
+            authVM.checkActiveUser { user in
+                let firstVC: UIViewController
+                if let _ = user {
+                    firstVC = MainTabBarViewController()
+                } else {
+                    firstVC = WelcomeViewController()
+                }
+                self.navigationController?.setViewControllers([firstVC], animated: true)
+            } onError: { error in
+                self.showAlertOK(title: "Error", message: "User is not found", onTapOK: {
+                    self.navigationController?.setViewControllers([WelcomeViewController()], animated: true)
+                })
+            }
         }
     }
 }

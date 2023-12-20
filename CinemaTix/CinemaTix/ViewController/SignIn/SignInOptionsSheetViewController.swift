@@ -26,7 +26,7 @@ class SignInOptionsSheetViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavBar()
+        
         emailButton.addAction(UIAction { _ in
             self.present(UINavigationController(rootViewController: SignInViewController {
                 self.dismiss(animated: true)
@@ -35,7 +35,7 @@ class SignInOptionsSheetViewController: BaseViewController {
         }, for: .touchUpInside)
     }
     
-    func setupNavBar() {
+    override func setupNavBar() {
         if let navigationBar = navigationController?.navigationBar {
             navigationBar.addHeader()
         }

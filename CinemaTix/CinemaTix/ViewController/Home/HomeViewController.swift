@@ -24,7 +24,6 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavBar()
         
         refreshControl.addAction(UIAction() { _ in
             self.refreshControl.endRefreshing()
@@ -33,7 +32,7 @@ class HomeViewController: BaseViewController {
         setupMainTable()
     }
     
-    func setupNavBar() {
+    override func setupNavBar() {
         navigationItem.title = "CinemaTix"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: UIImage(named: "Icon")?.resize(CGSize(width: 36, height: 36))))
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: IconButton(icon: AppIcon.search) {
@@ -146,9 +145,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             label.text = LanguageStrings.upcoming.localized
             label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+            forwardBtn.addAction(UIAction { _ in
+                self.navigationController?.pushViewController(ListMovieViewController(titlePage: label.text ?? "", movies: self.viewModel.upComingMovies ?? []), animated: true)
+            }, for: .touchUpInside)
         case 2:
             label.text = LanguageStrings.topRated.localized
             label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+            forwardBtn.addAction(UIAction { _ in
+                self.navigationController?.pushViewController(ListMovieViewController(titlePage: label.text ?? "", movies: self.viewModel.topRatedMovies ?? []), animated: true)
+            }, for: .touchUpInside)
         default:
             break
         }

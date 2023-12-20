@@ -15,6 +15,7 @@ target 'CinemaTix' do
   pod 'RxCocoa'
   pod 'IQKeyboardManagerSwift'
   pod 'CryptoSwift'
+  pod 'Swinject'
   pod 'netfox', :configurations => ['Debug']
 
   # Pods for CinemaTix

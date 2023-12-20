@@ -9,10 +9,11 @@ import Foundation
 import FirebaseFirestoreInternal
 
 struct UserModel {
+    
+    static var registered: UserModel?
+    
     var id: String?
-    
     var email: String?
-    
     var username: String?
     var displayName: String?
     var birthDate: Date?

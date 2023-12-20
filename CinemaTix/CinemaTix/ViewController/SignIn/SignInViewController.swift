@@ -28,7 +28,8 @@ class SignInViewController: BaseViewController {
     private let emailField = FormTextField(placeholder: "Email", keyboardType: .emailAddress)
     private let passwordField = FormTextField(placeholder: "Password", keyboardType: .emailAddress, isPassword: true)
     
-    private let viewModel = AuthViewModel()
+    private let viewModel = SingInViewModel()
+    private let biometric = BiometricAuth()
     private let disposeBag = DisposeBag()
     
     private var isButtonFaceIDEnabled = true
@@ -54,12 +55,12 @@ class SignInViewController: BaseViewController {
                 return
             }
             self.isButtonFaceIDEnabled = false
-            self.viewModel.biometric.authenticate() {
+            self.biometric.authenticate() {
                 self.isButtonFaceIDEnabled = true
                 self.dismiss(animated: true)
                 self.onSuccessSignIn?()
             } onError: { error in
-//                self.showAlertOK(title: "Error Sign In with FaceID", message: "Error message:")
+                
             }
         }, for: .touchUpInside)
         
@@ -82,7 +83,7 @@ class SignInViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    func setupNavBar() {
+    override func setupNavBar() {
         navigationItem.title = "Sign In"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: TextButton(withTitle: "Cancel", size: .init(width: 60, height: 40)) {
             self.dismiss(animated: true)

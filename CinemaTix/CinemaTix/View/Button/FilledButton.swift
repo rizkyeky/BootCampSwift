@@ -9,9 +9,9 @@ import UIKit
 
 class FilledButton: UIButton {
     
-    convenience init(title: String, icon: UIImage? = nil, iconSize: CGSize? = nil, onTap: (() -> Void)? = nil) {
+    convenience init(title: String, icon: UIImage? = nil, iconSize: CGSize? = nil, backgroundColor: UIColor? = nil, onTap: (() -> Void)? = nil) {
         
-        self.init(title: title, isBold: true, icon: icon, iconSize: iconSize, foregroundColor: .white, backgroundColor: AppColor.accent)
+        self.init(title: title, isBold: true, icon: icon, iconSize: iconSize, foregroundColor: .white, backgroundColor: backgroundColor ?? AppColor.accent)
         
         if let onTap = onTap {
             addAction(UIAction { _ in

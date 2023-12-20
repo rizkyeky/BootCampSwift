@@ -35,7 +35,6 @@ class DetailMovieViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavBar()
         
         if let movieId = movie.id {
             viewModel.getDetailMovie(id: movieId) { detail in
@@ -56,7 +55,7 @@ class DetailMovieViewController: BaseViewController {
         }
     }
     
-    func setupNavBar() {
+    override func setupNavBar() {
         navigationItem.title = movie.title ?? "-"
     }
     

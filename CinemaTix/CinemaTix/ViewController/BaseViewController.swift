@@ -16,7 +16,7 @@ class BaseViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
-//        setupNavBar()
+        setupNavBar()
         setupConstraints()
     }
     
@@ -24,9 +24,9 @@ class BaseViewController: UIViewController {
         
     }
     
-//    internal func setupNavBar() {
-//        
-//    }
+    internal func setupNavBar() {
+        
+    }
     
     func showBottomSheet(to vc: UIViewController, completion: (() -> Void)? = nil, level: [UISheetPresentationController.Detent] = [.large()]) {
         let navController = UINavigationController(rootViewController: vc)

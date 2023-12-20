@@ -27,13 +27,13 @@ class RegisterViewController: BaseViewController {
     private let usernameField = FormTextField(placeholder: "Username", keyboardType: .alphabet)
     private let passwordField = FormTextField(placeholder: "Password", keyboardType: .emailAddress, isPassword: true)
     
-    private let viewModel = AuthViewModel()
+    private let viewModel = RegisterViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavBar()
+        
         submitButton.addAction(UIAction { _ in
-            self.viewModel.signInWithFB {
+            self.viewModel.registerWithFB {
                 self.dismiss(animated: true)
                 self.onSuccessSignIn?()
             } onError: { error in
@@ -62,7 +62,7 @@ class RegisterViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    func setupNavBar() {
+    override func setupNavBar() {
         navigationItem.title = "Register"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: TextButton(withTitle: "Cancel", size: .init(width: 60, height: 40)) {
             self.dismiss(animated: true)

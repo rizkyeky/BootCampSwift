@@ -272,7 +272,7 @@ class UpComingItemCell: BaseCollectionCell {
         boxBlur.backgroundColor = .clear
         backgroundImage.addSubview(boxBlur)
         boxBlur.snp.makeConstraints { make in
-            make.height.equalTo(40)
+            make.height.equalTo(56)
             make.width.equalTo(self.backgroundImage)
             make.bottom.equalTo(self.backgroundImage)
             make.centerX.equalTo(self.backgroundImage)
@@ -286,12 +286,12 @@ class UpComingItemCell: BaseCollectionCell {
         }
         
         title.text = ""
-        title.font = .medium(24)
+        title.font = .bold(24)
         title.textColor = .white
         boxBlur.addSubview(title)
         title.snp.makeConstraints { make in
-            make.top.equalTo(self.boxBlur).offset(16)
-            make.left.equalTo(self.boxBlur).offset(16)
+            make.centerY.equalTo(self.boxBlur)
+            make.left.right.equalTo(self.boxBlur).inset(16)
         }
     }
 }

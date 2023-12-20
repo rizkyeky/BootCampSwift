@@ -59,6 +59,10 @@ class HomeCarousel: UIView {
             make.width.equalTo(100)
             make.bottom.equalTo(self.collection.snp.bottom)
         }
+        label.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(48)
+            make.left.equalToSuperview().inset(16)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -85,8 +89,6 @@ extension HomeCarousel: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as HomeCarouselCell
         
         if let movie = viewModel.playingNowMovies?[indexPath.row] {
-            cell.isLoading = false
-            
             cell.onTap = {
                 self.onTapCell?(indexPath.row)
             }
@@ -100,11 +102,9 @@ extension HomeCarousel: UICollectionViewDelegate, UICollectionViewDataSource {
             if let rate = movie.voteAverage, let date = movie.releaseDate {
                 cell.labelSubtitle.text = movie.genres().joined(separator: ", ") + " • " + String(format: "%.1f", rate) + " • " + date
             }
-            if let overview = movie.overview {
-                cell.labelOverview.text = overview
-            }
-        } else {
-            cell.isLoading = true
+//            if let overview = movie.overview {
+//                cell.labelOverview.text = overview
+//            }
         }
         
         return cell
@@ -141,23 +141,6 @@ class HomeCarouselCell: BaseCollectionCell {
         label.textColor = .white.withAlphaComponent(0.8)
         return label
     }()
-
-    public let labelOverview = {
-        let label = UILabel()
-        label.font = .medium(14)
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.textColor = .white.withAlphaComponent(0.6)
-        return label
-    }()
-    
-    public var isLoading: Bool = false {
-        didSet {
-            baseGradient.isHidden = isLoading
-        }
-    }
-
-    private let baseGradient = GradientView()
     
     override func setup() {
         
@@ -166,30 +149,16 @@ class HomeCarouselCell: BaseCollectionCell {
             make.top.bottom.right.left.equalTo(contentView)
         }
         
-        baseImage.addSubview(baseGradient)
-        baseGradient.snp.makeConstraints { make in
-            make.height.equalTo(180)
-            make.bottom.equalTo(self.baseImage.snp.bottom)
-            make.left.right.equalTo(self)
-        }
-
-        baseGradient.addSubview(labelTitle)
-        labelTitle.snp.makeConstraints { make in
-            make.top.equalTo(self.baseGradient.snp.top).offset(24)
-            make.centerX.equalTo(self.baseGradient)
-        }
-        baseGradient.addSubview(labelSubtitle)
+        baseImage.addSubviews(labelTitle, labelSubtitle)
+        
         labelSubtitle.snp.makeConstraints { make in
-            make.centerX.equalTo(self.baseGradient)
-            make.top.equalTo(labelTitle.snp.bottom).offset(4)
-        }
-        baseGradient.addSubview(labelOverview)
-        labelOverview.snp.makeConstraints { make in
-            make.centerX.equalTo(self.baseGradient)
-            make.top.equalTo(labelSubtitle.snp.bottom).offset(4)
-            make.width.equalTo(360)
-            make.height.equalTo(60)
+            make.bottom.equalTo(self.baseImage).inset(40)
+            make.left.right.equalTo(self.baseImage).inset(16)
         }
         
+        labelTitle.snp.makeConstraints { make in
+            make.bottom.equalTo(self.labelSubtitle.snp.top).offset(-8)
+            make.left.right.equalTo(self.baseImage).inset(16)
+        }
     }
 }
