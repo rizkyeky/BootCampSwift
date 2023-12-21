@@ -122,6 +122,9 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as TopUpTableCell
+            cell.button.addAction(UIAction { _ in
+                self.navigationController?.pushViewController(PayViewController(), animated: true)
+            }, for: .touchUpInside)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as TransactionsTableCell

@@ -672,6 +672,30 @@ PODS:
     - leveldb-library (~> 1.22)
     - nanopb (< 2.30910.0, >= 2.30908.0)
   - FirebaseSharedSwift (10.19.0)
+  - GoogleDataTransport (9.3.0):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleMLKit/BarcodeScanning (3.2.0):
+    - GoogleMLKit/MLKitCore
+    - MLKitBarcodeScanning (~> 2.2.0)
+  - GoogleMLKit/FaceDetection (3.2.0):
+    - GoogleMLKit/MLKitCore
+    - MLKitFaceDetection (~> 2.2.0)
+  - GoogleMLKit/MLKitCore (3.2.0):
+    - MLKitCommon (~> 8.0.0)
+  - GoogleToolboxForMac/DebugUtils (2.3.2):
+    - GoogleToolboxForMac/Defines (= 2.3.2)
+  - GoogleToolboxForMac/Defines (2.3.2)
+  - GoogleToolboxForMac/Logger (2.3.2):
+    - GoogleToolboxForMac/Defines (= 2.3.2)
+  - "GoogleToolboxForMac/NSData+zlib (2.3.2)":
+    - GoogleToolboxForMac/Defines (= 2.3.2)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.3.2)":
+    - GoogleToolboxForMac/DebugUtils (= 2.3.2)
+    - GoogleToolboxForMac/Defines (= 2.3.2)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.3.2)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.3.2)"
   - GoogleUtilities/AppDelegateSwizzler (7.12.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -686,6 +710,10 @@ PODS:
     - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (7.12.0)"
   - GoogleUtilities/Reachability (7.12.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.12.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilitiesComponents (1.1.0):
     - GoogleUtilities/Logger
   - "gRPC-C++ (1.49.1)":
     - "gRPC-C++/Implementation (= 1.49.1)"
@@ -748,11 +776,34 @@ PODS:
     - BoringSSL-GRPC (= 0.0.24)
     - gRPC-Core/Interface (= 1.49.1)
   - gRPC-Core/Interface (1.49.1)
-  - GTMSessionFetcher/Core (3.2.0)
+  - GTMSessionFetcher/Core (2.3.0)
   - IQKeyboardManagerSwift (6.5.16)
   - Kingfisher (7.10.1)
   - leveldb-library (1.22.2)
   - lottie-ios (4.3.4)
+  - MLImage (1.0.0-beta3)
+  - MLKitBarcodeScanning (2.2.0):
+    - MLKitCommon (~> 8.0)
+    - MLKitVision (~> 4.2)
+  - MLKitCommon (8.0.0):
+    - GoogleDataTransport (~> 9.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - GoogleUtilities/UserDefaults (~> 7.0)
+    - GoogleUtilitiesComponents (~> 1.0)
+    - GTMSessionFetcher/Core (~> 2.1)
+    - Protobuf (~> 3.12)
+  - MLKitFaceDetection (2.2.0):
+    - MLKitCommon (~> 8.0)
+    - MLKitVision (~> 4.2)
+  - MLKitVision (4.2.0):
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - GTMSessionFetcher/Core (~> 2.1)
+    - MLImage (= 1.0.0-beta3)
+    - MLKitCommon (~> 8.0)
+    - Protobuf (~> 3.12)
   - nanopb (2.30909.1):
     - nanopb/decode (= 2.30909.1)
     - nanopb/encode (= 2.30909.1)
@@ -760,6 +811,7 @@ PODS:
   - nanopb/encode (2.30909.1)
   - netfox (1.21.0)
   - PromisesObjC (2.3.1)
+  - Protobuf (3.25.1)
   - RecaptchaInterop (100.0.0)
   - RxCocoa (6.6.0):
     - RxRelay (= 6.6.0)
@@ -768,21 +820,23 @@ PODS:
     - RxSwift (= 6.6.0)
   - RxSwift (6.6.0)
   - SnapKit (5.6.0)
-  - Swinject (2.8.3)
 
 DEPENDENCIES:
   - Alamofire
   - CryptoSwift
   - FirebaseAuth
   - FirebaseFirestore
+  - GoogleMLKit/BarcodeScanning (~> 3.2.0)
+  - GoogleMLKit/FaceDetection (~> 3.2.0)
   - IQKeyboardManagerSwift
   - Kingfisher
   - lottie-ios
+  - MLKitCommon (from `MLKitCommon.podspec.json`)
+  - MLKitVision (from `MLKitVision.podspec.json`)
   - netfox
   - RxCocoa
   - RxSwift
   - SnapKit
-  - Swinject
 
 SPEC REPOS:
   trunk:
@@ -798,7 +852,11 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseFirestoreInternal
     - FirebaseSharedSwift
+    - GoogleDataTransport
+    - GoogleMLKit
+    - GoogleToolboxForMac
     - GoogleUtilities
+    - GoogleUtilitiesComponents
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
@@ -806,15 +864,24 @@ SPEC REPOS:
     - Kingfisher
     - leveldb-library
     - lottie-ios
+    - MLImage
+    - MLKitBarcodeScanning
+    - MLKitFaceDetection
     - nanopb
     - netfox
     - PromisesObjC
+    - Protobuf
     - RecaptchaInterop
     - RxCocoa
     - RxRelay
     - RxSwift
     - SnapKit
-    - Swinject
+
+EXTERNAL SOURCES:
+  MLKitCommon:
+    :podspec: MLKitCommon.podspec.json
+  MLKitVision:
+    :podspec: MLKitVision.podspec.json
 
 SPEC CHECKSUMS:
   abseil: 926fb7a82dc6d2b8e1f2ed7f3a718bce691d1e46
@@ -829,24 +896,33 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 9b9b21120c1a0cb4f2789ffb7fbb9138f94c47eb
   FirebaseFirestoreInternal: a15405fb607dfd14edd568bba77028f4c7a69688
   FirebaseSharedSwift: f34eeb7d3ea87a34497629b6ca41657beadef76a
+  GoogleDataTransport: 57c22343ab29bc686febbf7cbb13bad167c2d8fe
+  GoogleMLKit: 0017a6a8372e1a182139b9def4d89be5d87ca5a7
+  GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
+  GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
   "gRPC-C++": 2df8cba576898bdacd29f0266d5236fa0e26ba6a
   gRPC-Core: a21a60aefc08c68c247b439a9ef97174b0c54f96
-  GTMSessionFetcher: 41b9ef0b4c08a6db4b7eb51a21ae5183ec99a2c8
+  GTMSessionFetcher: 3a63d75eecd6aa32c2fc79f578064e1214dfdec2
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   Kingfisher: bc5abe80a8e0144537ef1dd5a0b2621b04f7f439
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   lottie-ios: 3d98679b41fa6fd6aff2352b3953dbd3df8a397e
+  MLImage: 489dfec109f21da8621b28d476401aaf7a0d4ff4
+  MLKitBarcodeScanning: d92fe1911001ec36870162c5a0eb206f612b7169
+  MLKitCommon: 8e5dbe4b12a434e790734211e1b00ed2db3c94ae
+  MLKitFaceDetection: 9f29d8d0bb38911281407e24e74d2e5da812ba8d
+  MLKitVision: 7798eded05a31f1ec7be02290e146fc4a253f984
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
+  Protobuf: d94761c33f1239c0a43a0817ca1a5f7f7c900241
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
   RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
-  Swinject: 893c9a543000ac2f10ee4cbaf0933c6992c935d5
 
-PODFILE CHECKSUM: 0a0fbc844693714d4469254ab2275b44457105c6
+PODFILE CHECKSUM: b68c1600f87ae89634dc87c9e4612fafe6deb651
 
 COCOAPODS: 1.14.2

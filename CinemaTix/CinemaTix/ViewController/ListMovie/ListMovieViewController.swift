@@ -35,6 +35,14 @@ class ListMovieViewController: BaseViewController {
         collection.delegate = self
         collection.dataSource = self
         collection.register(cell: MovieItemCell.self)
+        
+        if let collFlowLayout = collection.collectionViewLayout as? UICollectionViewFlowLayout {
+            collFlowLayout.scrollDirection = .vertical
+            collFlowLayout.itemSize = CGSize(width: 160, height: 200)
+            collFlowLayout.minimumLineSpacing = 8
+            collFlowLayout.minimumInteritemSpacing = 8
+            collFlowLayout.sectionInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+        }
     }
     
     override func setupNavBar() {
@@ -44,7 +52,7 @@ class ListMovieViewController: BaseViewController {
     override func setupConstraints() {
         view.addSubview(collection)
         collection.snp.makeConstraints { make in
-            make.edges.equalTo(self.view)
+            make.top.bottom.left.right.equalTo(self.view)
         }
     }
 }
@@ -53,17 +61,13 @@ extension ListMovieViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func setupCell(_ cell: MovieItemCell, _ index: Int) {
         cell.onTap = {
-//            if let movie = self.movies?[index] {
-//                self.navigationController?.hero.isEnabled = true
-//                self.navigationController?.hidesBottomBarWhenPushed = true
-//                self.navigationController?.pushViewController(movieDetailVC, animated: true)
-//            }
+            self.navigationController?.pushViewController(DetailMovieViewController(movie: self.movies[index]), animated: true)
         }
         
         cell.title.text = movies[index].title ?? "-"
         
-        if let backdropPath = movies[index].backdropPath {
-            let path = String(backdropPath.dropFirst())
+        if let posterPath = movies[index].posterPath {
+            let path = String(posterPath.dropFirst())
             cell.backgroundImage.loadFromUrl(url: TmdbApi.getImageURL(path))
         }
     }
@@ -77,13 +81,7 @@ extension ListMovieViewController: UICollectionViewDelegate, UICollectionViewDat
         setupCell(cell, indexPath.row)
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewWidth = collection.bounds.width
-        let cellWidth = ((collectionViewWidth) / 2) - 8
-        return CGSize(width: cellWidth, height: Double(MovieItemCell.height))
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
@@ -96,12 +94,16 @@ extension ListMovieViewController: UICollectionViewDelegate, UICollectionViewDat
 class MovieItemCell: BaseCollectionCell {
     
     public let backgroundImage = UIImageView(image: UIImage(named: "imagenotfound"))
-    
-    static let height = 240
-    
+
     public let title = UILabel()
     
     override func setup() {
+        
+        addSubview(backgroundImage)
+        backgroundImage.snp.makeConstraints { make in
+            make.height.equalTo(200)
+            make.width.equalTo(160)
+        }
     
         let boxBlur = UIView()
         boxBlur.backgroundColor = .clear
@@ -133,5 +135,4 @@ class MovieItemCell: BaseCollectionCell {
             make.right.equalTo(boxBlur).offset(-16)
         }
     }
-    
 }

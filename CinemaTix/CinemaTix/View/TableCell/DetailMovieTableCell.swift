@@ -105,7 +105,7 @@ class CastItemCell: BaseCollectionCell {
         isSelected = false
         isHighlighted = false
         
-        backgroundImage.contentMode = .scaleAspectFill
+        backgroundImage.contentMode = .scaleToFill
         backgroundImage.clipsToBounds = true
         contentView.clipsToBounds = true
         contentView.makeCornerRadius(16)
@@ -211,7 +211,7 @@ class ClipItemCell: BaseCollectionCell {
         isSelected = false
         isHighlighted = false
         
-        backgroundImage.contentMode = .scaleAspectFill
+        backgroundImage.contentMode = .scaleToFill
         backgroundImage.clipsToBounds = true
         contentView.clipsToBounds = true
         contentView.makeCornerRadius(16)

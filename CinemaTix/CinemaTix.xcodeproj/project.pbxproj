@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		22EE3026C559E155663E4454 /* Pods_CinemaTix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19466F13E4239A13F0C4448 /* Pods_CinemaTix.framework */; };
 		252415782B32EB5F000722A5 /* ListMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252415772B32EB5F000722A5 /* ListMovieViewController.swift */; };
+		252848392B33E76D000AE74A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252848382B33E76D000AE74A /* ProfileViewController.swift */; };
+		2528483C2B33F695000AE74A /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528483B2B33F695000AE74A /* PayViewController.swift */; };
+		252848512B342D70000AE74A /* MobileScannerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528484B2B342D70000AE74A /* MobileScannerPlugin.swift */; };
+		252848522B342D70000AE74A /* BarcodeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528484C2B342D70000AE74A /* BarcodeHandler.swift */; };
+		252848532B342D70000AE74A /* DetectionSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528484D2B342D70000AE74A /* DetectionSpeed.swift */; };
+		252848542B342D70000AE74A /* MobileScannerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528484E2B342D70000AE74A /* MobileScannerUtilities.swift */; };
+		252848552B342D70000AE74A /* MobileScannerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528484F2B342D70000AE74A /* MobileScannerError.swift */; };
+		252848562B342D70000AE74A /* MobileScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252848502B342D70000AE74A /* MobileScanner.swift */; };
+		252848582B343B42000AE74A /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252848572B343B42000AE74A /* UIUtilities.swift */; };
 		256A74762B27F57E00B8EF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A74752B27F57E00B8EF50 /* AppDelegate.swift */; };
 		256A74782B27F57E00B8EF50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A74772B27F57E00B8EF50 /* SceneDelegate.swift */; };
 		256A747F2B27F58000B8EF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256A747E2B27F58000B8EF50 /* Assets.xcassets */; };
@@ -133,6 +142,15 @@
 		0B2694EE6A7F3D801C5556C5 /* Pods-CinemaTix-CinemaTixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix-CinemaTixUITests.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix-CinemaTixUITests/Pods-CinemaTix-CinemaTixUITests.release.xcconfig"; sourceTree = "<group>"; };
 		20F85027F881875D881BEF88 /* Pods-CinemaTixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTixTests.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTixTests/Pods-CinemaTixTests.debug.xcconfig"; sourceTree = "<group>"; };
 		252415772B32EB5F000722A5 /* ListMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieViewController.swift; sourceTree = "<group>"; };
+		252848382B33E76D000AE74A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2528483B2B33F695000AE74A /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		2528484B2B342D70000AE74A /* MobileScannerPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileScannerPlugin.swift; sourceTree = "<group>"; };
+		2528484C2B342D70000AE74A /* BarcodeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeHandler.swift; sourceTree = "<group>"; };
+		2528484D2B342D70000AE74A /* DetectionSpeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectionSpeed.swift; sourceTree = "<group>"; };
+		2528484E2B342D70000AE74A /* MobileScannerUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileScannerUtilities.swift; sourceTree = "<group>"; };
+		2528484F2B342D70000AE74A /* MobileScannerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileScannerError.swift; sourceTree = "<group>"; };
+		252848502B342D70000AE74A /* MobileScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileScanner.swift; sourceTree = "<group>"; };
+		252848572B343B42000AE74A /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		256A74722B27F57E00B8EF50 /* CinemaTix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaTix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		256A74752B27F57E00B8EF50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		256A74772B27F57E00B8EF50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -297,6 +315,35 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		252848372B33E75E000AE74A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				252848382B33E76D000AE74A /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		2528483A2B33F65D000AE74A /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				2528483B2B33F695000AE74A /* PayViewController.swift */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		2528484A2B342D65000AE74A /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				2528484C2B342D70000AE74A /* BarcodeHandler.swift */,
+				2528484D2B342D70000AE74A /* DetectionSpeed.swift */,
+				252848502B342D70000AE74A /* MobileScanner.swift */,
+				2528484F2B342D70000AE74A /* MobileScannerError.swift */,
+				2528484B2B342D70000AE74A /* MobileScannerPlugin.swift */,
+				2528484E2B342D70000AE74A /* MobileScannerUtilities.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
 		256A74692B27F57E00B8EF50 = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +426,8 @@
 		256A74C12B27FD7700B8EF50 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2528483A2B33F65D000AE74A /* Pay */,
+				252848372B33E75E000AE74A /* Profile */,
 				25AE3FFE2B3024DB00C57C1A /* Register */,
 				25AE3FF22B2FDFD700C57C1A /* ListMovie */,
 				25AE3FF12B2FDFCD00C57C1A /* DetailMovie */,
@@ -500,6 +549,7 @@
 		256A75052B28386E00B8EF50 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				2528484A2B342D65000AE74A /* Scanner */,
 				256A75062B28387A00B8EF50 /* QRCode.swift */,
 				256A75082B28389700B8EF50 /* Keychain.swift */,
 				256A750A2B2838AF00B8EF50 /* Audio.swift */,
@@ -580,6 +630,7 @@
 				256A75472B2B02D800B8EF50 /* UIImageView.swift */,
 				256A74BD2B27FC2E00B8EF50 /* UIStackView.swift */,
 				256A75222B293E1F00B8EF50 /* UINavigationBar.swift */,
+				252848572B343B42000AE74A /* UIUtilities.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -765,6 +816,7 @@
 				256A746F2B27F57E00B8EF50 /* Frameworks */,
 				256A74702B27F57E00B8EF50 /* Resources */,
 				305D5024EBAAA795A664AB68 /* [CP] Embed Pods Frameworks */,
+				3D8BBB2B4DB4B5F8516F24C0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -803,6 +855,7 @@
 				256A748F2B27F58000B8EF50 /* Frameworks */,
 				256A74902B27F58000B8EF50 /* Resources */,
 				B62E987E60F805C2DB21B0B7 /* [CP] Embed Pods Frameworks */,
+				4E719A17534706DC1C097811 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -950,6 +1003,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3D8BBB2B4DB4B5F8516F24C0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CinemaTix/Pods-CinemaTix-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CinemaTix/Pods-CinemaTix-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CinemaTix/Pods-CinemaTix-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E719A17534706DC1C097811 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CinemaTix-CinemaTixUITests/Pods-CinemaTix-CinemaTixUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CinemaTix-CinemaTixUITests/Pods-CinemaTix-CinemaTixUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CinemaTix-CinemaTixUITests/Pods-CinemaTix-CinemaTixUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B62E987E60F805C2DB21B0B7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -999,6 +1086,7 @@
 				256A750B2B2838AF00B8EF50 /* Audio.swift in Sources */,
 				25AE40002B3024F100C57C1A /* RegisterViewController.swift in Sources */,
 				256A74CA2B27FEB900B8EF50 /* BaseService.swift in Sources */,
+				252848542B342D70000AE74A /* MobileScannerUtilities.swift in Sources */,
 				25AE3FF62B2FE0F400C57C1A /* DetailMovieViewModel.swift in Sources */,
 				256A74CC2B27FF0100B8EF50 /* LaunchViewController.swift in Sources */,
 				256A74AC2B27F87E00B8EF50 /* UICollectionView.swift in Sources */,
@@ -1007,6 +1095,7 @@
 				256A750F2B283B5600B8EF50 /* AppIcon.swift in Sources */,
 				25AE3FEF2B2FD83000C57C1A /* SpecialCardTabBar.swift in Sources */,
 				256A74B62B27FA2500B8EF50 /* String.swift in Sources */,
+				252848512B342D70000AE74A /* MobileScannerPlugin.swift in Sources */,
 				256A74B02B27F91800B8EF50 /* UIView.swift in Sources */,
 				256A74EB2B282E7C00B8EF50 /* MovieApi.swift in Sources */,
 				25AE3FEA2B2FD83000C57C1A /* LightTabBarController.swift in Sources */,
@@ -1017,6 +1106,7 @@
 				256A75362B2960A900B8EF50 /* UITableViewCell.swift in Sources */,
 				256A74D82B28129D00B8EF50 /* Language.swift in Sources */,
 				256A75612B2C448500B8EF50 /* SearchViewModel.swift in Sources */,
+				2528483C2B33F695000AE74A /* PayViewController.swift in Sources */,
 				25AE3FF42B2FE00A00C57C1A /* DetailMovieViewController.swift in Sources */,
 				25AE3FE92B2FD83000C57C1A /* TabBarController.swift in Sources */,
 				25AE3FF02B2FD83000C57C1A /* UIView+Additions.swift in Sources */,
@@ -1025,8 +1115,10 @@
 				25AE3FE82B2FD83000C57C1A /* SpecialTabBarController.swift in Sources */,
 				256A75412B2ADC5200B8EF50 /* HomeViewModel.swift in Sources */,
 				256A74762B27F57E00B8EF50 /* AppDelegate.swift in Sources */,
+				252848532B342D70000AE74A /* DetectionSpeed.swift in Sources */,
 				256A75042B2837B000B8EF50 /* WalletModel.swift in Sources */,
 				256A75292B294A6700B8EF50 /* TintedButton.swift in Sources */,
+				252848552B342D70000AE74A /* MobileScannerError.swift in Sources */,
 				25AE3FED2B2FD83000C57C1A /* BaseCardTabBar.swift in Sources */,
 				256A75582B2C078500B8EF50 /* MainTabBarViewController.swift in Sources */,
 				256A74AE2B27F8F200B8EF50 /* UIFont.swift in Sources */,
@@ -1034,6 +1126,7 @@
 				256A74A82B27F7D900B8EF50 /* UIColor.swift in Sources */,
 				256A75462B2AFFE300B8EF50 /* Array.swift in Sources */,
 				256A750D2B2838BB00B8EF50 /* Biometric.swift in Sources */,
+				252848392B33E76D000AE74A /* ProfileViewController.swift in Sources */,
 				256A75232B293E1F00B8EF50 /* UINavigationBar.swift in Sources */,
 				256A75092B28389700B8EF50 /* Keychain.swift in Sources */,
 				256A75442B2AF8C000B8EF50 /* HomeCarousel.swift in Sources */,
@@ -1043,7 +1136,9 @@
 				256A75022B28378300B8EF50 /* UserModel.swift in Sources */,
 				256A74FA2B2831B600B8EF50 /* MovieDetailModel.swift in Sources */,
 				256A753B2B29637200B8EF50 /* BaseTableCell.swift in Sources */,
+				252848522B342D70000AE74A /* BarcodeHandler.swift in Sources */,
 				256A74FE2B2832F300B8EF50 /* CastModel.swift in Sources */,
+				252848582B343B42000AE74A /* UIUtilities.swift in Sources */,
 				256A74AA2B27F85100B8EF50 /* UICollectionViewCell.swift in Sources */,
 				256A75212B285B1700B8EF50 /* SignInViewController.swift in Sources */,
 				25AE40082B31689000C57C1A /* SlidePageTransition.swift in Sources */,
@@ -1051,6 +1146,7 @@
 				256A74FC2B28320000B8EF50 /* GenreModel.swift in Sources */,
 				256A74B82B27FA2C00B8EF50 /* NSNumber.swift in Sources */,
 				257344C72B329AEC001430E9 /* WalletTableCell.swift in Sources */,
+				252848562B342D70000AE74A /* MobileScanner.swift in Sources */,
 				257344C32B32834B001430E9 /* SignInViewModel.swift in Sources */,
 				256A755F2B2C423200B8EF50 /* SearchViewController.swift in Sources */,
 				256A74F42B2830C400B8EF50 /* AppError.swift in Sources */,

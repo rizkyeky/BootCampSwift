@@ -63,6 +63,8 @@ class RecomendedTableCell: BaseTableCell {
     
     public var size: CGSize = CGSize(width: 360, height: 360)
     
+    public var onTapCell: ((Int) -> Void)?
+    
     override func setup() {
         
         collection.delegate = self
@@ -111,6 +113,9 @@ extension RecomendedTableCell: UICollectionViewDelegate, UICollectionViewDataSou
                 let path = String(backdropPath.dropFirst())
                 cell.backgroundImage.loadFromUrl(url: TmdbApi.getImageURL(path, type: .w500), usePlaceholder: true, isCompressed: true)
             }
+            cell.onTap = {
+                self.onTapCell?(index)
+            }
         }
     }
 }
@@ -124,8 +129,6 @@ class RecommendedItemCell: BaseCollectionCell {
     public let subtitle = UILabel()
     private let boxBlur = UIView()
     
-    var onTapBookBtn: (() -> Void)?
-    
     override func setup() {
         
         isSelected = false
@@ -137,7 +140,7 @@ class RecommendedItemCell: BaseCollectionCell {
             make.top.bottom.left.right.equalTo(contentView)
             make.height.equalTo(360)
         }
-        
+        backgroundImage.contentMode = .scaleToFill
         backgroundImage.makeCornerRadius(16)
         backgroundImage.clipsToBounds = true
         base.addSubview(backgroundImage)
@@ -194,6 +197,8 @@ class UpComingTableCell: BaseTableCell {
     
     private var movies: [MovieModel]?
     
+    public var onTapCell: ((Int) -> Void)?
+    
     override func setup() {
         
         collection.delegate = self
@@ -239,6 +244,9 @@ extension UpComingTableCell: UICollectionViewDelegate, UICollectionViewDataSourc
                 let path = String(backdropPath.dropFirst())
                 cell.backgroundImage.loadFromUrl(url: TmdbApi.getImageURL(path, type: .w500), usePlaceholder: true, isCompressed: true)
             }
+            cell.onTap = {
+                self.onTapCell?(index)
+            }
         }
     }
 }
@@ -255,8 +263,10 @@ class UpComingItemCell: BaseCollectionCell {
         isSelected = false
         isHighlighted = false
         
-        backgroundImage.contentMode = .scaleAspectFill
+        backgroundImage.image = UIImage(named: "imagenotfound2")
+        backgroundImage.contentMode = .scaleToFill
         backgroundImage.clipsToBounds = true
+        
         contentView.clipsToBounds = true
         contentView.makeCornerRadius(16)
         
@@ -266,8 +276,6 @@ class UpComingItemCell: BaseCollectionCell {
             make.height.equalTo(200)
             make.width.equalTo(300)
         }
-        
-        backgroundImage.image = UIImage(named: "imagenotfound")
         
         boxBlur.backgroundColor = .clear
         backgroundImage.addSubview(boxBlur)

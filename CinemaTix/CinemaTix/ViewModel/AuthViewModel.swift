@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Swinject
 
 class AuthViewModel: BaseViewModel {
     

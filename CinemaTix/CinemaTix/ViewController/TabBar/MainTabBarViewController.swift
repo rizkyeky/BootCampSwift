@@ -7,17 +7,16 @@
 
 import UIKit
 
-class MainTabBarViewController: CardTabBarController {
+class MainTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.delegate = self
+//        self.delegate = self
         
         let home = UINavigationController(rootViewController: HomeViewController())
         let wallet = UINavigationController(rootViewController: WalletViewController())
-//        let home = HomeViewController()
-//        let wallet = WalletViewController()
+        let profile = UINavigationController(rootViewController: ProfileViewController())
         
         let homeImage = AppSVGIcon.homeOutline.getImage().resize(CGSize(width: 24, height: 24))
         home.tabBarItem = UITabBarItem(title: LanguageStrings.home.localized, image: homeImage, tag: 0)
@@ -27,50 +26,24 @@ class MainTabBarViewController: CardTabBarController {
         wallet.tabBarItem = UITabBarItem(title: LanguageStrings.wallet.localized, image: walletImage, tag: 1)
         wallet.tabBarItem.selectedImage = AppSVGIcon.wallet.getImage().resize(CGSize(width: 30, height: 30))
         
-//        tabBar.isTranslucent = false
-//        tabBar.barTintColor = .systemBackground
-//        tabBar.backgroundColor = .systemBackground
-//        tabBar.tintColor = UIColor.accent
+        let profileImage = AppSVGIcon.personOutline.getImage().resize(CGSize(width: 24, height: 24))
+        profile.tabBarItem = UITabBarItem(title: LanguageStrings.profile.localized, image: profileImage, tag: 2)
+        profile.tabBarItem.selectedImage = AppSVGIcon.person.getImage().resize(CGSize(width: 30, height: 30))
         
-        setViewControllers([home, wallet], animated: true)
+        tabBar.isTranslucent = false
+        tabBar.barTintColor = .systemBackground
+        tabBar.backgroundColor = .systemBackground
+        tabBar.tintColor = UIColor.accent
+        
+        setViewControllers([home, wallet, profile], animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 }
 
-extension MainTabBarViewController: UITabBarControllerDelegate, UIViewControllerTransitioningDelegate {
-    
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        guard let fromVC = selectedViewController, let toVCIndex = tabBarController.viewControllers?.firstIndex(of: viewController) else {
-            return false
-        }
-        
-        let toVC = tabBarController.viewControllers?[toVCIndex]
-        let transition = SlideTransitionAnimator()
-        
-        if toVCIndex > tabBarController.selectedIndex {
-            transition.transitionDirection = .leftToRight
-        } else {
-            transition.transitionDirection = .rightToLeft
-        }
-        
-        toVC?.transitioningDelegate = self
-        present(toVC!, animated: true, completion: nil)
-        return true
-    }
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let transition = SlideTransitionAnimator()
-        transition.transitionDirection = .leftToRight
-        return transition
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let transition = SlideTransitionAnimator()
-        transition.transitionDirection = .rightToLeft
-        return transition
-    }
-}
+//extension MainTabBarViewController: UITabBarControllerDelegate, UIViewControllerTransitioningDelegate {
+//
+//}

@@ -64,8 +64,26 @@ class DetailMovieViewController: BaseViewController {
         if let navBar = navigationController?.navigationBar {
             navBar.transform = CGAffineTransform(translationX: 0, y: 0)
         }
-        mainTable.setContentOffset(CGPoint(x: 0, y: -100), animated: animated)
+//        mainTable.setContentOffset(CGPoint(x: 0, y: -100), animated: animated)
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        if let tabbar = navigationController?.tabBarController?.tabBar {
+//            UIView.animate(withDuration: 0.24, delay: 0, options: .curveEaseOut) {
+//                tabbar.frame.origin.y = self.view.frame.size.height - tabbar.frame.height
+//            }
+//        }
+//    }
+//    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        if let tabbar = navigationController?.tabBarController?.tabBar {
+//            UIView.animate(withDuration: 0.24, delay: 0, options: .curveEaseOut) {
+//                tabbar.frame.origin.y = self.view.frame.size.height
+//            }
+//        }
+//    }
 }
 
 extension DetailMovieViewController: UITableViewDelegate, UITableViewDataSource {

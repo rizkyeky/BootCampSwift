@@ -170,14 +170,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             viewModel.getPopularMovies {
                 if let movies = self.viewModel.popularMovies {
                     cell.updateMovies(movies)
+                    cell.onTapCell = { index in
+                        self.navigationController?.pushViewController(DetailMovieViewController(movie: movies[index]), animated: true)
+                    }
                 }
             }
+            
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as UpComingTableCell
             viewModel.getUpComingMovies {
                 if let movies = self.viewModel.upComingMovies {
                     cell.updateMovies(movies)
+                    cell.onTapCell = { index in
+                        self.navigationController?.pushViewController(DetailMovieViewController(movie: movies[index]), animated: true)
+                    }
                 }
             }
             return cell
@@ -186,6 +193,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             viewModel.getTopRatedMovies {
                 if let movies = self.viewModel.topRatedMovies {
                     cell.updateMovies(movies)
+                    cell.onTapCell = { index in
+                        self.navigationController?.pushViewController(DetailMovieViewController(movie: movies[index]), animated: true)
+                    }
                 }
             }
             return cell
