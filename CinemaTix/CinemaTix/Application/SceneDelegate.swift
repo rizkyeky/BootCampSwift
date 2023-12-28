@@ -20,6 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = UINavigationController(rootViewController: launchVC)
         window?.makeKeyAndVisible()
+        
+        if let window = window {
+            DarkMode.activated.setup(window: window)
+        }
     }
 
 }

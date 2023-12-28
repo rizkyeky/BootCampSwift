@@ -53,7 +53,7 @@ class TopUpTableCell: BaseTableCell {
     
     private let base = UIView()
     
-    public let button = FilledButton(title: "Top Up", icon: AppIcon.up, iconSize: CGSize(width: 24, height: 24), backgroundColor: .lightGray)
+    public let button = FilledButton(title: "Top Up", icon: AppIcon.up, iconSize: CGSize(width: 24, height: 24), backgroundColor: .systemGray6, foregroundColor: .accent)
     
     override func setup() {
         

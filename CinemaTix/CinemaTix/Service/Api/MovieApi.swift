@@ -29,36 +29,28 @@ class MovieApi: TmdbApi {
         }
     }
     
-    var playingNow: Endpoint {
-        get {
-            return createEndpoint(path: "movie/now_playing", method: .get, query: [
-                "page": 1,
-            ])
-        }
+    func playingNow(page: Int = 1) -> Endpoint {
+        return createEndpoint(path: "movie/now_playing", method: .get, query: [
+            "page": page,
+        ])
     }
     
-    var popular: Endpoint {
-        get {
-            return createEndpoint(path: "movie/popular", method: .get, query: [
-                "page": 1,
-            ])
-        }
+    func popular(page: Int = 1) -> Endpoint {
+        return createEndpoint(path: "movie/popular", method: .get, query: [
+            "page": page,
+        ])
     }
     
-    var topRated: Endpoint {
-        get {
-            return createEndpoint(path: "movie/top_rated", method: .get, query: [
-                "page": 1,
-            ])
-        }
+    func topRated(page: Int = 1) -> Endpoint {
+        return createEndpoint(path: "movie/top_rated", method: .get, query: [
+            "page": page,
+        ])
     }
     
-    var upComing: Endpoint {
-        get {
-            return createEndpoint(path: "movie/upcoming", method: .get, query: [
-                "page": 1,
-            ])
-        }
+    func upComing(page: Int = 1) -> Endpoint {
+        return createEndpoint(path: "movie/upcoming", method: .get, query: [
+            "page": page,
+        ])
     }
     
     func detailById(_ id: Int) -> Endpoint {
@@ -73,10 +65,10 @@ class MovieApi: TmdbApi {
         return createEndpoint(path: "movie/\(id)/images", method: .get)
     }
     
-    func searchByKeywords(_ query: String) -> Endpoint {
+    func searchByKeywords(_ query: String, page: Int = 1) -> Endpoint {
         return createEndpoint(path: "search/movie", method: .get, query: [
             "query": query,
-            "page": 1,
+            "page": page,
             "include_adult": false,
         ])
     }

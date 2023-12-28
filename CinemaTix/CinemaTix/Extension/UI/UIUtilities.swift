@@ -260,12 +260,12 @@ public class UIUtilities {
     ///   - fromPoint: The starting point.
     ///   - endPoint: The end point.
     /// - Returns: The distance.
-    private static func distance(fromPoint: Vision3DPoint, toPoint: Vision3DPoint) -> CGFloat {
-        let xDiff = fromPoint.x - toPoint.x
-        let yDiff = fromPoint.y - toPoint.y
-        let zDiff = fromPoint.z - toPoint.z
-        return CGFloat(sqrt(xDiff * xDiff + yDiff * yDiff + zDiff * zDiff))
-    }
+//    private static func distance(fromPoint: Vision3DPoint, toPoint: Vision3DPoint) -> CGFloat {
+//        let xDiff = fromPoint.x - toPoint.x
+//        let yDiff = fromPoint.y - toPoint.y
+//        let zDiff = fromPoint.z - toPoint.z
+//        return CGFloat(sqrt(xDiff * xDiff + yDiff * yDiff + zDiff * zDiff))
+//    }
     
     // MARK: - Private
     
@@ -315,7 +315,6 @@ private enum Constants {
 extension CGRect {
     /// Returns a `Bool` indicating whether the rectangle's values are valid`.
     func isValid() -> Bool {
-        return
-        !(origin.x.isNaN || origin.y.isNaN || width.isNaN || height.isNaN || width < 0 || height < 0)
+        return !(origin.x.isNaN || origin.y.isNaN || width.isNaN || height.isNaN || width < 0 || height < 0)
     }
 }

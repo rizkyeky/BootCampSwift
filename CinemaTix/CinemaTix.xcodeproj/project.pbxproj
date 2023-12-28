@@ -18,6 +18,10 @@
 		252848552B342D70000AE74A /* MobileScannerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528484F2B342D70000AE74A /* MobileScannerError.swift */; };
 		252848562B342D70000AE74A /* MobileScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252848502B342D70000AE74A /* MobileScanner.swift */; };
 		252848582B343B42000AE74A /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252848572B343B42000AE74A /* UIUtilities.swift */; };
+		2542C2A12B3BBB4200364779 /* ListMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2542C2A02B3BBB4200364779 /* ListMovieViewModel.swift */; };
+		2546581B2B3D21F9001F7056 /* BookNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546581A2B3D21F9001F7056 /* BookNowViewController.swift */; };
+		2546581D2B3D29BB001F7056 /* BookNowTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546581C2B3D29BB001F7056 /* BookNowTableCell.swift */; };
+		2546581F2B3D2D40001F7056 /* BookNowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546581E2B3D2D40001F7056 /* BookNowViewModel.swift */; };
 		256A74762B27F57E00B8EF50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A74752B27F57E00B8EF50 /* AppDelegate.swift */; };
 		256A74782B27F57E00B8EF50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A74772B27F57E00B8EF50 /* SceneDelegate.swift */; };
 		256A747F2B27F58000B8EF50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256A747E2B27F58000B8EF50 /* Assets.xcassets */; };
@@ -100,6 +104,8 @@
 		257344C52B3283AF001430E9 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257344C42B3283AF001430E9 /* RegisterViewModel.swift */; };
 		257344C72B329AEC001430E9 /* WalletTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257344C62B329AEC001430E9 /* WalletTableCell.swift */; };
 		257344C92B32D621001430E9 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257344C82B32D621001430E9 /* WalletViewModel.swift */; };
+		259218E32B3C0A0000C11DE7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259218E22B3C0A0000C11DE7 /* ProfileViewModel.swift */; };
+		259218E52B3C238200C11DE7 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259218E42B3C238200C11DE7 /* DarkMode.swift */; };
 		25AE3FE62B2FD83000C57C1A /* CardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FD52B2FD83000C57C1A /* CardTabBarController.swift */; };
 		25AE3FE72B2FD83000C57C1A /* SemiCardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FD62B2FD83000C57C1A /* SemiCardTabBarController.swift */; };
 		25AE3FE82B2FD83000C57C1A /* SpecialTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FD72B2FD83000C57C1A /* SpecialTabBarController.swift */; };
@@ -117,6 +123,7 @@
 		25AE3FFD2B3020D100C57C1A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FFC2B3020D100C57C1A /* AuthViewModel.swift */; };
 		25AE40002B3024F100C57C1A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE3FFF2B3024F100C57C1A /* RegisterViewController.swift */; };
 		25AE40082B31689000C57C1A /* SlidePageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE40072B31689000C57C1A /* SlidePageTransition.swift */; };
+		25F063BE2B3D145100B33762 /* FaceRecogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F063BD2B3D145100B33762 /* FaceRecogViewController.swift */; };
 		784C0D593C1B16405459CF9C /* Pods_CinemaTixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6265F766F2EEB683A9EF50 /* Pods_CinemaTixTests.framework */; };
 		E5F828EB5DC737497C697FA4 /* Pods_CinemaTix_CinemaTixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EAA3917EFDBBFBC42407A2A /* Pods_CinemaTix_CinemaTixUITests.framework */; };
 /* End PBXBuildFile section */
@@ -151,6 +158,10 @@
 		2528484F2B342D70000AE74A /* MobileScannerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileScannerError.swift; sourceTree = "<group>"; };
 		252848502B342D70000AE74A /* MobileScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileScanner.swift; sourceTree = "<group>"; };
 		252848572B343B42000AE74A /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
+		2542C2A02B3BBB4200364779 /* ListMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieViewModel.swift; sourceTree = "<group>"; };
+		2546581A2B3D21F9001F7056 /* BookNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNowViewController.swift; sourceTree = "<group>"; };
+		2546581C2B3D29BB001F7056 /* BookNowTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNowTableCell.swift; sourceTree = "<group>"; };
+		2546581E2B3D2D40001F7056 /* BookNowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNowViewModel.swift; sourceTree = "<group>"; };
 		256A74722B27F57E00B8EF50 /* CinemaTix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaTix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		256A74752B27F57E00B8EF50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		256A74772B27F57E00B8EF50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +249,8 @@
 		257344C42B3283AF001430E9 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		257344C62B329AEC001430E9 /* WalletTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTableCell.swift; sourceTree = "<group>"; };
 		257344C82B32D621001430E9 /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
+		259218E22B3C0A0000C11DE7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		259218E42B3C238200C11DE7 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		25AE3FD52B2FD83000C57C1A /* CardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTabBarController.swift; sourceTree = "<group>"; };
 		25AE3FD62B2FD83000C57C1A /* SemiCardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiCardTabBarController.swift; sourceTree = "<group>"; };
 		25AE3FD72B2FD83000C57C1A /* SpecialTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialTabBarController.swift; sourceTree = "<group>"; };
@@ -255,6 +268,7 @@
 		25AE3FFC2B3020D100C57C1A /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		25AE3FFF2B3024F100C57C1A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		25AE40072B31689000C57C1A /* SlidePageTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidePageTransition.swift; sourceTree = "<group>"; };
+		25F063BD2B3D145100B33762 /* FaceRecogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecogViewController.swift; sourceTree = "<group>"; };
 		3EAA3917EFDBBFBC42407A2A /* Pods_CinemaTix_CinemaTixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTix_CinemaTixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6265F766F2EEB683A9EF50 /* Pods_CinemaTixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B7A01339612670CFD6D262 /* Pods-CinemaTix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTix.release.xcconfig"; path = "Target Support Files/Pods-CinemaTix/Pods-CinemaTix.release.xcconfig"; sourceTree = "<group>"; };
@@ -344,6 +358,14 @@
 			path = Scanner;
 			sourceTree = "<group>";
 		};
+		254658192B3D21E4001F7056 /* BookNow */ = {
+			isa = PBXGroup;
+			children = (
+				2546581A2B3D21F9001F7056 /* BookNowViewController.swift */,
+			);
+			path = BookNow;
+			sourceTree = "<group>";
+		};
 		256A74692B27F57E00B8EF50 = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +448,8 @@
 		256A74C12B27FD7700B8EF50 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				254658192B3D21E4001F7056 /* BookNow */,
+				25F063BC2B3D143900B33762 /* FaceRecog */,
 				2528483A2B33F65D000AE74A /* Pay */,
 				252848372B33E75E000AE74A /* Profile */,
 				25AE3FFE2B3024DB00C57C1A /* Register */,
@@ -465,6 +489,9 @@
 				257344C22B32834B001430E9 /* SignInViewModel.swift */,
 				257344C42B3283AF001430E9 /* RegisterViewModel.swift */,
 				257344C82B32D621001430E9 /* WalletViewModel.swift */,
+				2542C2A02B3BBB4200364779 /* ListMovieViewModel.swift */,
+				259218E22B3C0A0000C11DE7 /* ProfileViewModel.swift */,
+				2546581E2B3D2D40001F7056 /* BookNowViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -554,6 +581,7 @@
 				256A75082B28389700B8EF50 /* Keychain.swift */,
 				256A750A2B2838AF00B8EF50 /* Audio.swift */,
 				256A750C2B2838BB00B8EF50 /* Biometric.swift */,
+				259218E42B3C238200C11DE7 /* DarkMode.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -663,6 +691,7 @@
 				25AE3FFA2B2FF9C200C57C1A /* DetailMovieTableCell.swift */,
 				256A75622B2C4AB500B8EF50 /* SearchTableCell.swift */,
 				257344C62B329AEC001430E9 /* WalletTableCell.swift */,
+				2546581C2B3D29BB001F7056 /* BookNowTableCell.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -802,6 +831,14 @@
 				25AE40072B31689000C57C1A /* SlidePageTransition.swift */,
 			);
 			path = Animation;
+			sourceTree = "<group>";
+		};
+		25F063BC2B3D143900B33762 /* FaceRecog */ = {
+			isa = PBXGroup;
+			children = (
+				25F063BD2B3D145100B33762 /* FaceRecogViewController.swift */,
+			);
+			path = FaceRecog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1097,6 +1134,7 @@
 				256A74B62B27FA2500B8EF50 /* String.swift in Sources */,
 				252848512B342D70000AE74A /* MobileScannerPlugin.swift in Sources */,
 				256A74B02B27F91800B8EF50 /* UIView.swift in Sources */,
+				25F063BE2B3D145100B33762 /* FaceRecogViewController.swift in Sources */,
 				256A74EB2B282E7C00B8EF50 /* MovieApi.swift in Sources */,
 				25AE3FEA2B2FD83000C57C1A /* LightTabBarController.swift in Sources */,
 				25AE3FEE2B2FD83000C57C1A /* CardTabBar.swift in Sources */,
@@ -1113,6 +1151,7 @@
 				256A75342B295E8000B8EF50 /* HomeViewController.swift in Sources */,
 				256A74BA2B27FB0500B8EF50 /* Date.swift in Sources */,
 				25AE3FE82B2FD83000C57C1A /* SpecialTabBarController.swift in Sources */,
+				259218E32B3C0A0000C11DE7 /* ProfileViewModel.swift in Sources */,
 				256A75412B2ADC5200B8EF50 /* HomeViewModel.swift in Sources */,
 				256A74762B27F57E00B8EF50 /* AppDelegate.swift in Sources */,
 				252848532B342D70000AE74A /* DetectionSpeed.swift in Sources */,
@@ -1133,6 +1172,7 @@
 				256A753D2B2964D300B8EF50 /* HomeTableCell.swift in Sources */,
 				256A74CF2B2806EE00B8EF50 /* WelcomeViewController.swift in Sources */,
 				256A752C2B294E5F00B8EF50 /* FormTextField.swift in Sources */,
+				2546581B2B3D21F9001F7056 /* BookNowViewController.swift in Sources */,
 				256A75022B28378300B8EF50 /* UserModel.swift in Sources */,
 				256A74FA2B2831B600B8EF50 /* MovieDetailModel.swift in Sources */,
 				256A753B2B29637200B8EF50 /* BaseTableCell.swift in Sources */,
@@ -1143,8 +1183,10 @@
 				256A75212B285B1700B8EF50 /* SignInViewController.swift in Sources */,
 				25AE40082B31689000C57C1A /* SlidePageTransition.swift in Sources */,
 				256A74E82B282E2C00B8EF50 /* Api.swift in Sources */,
+				2542C2A12B3BBB4200364779 /* ListMovieViewModel.swift in Sources */,
 				256A74FC2B28320000B8EF50 /* GenreModel.swift in Sources */,
 				256A74B82B27FA2C00B8EF50 /* NSNumber.swift in Sources */,
+				2546581F2B3D2D40001F7056 /* BookNowViewModel.swift in Sources */,
 				257344C72B329AEC001430E9 /* WalletTableCell.swift in Sources */,
 				252848562B342D70000AE74A /* MobileScanner.swift in Sources */,
 				257344C32B32834B001430E9 /* SignInViewModel.swift in Sources */,
@@ -1173,10 +1215,12 @@
 				256A75072B28387A00B8EF50 /* QRCode.swift in Sources */,
 				256A74BE2B27FC2E00B8EF50 /* UIStackView.swift in Sources */,
 				25AE3FFD2B3020D100C57C1A /* AuthViewModel.swift in Sources */,
+				2546581D2B3D29BB001F7056 /* BookNowTableCell.swift in Sources */,
 				256A75002B28374300B8EF50 /* TransactionModel.swift in Sources */,
 				256A74C82B27FEAF00B8EF50 /* BaseViewModel.swift in Sources */,
 				256A755C2B2C08AE00B8EF50 /* WalletViewController.swift in Sources */,
 				256A75552B2BFDA200B8EF50 /* BaseCollectionCell.swift in Sources */,
+				259218E52B3C238200C11DE7 /* DarkMode.swift in Sources */,
 				256A74C32B27FD8200B8EF50 /* BaseViewController.swift in Sources */,
 				256A74B42B27FA1E00B8EF50 /* UIButton.swift in Sources */,
 				256A75312B29553000B8EF50 /* IconButton.swift in Sources */,

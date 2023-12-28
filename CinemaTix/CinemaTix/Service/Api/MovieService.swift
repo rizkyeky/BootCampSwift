@@ -31,8 +31,8 @@ class MovieService: BaseService {
         request(url: url, expecting: ResultGenreTMBDModel.self, completion: completion)
     }
     
-    func getPopular(completion: @escaping (Result<[MovieModel]?, AppError>) -> Void) -> Void {
-        let url = movieApi.popular
+    func getPopular(page: Int? = nil, completion: @escaping (Result<[MovieModel]?, AppError>) -> Void) -> Void {
+        let url = movieApi.popular(page: page ?? 1)
         request(url: url, expecting: ResultMovieTMDBModel<MovieModel>.self) { result in
             switch result {
             case .success(let model):
@@ -44,8 +44,8 @@ class MovieService: BaseService {
         }
     }
     
-    func getPlayingNow(completion: @escaping (Result<[MovieModel]?, AppError>) -> Void) -> Void {
-        let url = movieApi.playingNow
+    func getPlayingNow(page: Int? = nil, completion: @escaping (Result<[MovieModel]?, AppError>) -> Void) -> Void {
+        let url = movieApi.playingNow(page: page ?? 1)
         request(url: url, expecting: ResultMovieTMDBModel<MovieModel>.self) { result in
             switch result {
             case .success(let model):
@@ -57,8 +57,8 @@ class MovieService: BaseService {
         }
     }
     
-    func getUpComing(completion: @escaping (Result<[MovieModel]?, AppError>) -> Void) -> Void {
-        let url = movieApi.upComing
+    func getUpComing(page: Int? = nil, completion: @escaping (Result<[MovieModel]?, AppError>) -> Void) -> Void {
+        let url = movieApi.upComing(page: page ?? 1)
         request(url: url, expecting: ResultMovieTMDBModel<MovieModel>.self) { result in
             switch result {
             case .success(let model):
@@ -70,8 +70,8 @@ class MovieService: BaseService {
         }
     }
     
-    func getTopRated(completion: @escaping (Result<[MovieModel]?, AppError>) -> Void) -> Void {
-        let url = movieApi.topRated
+    func getTopRated(page: Int? = nil, completion: @escaping (Result<[MovieModel]?, AppError>) -> Void) -> Void {
+        let url = movieApi.topRated(page: page ?? 1)
         request(url: url, expecting: ResultMovieTMDBModel<MovieModel>.self) { result in
             switch result {
             case .success(let model):

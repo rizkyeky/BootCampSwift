@@ -64,26 +64,7 @@ class DetailMovieViewController: BaseViewController {
         if let navBar = navigationController?.navigationBar {
             navBar.transform = CGAffineTransform(translationX: 0, y: 0)
         }
-//        mainTable.setContentOffset(CGPoint(x: 0, y: -100), animated: animated)
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        if let tabbar = navigationController?.tabBarController?.tabBar {
-//            UIView.animate(withDuration: 0.24, delay: 0, options: .curveEaseOut) {
-//                tabbar.frame.origin.y = self.view.frame.size.height - tabbar.frame.height
-//            }
-//        }
-//    }
-//    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        if let tabbar = navigationController?.tabBarController?.tabBar {
-//            UIView.animate(withDuration: 0.24, delay: 0, options: .curveEaseOut) {
-//                tabbar.frame.origin.y = self.view.frame.size.height
-//            }
-//        }
-//    }
 }
 
 extension DetailMovieViewController: UITableViewDelegate, UITableViewDataSource {
@@ -101,6 +82,17 @@ extension DetailMovieViewController: UITableViewDelegate, UITableViewDataSource 
             let path = String(posterPath.dropFirst())
             imageView.loadFromUrl(url: TmdbApi.getImageURL(path, type: .w500), usePlaceholder: true)
         }
+        let bookNow = FilledButton(title: "Book Now", backgroundColor: .white, foregroundColor: .black) {
+            self.navigationController?.pushViewController(BookNowViewController(), animated: true)
+        }
+        imageView.addSubview(bookNow)
+        bookNow.snp.makeConstraints { make in
+            make.width.equalTo(300)
+            make.height.equalTo(48)
+            make.centerX.equalTo(imageView)
+            make.bottom.equalTo(imageView.snp.bottom).offset(-32)
+        }
+        
         mainTable.tableHeaderView = imageView
     }
     

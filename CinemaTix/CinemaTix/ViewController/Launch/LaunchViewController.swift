@@ -69,6 +69,12 @@ class LaunchViewController: BaseViewController {
 #endif
         IQKeyboardManager.shared.enable = true
         FirebaseApp.configure()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.24) {
+            let audio = Audio()
+            audio.loadNotification()
+            audio.playAudio()
+        }
     }
     
     private func didCompleteAnim() {

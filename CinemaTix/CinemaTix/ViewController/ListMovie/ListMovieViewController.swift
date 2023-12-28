@@ -15,12 +15,17 @@ class ListMovieViewController: BaseViewController {
         return coll
     }()
     
-    private var movies: [MovieModel]
+    private let loadingIndicator = UIActivityIndicatorView(style: .medium)
+    
     private var titlePage: String
     
-    init(titlePage: String, movies: [MovieModel]) {
+    private let viewModel = ListMovieViewModel()
+    
+    private let type :ListMovieType
+    
+    init(titlePage: String, type :ListMovieType) {
+        self.type = type
         self.titlePage = titlePage
-        self.movies = movies
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -43,6 +48,13 @@ class ListMovieViewController: BaseViewController {
             collFlowLayout.minimumInteritemSpacing = 8
             collFlowLayout.sectionInset = .init(top: 0, left: 16, bottom: 0, right: 16)
         }
+        
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.startAnimating()
+        viewModel.getListMovie(listType: type) {
+            self.loadingIndicator.stopAnimating()
+            self.collection.reloadData()
+        }
     }
     
     override func setupNavBar() {
@@ -50,9 +62,13 @@ class ListMovieViewController: BaseViewController {
     }
     
     override func setupConstraints() {
-        view.addSubview(collection)
+        view.addSubviews(collection, loadingIndicator)
         collection.snp.makeConstraints { make in
             make.top.bottom.left.right.equalTo(self.view)
+        }
+        loadingIndicator.snp.makeConstraints { make in
+            make.height.width.equalTo(60)
+            make.center.equalTo(self.collection)
         }
     }
 }
@@ -60,20 +76,22 @@ class ListMovieViewController: BaseViewController {
 extension ListMovieViewController: UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func setupCell(_ cell: MovieItemCell, _ index: Int) {
+        let movie = viewModel.moviesTemp[index]
+        
         cell.onTap = {
-            self.navigationController?.pushViewController(DetailMovieViewController(movie: self.movies[index]), animated: true)
+            self.navigationController?.pushViewController(DetailMovieViewController(movie: movie), animated: true)
         }
         
-        cell.title.text = movies[index].title ?? "-"
+        cell.title.text = movie.title ?? "-"
         
-        if let posterPath = movies[index].posterPath {
+        if let posterPath = movie.posterPath {
             let path = String(posterPath.dropFirst())
             cell.backgroundImage.loadFromUrl(url: TmdbApi.getImageURL(path))
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return min(20, movies.count)
+        return viewModel.moviesTemp.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -88,6 +106,19 @@ extension ListMovieViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 8
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            viewModel.getListMovie(listType: type) {
+                print("Curr page: " + self.viewModel.currentPage.formatted())
+                self.collection.reloadData()
+            }
+        }
     }
 }
 

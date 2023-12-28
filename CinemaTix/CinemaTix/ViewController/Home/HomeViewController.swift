@@ -36,7 +36,7 @@ class HomeViewController: BaseViewController {
         navigationItem.title = "CinemaTix"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: UIImage(named: "Icon")?.resize(CGSize(width: 36, height: 36))))
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: IconButton(icon: AppIcon.search) {
-            self.navigationController?.pushViewController(SearchViewController(), animated: true)
+            self.navigationController?.pushViewController(/*SearchViewController*/BookNowViewController(), animated: true)
         })
     }
     
@@ -60,7 +60,6 @@ class HomeViewController: BaseViewController {
             navBar.transform = CGAffineTransform(translationX: 0, y: 0)
         }
     }
-
     
     override func setupConstraints() {
         view.addSubview(mainTable)
@@ -146,13 +145,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             label.text = LanguageStrings.upcoming.localized
             label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
             forwardBtn.addAction(UIAction { _ in
-                self.navigationController?.pushViewController(ListMovieViewController(titlePage: label.text ?? "", movies: self.viewModel.upComingMovies ?? []), animated: true)
+                self.navigationController?.pushViewController(ListMovieViewController(titlePage: label.text ?? "", type: .upcoming) , animated: true)
             }, for: .touchUpInside)
         case 2:
             label.text = LanguageStrings.topRated.localized
             label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
             forwardBtn.addAction(UIAction { _ in
-                self.navigationController?.pushViewController(ListMovieViewController(titlePage: label.text ?? "", movies: self.viewModel.topRatedMovies ?? []), animated: true)
+                self.navigationController?.pushViewController(ListMovieViewController(titlePage: label.text ?? "", type: .topRated), animated: true)
             }, for: .touchUpInside)
         default:
             break

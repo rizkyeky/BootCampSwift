@@ -19,7 +19,7 @@ class WalletViewController: BaseViewController {
     }()
     
     private let refreshControl = UIRefreshControl()
-    private var mainCard: WalletCard!
+    private var mainCard: WalletHeader!
     
     private let viewModel = WalletViewModel()
     
@@ -32,7 +32,7 @@ class WalletViewController: BaseViewController {
             self.refreshControl.endRefreshing()
         }, for: .primaryActionTriggered)
     
-        mainCard = WalletCard(viewModel: viewModel, size: CGSize(width: view.bounds.width, height: 300))
+        mainCard = WalletHeader(viewModel: viewModel, size: CGSize(width: view.bounds.width, height: 300))
         mainCard.amount.text = "Rp0"
         
         setupMainTable()
@@ -68,8 +68,6 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource {
         mainTable.register(TopUpTableCell.self)
         
         mainTable.tableHeaderView = mainCard
-        
-        
     }
     
     func updateAmount() {
@@ -123,6 +121,7 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as TopUpTableCell
             cell.button.addAction(UIAction { _ in
+                print("to PayViewController")
                 self.navigationController?.pushViewController(PayViewController(), animated: true)
             }, for: .touchUpInside)
             return cell
@@ -159,7 +158,7 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-class WalletCard: UIView {
+class WalletHeader: UIView {
     
     private let card = {
         let card = UIView()
