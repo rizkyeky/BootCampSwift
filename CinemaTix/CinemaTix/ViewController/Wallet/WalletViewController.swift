@@ -120,10 +120,10 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as TopUpTableCell
-            cell.button.addAction(UIAction { _ in
-                print("to PayViewController")
-                self.navigationController?.pushViewController(PayViewController(), animated: true)
-            }, for: .touchUpInside)
+            cell.onTapButton = {
+                let vc = PayViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as TransactionsTableCell
@@ -132,6 +132,7 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.subtitle.text = trans.label ?? ""
             cell.amount.text = "Rp\(NSNumber(value: trans.amount ?? 0).toDecimalString())"
+            cell.selectionStyle = .none
             
             if let type = trans.type {
                 switch type {

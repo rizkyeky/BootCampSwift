@@ -813,12 +813,13 @@ PODS:
   - PromisesObjC (2.3.1)
   - Protobuf (3.25.1)
   - RecaptchaInterop (100.0.0)
-  - RxCocoa (6.6.0):
-    - RxRelay (= 6.6.0)
-    - RxSwift (= 6.6.0)
-  - RxRelay (6.6.0):
-    - RxSwift (= 6.6.0)
-  - RxSwift (6.6.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SkeletonView (1.30.4)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
@@ -834,8 +835,9 @@ DEPENDENCIES:
   - MLKitCommon (from `MLKitCommon.podspec.json`)
   - MLKitVision (from `MLKitVision.podspec.json`)
   - netfox
-  - RxCocoa
-  - RxSwift
+  - RxCocoa (= 6.5.0)
+  - RxSwift (= 6.5.0)
+  - SkeletonView
   - SnapKit
 
 SPEC REPOS:
@@ -875,6 +877,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SkeletonView
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -918,11 +921,12 @@ SPEC CHECKSUMS:
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   Protobuf: d94761c33f1239c0a43a0817ca1a5f7f7c900241
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
-  RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
-  RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
-  RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: b68c1600f87ae89634dc87c9e4612fafe6deb651
+PODFILE CHECKSUM: f02f55b40846bd11ccccea4004a096aa3e6b9f70
 
 COCOAPODS: 1.14.2

@@ -83,9 +83,12 @@ extension DetailMovieViewController: UITableViewDelegate, UITableViewDataSource 
             imageView.loadFromUrl(url: TmdbApi.getImageURL(path, type: .w500), usePlaceholder: true)
         }
         let bookNow = FilledButton(title: "Book Now", backgroundColor: .white, foregroundColor: .black) {
-            self.navigationController?.pushViewController(BookNowViewController(), animated: true)
+            let vc = BookNowViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
+        
         imageView.addSubview(bookNow)
+        imageView.isUserInteractionEnabled  = true
         bookNow.snp.makeConstraints { make in
             make.width.equalTo(300)
             make.height.equalTo(48)
@@ -117,6 +120,7 @@ extension DetailMovieViewController: UITableViewDelegate, UITableViewDataSource 
         case 0:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as DetailMovieOverviewTableCell
             cell.overview.text = movie.overview ?? "-"
+            cell.selectionStyle = .none
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as DetailMovieCastTableCell
@@ -125,6 +129,7 @@ extension DetailMovieViewController: UITableViewDelegate, UITableViewDataSource 
                     cell.updateCasts(casts)
                 }
             }
+            cell.selectionStyle = .none
             return cell
         default:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as DetailMovieClipsTableCell
@@ -133,6 +138,7 @@ extension DetailMovieViewController: UITableViewDelegate, UITableViewDataSource 
                     cell.updateImages(images)
                 }
             }
+            cell.selectionStyle = .none
             return cell
         }
     }

@@ -53,7 +53,9 @@ class TopUpTableCell: BaseTableCell {
     
     private let base = UIView()
     
-    public let button = FilledButton(title: "Top Up", icon: AppIcon.up, iconSize: CGSize(width: 24, height: 24), backgroundColor: .systemGray6, foregroundColor: .accent)
+    private let button = FilledButton(title: "Top Up", icon: AppIcon.up, iconSize: CGSize(width: 24, height: 24), backgroundColor: .systemGray6, foregroundColor: .accent)
+    
+    var onTapButton: (() -> Void)?
     
     override func setup() {
         
@@ -72,6 +74,10 @@ class TopUpTableCell: BaseTableCell {
             make.top.bottom.equalTo(self.base).inset(8)
             make.left.right.equalTo(self.base).inset(16)
         }
+        
+        button.addAction(UIAction { _ in
+            self.onTapButton?()
+        }, for: .touchUpInside)
     }
 }
 

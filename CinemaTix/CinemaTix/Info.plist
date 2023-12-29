@@ -35,5 +35,8 @@
         <string>id</string>
     </array>
     
+    <key>NSCameraUsageDescription</key>
+    <string>We need access to your camera to take QR Code and Face Recognition</string>
+    
 </dict>
 </plist>

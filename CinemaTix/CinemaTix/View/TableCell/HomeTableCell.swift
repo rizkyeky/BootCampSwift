@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-
+import SkeletonView
 
 class HomeTableCell: BaseTableCell {
     
@@ -65,6 +65,8 @@ class RecomendedTableCell: BaseTableCell {
     
     public var onTapCell: ((Int) -> Void)?
     
+    public var isLoading: Bool = false
+    
     override func setup() {
         
         collection.delegate = self
@@ -99,6 +101,13 @@ extension RecomendedTableCell: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as RecommendedItemCell
+        
+        if isLoading {
+            cell.showAnimatedSkeleton()
+        } else {
+            cell.hideSkeleton()
+        }
+        
         setupCell(cell, indexPath.row)
         return cell
     }
@@ -197,6 +206,8 @@ class UpComingTableCell: BaseTableCell {
     
     private var movies: [MovieModel]?
     
+    public var isLoading = false
+    
     public var onTapCell: ((Int) -> Void)?
     
     override func setup() {
@@ -233,6 +244,13 @@ extension UpComingTableCell: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as UpComingItemCell
+        
+        if isLoading {
+            cell.showAnimatedSkeleton()
+        } else {
+            cell.hideSkeleton()
+        }
+        
         setupCell(cell, indexPath.row)
         return cell
     }

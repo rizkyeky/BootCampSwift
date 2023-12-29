@@ -28,6 +28,8 @@ class HomeCarousel: UIView {
     
     private let viewModel: HomeViewModel
     
+    public let isLoading = false
+    
     public var onTapCell: ((Int) -> Void)?
     
     init(viewModel: HomeViewModel, size: CGSize) {
@@ -87,6 +89,12 @@ extension HomeCarousel: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as HomeCarouselCell
+        
+        if isLoading {
+            cell.showAnimatedSkeleton()
+        } else {
+            cell.hideSkeleton()
+        }
         
         if let movie = viewModel.playingNowMovies?[indexPath.row] {
             cell.onTap = {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class HomeViewController: BaseViewController {
     
@@ -36,7 +37,7 @@ class HomeViewController: BaseViewController {
         navigationItem.title = "CinemaTix"
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIImageView(image: UIImage(named: "Icon")?.resize(CGSize(width: 36, height: 36))))
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: IconButton(icon: AppIcon.search) {
-            self.navigationController?.pushViewController(/*SearchViewController*/BookNowViewController(), animated: true)
+            self.navigationController?.pushViewController(SearchViewController(), animated: true)
         })
     }
     
@@ -81,7 +82,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         mainTable.register(RecomendedTableCell.self)
         mainTable.register(UpComingTableCell.self)
         
-        let homeCarousel =  HomeCarousel(viewModel: viewModel, size: CGSize(width: view.bounds.width, height: 500))
+        let homeCarousel =  HomeCarousel(viewModel: viewModel, size: CGSize(width: view.bounds.width, height: view.bounds.height*0.6))
         
         homeCarousel.onTapCell = { index in
             if let movie = self.viewModel.playingNowMovies?[index] {
@@ -166,7 +167,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as RecomendedTableCell
             cell.size = CGSize(width: view.bounds.width, height: 360)
+            cell.isLoading = true
             viewModel.getPopularMovies {
+                cell.isLoading = false
                 if let movies = self.viewModel.popularMovies {
                     cell.updateMovies(movies)
                     cell.onTapCell = { index in
@@ -178,7 +181,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as UpComingTableCell
+            cell.isLoading = true
             viewModel.getUpComingMovies {
+                cell.isLoading = false
                 if let movies = self.viewModel.upComingMovies {
                     cell.updateMovies(movies)
                     cell.onTapCell = { index in
@@ -189,7 +194,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         default:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as UpComingTableCell
+            cell.isLoading = true
             viewModel.getTopRatedMovies {
+                cell.isLoading = false
                 if let movies = self.viewModel.topRatedMovies {
                     cell.updateMovies(movies)
                     cell.onTapCell = { index in

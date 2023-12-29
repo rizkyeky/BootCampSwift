@@ -11,11 +11,12 @@ target 'CinemaTix' do
   pod 'FirebaseFirestore'
   pod 'lottie-ios'
   pod 'SnapKit'
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  pod 'RxSwift', '6.5.0'
+  pod 'RxCocoa', '6.5.0'
   pod 'IQKeyboardManagerSwift'
   pod 'CryptoSwift'
   pod 'netfox', :configurations => ['Debug']
+  pod 'SkeletonView'
 
   pod 'MLKitVision', :podspec => 'MLKitVision.podspec.json'
   pod 'MLKitCommon', :podspec => 'MLKitCommon.podspec.json'
@@ -25,13 +26,13 @@ target 'CinemaTix' do
   
   # Pods for CinemaTix
 
-  target 'CinemaTixTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'CinemaTixUITests' do
-    # Pods for testing
-  end
+#  target 'CinemaTixTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
+#
+#  target 'CinemaTixUITests' do
+#    # Pods for testing
+#  end
 
 end

@@ -14,15 +14,15 @@ extension UIImageView {
 //        self.kf.indicatorType = .custom(indicator: ImageActivityIndicator())
 //        self.kf.indicatorType = .activity
         let placeholder = usePlaceholder ? isPotrait() ? UIImage(named: "imagenotfound2") : UIImage(named: "imagenotfound1") : nil
-        var options: KingfisherOptionsInfo = [
-            .transition(.fade(0.48))
-        ]
-        if isCompressed {
-            options.append(.processor(compressImage()))
-        }
+//        var options: KingfisherOptionsInfo = [
+//            .transition(.fade(0.48))
+//        ]
+//        if isCompressed {
+//            options.append(.processor(compressImage()))
+//        }
         self.kf.setImage(with: url,
-            placeholder: placeholder,
-            options: options
+            placeholder: placeholder
+//            options: options
         )
     }
     

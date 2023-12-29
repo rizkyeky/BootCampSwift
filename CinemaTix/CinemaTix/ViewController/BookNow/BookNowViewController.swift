@@ -64,7 +64,12 @@ extension BookNowViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        switch indexPath.section {
+        case 0:
+            return 160
+        default:
+            return 200
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -96,6 +101,7 @@ extension BookNowViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as BookNowDateTableCell
             cell.viewModel = viewModel
+            cell.viewModel?.init7Days()
             return cell
         default:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as BookNowCinemaTableCell
@@ -168,13 +174,6 @@ extension MapHeader: CLLocationManagerDelegate {
                 }
                 
                 if let placemark = placemarks?.first {
-                    if let postalCode = placemark.postalCode, let administrativeArea = placemark.administrativeArea, let name = placemark.name, let locality = placemark.locality, let subAdministrativeArea = placemark.subAdministrativeArea, let country = placemark.country  {
-                        let text = name+", "+postalCode+", "+locality+", "+subAdministrativeArea+", "+administrativeArea+", "+country
-//                        DispatchQueue.main.async {
-//                            self.locationLabel.hideSkeleton()
-//                            self.locationLabel.text = text
-//                        }
-                    }
                 }
             }
             updateLocation()

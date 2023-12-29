@@ -1,36 +1,27 @@
 //
-//  BayarViewController.swift
+//  CameraFaceViewController.swift
 //  CinemaTix
 //
-//  Created by Eky on 21/12/23.
+//  Created by Eky on 04/12/23.
 //
 
 import UIKit
-import AVKit
-import MLKitVision
-import MLKitBarcodeScanning
+import AVFoundation
+import CoreVideo
+import CoreGraphics
+import MLImage
+import MLKit
 
 class PayViewController: BaseViewController {
     
-    let videoDataOutputQueueLabel = "com.google.mlkit.visiondetector.VideoDataOutputQueue"
-    let sessionQueueLabel = "com.google.mlkit.visiondetector.SessionQueue"
-    
+    private var isUsingFrontCamera = false
     private var previewLayer: AVCaptureVideoPreviewLayer!
     private lazy var captureSession = AVCaptureSession()
-    private lazy var sessionQueue = DispatchQueue(label: sessionQueueLabel)
+    private lazy var sessionQueue = DispatchQueue(label: Constant.sessionQueueLabel)
     private var lastFrame: CMSampleBuffer?
-    private let scanner = BarcodeScanner.barcodeScanner(options: BarcodeScannerOptions(formats: .all))
-    private var detectionSpeed: DetectionSpeed = DetectionSpeed.noDuplicates
-    private var latestBuffer: CVImageBuffer!
-    private var standardZoomFactor: CGFloat = 1
-    private var nextScanTime = 0.0
-    private var imagesCurrentlyBeingProcessed = false
-    private var timeoutSeconds: Double = 0
-    private var barcodesString: Array<String?>?
-    
-//    var result: ((Array<Barcode>?, Error?, UIImage) -> ())?
     
     private lazy var previewOverlayView: UIImageView = {
+        
         precondition(isViewLoaded)
         let previewOverlayView = UIImageView(frame: .zero)
         previewOverlayView.contentMode = UIView.ContentMode.scaleAspectFill
@@ -46,15 +37,16 @@ class PayViewController: BaseViewController {
     }()
     
     let cameraView: UIView = UIView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         if let _ = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first {
             
             view.addSubview(cameraView)
             cameraView.snp.makeConstraints { make in
-                make.top.left.right.bottom.equalToSuperview()
+                make.top.left.right.bottom.equalTo(self.view)
             }
             
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -63,6 +55,7 @@ class PayViewController: BaseViewController {
             setUpAnnotationOverlayView()
             setUpCaptureSessionOutput()
             setUpCaptureSessionInput()
+            
             startSession()
             
         } else {
@@ -86,18 +79,12 @@ class PayViewController: BaseViewController {
             }
         }
     }
-    
-    override func setupNavBar() {
-        navigationItem.title = "Scan QR Code"
-    }
-    
 #if !targetEnvironment(simulator)
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         previewLayer.frame = cameraView.frame
     }
 #endif
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         stopSession()
@@ -128,8 +115,7 @@ class PayViewController: BaseViewController {
     private func setUpPreviewOverlayView() {
         cameraView.addSubview(previewOverlayView)
         previewOverlayView.snp.makeConstraints { make in
-            make.centerX.centerY.equalTo(cameraView)
-            make.left.right.equalTo(cameraView)
+            make.top.left.right.bottom.equalTo(cameraView)
         }
     }
     
@@ -147,7 +133,7 @@ class PayViewController: BaseViewController {
                 print("Self is nil!")
                 return
             }
-            let cameraPosition: AVCaptureDevice.Position = .back
+            let cameraPosition: AVCaptureDevice.Position = strongSelf.isUsingFrontCamera ? .front : .back
             guard let device = strongSelf.captureDevice(forPosition: cameraPosition) else {
                 print("Failed to get capture device for camera position: \(cameraPosition)")
                 return
@@ -180,14 +166,14 @@ class PayViewController: BaseViewController {
                 return
             }
             strongSelf.captureSession.beginConfiguration()
-            strongSelf.captureSession.sessionPreset = AVCaptureSession.Preset.low
+            strongSelf.captureSession.sessionPreset = AVCaptureSession.Preset.medium
             
             let output = AVCaptureVideoDataOutput()
             output.videoSettings = [
                 (kCVPixelBufferPixelFormatTypeKey as String): kCVPixelFormatType_32BGRA
             ]
             output.alwaysDiscardsLateVideoFrames = true
-            let outputQueue = DispatchQueue(label: self.videoDataOutputQueueLabel)
+            let outputQueue = DispatchQueue(label: Constant.videoDataOutputQueueLabel)
             output.setSampleBufferDelegate(strongSelf, queue: outputQueue)
             
             guard strongSelf.captureSession.canAddOutput(output) else {
@@ -210,6 +196,24 @@ class PayViewController: BaseViewController {
         }
         return nil
     }
+    
+    private func rotate(_ view: UIView, orientation: UIImage.Orientation) {
+        var degree: CGFloat = 0.0
+        switch orientation {
+        case .up, .upMirrored:
+            degree = 90.0
+        case .rightMirrored, .left:
+            degree = 180.0
+        case .down, .downMirrored:
+            degree = 270.0
+        case .leftMirrored, .right:
+            degree = 0.0
+        default:
+            degree = 0.0
+        }
+        
+        view.transform = CGAffineTransform.init(rotationAngle: degree * 3.141592654 / 180)
+    }
 }
 
 extension PayViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -221,61 +225,127 @@ extension PayViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             return
         }
         
-        latestBuffer = imageBuffer
+        lastFrame = sampleBuffer
+        let visionImage = VisionImage(buffer: sampleBuffer)
+        let orientation = UIUtilities.imageOrientation(
+            fromDevicePosition: isUsingFrontCamera ? .front : .back
+        )
+        visionImage.orientation = orientation
         
-        let currentTime = Date().timeIntervalSince1970
-        let eligibleForScan = currentTime > nextScanTime && !imagesCurrentlyBeingProcessed
+        guard let inputImage = MLImage(sampleBuffer: sampleBuffer) else {
+            print("Failed to create MLImage from sample buffer.")
+            return
+        }
+        inputImage.orientation = orientation
         
-        if ((detectionSpeed == DetectionSpeed.normal || detectionSpeed == DetectionSpeed.noDuplicates) && eligibleForScan || detectionSpeed == DetectionSpeed.unrestricted) {
-            
-            nextScanTime = currentTime + timeoutSeconds
-            imagesCurrentlyBeingProcessed = true
-            
-            let ciImage = latestBuffer.image
-            
-            let image = VisionImage(image: ciImage)
-            image.orientation = imageOrientation(
-                deviceOrientation: UIDevice.current.orientation,
-                defaultOrientation: .portrait,
-                position: AVCaptureDevice.Position.back
-            )
-            
-            scanner.process(image) { [self] barcodes, error in 
-                
-                imagesCurrentlyBeingProcessed = false
-                
-                if (detectionSpeed == DetectionSpeed.noDuplicates) {
-                    let newScannedBarcodes = barcodes?.compactMap({ barcode in
-                        return barcode.rawValue
-                    }).sorted()
-                    if (error == nil && barcodesString != nil && newScannedBarcodes != nil && barcodesString!.elementsEqual(newScannedBarcodes!)) {
-                        return
-                    } else if (newScannedBarcodes?.isEmpty == false) {
-                        barcodesString = newScannedBarcodes
-                    }
-                }
-            }
-            barcodesString?.forEach { str in
-                print(str)
-            }
+        let imageWidth = CGFloat(CVPixelBufferGetWidth(imageBuffer))
+        let imageHeight = CGFloat(CVPixelBufferGetHeight(imageBuffer))
+        
+        scanBarcodesOnDevice(in: visionImage, width: imageWidth, height: imageHeight)
+    }
+    
+    private func removeDetectionAnnotations() {
+        for annotationView in annotationOverlayView.subviews {
+            annotationView.removeFromSuperview()
         }
     }
     
-    func imageOrientation(deviceOrientation: UIDeviceOrientation, defaultOrientation: UIDeviceOrientation, position: AVCaptureDevice.Position
-    ) -> UIImage.Orientation {
-        switch deviceOrientation {
-        case .portrait:
-            return position == .front ? .leftMirrored : .right
-        case .landscapeLeft:
-            return position == .front ? .downMirrored : .up
-        case .portraitUpsideDown:
-            return position == .front ? .rightMirrored : .left
-        case .landscapeRight:
-            return position == .front ? .upMirrored : .down
-        case .faceDown, .faceUp, .unknown:
-            return .up
-        @unknown default:
-            return imageOrientation(deviceOrientation: defaultOrientation, defaultOrientation: .portrait, position: .back)
+    private func updatePreviewOverlayViewWithImageBuffer(_ imageBuffer: CVImageBuffer?) {
+        guard let imageBuffer = imageBuffer else {
+            return
+        }
+        let orientation: UIImage.Orientation = isUsingFrontCamera ? .leftMirrored : .right
+        let image = UIUtilities.createUIImage(from: imageBuffer, orientation: orientation)
+        previewOverlayView.image = image
+    }
+    
+    private func updatePreviewOverlayViewWithLastFrame() {
+        guard let lastFrame = lastFrame,
+              let imageBuffer = CMSampleBufferGetImageBuffer(lastFrame)
+        else {
+            return
+        }
+        self.updatePreviewOverlayViewWithImageBuffer(imageBuffer)
+        self.removeDetectionAnnotations()
+    }
+    
+    private func scanBarcodesOnDevice(in image: VisionImage, width: CGFloat, height: CGFloat) {
+        // Define the options for a barcode detector.
+        let format = BarcodeFormat.all
+        let barcodeOptions = BarcodeScannerOptions(formats: format)
+        
+        // Create a barcode scanner.
+        let barcodeScanner = BarcodeScanner.barcodeScanner(options: barcodeOptions)
+        var barcodes: [Barcode] = []
+        var scanningError: Error?
+        do {
+            barcodes = try barcodeScanner.results(in: image)
+        } catch let error {
+            scanningError = error
+        }
+        weak var weakSelf = self
+        DispatchQueue.main.sync {
+            guard let strongSelf = weakSelf else {
+                print("Self is nil!")
+                return
+            }
+            strongSelf.updatePreviewOverlayViewWithLastFrame()
+            
+            if let scanningError = scanningError {
+                print("Failed to scan barcodes with error: \(scanningError.localizedDescription).")
+                return
+            }
+            guard !barcodes.isEmpty else {
+                print("Barcode scanner returrned no results.")
+                return
+            }
+            for barcode in barcodes {
+                let normalizedRect = CGRect(
+                    x: barcode.frame.origin.x / width,
+                    y: barcode.frame.origin.y / height,
+                    width: barcode.frame.size.width / width,
+                    height: barcode.frame.size.height / height
+                )
+                let convertedRect = strongSelf.previewLayer.layerRectConverted(
+                    fromMetadataOutputRect: normalizedRect
+                )
+                UIUtilities.addRectangle(
+                    convertedRect,
+                    to: strongSelf.annotationOverlayView,
+                    color: UIColor.green
+                )
+                let label = UILabel(frame: convertedRect)
+                label.text = barcode.displayValue
+                label.adjustsFontSizeToFitWidth = true
+                strongSelf.rotate(label, orientation: image.orientation)
+                strongSelf.annotationOverlayView.addSubview(label)
+            }
         }
     }
+
+}
+
+// MARK: - Constants
+
+private enum Constant {
+    static let jpegCompressionQuality: CGFloat = 0.8
+    static let alertControllerTitle = "Vision Detectors"
+    static let alertControllerMessage = "Select a detector"
+    static let cancelActionTitleText = "Cancel"
+    static let videoDataOutputQueueLabel = "com.google.mlkit.visiondetector.VideoDataOutputQueue"
+    static let sessionQueueLabel = "com.google.mlkit.visiondetector.SessionQueue"
+    static let noResultsMessage = "No Results"
+    static let localModelFile = (name: "bird", type: "tflite")
+    static let labelConfidenceThreshold = 0.75
+    static let smallDotRadius: CGFloat = 4.0
+    static let lineWidth: CGFloat = 3.0
+    static let originalScale: CGFloat = 1.0
+    static let padding: CGFloat = 10.0
+    static let resultsLabelHeight: CGFloat = 200.0
+    static let resultsLabelLines = 5
+    static let imageLabelResultFrameX = 0.4
+    static let imageLabelResultFrameY = 0.1
+    static let imageLabelResultFrameWidth = 0.5
+    static let imageLabelResultFrameHeight = 0.8
+    static let segmentationMaskAlpha: CGFloat = 0.5
 }

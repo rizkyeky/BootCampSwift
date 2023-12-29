@@ -46,7 +46,7 @@ class FaceRecogViewController: BaseViewController {
             
             view.addSubview(cameraView)
             cameraView.snp.makeConstraints { make in
-                make.top.left.right.bottom.equalToSuperview()
+                make.top.left.right.bottom.equalTo(self.view)
             }
             
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -58,7 +58,7 @@ class FaceRecogViewController: BaseViewController {
             
             startSession()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
                 self.navigationController?.popViewController(animated: true)
             }
             
@@ -91,7 +91,6 @@ class FaceRecogViewController: BaseViewController {
 #endif
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
         stopSession()
     }
     
@@ -120,8 +119,7 @@ class FaceRecogViewController: BaseViewController {
     private func setUpPreviewOverlayView() {
         cameraView.addSubview(previewOverlayView)
         previewOverlayView.snp.makeConstraints { make in
-            make.centerX.centerY.equalTo(cameraView)
-            make.left.right.equalTo(cameraView)
+            make.top.left.right.bottom.equalTo(cameraView)
         }
     }
     
